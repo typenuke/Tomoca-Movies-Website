@@ -1,0 +1,86 @@
+﻿@using WebXemPhim.Models
+@{
+    ViewBag.Title = "CTTapPhimBo";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+<div class="row">
+    <div class="col-10"><h1 class="h3 mb-2 text-gray-800">Danh sách các tập phim</h1></div>                                             
+    <div class="col-2">
+        <div style="float:right">
+        <button type="button" class="btn btn-success">@Html.ActionLink("Thêm", "ThemTapPhim", new { id = ViewData["Id"] })
+
+        </button>
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th style="width: 30%">Tên Phim</th>
+                        <th style="width: 30%">Tập phim</th>
+                        <th style="width: 30%">Link</th>
+                        <th>Chức năng</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Tên Phim</th>
+                        <th>Tập phim</th>
+                        <th>Link</th>
+                        <th>Chức năng</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {                     
+                        <tr>
+                            <td>@item.DSPhimBo.TenPhim</td>
+                            <td>@item.TapPhim</td>
+                            <td>
+                                <p style="overflow: hidden; -webkit-line-clamp: 1; display: -webkit-box; -webkit-box-orient: vertical;">
+                                    @item.Link<p />
+                            </td>
+                            <td>
+                                
+                                <a href="@Url.Action("SuaTap", new { id = item.ID, tapphim = item.TapPhim})" class="btn btn-primary btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-edit"></i>
+                                    </span>
+                                </a>
+                                <a onclick="return ConfirmXoa()" href="@Url.Action("XoaTapPhim", new { id = item.IDPhim })" class="btn btn-danger btn-icon-split">
+                                     <span class="icon text-white-50">
+                                        <i class="fas fa-trash"></i>
+                                    </span>
+                                </a></td>
+                        </tr>     
+                                
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<a href="@Url.Action("ThemTapPhim", new { id = ViewData["Id"]})" class="btn btn-primary btn-icon-split">  
+    Thêm 
+</a>
+<script>
+    function ConfirmXoa() {
+        if (confirm("Bạn có chắc muốn xóa tài khoản này không ?"))
+            return true;
+        else
+            return false;
+    }
+    FocusEvent = false;
+    checked = false;
+</script>
+

@@ -1,0 +1,433 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using TomocaMoviesWebsite.Models;
+
+namespace TomocaMoviesWebsite.Controllers
+{
+    public class AdminController : BaseController
+    {
+        // GET: Amin
+        TomocaMoviesDataContext data = new TomocaMoviesDataContext();
+        public ActionResult Home()
+        {
+            int demnd = data.Users.ToList().Count;
+            int phimsapchieu = data.Movies.Where(x => x.UpComming == true).ToList().Count;
+            int phimdangchieu = data.Movies.Where(x => x.UpComming == null || x.UpComming == false).ToList().Count;
+            ViewData["NguoiDung"] = demnd;
+            ViewData["phimsapchieu"] = phimsapchieu;
+            ViewData["phimdangchieu"] = phimdangchieu;
+            var DSPhimSapChieu = data.Movies.Where(x => x.UpComming == true).Take(10).ToList();
+            ViewData["DSPhimSapChieu"] = DSPhimSapChieu;
+            var DSPhimDangChieu = data.Movies.OrderByDescending(x => x.MovieID).Take(10).ToList();
+            ViewData["DSPhimDangChieu"] = DSPhimDangChieu;
+            var DSDatVe = data.Users.OrderByDescending(a => a.UserID).Take(10).ToList();
+            ViewData["DSDatVe"] = DSDatVe;
+            return View();
+        }
+        //Actor thêm, xóa, sửa
+        public ActionResult DienVien()
+        {
+            var ac = data.Actors.ToList();
+            return View(ac);
+        }
+        [HttpGet]
+        public ActionResult ThemDienVien()
+        {
+            return View();
+        }
+        //Thêm thể loai
+        [HttpPost]
+        public ActionResult ThemDienVien(Actor ac, FormCollection coll)
+        {
+
+            var ten = coll["Name"];
+            var noisinh = coll["Nationality"];
+            var ngaysinh = coll["Birth"];
+            if (String.IsNullOrEmpty(ten))
+                ViewData["Loi1"] = "Tên thể diễn viên được để chống";
+            if (String.IsNullOrEmpty(noisinh))
+                ViewData["Loi1"] = "Tên thể diễn viên được để chống";
+            if (String.IsNullOrEmpty(ngaysinh))
+                ViewData["Loi1"] = "Tên thể diễn viên được để chống";
+            else
+            {
+                ac.Name = ten;
+                ac.Nationality = noisinh;
+                ac.Birth = DateTime.Parse(ngaysinh);
+                data.Actors.InsertOnSubmit(ac);
+                data.SubmitChanges();
+                return RedirectToAction("DienVien");
+            }
+            return View();
+        }
+        //Xóa thể loai
+        public ActionResult XoaDienVien(int id)
+        {
+            Actor dg = data.Actors.SingleOrDefault(n => n.ActorID == id);
+            if (dg == null)
+            {
+                Response.SubStatusCode = 404;
+                return null;
+            }
+            data.Actors.DeleteOnSubmit(dg);
+            data.SubmitChanges();
+            return RedirectToAction("DienVien");
+        }
+        //Sửa thể loại
+        public ActionResult SuaDienVien(int id)
+        {
+            var tl = data.Actors.First(n => n.ActorID == id);
+            if (tl == null)
+            {
+                Response.SubStatusCode = 404;
+                return null;
+            }
+            return View(tl);
+        }
+        [HttpPost]
+        public ActionResult SuaDienVien(int id, FormCollection collection)
+        {
+            var ac = data.Actors.First(n => n.ActorID == id);
+            var ten = collection["Name"];
+            var noisinh = collection["Nationality"];
+            var ngaysinh = collection["Birth"];
+            var theloai = data.Directors.ToList();
+            ac.Name = ten;
+            ac.Nationality = noisinh;
+            ac.Birth = DateTime.Parse(ngaysinh);
+            UpdateModel(ac);
+            data.SubmitChanges();
+            return RedirectToAction("DienVien");
+        }
+        //Thêm Sửa Xóa Đạo diễn
+        public ActionResult DaoDien()
+        {
+            var ac = data.Directors.ToList();
+            return View(ac);
+        }
+        [HttpGet]
+        public ActionResult ThemDaoDien()
+        {
+            return View();
+        }
+        //Thêm thể loai
+        [HttpPost]
+        public ActionResult ThemDaoDien(Director ac, FormCollection coll)
+        {
+            var ten = coll["Name"];
+            var noisinh = coll["Nationality"];
+            var ngaysinh = coll["Birth"];
+            if (String.IsNullOrEmpty(ten))
+                ViewData["Loi1"] = "Tên thể diễn viên được để chống";
+            if (String.IsNullOrEmpty(noisinh))
+                ViewData["Loi1"] = "Tên thể diễn viên được để chống";
+            if (String.IsNullOrEmpty(ngaysinh))
+                ViewData["Loi1"] = "Tên thể diễn viên được để chống";
+            else
+            {
+                ac.Name = ten;
+                ac.Nationality = noisinh;
+                ac.Birth = DateTime.Parse(ngaysinh);
+                data.Directors.InsertOnSubmit(ac);
+                data.SubmitChanges();
+                return RedirectToAction("DaoDien");
+            }
+            return View();
+        }
+        //Xóa thể loai
+        public ActionResult XoaDaoDien(int id)
+        {
+            Director tl = data.Directors.SingleOrDefault(n => n.DirectorID == id);
+            if (tl == null)
+            {
+                Response.SubStatusCode = 404;
+                return null;
+            }
+            data.Directors.DeleteOnSubmit(tl);
+            data.SubmitChanges();
+            return RedirectToAction("DaoDien");
+        }
+        //Sửa thể loại
+        public ActionResult SuaDaoDien(int id)
+        {
+            var tl = data.Directors.First(n => n.DirectorID == id);
+            if (tl == null)
+            {
+                Response.SubStatusCode = 404;
+                return null;
+            }
+            return View(tl);
+        }
+        [HttpPost]
+        public ActionResult SuaDaoDien(int id, FormCollection collection)
+        {
+            var ac = data.Directors.First(n => n.DirectorID == id);
+            var ten = collection["Name"];
+            var noisinh = collection["Nationality"];
+            var ngaysinh = collection["Birth"];
+            var theloai = data.Directors.ToList();
+            ac.Name = ten;
+            ac.Nationality = noisinh;
+            ac.Birth = DateTime.Parse(ngaysinh);
+            UpdateModel(ac);
+            data.SubmitChanges();
+            return RedirectToAction("DaoDien");
+        }
+        //Thể loại Thêm Xóa Sửa
+        public ActionResult TheLoai()
+        {
+            var tl = data.Genres.ToList();
+            return View(tl);
+        }
+        [HttpGet]
+        public ActionResult ThemTheLoai()
+        {
+            return View();
+        }
+        //Thêm thể loai
+        [HttpPost]
+        public ActionResult ThemTheLoai(Genre tl, FormCollection coll)
+        {
+
+            var ten = coll["GenreName"];
+            var theloai = data.Genres.ToList();
+
+            if (String.IsNullOrEmpty(ten))
+                ViewData["Loi1"] = "Tên thể loại không được để chống";
+
+            else
+            {
+                foreach (var item in theloai)
+                {
+                    if (String.Compare(item.GenreName, ten, true) == 0)
+                    {
+                        ViewData["Loi2"] = "Đã có thể loại này";
+                        return View();
+                    }
+                }
+                tl.GenreName = ten;
+                data.Genres.InsertOnSubmit(tl);
+                data.SubmitChanges();
+                return RedirectToAction("TheLoai");
+            }
+            return View();
+        }
+        //Xóa thể loai
+        public ActionResult XoaTheLoai(int id)
+        {
+            Genre tl = data.Genres.SingleOrDefault(n => n.GenreID == id);
+            if (tl == null)
+            {
+                Response.SubStatusCode = 404;
+                return null;
+            }
+            data.Genres.DeleteOnSubmit(tl);
+            data.SubmitChanges();
+            return RedirectToAction("TheLoai");
+        }
+        //Sửa thể loại
+        public ActionResult SuaTheLoai(int id)
+        {
+            var tl = data.Genres.First(n => n.GenreID == id);
+            if (tl == null)
+            {
+                Response.SubStatusCode = 404;
+                return null;
+            }
+            return View(tl);
+        }
+
+        [HttpPost]
+        public ActionResult SuaTheLoai(int id, FormCollection collection)
+        {
+            var tl = data.Genres.First(n => n.GenreID == id);
+            var ten = collection["GenreName"];
+            var theloai = data.Genres.ToList();
+            foreach (var item in theloai)
+            {
+                if (String.Compare(item.GenreName, ten, true) == 0 && item.GenreID != id)
+                {
+                    ViewData["Loi2"] = "Tên thể loại đã tồn tại";
+                    return this.SuaTheLoai(id);
+                }
+            }
+            if (String.IsNullOrEmpty(ten))
+            {
+                ViewData["Loi1"] = "Tên thể loại không được để trống";
+            }
+            else
+            {
+                tl.GenreName = ten;
+                UpdateModel(tl);
+                data.SubmitChanges();
+                return RedirectToAction("TheLoai");
+            }
+            return this.SuaTheLoai(id);
+        }
+
+        //News
+        public ActionResult TinTuc()
+        {
+            var tt = data.News.ToList();
+            return View(tt);
+        }
+        public ActionResult SuaTinTuc(int id)
+        {
+            New tin = data.News.SingleOrDefault(n => n.NewsID == id);
+            if (tin == null)
+            {
+                Response.SubStatusCode = 404;
+                return null;
+            }
+            return View(tin);
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult SuaTinTuc(int id, FormCollection collection, HttpPostedFileBase fileUpload)
+        {
+            var tin = data.News.First(n => n.NewsID == id);
+            var kt = data.News.ToList();
+            if (fileUpload != null)
+            {
+                var fileName = Path.GetFileName(fileUpload.FileName);
+                var path = Path.Combine(Server.MapPath("~/public/image"), fileName);
+                foreach (var item in kt)
+                {
+                    if (String.Compare(item.Photo, fileName, true) == 0 && item.NewsID != id)
+                    {
+                        ViewBag.ThongBao = "Hình như cũ";
+                        return this.SuaTinTuc(id);
+                    }
+                }
+                fileUpload.SaveAs(path);
+                tin.Photo = "~/public/image" + fileName;
+
+            }
+            UpdateModel(tin);
+            data.SubmitChanges();
+            return RedirectToAction("TinTuc");
+        }
+        public ActionResult XoaTinTuc(int id)
+        {
+            New tt = data.News.SingleOrDefault(n => n.NewsID == id);
+            Content ct = data.Contents.SingleOrDefault(n => n.NewsID == id);
+            if (tt == null)
+            {
+                Response.SubStatusCode = 404;
+                return null;
+            }
+            if (ct == null)
+            {
+                Response.SubStatusCode = 404;
+                return null;
+            }
+            data.Contents.DeleteOnSubmit(ct);
+            data.News.DeleteOnSubmit(tt);
+            data.SubmitChanges();
+            return RedirectToAction("TinTuc");
+        }
+
+        public ActionResult ThemTinTuc()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThemTinTuc(New tt, Content ct,FormCollection coll, List<HttpPostedFileBase> uploadFile)
+        {
+            User us = data.Users.First(ab => ab.Username == Session["Username"].ToString());
+            DateTime a = DateTime.Now;
+            var ten = coll["tieude"];
+            var hinh = coll["hinh"];
+            var nd1 = coll["nd1"];
+            var nd2 = coll["nd2"];
+            var nd3 = coll["nd3"];
+            var nd4 = coll["nd4"];
+            var nd5 = coll["nd5"];
+            var tintuc = data.News.ToList();
+            if (string.IsNullOrEmpty(ten))
+            {
+                ViewData["Loi1"] = "Tóm tắt không được để trống";
+                return View();
+            }
+            else
+            {
+                foreach (var item in tintuc)
+                {
+                    if (String.Compare(item.Title, ten, true) == 0)
+                    {
+                        ViewData["Loi4"] = "Tin tức này có rồi!!!";
+                        return View();
+                    }
+                }
+            }
+            if (nd1 == null)
+            {
+                return View();
+            }    
+            else
+            {
+                tt.Title = ten;
+                tt.UserID = us.UserID;
+                tt.CreateTime = a;
+                tt.ReadCount = 1;
+                /// Content
+                ct.Image1 = null;
+                ct.Image2 = null;
+                ct.Image3 = null;
+                ct.Image4 = null;
+                ct.Image5 = null;
+                int count = 1;
+                foreach (var item in uploadFile)
+                {
+
+                    string filePath = Path.Combine(HttpContext.Server.MapPath("~/public/image"),Path.GetFileName(item.FileName));
+                    item.SaveAs(filePath);
+                    if( count == 1)
+                    {
+                        string filePath1 = Path.Combine(HttpContext.Server.MapPath("~/public/image"), Path.GetFileName(item.FileName));
+                        item.SaveAs(filePath);
+                        tt.Photo = "~/public/image" + filePath1;
+                        data.News.InsertOnSubmit(tt);
+                        data.SubmitChanges();
+                    }
+                    if (count == 2 && uploadFile.Count>= count)
+                    {
+                        ct.Image1 = "~/public/image" + filePath;
+                    }
+                    if (count == 3 && uploadFile.Count >= count)
+                    {
+                        ct.Image2 = "~/public/image" + filePath;
+                    }
+                    if (count == 4 && uploadFile.Count >= count)
+                    {
+                        ct.Image3 = "~/public/image" + filePath;
+                    }
+                    if (count == 5 && uploadFile.Count >= count)
+                    {
+                        ct.Image4 = "~/public/image" + filePath;
+                    }
+                    if (count == 6 && uploadFile.Count >= count)
+                    {
+                        ct.Image5 = "~/public/image" + filePath;
+                    }
+                    count++;
+                }
+                ct.Content1 = nd1;
+                ct.Content2 = nd2;
+                ct.Content3 = nd3;
+                ct.Content4 = nd4;
+                ct.Content5 = nd5;
+                data.Contents.InsertOnSubmit(ct);
+                data.SubmitChanges();
+                    return RedirectToAction("TinTuc");
+            }
+            return RedirectToAction("TinTuc");
+        }
+    }
+}

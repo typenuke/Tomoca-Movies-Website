@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "ChiTietPhimLe";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<fieldset>
+    <legend></legend>
+    <div class="row">
+    <div class="col-10"><h1 class="h3 mb-2 text-gray-800">Thông tin phim :@Model.TenPhim</div>                                             
+    <div class="col-2">
+        <div style="float:right">
+        <button type="button" class="btn btn-success">@Html.ActionLink("Sửa Phim", "SuaPhimLe", new { id =@Model.ID})
+
+        </button>
+
+        </div>
+    </div>
+</div>
+<br />
+<br />
+    <div class="row" style="border-radius: 10px">
+        <div class="col-xl-3 col-md-4 col-sm-4" style="padding: 5px;">
+            <img style="height:340px;width:100%;" src="~/Content/Images/@Model.Img" />
+        </div>
+        <div class="col-xl-8 col-md-7 col-sm-7" style="padding-top: 10px">
+            <div>
+                <b>Tên Phim </b>
+                @Model.TenPhim
+                @ViewData["Loi"]
+            </div>
+            <div>
+                <b>Nội dung</b>
+                @Model.NoiDung
+            </div>
+            <div>
+                <b>Năm phát hành</b>
+
+                @ViewData["nam"]
+           
+            </div>
+            <div>
+                <b>Thể loại</b>
+                @ViewData["tl"]
+
+            </div>
+            <div>
+                <b>Quốc gia</b>
+
+                @ViewData["quocgia"]
+                   
+            </div>
+
+            <div>
+                <b>Thời lượng</b>
+                @Model.ThoiLuong
+            </div>
+            <div>
+                <b>Lượt Xem</b>
+                @Model.LuotXem
+            </div>
+        </div>
+    </div>
+</fieldset>
+<div>
+    <button type="button" class="btn btn-success">@Html.ActionLink("Trở Lại", "DSPhimLe")
+    </button>
+</div>
+

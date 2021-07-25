@@ -1,0 +1,75 @@
+﻿@using WebXemPhim.Models
+@model List<QuocGia>
+@{
+    ViewBag.Title = "QuocGia";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="row">
+    <div class="col-10"><h1 class="h3 mb-2 text-gray-800">Danh sách quốc gia</h1></div>
+    <div class="col-2"><div style="float:right"><button type="button" class="btn btn-success">@Html.ActionLink("Thêm", "ThemQuocGia")</button></div></div>
+</div>
+<br />
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Mã QG</th>
+                        <th>Tên quốc gia</th>
+                        <th style="text-align: center">Chức năng</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Mã QG</th>
+                        <th>Tên quốc gia</th>
+                        <th style="text-align: center">Chức năng</th>
+                        </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {                     
+                        <tr>
+                            <td>@item.MaQG</td>
+                            <td>@item.TenQG</td>
+                            <td style="width: 14%; text-align: center">
+                                <a href="@Url.Action("SuaQuocGia", new { id = item.MaQG })" class="btn btn-primary btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-edit"></i>
+                                    </span>
+                                </a>
+                                <a onclick="return ConfirmXoa()" href="@Url.Action("XoaQuocGia", new { id = item.MaQG })" class="btn btn-danger btn-icon-split">
+                                     <span class="icon text-white-50">
+                                        <i class="fas fa-trash"></i>
+                                    </span>
+                                </a>
+                               
+                                
+                            </td>
+                        </tr>              
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    function ConfirmXoa() {
+        if (confirm("Bạn có chắc muốn xóa quốc gia này không ?"))
+            return true;
+        else
+            return false;
+    }
+        FocusEvent = false;
+        checked = false;
+</script>
+
+
+

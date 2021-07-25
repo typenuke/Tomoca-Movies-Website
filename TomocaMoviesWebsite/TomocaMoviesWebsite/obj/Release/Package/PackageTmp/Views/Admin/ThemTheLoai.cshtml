@@ -1,0 +1,39 @@
+﻿@model TomocaMoviesWebsite.Models.Genre
+
+@{
+    ViewBag.Title = "ThemTheLoai";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+<h2>Thêm Thể loaị</h2>
+
+@using (Html.BeginForm("ThemTheLoai", "Admin", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend></legend>
+
+        <div class="editor-field">
+            <table>
+                <tr>
+                    <td style="width:125px"><b> Tên thể loại</b></td>
+                    <td>
+                        @Html.TextBoxFor(model => model.GenreName, new { @class = "form-control" })
+                </td>
+                <td style="color:red">
+                    @ViewData["Loi1"]
+                    @ViewData["Loi2"]
+                </td>
+            </tr>
+        </table>
+    </div>
+    <p>
+        <input type="submit" value="Thêm" class="btn btn-success" />
+    </p>
+</fieldset>
+}
+<div>
+    @Html.ActionLink("Trở lại", "TheLoai", "Admin")
+</div>
+

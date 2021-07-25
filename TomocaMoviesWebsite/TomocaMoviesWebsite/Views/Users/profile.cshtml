@@ -1,0 +1,68 @@
+﻿@using TomocaMoviesWebsite.Models
+
+@{
+    ViewBag.Title = "profile";
+    Layout = "~/Views/Shared/Tomoca_Layout.cshtml";
+    TomocaMoviesDataContext db = new TomocaMoviesDataContext();
+    var us = db.Users.SingleOrDefault(n => n.Username == Session["Username"].ToString());
+}
+<style>
+    .changepass{
+        display: none;
+        margin: 0 auto;
+        
+    }
+    .from-control1{
+        width: 200px;
+        height: 20px;
+        border-radius: 5px;
+        border: none;
+    }
+    .lb_pas{
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 8px;
+    }
+</style>
+<div class="signup" style="margin: 0 auto; width: 200px;">
+    <h3>Signing Up</h3>
+    <div class="grid-signup">
+        <div class="signup-item-bg signup-item1 ">
+            <p>User Name: @us.Username</p>
+        </div>
+        <div class="signup-item-bg signup-item2">
+            <div class="fistname">
+                <p>First Name: @us.FirstName</p>
+                @*<input type="text" name="firstname" value="" placeholder="Aa">*@
+            </div>
+            <div class="lastname">
+                <p>Last Name: @us.LastName</p>
+            </div>
+        </div>
+        <div class="signup-item-bg signup-item5">
+            <p>Email address: @us.Email</p>
+
+        </div>
+        <div class="signup-item-bg signup-item6">
+            <p>Phone Number: @us.Phone</p>
+        </div>
+    </div>
+    <div id="id991" style="@ViewData["style"]" class="changepass">
+        <h3>Change Password</h3>
+        @using (Html.BeginForm("changepassword", "Users", FormMethod.Post))
+        {
+            <label class="lb_pas">Nhập mật khẩu cũ:</label>
+            <input type="password" name="matkhau" class="from-control1" />
+            <label class="lb_pas">Nhập mật khẩu mới:</label>
+            <input type="password" name="matkhaumoi" class="from-control1" />
+            <label class="lb_pas">Nhập lại mật khẩu:</label>
+            <input type="password" name="nlmatkhau" class="from-control1" />
+            <button style="margin: 20px 0 10px 25px; width: 150px; height: 30px; border-radius: 5px; color: white; background: #ff7300; border: none; cursor: pointer;" type="submit">Submit</button>
+            <button style="margin-left: 25px; width: 150px; height: 30px; border-radius: 5px; color: white; background: #ff7300; border: none; cursor: pointer; " onclick="document.getElementById('id991').style.display = 'block'">Cancel</button>
+        }
+    </div>
+    <button id="btnC" style="width: 200px; height: 30px; border-radius: 5px; background: #ff7300; cursor: pointer;"><a style="color: white; text-decoration: none;"href="@Url.Action("changeprofile", new { username = Session["Username"].ToString() })">Change Info</a></button><br>
+    <div style="margin-top: 50px;">
+    <a href="~/Tomoca/Index" style="padding-top: 20px; text-decoration: none; cursor: pointer;">< Back</a><br>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "DSPhimLe";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="row">
+    <div class="col-10">
+        <h1 class="h3 mb-2 text-gray-800">Danh sách phim lẻ</h1>
+    </div>
+    <div class="col-2">
+        <div style="float: right">
+            <button type="button" class="btn btn-success">@Html.ActionLink("Thêm", "ThemPhimLe")</button></div>
+    </div>
+</div>
+<br />
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+            <div class="card mb-5 box-shadow">
+                <div style="height: 330px">
+                    <a href="@Url.Action("ChiTietPhimLe", new { id = item.ID})">
+                        <img class="card-img-top" src="~/Content/Images/@item.Img" alt="Card image cap"></a>
+                </div>
+                <div class="card-body" style="margin-left: -15px">
+                    <p class="card-text" style="text-align: left; overflow: hidden; -webkit-line-clamp: 1; display: -webkit-box; -webkit-box-orient: vertical;"><b>Tên phim : </b>@item.TenPhim</p>
+                    <p class="card-text" style="overflow: hidden; -webkit-line-clamp: 3; display: -webkit-box; -webkit-box-orient: vertical;"><b>Nội dung : </b>@item.NoiDung</p>
+                    <p class="card-text"><b>Năm Phát Hành : </b>@item.Nam.TenNam</p>
+                    <p class="card-text"><b>Thể Loại : </b>@item.TheLoai.TenTheLoai</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">                           
+                            <button type="button" class="btn btn-sm ">@Html.ActionLink("Sửa", "SuaPhimLe", new { id = item.ID })</button>
+                        </div>
+                        <small class="text-muted">@item.ThoiLuong</small>
+                    </div>
+                </div>
+            </div>
+        </div>                               
+    }
+</div>

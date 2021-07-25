@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/Tomoca_Layout.cshtml";
+}
+@section css{
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/loginsignup.css" rel="stylesheet" />
+}
+<style>
+    .grid-login {
+        display: grid;
+        border-radius: 10px;
+        width: 870px;
+        height: 539px;
+        margin: auto;
+        margin-top: 150px;
+    }
+
+    .gridlogin1 {
+        grid-column: 1;
+        width: 496px;
+        background-color: #F5F5F5;
+        border: none;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .gridlogin2 {
+        grid-column: 2;
+        width: 374px;
+        background: #FF7300;
+        border: none;
+        border-radius: 0 10px 10px 0;
+    }
+
+    .exit {
+        margin: 10px;
+        float: right;
+        border: none;
+        width: 36px;
+        height: 36px;
+        background-color: #FF7300;
+        color: #5C5C5C;
+        font-size: 12px;
+    }
+
+        .exit:hover {
+            color: #FFF;
+            font-size: 16px;
+        }
+
+    .formlogin button {
+        margin-top: 45px;
+        width: 326px;
+        height: 39px;
+        left: 86px;
+        top: 343px;
+        background: #FF7300;
+        border-radius: 5px;
+        border: none;
+        color: #FFF;
+        font-size: 18px;
+    }
+
+    .fontLogo {
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 44px;
+        letter-spacing: -0.065em;
+        text-align: left;
+        color: #FF7300;
+    }
+
+    .plogo {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 28px;
+        letter-spacing: 0.015em;
+        color: #5C5C5C;
+    }
+
+    .pLogin {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        color: #5C5C5C;
+    }
+
+    .formlogin a, .formlogin span {
+        color: #52ACFF;
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .glformloginogin span {
+        color: #9D9A9A !important;
+    }
+</style>
+@ViewBag.ThongBao
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div class="grid-login" style="margin-bottom: 150px;">
+        <div style="padding:80px;" class="gridlogin1">
+            <form class="formlogin">
+                <div class="fontLogo">Tomoca</div>
+                <div class="plogo">Login to your account</div>
+                <div style="margin-top: 30px;" class="pLogin">User Name</div>
+                @*@<input class="form-control" type="text" name="UserName" id="UserName" value="" placeholder="Enter your user name" style="padding-left: 10px; font-size: 14px; color: #999999;">*@
+                @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "Enter your user name" })
+                @ViewData["Loi"]
+                @ViewData["Loi12"]
+                <div style="margin-top: 8px;" class="pLogin">Password</div>
+                @*<input class="form-control" type="password" name="password" id="password" value="" placeholder="Enter your password" style="padding-left: 10px; font-size: 14px; color: #999999;"><br>*@
+                @Html.Password("Password", null, new { @class = "form-control", placeholder = "Enter your password" })
+                @ViewData["Loi1"]
+                @ViewData["Loi2"]
+                <a style="margin-right: 123px; color: #52ACFF; font-size: 12px; line-height: 14px;" href="#">Forgot password?</a>
+                <input class="checkbo" type="checkbox">
+                <span style="color: #9D9A9A; font-size: 12px; line-height: 14px;">Stay logged in</span><br>
+                <button style="background-color: #FF7300; width: 326px; height: 39px; border-radius: 5px; border: none; margin-top: 70px; color: #FFF;" type="submit">Login</button>
+            </form>
+        </div>
+        <div class="gridlogin2">
+            <div class="con-signup" style="margin-top: 80px;">
+                <p style="padding: 10px 0 0 100px;">Or</p>
+                <img style="padding-left: 15px;" src="~/Content/imgloginsignup/Movie Night-amico 1.png" />
+                <button class="createaccount" style="width: 202px; height: 39px; background: #FF7300; border: 1px solid #F5F5F5; border-radius: 19.5px; margin-top: 60px;"><a style="color:#FFF;" href="~/Users/Signup">Create a new account</a></button>
+            </div>
+        </div>
+    </div>
+}
+

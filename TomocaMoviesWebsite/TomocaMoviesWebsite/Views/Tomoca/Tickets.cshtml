@@ -1,0 +1,135 @@
+﻿@model IEnumerable<TomocaMoviesWebsite.Models.Movy>
+@{
+    ViewBag.Title = "Tickets";
+    Layout = "~/Views/Shared/Tomoca_Layout.cshtml";
+}
+@section css{
+    <link href="~/Content/ticket.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+}
+<style>
+    body {
+        background-color: #E5E5E5;
+    }
+</style>
+@section scriptstren{
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+}
+@section scriptsduoi{
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/ticket.js"></script>
+    <script src="~/Scripts/loginsignup.js"></script>
+}
+<style>
+    .textboxx {
+        display: none;
+    }
+</style>
+@{
+    DateTime d = DateTime.Now;
+    var month = DateTime.Now.ToString("MMMM");
+    var day = d.Day;
+    var dm = 0;
+}
+<div class="ticket-top">
+    @for (int i = 1; i < 12; i++)
+    {
+        var dayy = DateTime.Today.AddDays(dm);
+        string dayte = dayy.ToString("MMddyyyy");
+        @Html.TextBox("Checkday", dayte, new { @class = "textboxx" });
+        int strDay = int.Parse(dayy.ToString("dd"));
+        string strMonth = dayy.ToString("MMMM");
+        string dayd = dayy.DayOfWeek.ToString();
+        <div class="ticket">
+            <div class="item-day">
+                <span class="day-big">@strDay</span><br>
+                <span class="day-small">@strMonth</span>
+            </div>
+            <div class="item-day-l">
+                @dayd
+            </div>
+        </div>
+        dm++;
+    }
+</div>
+<div class="nowplaying">
+    <ul>
+        <li class="crossn"></li>
+        <li class="nowplaying-count">
+            <p class="ccc">NOWPLAYING (@ViewData["Test"])<span style="color:#5C5C5C; margin-left: 20px;">UPCOMING</span></p>
+        </li>
+        <li class="crossn" style="width: 52%;"></li>
+    </ul>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="MultiCarousel" data-items="1,2,3,4" data-slide="1" id="MultiCarousel" data-interval="1000">
+            <div class="MultiCarousel-inner">
+                @foreach (var item in Model)
+                {
+                    <div class="item">
+                        <div class="pad15">
+                            <img style="width: 100%; height: 100%;" src="@item.Image" />
+                        </div>
+                        <div class="pad151 font-pad">
+                            @item.Title
+                        </div>
+                        <div class="pad152 font-pad">
+                            <span style="color: #434343; font-size: 16px; font-weight: bold;">A QUIET PLACE PART II</span><br>
+                            <span>Horror, Sci-Fi</span><br>
+                            <span><img src="~/Content/image/clock.png" />1hrs 23m</span>
+                        </div>
+                    </div>
+                }
+            </div>
+            <button class="btn2 leftLst"><</button>
+            <button class="btn2 rightLst">></button>
+        </div>
+    </div>
+</div>
+
+<div class="content-bookticket">
+    <div class="bookticket-first">
+        <div class="dropdown1">
+            <div onclick="myDropdown()" class="dropbtn bg-dropbtn">
+                Click here to choose your theater
+                <span style="float: right;" onclick="myDropdown()" class="dropdown-toggle"></span>
+            </div>
+            <div id="myDropdown11" class="testtuong">
+                <a href="#"><img src="~/Content/image/Rectangle 209.png" alt=""></a><br>
+                <a href="#"><img src="~/Content/image/Rectangle 209.png" alt=""></a><br>
+                <a href="#"><img src="~/Content/image/Rectangle 209.png" alt=""></a><br>
+                <a href="#"><img src="~/Content/image/Rectangle 209.png" alt=""></a><br>
+            </div>
+            <div id="myDropdown1" class="dropdown-content">
+                <button class="dropdown-content-1 size-img-dropdown" onclick="baymavl()"><img src="~/Content/image/Rectangle 209.png" alt=""></button>
+                <button class="dropdown-content-1 size-img-dropdown" onclick="baymavl1()"><img src="~/Content/image/Rectangle 209.png" alt=""></button>
+                <a href="#" class="dropdown-content-2 size-img-dropdown"><img src="~/Content/image/Rectangle 209.png" alt=""></a>
+                <a href="#" class="dropdown-content-3 size-img-dropdown"><img src="~/Content/image/Rectangle 209.png" alt=""></a>
+                <a href="#" class="dropdown-content-4 size-img-dropdown"><img src="~/Content/image/Rectangle 209.png" alt=""></a>
+                <a href="#" class="dropdown-content-5 size-img-dropdown"><img src="~/Content/image/Rectangle 209.png" alt=""></a>
+            </div>
+
+        </div>
+        <div class="dropdown">
+            <div onclick="myFunctiondrop()" class="dropbtnn  bg-dropbtn">City<span style="float: right;" class="dropdown-toggle"></span></div>
+            <div id="myDropdown2" class="dropdown-content2">
+                <a href="#home" class="size-img-dropdown2">Home</a>
+                <a href="#about" class="size-img-dropdown2">About</a>
+                <a href="#contact" class="size-img-dropdown2">Contact</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="notcontent">
+    <div class="bg-notcontent"></div>
+</div>
+
+<div id="t" style="height:50px; width: 50px; background: #000;"></div>
+<!--end content Html.Partial("login")-->
+@Html.Partial("Login")
+
+<script>
+    const d = new Date();
+    @day = d.getDate();
+</script>

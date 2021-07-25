@@ -1,0 +1,49 @@
+﻿@model WebXemPhim.Models.Banner
+@{
+    ViewBag.Title = "SuaBanner";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>tinymce.init({ selector: 'textarea' });</script>
+<div class="row">
+    <div class="col-10">
+        <h1 class="h3 mb-2 text-gray-800">Sửa Phim</h1>
+    </div>
+</div>
+@using (Html.BeginForm("SuaBanner", "DanhMuc", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()    
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+        <div class="row" style=" border-radius: 10px">
+            <div class="col-xl col-md col-sm" style="padding: 5px;">
+                <img style="height:400px;width:100%;" src="~/Content/Images/@Model.Img" />
+                <input style="padding-top: 5px" type="file" name="fileUpload">        
+            </div>
+            </div>
+         <div class="row" style=" border-radius: 10px">
+            <div class="col-xl col-md col-sm" style="padding-top: 10px">
+                <div>
+                    <b>Tên Phim</b>
+                    @Html.DropDownList("IDPhim", null, new { @class = "form-control" })                                     
+                </div>              
+            </div>
+        </div>
+        <div>
+         <p style="color:red">@ViewBag.ThongBao   </p>
+        </div>
+        <div> 
+            <p>
+              <input type="submit" value="Lưu cập nhật" class="btn btn-success" />
+                </p></div>
+        
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Trở lại", "Banner", "DanhMuc")
+</div>
+
+
+

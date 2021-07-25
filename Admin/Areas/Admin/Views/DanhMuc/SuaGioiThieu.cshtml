@@ -1,0 +1,56 @@
+﻿@model WebXemPhim.Models.gioithieu
+@{
+    ViewBag.Title = "SuaGioiThieu";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-10">
+        <h1 class="h3 mb-2 text-gray-800">Sửa Giới Thiệu</h1>
+    </div>
+</div>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        <div class="editor-field">
+            <table>
+                <tr>
+                    <td>
+                        <b>ID</b>
+                        @Model.idgioitin
+                    </td>
+
+                   </tr>
+                
+                <tr>
+                    <td>
+                        <b>Nội Dung</b>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.noidung,new {@class="form-control"}) 
+                    </td>
+                </tr>
+                <tr>                 
+                    <td style="width:125px"><b> Liên hệ</b></td>
+                    <td>@Html.TextBoxFor(model => model.sdtlien,new {@class="form-control"}) 
+                        </td>                       
+                </tr>
+            </table>
+        </div>
+        <p>
+            <input type="submit" value="Lưu cập nhật" class="btn btn-success" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Trở lại", "GioiThieuWebXemPhimSo1VietNam","DanhMuc")
+</div>
+
+
+
+

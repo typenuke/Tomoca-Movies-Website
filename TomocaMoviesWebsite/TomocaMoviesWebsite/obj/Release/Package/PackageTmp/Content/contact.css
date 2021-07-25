@@ -1,0 +1,68 @@
+﻿body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #E5E5E5;
+}
+
+.grid-contact {
+    display: grid;
+    grid-template-columns: 611px 408px;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 26px;
+    margin-bottom: 26px;
+}
+
+
+.white-zone {
+    background: #FFFFFF;
+    border-radius: 5px;
+    padding-left: 96px;
+    padding-top: 42px;
+    padding-bottom: 59px;
+    border-bottom: 5px solid #FF7300;
+}
+
+.contact-box {
+    width: 250px;
+    height: 39px;
+    background: #FCFCFC !important;
+}
+
+.mess-box {
+    width: 415px;
+    height: 157px !important;
+    border: 1px solid #CACACA;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: #FCFCFC !important;
+}
+
+.contactus {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    color: #FF7300;
+}
+
+.btn-contact {
+    background: #FF7300 !important;
+    width: 186px !important;
+    height: 39px !important;
+    border: 0px !important;
+}
+
+.map {
+    width: 300px !important;
+    height: 300px !important;
+    border: 1px solid;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.contact-text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    color: #FF7300;
+}

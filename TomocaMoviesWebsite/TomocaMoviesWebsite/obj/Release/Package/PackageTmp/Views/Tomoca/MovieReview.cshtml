@@ -1,0 +1,104 @@
+﻿@model IEnumerable<TomocaMoviesWebsite.Models.Movy>
+
+@{
+    ViewBag.Title = "MovieReview";
+    Layout = "~/Views/Shared/Tomoca_Layout.cshtml";
+}
+@section css{
+    <link href="~/Content/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Ruge+Boogie" rel="stylesheet" type="text/css">
+}
+@section scriptstren{
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+}
+
+
+<style>
+    .format-readmore a {
+        color: #0026ff !important;
+    }
+
+    .search {
+        background-color: #4f4f4f;
+    }
+</style>
+
+<div class="Search-bar">
+    <div class="search">
+        @using (Html.BeginForm("MovieReview", "Tomoca"))
+        {
+            @Html.ValidationSummary(true)
+            <div class="search-a input-group">
+                @*<input class="form-control" type="search" placeholder="Movie name...">*@
+                @Html.TextBox("search", null, new { @class = "form-control", placeholder = "Movie name..." })
+                <button class="icoin-search" type="submit">
+                    <img src="~/Content/image_review/Vector.png" alt="icoin-search">
+                </button>
+            </div>
+        }
+    </div>
+    <div class="select">
+        <div class="select-option">
+            <select class="form-select select-value" name="select-most-popular">
+                <option value="Most Popular">Most Popular</option>
+                <option value="Test2">Test2</option>
+                <option value="Test3">Test3</option>
+                <option value="Test4">Test4</option>
+                <option value="Test5">Test5</option>
+            </select>
+        </div>
+        <div class="select-option select-option-a">
+            <select class="form-select select-value" name="select-most-popular">
+                <option value="This year">This year</option>
+                <option value="Test2">2020</option>
+                <option value="Test3">2019</option>
+                <option value="Test4">2018</option>
+                <option value="Test5">2017</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="content-table">
+    <table class=" table table-striped table-hover">
+        <thead>
+            <tr class="title">
+                <th id="title-id">Title</th>
+                <th>IMDb</th>
+                <th>Rotten Tomatoes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="body-content">
+                    <th class="title-class">
+                        <div style="width: 66px; height:100px; float:left;">
+                            <img src="@item.Image" alt="film">
+                        </div>
+                        <div class="format-readmore">
+                            <span>@item.Title</span>
+                            <br>
+                            <a href="~/Tomoca/Detail/@item.MovieID">Read more</a>
+                        </div>
+                    </th>
+                    <th class="format-th">
+                        <br>@item.IMDb
+                    </th>
+                    <th class="format-th">
+                        <br>
+                        <img src="~/Content/image_review/Rectangle 60.png" alt="">
+                        @item.Tomatometer
+                    </th>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="button-bot">
+        <button class="button">
+            LOAD MORE
+            <img src="~/Content/image_review/Vector 11.png" alt="">
+        </button>
+    </div>
+</div>
+@Html.Partial("Login")

@@ -1,0 +1,72 @@
+﻿@model TomocaMoviesWebsite.Models.User
+
+@{
+    ViewBag.Title = "edit";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<h2>Sửa tài khoản</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        <div class="editor-field">
+            <table>
+                <tr>
+                    <td>
+                        <b>Tên đăng nhâp :  </b>
+                    </td>
+                    <td>
+                        @Model.Username
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:125px"><b>Mật khẩu </b></td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Password, new { @class = "form-control" })
+                        @ViewData["Loi"]
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:125px"><b>Tên Họ </b></td>
+                    <td>
+                        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+                        @ViewData["Loi"]
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:125px"><b>Tên </b></td>
+                    <td>
+                        @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+                        @ViewData["Loi"]
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:125px"><b>Email </b></td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                        @ViewData["Loi2"]
+                        @ViewData["Loi2e"]
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:125px"><b>Số điện thoại </b></td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+                        @ViewData["Loi3"]
+                        @ViewData["Loi3e"]
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <p>
+            <input type="submit" value="Lưu cập nhật" class="btn btn-success" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Trở lại", "users", "adminmanager")
+</div>

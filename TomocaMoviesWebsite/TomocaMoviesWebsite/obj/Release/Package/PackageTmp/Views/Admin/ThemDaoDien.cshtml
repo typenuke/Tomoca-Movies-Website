@@ -1,0 +1,56 @@
+﻿@model TomocaMoviesWebsite.Models.Director
+
+@{
+    ViewBag.Title = "ThemDaoDien";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("ThemDaoDien", "Admin", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend></legend>
+
+        <div class="editor-field">
+            <table>
+                <tr>
+                    <td style="width:125px"><b> Tên Đạo Diễn</b></td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                    </td>
+                    <td style="color:red">
+                        @ViewData["Loi1"]
+                        @ViewData["Loi2"]
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:125px"><b> Nơi Sinh</b></td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Nationality, new { @class = "form-control" })
+                    </td>
+                    <td style="color:red">
+                        @ViewData["Loi1"]
+                        @ViewData["Loi2"]
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:125px"><b> Ngày Sinh</b></td>
+                    <td>
+                        @Html.TextBoxFor(model => model.Birth, new { @class = "form-control" })
+                    </td>
+                    <td style="color:red">
+                        @ViewData["Loi1"]
+                        @ViewData["Loi2"]
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <p>
+            <input type="submit" value="Thêm" class="btn btn-success" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Trở lại", "DienVien", "Admin")
+</div>

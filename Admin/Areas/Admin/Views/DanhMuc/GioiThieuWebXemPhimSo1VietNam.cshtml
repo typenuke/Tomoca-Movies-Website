@@ -1,0 +1,25 @@
+﻿@using WebXemPhim.Models
+@{
+    ViewBag.Title = "GioiThieuWebXemPhimSo1VietNam";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+<table class="table">
+    <tr>
+        <td>Nội Dung</td>
+        <td>Liên Hệ</td>
+        <td></td>
+    </tr>
+    @foreach (var item in Model)
+    { 
+        <tr  style="width:100%">
+            <td >@item.noidung</td>
+            <td >@item.sdtlien</td>
+            <td ><a href="@Url.Action("SuaGioiThieu", new { id = item.idgioitin })" class="btn btn-primary btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-edit"></i>
+                </span>
+            </a></td>
+        </tr>
+    }
+</table>
+

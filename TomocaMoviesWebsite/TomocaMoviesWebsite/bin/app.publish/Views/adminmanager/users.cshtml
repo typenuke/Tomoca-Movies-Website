@@ -1,0 +1,80 @@
+﻿@model IEnumerable<TomocaMoviesWebsite.Models.User>
+
+@{
+    ViewBag.Title = "users";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-10"><h1 class="h3 mb-2 text-gray-800">Danh sách tài khoản</h1></div>
+    <div class="col-2"><div style="float:right"><button type="button" class="btn btn-success">@Html.ActionLink("Thêm", "add")</button></div></div>
+</div>
+<br />
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tên đăng nhập</th>
+                        <th>Mật khẩu</th>
+                        <th>Quản Trị</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th style="text-align: center">Chức năng</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Tên đăng nhập</th>
+                        <th>Mật khẩu</th>
+                        <th>Quản Trị</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th style="text-align: center">Chức năng</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>@item.Username</td>
+                        <td>@item.Password</td>
+                        <td>@item.Permission</td>
+                        <td>@item.Email</td>
+                        <td>@item.Phone</td>
+                        <td style="width: 14%; text-align: center">
+                            <a href="@Url.Action("edit", new { id = item.UserID })" class="btn btn-primary btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-edit"></i>
+                                </span>
+                            </a>
+                            <a onclick="return ConfirmXoa()" href="@Url.Action("delete", new { id = item.UserID })" class="btn btn-danger btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-trash"></i>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    function ConfirmXoa() {
+        if (confirm("Bạn có chắc muốn xóa tài khoản này không ?"))
+            return true;
+        else
+            return false;
+    }
+        FocusEvent = false;
+        checked = false;
+</script>
+

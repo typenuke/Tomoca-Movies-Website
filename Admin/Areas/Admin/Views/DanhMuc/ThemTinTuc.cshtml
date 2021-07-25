@@ -1,0 +1,43 @@
+﻿@model WebXemPhim.Models.tintucphim
+@{
+    ViewBag.Title = "ThemTinTuc";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@using (Html.BeginForm("ThemTinTuc", "DanhMuc", FormMethod.Post, new {@enctype="multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()   
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Thêm Tin Tức</legend>
+
+       <p>Tiêu đề</p>
+            @Html.TextBox("tieude", null, new { @class = "form-control" })
+        @ViewData["Loi3"]
+          @ViewData["Loi4"]
+        <p >
+            Tóm tắt      
+            @Html.TextBox("tomtat", null, new { @class = "form-control" })
+            @ViewData["Loi1"]
+        </p>
+        <p >
+            Nội dung       
+            @Html.TextBox("noidung", null, new { @class = "form-control" })
+            @ViewData["Loi2"]
+        </p>
+        <p>
+            Hình
+           <input type="file" name="fileUploadTT" />           
+        </p>    
+       
+       
+            <input type="submit" value="Thêm" />
+        
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Trờ về", "TinTuc")
+</div>
+
+

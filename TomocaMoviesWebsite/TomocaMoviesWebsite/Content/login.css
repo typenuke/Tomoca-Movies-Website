@@ -1,0 +1,155 @@
+﻿body {font-family: Arial, Helvetica, sans-serif;}
+
+ .grid-login {
+        display: grid;
+        border-radius: 10px;
+        width: 870px;
+        height: 539px;
+        margin: auto;
+        margin-top: 150px;
+    }
+
+    .gridlogin1 {
+        grid-column: 1;
+        width: 496px;
+        background-color: #F5F5F5;
+        border: none;
+        border-radius: 10px 0 0 10px;
+    }
+
+    .gridlogin2 {
+        grid-column: 2;
+        width: 374px;
+        background: #FF7300;
+        border: none;
+        border-radius: 0 10px 10px 0;
+    }
+
+    .exit {
+        margin: 10px;
+        float: right;
+        border: none;
+        width: 36px;
+        height: 36px;
+        background-color: #FF7300;
+        color: #5C5C5C;
+        font-size: 12px;
+    }
+
+        .exit:hover {
+            color: #FFF;
+            font-size: 16px;
+        }
+
+    .formlogin button {
+        margin-top: 45px;
+        width: 326px;
+        height: 39px;
+        left: 86px;
+        top: 343px;
+        background: #FF7300;
+        border-radius: 5px;
+        border: none;
+        color: #FFF;
+        font-size: 18px;
+    }
+
+    .fontLogo {
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 44px;
+        letter-spacing: -0.065em;
+        text-align: left;
+        color: #FF7300;
+    }
+
+    .plogo {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 28px;
+        letter-spacing: 0.015em;
+        color: #5C5C5C;
+    }
+
+    .pLogin {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        color: #5C5C5C;
+    }
+
+    .formlogin a, .formlogin span {
+        color: #52ACFF;
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .glformloginogin span {
+        color: #9D9A9A !important;
+    }
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}

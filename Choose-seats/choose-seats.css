@@ -1,0 +1,206 @@
+body {
+    background-color: #E5E5E5;
+    font-family: roboto, sans-serif;
+}
+
+.zone {
+    background-color: white;
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+/* Name and amount */
+
+
+/* title and screen */
+
+.screen {
+    width: 755.51px;
+    height: 112px;
+}
+
+.choose-your-seat {
+    text-align: left; 
+    margin-left: 2%; 
+    padding-top: 3%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    color: #5C5C5C;
+}
+
+/* Seats */
+
+.seatGap
+{
+  width:40px;
+}
+
+.seatVGap
+{
+  height:40px;
+}
+
+table
+{
+  text-align:center;
+  border-spacing: 15px;
+  color: #C4C4C4;
+}
+
+
+.seats {
+
+  -webkit-appearance: none;
+	background-color: #C4C4C4;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+}
+
+.seats:active, .seats:checked:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.seats:checked {
+	background-color: #FF7300;
+	border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #99a1a7;
+}
+
+/* Vip seats */
+
+.seats-vip {
+  -webkit-appearance: none;
+	background-color: #FFE481;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+}
+
+.seats-vip:active, .seats:checked:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.seats-vip:checked {
+	background-color: #FF7300;
+	border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #99a1a7;
+}
+
+
+/* Grid seat info */
+
+.grid-seat {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 1fr;
+}
+
+.seats-inf {
+  display: flex;
+  list-style: none;
+  padding-left: 30%;
+}
+
+.li-inf {
+  margin-left: 55px;
+}
+
+.your-seat {
+  -webkit-appearance: none;
+	background-color: #FF7300;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+
+.unavailable-seat {
+  -webkit-appearance: none;
+	background: #C4C4C459;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+
+.textt {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: #C4C4C4;
+}
+
+/* Ticket confirm */
+.ticket-confirm {
+	list-style: none;
+	display: flex;
+}
+
+.confirm1 {
+	border: 1px solid #C4C4C4;
+	border-right: none;
+	border-radius: 5px;
+	padding: 15px;
+	padding-left: 30px;
+	padding-right: 30px;
+	background: #F0F0F0;
+	cursor: pointer;
+}
+
+.confirm2 {
+	border: 1px solid #C4C4C4;
+	border-left: dashed #C4C4C4 1px;
+	border-radius: 5px;
+	padding: 15px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 30px;
+	background: #F0F0F0;
+	cursor: pointer;
+}
+
+.aa {
+	font-style: normal;
+	font-weight: bold;
+	font-size: 18px;
+	color: #ABABAB;
+}
+
+.bb {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: #ABABAB;
+}
+
+.cc {
+	font-style: normal;
+	font-weight: bold;
+	font-size: 18px;
+	color: #ABABAB;
+}
+
+#NumberDisplay {
+	font-style: normal;
+	font-weight: bold;
+	font-size: 18px;
+	text-decoration-line: underline;
+	color: #FF7300;
+}

@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "signupfinish";
+    Layout = "~/Views/Shared/Tomoca_Layout.cshtml";
+}
+@section css{
+    <link href="~/Content/loginsignup.css" rel="stylesheet" />
+}
+<style>
+    .signupfinish {
+        padding: 0px;
+        height: 600px;
+        margin: 0 auto;
+        text-align: center;
+        background-color: #E5E5E5;
+    }
+
+        .signupfinish img {
+            margin-top: 150px;
+            background: linear-gradient(180deg, #C4C4C4 0%, #FF8A00 0.01%, #EE6B00 100%);
+            box-shadow: inset 1px 1px 8px rgba(0, 0, 0, 0.25);
+            border-radius: 50%;
+            width: 69px;
+            height: 69px;
+            padding: 10px 8px 10px 12px;
+        }
+
+        .signupfinish h3 {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 42px;
+            color: #FF7300;
+            margin: 15px 0 3px 0;
+        }
+
+        .signupfinish p {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 21px;
+            color: #FF7300;
+            margin-bottom: 70px;
+        }
+
+        .signupfinish button {
+            width: 276px;
+            height: 39px;
+            background: #F0F0F0;
+            border: 1px solid #C4C4C4;
+            box-sizing: border-box;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+            .signupfinish button:hover {
+                border: 1px solid #FF7300;
+            }
+
+        .signupfinish a {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 16px;
+            color: #5C5C5C;
+            ;
+        }
+</style>
+<div class="signupfinish">
+    <img src="https://img.icons8.com/material-outlined/24/ffffff/checkmark--v1.png" />
+    <h3>Done!</h3>
+    <p>Your account has been created</p>
+    <button><a href="~/Users/Login">Go to login</a></button><br>
+    <button><a href="~/Tomoca/Index">Back to home page</a></button>
+</div>
+

@@ -1,0 +1,160 @@
+﻿@using WebXemPhim.Models;
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Thống Kê</h1>
+    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>Generate Report</a>
+</div>
+<div class="row">
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Tài khoản</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewData["NguoiDung"]</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-user fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Phim lẻ</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewData["PhimLe"]</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-video fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Phim bộ</div>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col-auto">
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@ViewData["PhimBo"]</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-video fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pending Requests Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Lượt thích</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-heart fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Top Phim</h1>   
+</div>
+<div class="row">
+
+            <!-- First Column -->
+            <div class="col-lg-4">
+
+              <!-- Custom Text Color Utilities -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary" style="text-align:center">Phim Mới Cập Nhật</h6>
+                </div>
+                <div class="card-body">
+                   @foreach (var item in ViewData["PhimBoMoi"] as List<DSPhimBo>)
+                  {
+                      <div class="p-3 border-bottom-dark " style="background-color:#394380 ">
+                         <b> @item.TenPhim </b>
+                         <b style="float:right"> @item.ThoiLuong</b>
+                      </div>
+                        
+                  }
+                </div>
+                   
+              </div>   
+
+            </div>
+
+            <!-- Second Column -->
+            <div class="col-lg-4">
+
+              <!-- Background Gradient Utilities -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary" style="text-align:center">Phim Lẻ Xem Nhiều Nhất</h6>
+                </div>
+                <div class="card-body">
+                  @foreach (var item in ViewData["TopPhimLe"] as List<DSPhimLe>)
+                  {
+                      <div class="p-3  border-bottom-dark " style="background-color:#394380 ">
+                         <b> @item.TenPhim </b>
+                         <b style="float:right"> @item.LuotXem Lượt</b>
+                      </div>
+                        
+                  }
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Third Column -->
+            <div class="col-lg-4">
+
+              <!-- Grayscale Utilities -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary" style="text-align:center">Phim bộ Xem nhiều nhất</h6>
+                </div>
+                <div class="card-body">
+                    @foreach (var item in ViewData["TopPhim"] as List<DSPhimBo>)
+                  {
+                      <div class="p-3  border-bottom-dark " style="background-color:#394380 ">
+                         <b> @item.TenPhim </b>
+                         <b style="float:right"> @item.LuotXem Lượt</b>
+                      </div>
+                        
+                  }
+                  
+                </div>
+              </div>
+            </div>
+
+          </div>
+

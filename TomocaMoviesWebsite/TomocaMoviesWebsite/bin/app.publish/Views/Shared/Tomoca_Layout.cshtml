@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta data-n-head="ssr" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=containc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS cua layout -->
+    <link href="@Url.Content("~/Content/head-foot.css")" rel="stylesheet" runat="server" />
+    <link href="~/Content/login.css" rel="stylesheet" />
+    <!-- CSS cua tung thang them o view dung them o day -->
+    @RenderSection("css", false)
+    @RenderSection("scriptstren", required: false)
+    <title>Tomoca | Top Movies Chanel</title>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="head-bar">
+        <ul class="zone main-nav">
+            <li class="icon-to">
+                <a href="~/Tomoca/Index"><img src="~/Content/image/Tomoca.png" alt=""></a>
+            </li>
+            <li>
+                <a class="white-a" href="~/Tomoca/MovieReview">MOVIES REVIEWS</a>
+            </li>
+            <li>
+                <a class="white-a" href="~/Tomoca/Tickets">MOVIES TIMES & TICKETS</a>
+            </li>
+            <li>
+                <a class="white-a" href="~/Tomoca/MoviesLatestNews">MOVIES NEWS</a>
+            </li>
+            <!--
+            <li>
+                <button class="bt-login" onclick="document.getElementById('id01').style.display='block'">Login</button>
+            </li>
+            <li class="bt-signup">
+                <a class="white-a" href="~/Users/Signup" style="font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 106.69%;">Sign up</a>
+            </li>
+             -->
+            @{Html.RenderPartial("View"); }
+        </ul>
+    </nav>
+    <!--Phần nội dung chính-->
+    <div>
+        @RenderBody()
+    </div>
+    <!-- Footer -->
+    <footer style="bottom:0px;">
+        <div>
+            <ul class="footer-top">
+                <li class="list-top">
+                    <div class="contactemail">
+                        <p class="hac3">GET UPDATES ON ALL THING MOVIES</p>
+                        <form class="mailbox">
+                            <input type="text" value="" placeholder="Enter Email Adress">
+                            <button type="submit">SUBMIT</button>
+                        </form>
+                    </div>
+                </li>
+                <li class="list-top">
+                    <div>
+                        <p class="hac3" style="text-align: center;">FOLLOW US</p>
+                        <ul class="followus">
+                            <li class="icon-fl"><a href="#"><img src="~/Content/image/twitter.png"></a></li>
+                            <li class="icon-fl"><a href="#"><img src="~/Content/image/instagram.png"></a></li>
+                            <li class="icon-fl"><a href="#"><img src="~/Content/image/facebook.png"></a></li>
+                            <li class="icon-fl"><a href="#"><img src="~/Content/image/youtube.png"></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="list-top">
+                    <div>
+                        <img src="~/Content/image/Group 17.png" alt="">
+                        <div>
+                            <a href="#"><img id="and-down" src="~/Content/image/gg.png"></a>
+                            <a href="#"><img id="ios-down" src="~/Content/image/ios.png"></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-bot">
+            <div class="footer-bar">
+                <ul>
+                    <li>
+                        <a class="white-a" href="#">Help</a>
+                    </li>
+                    <li>
+                        <a class="white-a" href="~/Tomoca/ContactUs">Contact</a>
+                    </li>
+                    <li>
+                        <a class="white-a" href="#">About Tomoca</a>
+                    </li>
+                    <li>
+                        <a class="white-a" href="#">Site Index</a>
+                    </li>
+                    <li>
+                        <a class="white-a" href="#">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a class="white-a" href="#">AdChoices</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tomoca">
+                <p>© 2021 Tomoca</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Scripts cua Hung -->
+    <script src="~/Scripts/loginsignup.js"></script>
+    @RenderSection("scriptsduoi", required: false)
+    @RenderSection("jsFooter", false)
+</body>
+</html>

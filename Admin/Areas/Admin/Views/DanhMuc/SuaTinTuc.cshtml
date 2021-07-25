@@ -1,0 +1,61 @@
+﻿@model WebXemPhim.Models.tintucphim
+@{
+    ViewBag.Title = "SuaTinTuc";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+<div class="row">
+    <div class="col-10">
+        <h1 class="h3 mb-2 text-gray-800">Sửa Phim</h1>
+    </div>
+</div>
+
+@using (Html.BeginForm("SuaTinTuc", "DanhMuc", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()    
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+        <div class="row" style="border-radius: 10px">
+
+            <div class="col-xl-3 col-md-4 col-sm-4" style="padding: 5px;">
+                <img style="height:340px;width:100%;" src="~/Content/Images/@Model.hinhanh" />
+                <input style="padding-top: 5px" type="file" name="fileUpload">
+                @ViewBag.ThongBao
+            </div>
+            <div class="col-xl-8 col-md-7 col-sm-7" style="padding-top: 10px">
+                <div>
+                    <b>Tiêu đề</b>
+                    @Html.TextBoxFor(model => model.tieude, new { @class = "form-control" })
+                    @ViewData["Loi"]
+                </div>
+                <div>
+                    <b>Tóm tắt</b>
+                    @Html.TextBoxFor(model => model.tomtat, new { @class = "form-control" })
+                </div>
+                <div>
+                    <b>Nội dung</b>                
+                    @Html.TextBoxFor(model => model.noidung, new { @class = "form-control" })
+                </div>
+                
+                <div>
+                    <b>Ngày cập nhật</b>
+                    @Html.TextBoxFor(model => model.ngaycapnhat, new { @class = "form-control" })
+                </div>                
+            </div>
+        </div>
+        <div>
+            <p>
+                <input type="submit" value="Lưu cập nhật" class="btn btn-success" />
+            </p>
+        </div>
+
+    </fieldset>
+}
+<div>
+    <button type="button" class="btn btn-success">@Html.ActionLink("Trở Lại", "TinTuc")
+    </button>
+</div>
+
+
+

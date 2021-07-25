@@ -1,0 +1,43 @@
+﻿@model WebXemPhim.Models.TaiKhoan
+
+@{
+    ViewBag.Title = "ThemTK";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+<h2>Thêm tài khoản</h2>
+
+@using (Html.BeginForm("ThemTK","TaiKhoan",FormMethod.Post)) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+        <div class="editor-label">
+            <b>Tên đăng nhập</b>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.TenDN,new {@class="form-control"})
+            @ViewData["Loi"]
+            @Html.ValidationMessageFor(model => model.TenDN)
+        </div>
+        <div class="editor-label">
+            <b>Mật khẩu</b>
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(model => model.MatKhau,new {@class="form-control"})
+            @ViewData["Loi1"]
+            @Html.ValidationMessageFor(model => model.MatKhau)
+            @ViewData["Loi2"]
+        </div>
+        <p>            
+            <input type="submit" value="Thêm" class="btn btn-success" />
+            
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Trở lại", "DSTaiKhoan","TaiKhoan")
+</div>
+
+

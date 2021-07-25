@@ -1,0 +1,49 @@
+﻿@model WebXemPhim.Models.DSPhimBo
+@{
+    ViewBag.Title = "ThemPhimBo";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+@using (Html.BeginForm("ThemPhimBo", "DSPhim", FormMethod.Post, new {@enctype="multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()   
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Thêm Phim Bộ</legend>
+
+       <p>Tên Phim</p>
+            @Html.TextBox("TenPhim", null, new { @class = "form-control" })
+        <p >
+            Nội dung       
+            @Html.TextBox("NoiDung", null, new { @class = "form-control" })
+        </p>
+
+        <p>
+            Năm Phát Hành
+              @Html.DropDownList("NamPH", null, new { @class = "form-control" })
+        </p>
+        <p >
+            Thể Loại
+             @Html.DropDownList("IDTheLoai", null, new { @class = "form-control" })
+        </p>
+        <p >
+            Thời Lượng
+            @Html.TextBox("ThoiLuong", null, new { @class = "form-control" })
+        </p>
+        <p>
+            Hình
+           <input type="file" name="fileupload" />           
+        </p>        
+        <p>
+            Quốc Gia
+            @Html.DropDownList("IDQuocGia", null, new { @class = "form-control" })
+        </p>
+        <p>
+            <input type="submit" value="Thêm" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Trờ về", "DSPhimBo")
+</div>

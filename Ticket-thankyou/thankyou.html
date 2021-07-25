@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm</title>
+    <link rel="stylesheet" href="thankyou.css">
+</head>
+<body>
+    <div class="ticket-grid">
+        <div class="zone thankyou">
+            <p class="yourbook">Thank you for your booking!</p>
+            <p class="please">Please select a payment method and process with your payment</p>
+        </div>
+        <div  class="movie-inf">
+            <table class="inf-table">
+                <tr>
+                    <td class="img-zone">
+                        <img class="movie-img" src="./image/Rectangle 25.png" alt="">
+                    </td>
+                    <td class="inf-zone">
+                        <p class="movie-name">A QUIET PLACE PART II</p>
+                        <p class="movie-type">Horror, Sci-Fi, Drama</p>
+                        <p class="movie-length">1hrs 23m</p>
+                        <p class="movie-day">Tuesday, Jun 30 at 1:30 AM</p>
+                        <p class="movie-place">CGV Aeon Bình Tân theater, Auditorium 5</p>
+                    </td>
+                </tr>
+            </table>          
+        </div>
+        <div  class="zone">
+            <p class="ticket-and-amount">Ticket(s)</p>
+            <p class="tickets">2</p>
+            <p class="ticket-and-amount">Amount to pay</p>
+            <p class="amount">300.000 VND</p>
+        </div>
+        <div  class="payment">
+            <table class="payment-table">
+                <tr class="border_bottom">
+                    <td class="card-zone">
+                        <p class="credit-card" style="padding-left: 30px;">Credit Card</p>
+                        <p class="direct-payment" style="padding-left: 30px;">Direct payment</p>
+                    </td>
+                    <td class="logo-zone">
+                        <img src="./image/emojione-v1_credit-card.png" alt="">
+                    </td>
+                </tr>
+                <tr class="border_bottom">
+                    <td class="card-zone">
+                        <p class="credit-card" style="padding-left: 30px;">Paypal</p>
+                        <p class="direct-payment" style="padding-left: 30px;">Direct payment</p>
+                    </td>
+                    <td class="logo-zone">
+                        <img src="./image/paypal-logo.png" alt="">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="card-zone">
+                        <p class="credit-card" style="padding-left: 30px;">Momo</p>
+                        <p class="direct-payment" style="padding-left: 30px;">Internet Banking</p>
+                    </td>
+                    <td class="logo-zone">
+                        <img src="./image/momo-logo.png" alt="">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div  class="zone">
+            <div class="row">
+                <div class="col-50">
+                  <input type="text" id="cardnumber" placeholder="Card number">
+                </div>
+                <div class="col-50">
+                  <input type="text" id="mmyy" placeholder="MM/YY">
+                </div>
+                <div class="col-50">
+                    <input type="text" id="cvc" placeholder="CVC">
+                  </div>
+            </div>
+            <input type="checkbox" id="condition" name="condition" value>
+            <label for="condition">I agreed with terms and <u>conditions</u></label><br>
+            <button class="bt-pay">Pay</button>
+        </div>
+    </div>
+</body>
+</html>

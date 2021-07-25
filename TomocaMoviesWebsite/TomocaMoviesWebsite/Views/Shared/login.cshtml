@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+@section css{
+    <link href="~/Content/login.css" rel="stylesheet" />
+}
+<div id="id01" class="modal">
+    <div class="grid-login">
+        <div style="padding:80px;" class="gridlogin1">
+            @using (Html.BeginForm())
+            {
+                <form class="formlogin">
+                    <div class="fontLogo">Tomoca</div>
+                    <div class="plogo">Login to your account</div>
+                    <div style="margin-top: 30px;" class="pLogin">User Name</div>
+
+                    @Html.ValidationSummary(true)
+                    @*@<input class="form-control" type="text" name="UserName" id="UserName" value="" placeholder="Enter your user name" style="padding-left: 10px; font-size: 14px; color: #999999;">*@
+                    @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "Enter your user name" })
+                    @ViewData["Loi"]
+                    @ViewData["Loi12"]
+                    <div style="margin-top: 8px;" class="pLogin">Password</div>
+                    @*<input class="form-control" type="password" name="password" id="password" value="" placeholder="Enter your password" style="padding-left: 10px; font-size: 14px; color: #999999;"><br>*@
+                    @Html.Password("Password", null, new { @class = "form-control", placeholder = "Enter your password" })
+                    @ViewData["Loi1"]
+                    @ViewData["Loi2"]
+                    <a style="margin-right: 123px; color: #52ACFF; font-size: 12px; line-height: 14px;" href="#">Forgot password?</a>
+                    <input class="checkbo" type="checkbox">
+                    <span style="color: #9D9A9A; font-size: 12px; line-height: 14px;">Stay logged in</span><br>
+                    <button style="background-color: #FF7300 !important; width: 326px !important; height: 39px !important; border-radius: 5px !important " type="submit">Login</button>
+                </form>
+            }
+        </div>
+        <div class="gridlogin2">
+            <button class="exit" onclick="document.getElementById('id01').style.display='none'"><span>X</span></button>
+            <div class="con-signup">
+                <p style="color:#FFF;">Or</p>
+                <img src="~/Content/imgloginsignup/Movie Night-amico 1.png" />
+                <p class="createaccount" style="width: 202px; height: 39px; background: #FF7300; border: 1px solid #F5F5F5; border-radius: 19.5px;"><a href="~/Users/Signup">Create a new account</a></p>
+            </div>
+        </div>
+    </div>
+</div>

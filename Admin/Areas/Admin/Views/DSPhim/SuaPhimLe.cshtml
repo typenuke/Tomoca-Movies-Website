@@ -1,0 +1,71 @@
+﻿@model WebXemPhim.Models.DSPhimLe
+@{
+    ViewBag.Title = "SuaPhimLe";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+<div class="row">
+    <div class="col-10">
+        <h1 class="h3 mb-2 text-gray-800">Sửa Phim</h1>
+    </div>
+</div>
+
+@using (Html.BeginForm("SuaPhimLe", "DSPhim", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()    
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+        <div class="row" style="border-radius: 10px">
+
+            <div class="col-xl-3 col-md-4 col-sm-4" style="padding: 5px;">
+                <img style="height:340px;width:100%;" src="~/Content/Images/@Model.Img" />
+                <input style="padding-top: 5px" type="file" name="fileUpload">
+                @ViewBag.ThongBao
+            </div>
+            <div class="col-xl-8 col-md-7 col-sm-7" style="padding-top: 10px">
+                <div>
+                    <b>Tên Phim </b>
+                    @Html.TextBoxFor(model => model.TenPhim, new { @class = "form-control" })
+                    @ViewData["Loi"]
+                </div>
+                <div>
+                    <b>Nội dung</b>
+                    @*<textarea name="NoiDung">@Model.NoiDung</textarea>*@
+                    @Html.TextBoxFor(model => model.NoiDung, new { @class = "form-control" })
+                </div>
+                <div>
+                    <b>Năm phát hành</b>
+                    @Html.DropDownList("NamPH", null, new { @class = "form-control" })
+                </div>
+                <div>
+                    <b>Thể loại</b>
+                    @Html.DropDownList("IDTheLoai", null, new { @class = "form-control" })
+                </div>
+                <div>
+                    <b>Quốc gia</b>
+                    @Html.DropDownList("IDQuocGia", null, new { @class = "form-control" })
+                </div>
+
+                <div>
+                    <b>Thời lượng</b>
+                    @Html.TextBoxFor(model => model.ThoiLuong, null, new { @class = "form-control" })
+                    @ViewData["Loi1"]
+                </div>
+            </div>
+        </div>
+        <div>
+            <p>
+                <input type="submit" value="Lưu cập nhật" class="btn btn-success" />
+            </p>
+        </div>
+
+    </fieldset>
+}
+<div>
+    <button type="button" class="btn btn-success">@Html.ActionLink("Trở Lại", "ChiTietPhimLe", new { id = @Model.ID })
+    </button>
+</div>
+
+
+
