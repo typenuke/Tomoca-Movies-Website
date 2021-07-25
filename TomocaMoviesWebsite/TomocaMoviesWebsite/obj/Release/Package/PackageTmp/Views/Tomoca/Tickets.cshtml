@@ -37,7 +37,7 @@
         var dayy = DateTime.Today.AddDays(dm);
         string dayte = dayy.ToString("MMddyyyy");
         @Html.TextBox("Checkday", dayte, new { @class = "textboxx" });
-        int strDay = int.Parse(dayy.ToString("dd"));
+        string strDay = dayy.ToString("dd");
         string strMonth = dayy.ToString("MMMM");
         string dayd = dayy.DayOfWeek.ToString();
         <div class="ticket">

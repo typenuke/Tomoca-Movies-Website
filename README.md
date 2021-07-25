@@ -1,1 +1,2 @@
-# Tomoca-Movies-Website
+# Tomoca-movie-website
+Mini project movie website application

@@ -15,17 +15,19 @@ namespace TomocaMoviesWebsite.Controllers
         public ActionResult Home()
         {
             int demnd = data.Users.ToList().Count;
-            int phimsapchieu = data.Movies.Where(x => x.UpComming == true).ToList().Count;
-            int phimdangchieu = data.Movies.Where(x => x.UpComming == null || x.UpComming == false).ToList().Count;
+            int demphimle = data.Movies.ToList().Count;
+            int demphimbo = data.News.ToList().Count;
             ViewData["NguoiDung"] = demnd;
-            ViewData["phimsapchieu"] = phimsapchieu;
-            ViewData["phimdangchieu"] = phimdangchieu;
-            var DSPhimSapChieu = data.Movies.Where(x => x.UpComming == true).Take(10).ToList();
-            ViewData["DSPhimSapChieu"] = DSPhimSapChieu;
-            var DSPhimDangChieu = data.Movies.OrderByDescending(x => x.MovieID).Take(10).ToList();
-            ViewData["DSPhimDangChieu"] = DSPhimDangChieu;
-            var DSDatVe = data.Users.OrderByDescending(a => a.UserID).Take(10).ToList();
-            ViewData["DSDatVe"] = DSDatVe;
+            ViewData["PhimLe"] = demphimle;
+            ViewData["PhimBo"] = demphimbo;
+            var DSPhimBo = data.Movies.OrderByDescending(x => x.ReleaseYear).Take(10).ToList();
+            ViewData["ListMovies"] = DSPhimBo;
+            var DSPhimLe = data.Actors.OrderByDescending(x => x.ActorID).Take(10).ToList();
+            ViewData["ListActors"] = DSPhimLe;
+            var DSPhimBoMoi = data.MovieTheaters.OrderByDescending(a => a.TheaterID).Take(10).ToList();
+            ViewData["ListTheaters"] = DSPhimBoMoi;
+            var DSPhimLeMoi = data.News.OrderByDescending(a => a.CreateTime).Take(10).ToList();
+            ViewData["PhimLeMoi"] = DSPhimLeMoi;
             return View();
         }
         //Actor thêm, xóa, sửa
@@ -353,6 +355,31 @@ namespace TomocaMoviesWebsite.Controllers
             if (string.IsNullOrEmpty(ten))
             {
                 ViewData["Loi1"] = "Tóm tắt không được để trống";
+                return View();
+            }
+            if (string.IsNullOrEmpty(nd1))
+            {
+                ViewData["Loi2"] = "Nội dung không được để trống";
+                return View();
+            }
+            if (string.IsNullOrEmpty(nd2))
+            {
+                ViewData["Loi2"] = "Nội dung không được để trống";
+                return View();
+            }
+            if (string.IsNullOrEmpty(nd3))
+            {
+                ViewData["Loi2"] = "Nội dung không được để trống";
+                return View();
+            }
+            if (string.IsNullOrEmpty(nd4))
+            {
+                ViewData["Loi2"] = "Nội dung không được để trống";
+                return View();
+            }
+            if (string.IsNullOrEmpty(nd5))
+            {
+                ViewData["Loi2"] = "Nội dung không được để trống";
                 return View();
             }
             else

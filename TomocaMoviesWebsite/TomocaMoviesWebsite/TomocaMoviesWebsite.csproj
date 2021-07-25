@@ -507,10 +507,6 @@
     <Content Include="Views\Admin\TinTuc.cshtml" />
     <Content Include="Views\Admin\ThemTinTuc.cshtml" />
     <Content Include="Views\Users\profile.cshtml" />
-    <Content Include="Views\Users\changeprofile.cshtml" />
-    <Content Include="Views\adminmanager\phimdangchieu.cshtml" />
-    <Content Include="Views\adminmanager\phimSC.cshtml" />
-    <Content Include="Views\adminmanager\datve.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

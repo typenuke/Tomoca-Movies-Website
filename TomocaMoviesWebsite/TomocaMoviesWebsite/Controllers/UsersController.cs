@@ -112,59 +112,5 @@ namespace TomocaMoviesWebsite.Controllers
         {
             return View();
         }
-        [HttpPost]
-        public ActionResult changeprofile(string username)
-        {
-            var tk = db.Users.First(n => n.Username == username);
-            if (tk == null)
-            {
-                Response.SubStatusCode = 404;
-                return null;
-            }
-            return View(tk);
-        }
-
-        [HttpPost]
-        public ActionResult changeprofile(string username, FormCollection collection)
-        {
-            var tk = db.Users.First(n => n.Username == username);
-            var taikhoan = db.Users.ToList();
-            var fn = collection["FirstName"];
-            var ln = collection["LastName"];
-            var em = collection["Email"];
-            var ph = collection["Phone"];
-            var matkhau = collection["Password"];
-            int kt2 = 0;
-            var ktem = db.Users.Where(a => a.Email == em && tk.Email != em);
-            var ktph = db.Users.Where(a => a.Phone == em && tk.Phone != em);
-            if (String.IsNullOrEmpty(matkhau))
-            {
-                ViewData["Loi"] = "Không được để trống";
-            }
-            else if (String.IsNullOrEmpty(em))
-                ViewData["Loi2"] = "Vui lòng nhập Email";
-            else if (String.IsNullOrEmpty(ph))
-                ViewData["Loi3"] = "Vui lòng nhập số điện thoại";
-            else if (ktem.Count() != 0)
-            {
-                ViewData["Loi2e"] = "Email đã được sử dụng";
-            }
-            else if (ktph.Count() != 0)
-            {
-                ViewData["Loi3e"] = "Số điện thoại đã được sử dụng";
-            }
-            else
-            {
-                tk.Password = matkhau;
-                tk.Phone = ph;
-                tk.Email = em;
-                tk.FirstName = fn;
-                tk.LastName = ln;
-                UpdateModel(tk);
-                db.SubmitChanges();
-                return RedirectToAction("users");
-            }
-            return this.changeprofile(username);
-        }
     }
 }

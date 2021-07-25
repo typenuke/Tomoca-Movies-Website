@@ -14,6 +14,7 @@
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            var max_fields = 10; //maximum input boxes allowed
             var wrapper = $(".myinput"); //Fields wrapper
             var add_button = $(".btnAddNew"); //Add button ID
 
@@ -87,6 +88,7 @@
                         <a class="collapse-item" href="/Admin/DaoDien">Đạo Diễn</a>
                         <a class="collapse-item" href="/Admin/TheLoai">Thể loại</a>
                         <a class="collapse-item" href="~/Admin/veban">Vé xem phim</a>
+                        <a class="collapse-item" href="/Admin/rapphim">Rap xem phim</a>
                         <a class="collapse-item" href="/Admin/TinTuc">Tin tức</a>
                     </div>
                 </div>
@@ -94,12 +96,11 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-user"></i>
-                    <span>Quản lý KH&DT</span>
+                    <span>Tài khoản</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="/adminmanager/users">Người dùng</a>
-                        <a class="collapse-item" href="/adminmanager/datve">Đặt vé & Doanh thu</a>
                     </div>
                 </div>
             </li>
@@ -112,8 +113,8 @@
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/adminmanager/phimdangchieu">Phim đang khởi chiếu </a>
-                        <a class="collapse-item" href="/adminmanager/phimSC">Phim sắp ra mắt </a>
+                        <a class="collapse-item" href="/Admin/movie">Phim đang khởi chiếu </a>
+                        <a class="collapse-item" href="/Admin/moviecms">Phim sắp ra mắt </a>
                     </div>
                 </div>
             </li>

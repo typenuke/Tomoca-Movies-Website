@@ -154,58 +154,23 @@ namespace TomocaMoviesWebsite.Controllers
         }
         //ticket
 
-       
-        public ActionResult Tickets(int? id)
+        public ActionResult Tickets()
         {
-            var abc = new List<SetShowTime>();
-            var ab = new List<ShowTimeMovie>();
-            var abm = new List<Movy>();
-            List<int> adf = new List<int>();
-            List<int> adg = new List<int>();
-            if (id == null)
+            
+            var dayy = DateTime.Today.AddDays(0);
+            string dayte = dayy.ToString("MM/dd/yyyy");
+            
+            if (!String.IsNullOrEmpty(dayy.ToString())) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
             {
-                var dayy = DateTime.Today.AddDays(0);
-                string dayte = dayy.ToString("MM/dd/yyyy");
-
-                if (!String.IsNullOrEmpty(dayy.ToString())) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
-                {
-                    var links = from l in db.Movies
-                                select l;
-                    return View(links);
-                }
-                else
-                {
-                    var links = from l in db.Movies
-                                select l;
-                    return View(links);
-                }
+                var links = from l in db.Movies
+                            select l;
+                return View(links);
             }
             else
             {
-                abc = db.SetShowTimes.Where(x => int.Parse(x.ShowTime.TimeID.ToString("dd")) == id).ToList();
-                foreach (var item in abc)
-                {
-                    adf.Add(item.ID);
-                }
-                var b = adf.Distinct();
-                adf = b.ToList<int>();
-                for (int item = adf.Count() - 1; item >= 0; item--)
-                {
-                    var search = db.ShowTimeMovies.First(x => x.ID == item);
-                    ab.Add(search);
-                }
-                foreach (var item in ab)
-                {
-                    adg.Add(item.ID);
-                }
-                var c = adg.Distinct();
-                adg = c.ToList<int>();
-                foreach (int item in adg)
-                {
-                    var search = db.Movies.First(x => x.MovieID == item);
-                    abm.Add(search);
-                }
-                return View(abm);
+                var links = from l in db.Movies
+                            select l;
+                return View(links);
             }
         }
 

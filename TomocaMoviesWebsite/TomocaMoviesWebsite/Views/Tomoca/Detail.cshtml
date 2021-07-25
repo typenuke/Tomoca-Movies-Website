@@ -4,17 +4,18 @@
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/Tomoca_Layout.cshtml";
     TomocaMoviesDataContext db = new TomocaMoviesDataContext();
-    
+    var key = Model.MovieInf.MovieID;
     var youtubeReview = (from a in db.Movies
                          join b in db.ReviewOfMovies on a.MovieID equals b.MovieID into table_1
                          from c in table_1
                          join d in db.YoutubeReviews on c.YoutubeID equals d.YoutubeID
                          select new
                          {
+                             ID = c.MovieID,
                              Video = d.Video,
-                             Author = d.Author
-                         }).OrderBy(a => a.Video).Take(6).ToList();
-    
+                             Author = d.Author,
+                         }).OrderByDescending(a => a.Video).ToList();
+
 }
 @section css{
     <link href="~/Content/bootstrap-5.0.2-dist/css/bootstrap.css" rel="stylesheet" />
@@ -25,6 +26,7 @@
     <link href="~/Content/MoviesDetails.css" rel="stylesheet" />
 }
 @section scriptstren{
+    <script src="~/Scripts/script-detail.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.js"></script>
 }
@@ -36,9 +38,89 @@
         font-size: 30px;
         line-height: 106.69%;
     }
+
     #format-title-youtubereview {
         background-color: #FFF;
-        position:static;
+        position: static;
+    }
+
+    .profile-img {
+        height: 380px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .list-youtube-reviews {
+        display: block;
+        max-width: 30000%;
+        width: 180%;
+        margin: auto;
+        margin-left: 35px;
+    }
+
+    #fade {
+        display: none;
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 1001;
+        -moz-opacity: 0.8;
+        opacity: .80;
+        filter: alpha(opacity=80);
+    }
+
+    #light {
+        display: none;
+        position: absolute;
+        width: 600px;
+        height: 360px;
+        margin-left: -600px;
+        margin-top: -180px;
+        border: none;
+        border-radius:5px;
+        background: #FFF;
+        z-index: 1002;
+        overflow: visible;
+    }
+
+    #boxclose {
+        display:none;
+        float: right;
+        cursor: pointer;
+        color: #fff;
+        border: 1px solid #AEAEAE;
+        border-radius: 3px;
+        background: #222222;
+        font-size: 31px;
+        font-weight: bold;
+        line-height: 0px;
+        padding: 11px 3px;
+        position: absolute;
+        right: 2px;
+        top: 2px;
+        z-index: 1002;
+        opacity: 0.1;
+    }
+
+    .boxclose:before {
+        content: "×";
+    }
+
+    #fade:hover ~ #boxclose {
+        display: none;
+    }
+
+    .test:hover ~ .test2 {
+        display: none;
+    }
+
+    .format-trailer {
+        width: 100%;
+        height: 100%;
+        margin: auto;
     }
 </style>
 
@@ -47,13 +129,19 @@
         <div class="profile-img" style="height:389px;background-image: url(@Html.DisplayFor(m => m.MovieInf.Banner)">
             <div class="mini-profile-img">
                 <div class="movies-name">
-                    <span id="span-1">@Html.DisplayFor(m=>m.MovieInf.Title)</span>
+                    <span id="span-1">@Html.DisplayFor(m => m.MovieInf.Title)</span>
                     <div class="trailer">
-                        <span>Play trailer 0:31 
-                            <a id="botton-play-trailer" style="width: 10px;" href="#">
+                        <span>
+                            Play trailer 0:31
+                            <a onclick="lightbox_open();" id="botton-play-trailer" style="width: 10px;" href="#">
                                 <img src="~/Content/image_review/Vector 14.png" alt="">
                             </a>
                         </span>
+                        <div id="light">
+                            <a class="boxclose" id="boxclose" onclick="lightbox_close();"></a>
+                            <iframe class="format-trailer" id="VisaChipCardVideo" src="@Html.DisplayFor(m=>m.MovieInf.Trailer)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div id="fade" onClick="lightbox_close();"></div>
                     </div>
                     <p id="p-1">@Html.DisplayFor(m => m.MovieInf.ReleaseYear) • R • @Html.DisplayFor(m => m.MovieInf.TimeOfFilm)</p>
                     <div class="category">
@@ -61,52 +149,52 @@
                             @foreach (var item in Model.Category.GenreName)
                             {
                                 @item.ToString();
-                            }   
+                            }
                         </span>
-                        </div>
-                        <br>
-                        <div class="IMDb-Rotten-Vote">
-                            <div>
-                                <div class="Rotten">
-                                    <div class="Rotten-logo">
-                                        <img src="~/Content/image_review/RT white 1.png" alt="Rotten-logon">
-                                    </div>
-                                    <div class="rating-rotten">
-                                        <span> <img src="~/Content/image_review/RT icon PNG.png" alt=""> @Html.DisplayFor(m => m.MovieInf.Tomatometer)</span>
-                                        <span> <img src="~/Content/image_review/RT icon PNG (1).png" alt=""> @Html.DisplayFor(m => m.MovieInf.AudienceScore)</span>
-                                    </div>
-
-                                </div>
-                                <div class="IMDb">
-                                    <div class="IMDb-logo">
-                                        <img src="~/Content/image_review/1200px-IMDb_Logo_Square.svg 1.png" alt="IMDb-logo">
-                                    </div>
-                                    <span id="rating">@Html.DisplayFor(m => m.MovieInf.IMDb)</span>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                    <br>
+                    <div class="IMDb-Rotten-Vote">
                         <div>
-                            <div class="content-table movie-info">
-                                <table class="table">
-                                    <tbody>
-                                        <tr id="describe">
-                                            <th>@Html.DisplayFor(m => m.MovieInf.Plot)</th>
-</tr>
-                                        <tr>
-                                            <th><span>Director:</span><span style="font-weight: 700; font-size:15px">@Html.DisplayFor(m => m.director.Name) </span></th>
-                                        </tr>
-                                        <tr>
-                                            <th><span>Writer:</span><span style="font-weight: 700; font-size:15px"> Derek Kolstad</span></th>
-                                        </tr>
-                                        <tr style="border-bottom: #FFFFFF;">
-                                            <th><span>Starring:</span><span style="font-weight: 700; font-size:15px"> @Html.DisplayFor(m=>m.actors.Name)...</span></th>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="Rotten">
+                                <div class="Rotten-logo">
+                                    <img src="~/Content/image_review/RT white 1.png" alt="Rotten-logon">
+                                </div>
+                                <div class="rating-rotten">
+                                    <span> <img src="~/Content/image_review/RT icon PNG.png" alt=""> @Html.DisplayFor(m => m.MovieInf.Tomatometer)</span>
+                                    <span> <img src="~/Content/image_review/RT icon PNG (1).png" alt=""> @Html.DisplayFor(m => m.MovieInf.AudienceScore)</span>
+                                </div>
+
+                            </div>
+                            <div class="IMDb">
+                                <div class="IMDb-logo">
+                                    <img src="~/Content/image_review/1200px-IMDb_Logo_Square.svg 1.png" alt="IMDb-logo">
+                                </div>
+                                <span id="rating">@Html.DisplayFor(m => m.MovieInf.IMDb)</span>
                             </div>
                         </div>
                     </div>
-                <img width="152px"; height="231px"; src="@Html.DisplayFor(m=>m.MovieInf.Image)" alt="mini-profile">
+                    <div>
+                        <div class="content-table movie-info">
+                            <table class="table">
+                                <tbody>
+                                    <tr id="describe">
+                                        <th>@Html.DisplayFor(m => m.MovieInf.Plot)</th>
+                                    </tr>
+                                    <tr>
+                                        <th><span>Director:</span><span style="font-weight: 700; font-size:15px">@Html.DisplayFor(m => m.director.Name) </span></th>
+                                    </tr>
+                                    <tr>
+                                        <th><span>Writer:</span><span style="font-weight: 700; font-size:15px"> Derek Kolstad</span></th>
+                                    </tr>
+                                    <tr style="border-bottom: #FFFFFF;">
+                                        <th><span>Starring:</span><span style="font-weight: 700; font-size:15px"> @Html.DisplayFor(m => m.actors.Name)...</span></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <img width="152px" ; height="231px" ; src="@Html.DisplayFor(m=>m.MovieInf.Image)" alt="mini-profile">
                 <div class="book-ticket">
                     <a href="#">
                         <img style="border: none; margin:13px 12px 0 12px;" width="130px" height="30px" src="~/Content/image_review/Ticket-Button-1.png" alt="">
@@ -125,12 +213,16 @@
                 <div class="list-youtube-reviews" style="background-color: #FFF;">
                     @foreach (var item in youtubeReview)
                     {
-                    <div style="float:left; margin-right:5px; height:258px;">
-                        <iframe class="youtube-review-iframe" width="345" height="197" src="@item.Video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>@item.Author</iframe>
-                        <div id="format-title-youtubereview" class="youtube-reviews-title">
-                            <span style="margin-left:4px">@item.Author</span>
-                        </div>
-                    </div>
+                        var x = item.Video;
+                        if (item.ID == key)
+                        {
+                            <div style="float:left; margin-right:5px; height:258px;">
+                                <iframe class="youtube-review-iframe" width="345" height="197" src="@item.Video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div id="format-title-youtubereview" class="youtube-reviews-title">
+                                    <span style="margin-left:4px">@item.Author</span>
+                                </div>
+                            </div>
+                        }
                     }
                 </div>
             </div>
