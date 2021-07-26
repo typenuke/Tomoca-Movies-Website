@@ -14,7 +14,7 @@
     </div>
     <div class="col-2">
         <div style="float: right">
-            <button type="button" class="btn btn-success">@Html.ActionLink("Thêm", "ThemPhimBo")</button>
+            <button type="button" class="btn btn-success">@Html.ActionLink("Thêm", "ThemPhimSC")</button>
         </div>
     </div>
 </div>
@@ -51,6 +51,9 @@
 
                     </p>
                     <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            @Html.ActionLink("Thêm Chi Tiết", "ThemChiTiet", new { id = item.MovieID })
+                        </div>
                         <div>
                             <a onclick="return ConfirmXoa()" href="@Url.Action("XoaPhimDC", new { id = item.MovieID })">Xóa</a>
                         </div>

@@ -12,29 +12,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var max_fields = 10; //maximum input boxes allowed
-            var wrapper = $(".myinput"); //Fields wrapper
-            var add_button = $(".btnAddNew"); //Add button ID
-
-            var x = 1; //initlal text box count
-            $(add_button).click(function (e) { //on add input button click
-                e.preventDefault();
-                if (x < 5) { //max input box allowed
-                    x++; //text box increment
-                    $(wrapper).append('<div>   <input type="text" name="nd[' + x + ']" /> <input type="file" name="uploadFile[' + x + ']" /><a href="#" class="btnRemove">Xóa</a></div>'); //add input box
-                }
-                else {
-                    alert('Chi tiết tin tức tối đa 5 phần');
-                }
-            });
-
-            $(wrapper).on("click", ".btnRemove", function (e) { //user click on remove text
-                e.preventDefault(); $(this).parent('div').remove(); x--;
-            })
-        });
-    </script>
     <title>Admin</title>
     <!-- Custom fonts for this template-->
     <link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
@@ -113,8 +90,8 @@
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/Admin/movie">Phim đang khởi chiếu </a>
-                        <a class="collapse-item" href="/Admin/moviecms">Phim sắp ra mắt </a>
+                        <a class="collapse-item" href="/adminmanager/phimdangchieu">Phim đang khởi chiếu </a>
+                        <a class="collapse-item" href="/adminmanager/phimSC">Phim sắp ra mắt </a>
                     </div>
                 </div>
             </li>

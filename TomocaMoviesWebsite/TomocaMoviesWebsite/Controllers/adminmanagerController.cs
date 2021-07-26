@@ -152,77 +152,85 @@ namespace TomocaMoviesWebsite.Controllers
         public ActionResult phimdangchieu()
         {
             var PhimDangChieu = from tt in data.Movies
-                                where tt.ComingSoon == null || tt.ComingSoon.ToString() == ""
+                                where tt.ComingSoon == false
                                 select tt;
             return View(PhimDangChieu);
         }
         [HttpGet]
         public ActionResult ThemPhimDC()
         {
-            ViewData["Genre"] = new SelectList(data.Genres, "GenreID", "GenerName");
-            ViewData["Actor"] = new SelectList(data.Actors, "ActorID", "Name");
-            ViewData["Director"] = new SelectList(data.Directors, "DirectorID", "Name");
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThemPhimDC(IEnumerable<HttpPostedFileBase> files, Movy mv)
+        {
+            DateTime a = DateTime.Now;
+            var tintuc = data.News.ToList();
+            int count = 1;
+            foreach (var item in files)
+            {
+                if (item.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(item.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/image/news"), fileName);
+                    item.SaveAs(path);
+                    if (count == 1)
+                    {
+
+                        mv.Image = "/Content/image/news/" + fileName;
+
+                    }
+                    if (count == 2)
+                    {
+
+                        mv.Banner = "/Content/image/news/" + fileName;
+                    }
+                }
+                if (count == item.ContentLength)
+                    break;
+                count++;
+            }
+            data.Movies.InsertOnSubmit(mv);
+            data.SubmitChanges();
+            return RedirectToAction("phimdangchieu");
+        }
+        //Them Chi Tiet DC
+        public ActionResult ThemChiTiet(int id)
+        {
             return View();
         }
         [HttpPost]
-        [ValidateInput(false)]
-        public ActionResult ThemPhimDC(FormCollection collection, Movy pb, MoviesGenre ma, MovieDirector md, MovieActor mt, HttpPostedFileBase fileUpload)
+        public ActionResult ThemChiTiet(int id, FormCollection coll, MovieActor ma, MovieDirector md, MoviesGenre mg, ReviewOfMovie yt, YoutubeReview ytb)
         {
-            var pl = collection["Plot"];
-            var title = collection["title"];
-            var ya = collection["Year"];
-            var gn = collection["Genre"];
-            var ac = collection["Actor"];
-            var dg = collection["Director"];
-            if (fileUpload == null)
-            {
-                ViewBag.ThongBao = "Bạn chưa chọn hình ";
-            }
-            else
-            {
-                var fileName = Path.GetFileName(fileUpload.FileName);
-                var path = Path.Combine(Server.MapPath("~/Content/Images"), fileName);
-                fileUpload.SaveAs(path);
-                //int theloai = int.Parse(collection["IDTheLoai"]);
-                pb.Image = fileName;
-                pb.Title = title;
-                pb.IMDb = 0;
-                pb.Tomatometer = "100%";
-                pb.Trailer = "";
-                pb.AudienceScore = "100%";
-                pb.Banner = "";
-                pb.Plot = pl;
-                pb.ReleaseYear = int.Parse(ya);
-            }
-            data.Movies.InsertOnSubmit(pb);
-            data.SubmitChanges();
+            var moviid = data.Movies.First(a => a.MovieID == id);
+
+            var actorid = data.Actors.First(a => a.Name == coll["Actor"]);
+            var drid = data.Directors.First(a => a.Name == coll["Director"]);
+            var gns = data.Genres.First(a => a.GenreName == coll["Type"]);
+
             //
-            ma.MovieID = pb.MovieID;
-            var nameac = data.Genres.First(x => x.GenreName == gn);
-            ma.GenreID = nameac.GenreID;
-            data.MoviesGenres.InsertOnSubmit(ma);
-            data.SubmitChanges();
+            ma.MovieID = moviid.MovieID;
+            ma.ActorID = actorid.ActorID;
+            data.MovieActors.InsertOnSubmit(ma);
             //
-            md.MovieID = pb.MovieID;
-            var namemd = data.Directors.First(x => x.Name == gn);
-            md.DirectorID = namemd.DirectorID;
+            md.MovieID = moviid.MovieID;
+            md.DirectorID = drid.DirectorID;
             data.MovieDirectors.InsertOnSubmit(md);
-            data.SubmitChanges();
             //
-            mt.MovieID = pb.MovieID;
-            var namegc = data.Actors.First(x => x.Name == gn);
-            mt.ActorID = namegc.ActorID;
-            data.MovieActors.InsertOnSubmit(mt);
-            data.SubmitChanges();
+            mg.MovieID = moviid.MovieID;
+            mg.GenreID = gns.GenreID;
+            data.MoviesGenres.InsertOnSubmit(mg);
             //
             data.SubmitChanges();
-            return RedirectToAction("DSPhimBo");
+            return RedirectToAction("phimdangchieu");
         }
         // Phim sắp chiếu
         public ActionResult phimSC()
         {
             var phimSC = from tt in data.Movies
-                         where tt.ComingSoon == true
+                         where tt.ComingSoon == true || tt.ComingSoon == null
                          select tt;
             return View(phimSC);
         }
