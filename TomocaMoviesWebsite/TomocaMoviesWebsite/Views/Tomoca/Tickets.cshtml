@@ -117,13 +117,13 @@
     <div class="bookticket-first" style="padding-top: 1px;;">
         <p style="margin: 20px;">1. Choose your theater</p>
         <div style="display:flex">
-            <select name="city" class="dropbtn bg-dropbtn" >
+            <select name="city" class="dropbtn bg-dropbtn" id="cacrap">
                 @foreach (var item in db.MovieTheaters)
                 {
                     <option style="background: white;" value="@item.TheaterID">@item.TheaterName</option>
                 }
             </select>
-            <select name="city" class="dropbtnn bg-dropbtn">
+            <select name="city" class="dropbtnn bg-dropbtn" id="thanhpho">
                 @foreach (var item in ViewData["lstcity"] as List<City>)
                 {
                     <option value="@item.CityID">@item.City1</option>
