@@ -1,4 +1,4 @@
-
+﻿
 
 .ticket-top {
     margin: 0 auto;
@@ -18,7 +18,7 @@
     border: 1px solid #C4C4C4;
     box-sizing: border-box;
     border-radius: 5px;
-    margin: 0 50px 0 10px;
+    margin: 0 6px 0 6px;
     cursor: pointer;
 }
 
@@ -167,7 +167,24 @@
     width: 209px !important;
     margin: 5px;
 }
+.anchoape1 {
 
+    padding-bottom: 15px ;
+    height: 312px;
+    width: 209px !important;
+    margin: 8px 0 0 0px !important;
+}
+
+.anchoape2 {
+    display: none;
+}
+
+.anchoape3 {
+    display: block !important;
+    height: 312px;
+    width: 209px !important;
+    margin: 0px 0 0 -10px !important;
+}
 .pad15 {
     margin-top: 30px !important;
 }
@@ -185,7 +202,7 @@
     background-color: transparent !important;
     width: 164px;
     height: 35px;
-    margin-top: -20px !important;
+    
     text-align: center;
 }
 
@@ -197,21 +214,8 @@
     margin-top: -20px !important;
     text-align: center;
 }
-.anchoape1 {
-    height: 312px;
-    width: 209px !important;
-    margin: 8px 0 0 0px !important;
-}
-.anchoape2 {
-    display: none;
-}
-.anchoape3 {
-    display: block;
-    height: 312px;
-    width: 209px !important;
-    margin: 0px 0 0 -10px !important;
-}
-/*.item:hover .pad15 {
+
+.item:hover .pad15 {
     height: 312px;
     width: 209px !important;
     margin: 8px 0 0 0px !important;
@@ -225,7 +229,7 @@
     height: 312px;
     width: 209px !important;
     margin: 0px 0 0 -10px !important;
-}*/
+}
 
 
 /*.item:hover .pad15,.item:hover .pad151,.item:hover .pad152 {

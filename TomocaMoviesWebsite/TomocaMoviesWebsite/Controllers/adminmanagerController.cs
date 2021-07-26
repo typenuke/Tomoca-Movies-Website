@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -147,6 +148,88 @@ namespace TomocaMoviesWebsite.Controllers
             }
             return this.edit(id);
         }
-
+        //phim đang chiếu
+        public ActionResult phimdangchieu()
+        {
+            var PhimDangChieu = from tt in data.Movies
+                                where tt.ComingSoon == null || tt.ComingSoon.ToString() == ""
+                                select tt;
+            return View(PhimDangChieu);
+        }
+        [HttpGet]
+        public ActionResult ThemPhimDC()
+        {
+            ViewData["Genre"] = new SelectList(data.Genres, "GenreID", "GenerName");
+            ViewData["Actor"] = new SelectList(data.Actors, "ActorID", "Name");
+            ViewData["Director"] = new SelectList(data.Directors, "DirectorID", "Name");
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ThemPhimDC(FormCollection collection, Movy pb, MoviesGenre ma, MovieDirector md, MovieActor mt, HttpPostedFileBase fileUpload)
+        {
+            var pl = collection["Plot"];
+            var title = collection["title"];
+            var ya = collection["Year"];
+            var gn = collection["Genre"];
+            var ac = collection["Actor"];
+            var dg = collection["Director"];
+            if (fileUpload == null)
+            {
+                ViewBag.ThongBao = "Bạn chưa chọn hình ";
+            }
+            else
+            {
+                var fileName = Path.GetFileName(fileUpload.FileName);
+                var path = Path.Combine(Server.MapPath("~/Content/Images"), fileName);
+                fileUpload.SaveAs(path);
+                //int theloai = int.Parse(collection["IDTheLoai"]);
+                pb.Image = fileName;
+                pb.Title = title;
+                pb.IMDb = 0;
+                pb.Tomatometer = "100%";
+                pb.Trailer = "";
+                pb.AudienceScore = "100%";
+                pb.Banner = "";
+                pb.Plot = pl;
+                pb.ReleaseYear = int.Parse(ya);
+            }
+            data.Movies.InsertOnSubmit(pb);
+            data.SubmitChanges();
+            //
+            ma.MovieID = pb.MovieID;
+            var nameac = data.Genres.First(x => x.GenreName == gn);
+            ma.GenreID = nameac.GenreID;
+            data.MoviesGenres.InsertOnSubmit(ma);
+            data.SubmitChanges();
+            //
+            md.MovieID = pb.MovieID;
+            var namemd = data.Directors.First(x => x.Name == gn);
+            md.DirectorID = namemd.DirectorID;
+            data.MovieDirectors.InsertOnSubmit(md);
+            data.SubmitChanges();
+            //
+            mt.MovieID = pb.MovieID;
+            var namegc = data.Actors.First(x => x.Name == gn);
+            mt.ActorID = namegc.ActorID;
+            data.MovieActors.InsertOnSubmit(mt);
+            data.SubmitChanges();
+            //
+            data.SubmitChanges();
+            return RedirectToAction("DSPhimBo");
+        }
+        // Phim sắp chiếu
+        public ActionResult phimSC()
+        {
+            var phimSC = from tt in data.Movies
+                         where tt.ComingSoon == true
+                         select tt;
+            return View(phimSC);
+        }
+        // Doanh thu vé
+        public ActionResult datve()
+        {
+            return View();
+        }
     }
 }

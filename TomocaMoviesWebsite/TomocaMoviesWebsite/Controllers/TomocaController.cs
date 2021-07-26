@@ -154,21 +154,23 @@ namespace TomocaMoviesWebsite.Controllers
         }
         //ticket
 
-        public ActionResult Tickets()
-        {
-            
-            var dayy = DateTime.Today.AddDays(0);
-            string dayte = dayy.ToString("MM/dd/yyyy");
-            
-            if (!String.IsNullOrEmpty(dayy.ToString())) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+        public ActionResult Tickets(string daysd)
+        {   
+            if (daysd == null)
             {
-                var links = from l in db.Movies
+                var listMovies = db.MiAnLiens.Where(x => x.MalID > 0);
+                var links = from l in listMovies
+                            where l.Time >= DateTime.Now
                             select l;
                 return View(links);
             }
             else
             {
-                var links = from l in db.Movies
+
+                var dayy = DateTime.Today.AddDays(int.Parse(daysd));
+                var listMovies = db.MiAnLiens.Where(x => x.MalID > 0);
+                var links = from l in listMovies
+                            where l.Time >= dayy
                             select l;
                 return View(links);
             }
