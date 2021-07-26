@@ -4,11 +4,13 @@ body {
 }
 
 .zone3 {
-    background-color: white;
-    text-align: center;
-    margin-left: 15%;
-    margin-right: 15%;
+	background-color: white;
+	text-align: center;
+	margin-left: 15%;
+	margin-right: 15%;
 	border-radius: 5px;
+	width: 1079px;
+	margin: auto;
 }
 
 /* Name and amount */
@@ -69,7 +71,6 @@ body {
 
 .movie-img {
     width: 94px;
-    height: 140px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -139,7 +140,6 @@ body {
 	border: 1px solid #ddd;
 	margin: 0px;
 	width: 40px;
-	height: 20px;
 	text-align: center;
 	vertical-align: middle;
 	padding: 11px 0;
@@ -178,7 +178,7 @@ body {
 	border-bottom: 1px solid #ddd;
 	margin: 0px;
 	width: 40px;
-	height: 40px;
+	height: 45px;
   }
   
   input[type=number]::-webkit-inner-spin-button,
@@ -187,15 +187,16 @@ body {
 	  margin: 0;
   }
 
-  input#number2 {
+input#number2 {
 	text-align: center;
 	border: none;
 	border-top: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
 	margin: 0px;
 	width: 40px;
-	height: 40px;
-  }
+	margin-top:-1px;
+	height: 45px;
+}
   
   input[type=number2]::-webkit-inner-spin-button,
   input[type=number2]::-webkit-outer-spin-button {
@@ -269,12 +270,12 @@ body {
 
 
 .seats {
-
+	margin: 10px !important;
   -webkit-appearance: none;
 	background-color: #C4C4C4;
 	border: 1px solid #cacece;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
-	padding: 9px;
+	padding: 9px !important;
 	border-radius: 3px;
 	display: inline-block;
 	position: relative;
@@ -283,6 +284,7 @@ body {
 
 .seats:active, .seats:checked:active {
 	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+	border: none;
 }
 
 .seats:checked {
@@ -299,7 +301,7 @@ body {
 	background-color: #FFE481;
 	border: 1px solid #cacece;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
-	padding: 9px;
+	padding: 9px !important;
 	border-radius: 3px;
 	display: inline-block;
 	position: relative;
@@ -324,16 +326,21 @@ body {
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: 1fr;
+  
 }
 
 .seats-inf {
   display: flex;
   list-style: none;
-  padding-left: 30%;
+  margin-top: 10px;
+  margin-left: 30%;
+  
 }
 
 .li-inf {
-  margin-left: 55px;
+	margin-left: 30px;
+	height: 40px;
+	text-align: center;
 }
 
 .your-seat {
@@ -341,7 +348,7 @@ body {
 	background-color: #FF7300;
 	border: 1px solid #cacece;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
-	padding: 9px;
+	padding: 9px !important;
 	border-radius: 3px;
 	display: inline-block;
 	position: relative;
@@ -352,7 +359,7 @@ body {
 	background: #C4C4C459;
 	border: 1px solid #cacece;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
-	padding: 9px;
+	padding: 9px !important;
 	border-radius: 3px;
 	display: inline-block;
 	position: relative;
@@ -367,6 +374,7 @@ body {
 
 /* Ticket confirm */
 .ticket-confirm {
+	margin-top: 32px;
 	list-style: none;
 	display: flex;
 }
@@ -421,4 +429,14 @@ body {
 	font-size: 18px;
 	text-decoration-line: underline;
 	color: #FF7300;
+}
+.seatsdsd {
+	-webkit-appearance: none;
+	background-color: #C4C4C4;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgb(0 0 0 / 5%), inset 0px -15px 10px -12px rgb(0 0 0 / 5%);
+	padding: 9px !important;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
 }

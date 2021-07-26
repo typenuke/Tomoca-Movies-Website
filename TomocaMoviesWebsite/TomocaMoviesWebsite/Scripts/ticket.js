@@ -159,10 +159,10 @@ $(".ticket").click(function () {
 });
 
 $(".item").click(function () {
-    $(".pad15").removeClass("scale-item");
-    $(".pad151").removeClass("scale-item");
-    $(".pad152").removeClass("scale-item");
-    $(this).find(".pad15").addClass("scale-item");
-    $(this).find(".pad151").addClass("scale-item");
-    $(this).find(".pad152").addClass("scale-item");
+    $(".pad15").removeClass("anchoape1");
+    $(".pad151").removeClass("anchoape2");
+    $(".pad152").removeClass("anchoape3");
+    $(this).find(".pad15").addClass("anchoape1");
+    $(this).find(".pad151").addClass("anchoape2");
+    $(this).find(".pad152").addClass("anchoape3");
 });

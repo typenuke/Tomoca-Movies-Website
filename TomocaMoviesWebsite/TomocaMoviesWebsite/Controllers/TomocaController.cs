@@ -154,22 +154,53 @@ namespace TomocaMoviesWebsite.Controllers
         }
         //ticket
 
-        public ActionResult Tickets()
+        public ActionResult Tickets(string daysd)
         {
-            
-            var dayy = DateTime.Today.AddDays(0);
-            string dayte = dayy.ToString("MM/dd/yyyy");
-            
-            if (!String.IsNullOrEmpty(dayy.ToString())) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            if (daysd == null)
             {
-                var links = from l in db.Movies
+                var listMovies = db.MiAnLiens.Where(x => x.MalID > 0);
+                var links = from l in listMovies
+                            where l.Time >= DateTime.Now
                             select l;
+                IList<City> lstcity = new List<City>();
+
+                foreach (var item in links)
+                {
+                    foreach (var i in db.Cities)
+                    {
+                        if (item.MovieTheater.CityID == i.CityID)
+                        {
+                            lstcity.Add(i);
+                        }
+                    }
+                }
+                for(int i = 0; i< lstcity.Count(); i++)
+                {
+                    
+                }
+                ViewData["lstcity"] = lstcity;
                 return View(links);
             }
             else
             {
-                var links = from l in db.Movies
+                var dayy = DateTime.Today.AddDays(int.Parse(daysd));
+                var listMovies = db.MiAnLiens.Where(x => x.MalID > 0);
+                var links = from l in listMovies
+                            where l.Time >= dayy
                             select l;
+                IList<City> lstcity = new List<City>();
+
+                foreach (var item in links)
+                {
+                    foreach (var i in db.Cities)
+                    {
+                        if (item.MovieTheater.CityID == i.CityID)
+                        {
+                            lstcity.Add(i);
+                        }
+                    }
+                }
+                ViewData["lstcity"] = lstcity;
                 return View(links);
             }
         }
