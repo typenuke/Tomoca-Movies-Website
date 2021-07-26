@@ -1,4 +1,4 @@
-$(document).ready(function() {
+﻿$(document).ready(function() {
     var itemsMainDiv = ('.MultiCarousel');
     var itemsDiv = ('.MultiCarousel-inner');
     var itemWidth = "";
@@ -165,4 +165,145 @@ $(".item").click(function () {
     $(this).find(".pad15").addClass("anchoape1");
     $(this).find(".pad151").addClass("anchoape2");
     $(this).find(".pad152").addClass("anchoape3");
+});
+
+//Dropdown
+
+//$('#mySelect').change(function () {
+//    var value = $(this).val();
+//});
+
+$('#thanhpho').change(function () {
+    var tp = $("#thanhpho option:selected").text();
+
+    if (tp == "Hồ Chí Minh") {
+        $('#cacrap').val('');
+        $("#cacrap option[value='1']").css('display', 'block');
+        $("#cacrap option[value='2']").css('display', 'block');
+        $("#cacrap option[value='3']").css('display', 'block');
+        $("#cacrap option[value='4']").css('display', 'block');
+        $("#cacrap option[value='5']").css('display', 'block');
+        $("#cacrap option[value='6']").css('display', 'none');
+        $("#cacrap option[value='7']").css('display', 'none');
+        $("#cacrap option[value='8']").css('display', 'none');
+        $("#cacrap option[value='9']").css('display', 'none');
+        $("#cacrap option[value='10']").css('display', 'none');
+        $("#cacrap option[value='11']").css('display', 'none');
+        $("#cacrap option[value='12']").css('display', 'none');
+        $("#cacrap option[value='13']").css('display', 'none');
+        $("#cacrap option[value='14']").css('display', 'none');
+        $("#cacrap option[value='15']").css('display', 'none');
+        $("#cacrap option[value='16']").css('display', 'none');
+        $("#cacrap option[value='17']").css('display', 'none');
+        $("#cacrap option[value='18']").css('display', 'none');
+        $("#cacrap option[value='19']").css('display', 'none');
+        $("#cacrap option[value='20']").css('display', 'none');
+        $("#cacrap option[value='21']").css('display', 'none');
+        $("#cacrap option[value='22']").css('display', 'none');
+
+    }
+
+    if (tp == "Cần Thơ") {
+        $('#cacrap').val('');
+        $("#cacrap option[value='1']").css('display', 'none');
+        $("#cacrap option[value='2']").css('display', 'none');
+        $("#cacrap option[value='3']").css('display', 'none');
+        $("#cacrap option[value='4']").css('display', 'none');
+        $("#cacrap option[value='5']").css('display', 'none');
+        $("#cacrap option[value='6']").css('display', 'none');
+        $("#cacrap option[value='7']").css('display', 'none');
+        $("#cacrap option[value='8']").css('display', 'none');
+        $("#cacrap option[value='9']").css('display', 'none');
+        $("#cacrap option[value='10']").css('display', 'none');
+        $("#cacrap option[value='11']").css('display', 'block');
+        $("#cacrap option[value='12']").css('display', 'block');
+        $("#cacrap option[value='13']").css('display', 'block');
+        $("#cacrap option[value='14']").css('display', 'block');
+        $("#cacrap option[value='15']").css('display', 'none');
+        $("#cacrap option[value='16']").css('display', 'none');
+        $("#cacrap option[value='17']").css('display', 'none');
+        $("#cacrap option[value='18']").css('display', 'none');
+        $("#cacrap option[value='19']").css('display', 'none');
+        $("#cacrap option[value='20']").css('display', 'none');
+        $("#cacrap option[value='21']").css('display', 'none');
+        $("#cacrap option[value='22']").css('display', 'none');
+    }
+
+    if (tp == "Hà Nội") {
+        $('#cacrap').val('');
+        $("#cacrap option[value='1']").css('display', 'none');
+        $("#cacrap option[value='2']").css('display', 'none');
+        $("#cacrap option[value='3']").css('display', 'none');
+        $("#cacrap option[value='4']").css('display', 'none');
+        $("#cacrap option[value='5']").css('display', 'none');
+        $("#cacrap option[value='6']").css('display', 'block');
+        $("#cacrap option[value='7']").css('display', 'block');
+        $("#cacrap option[value='8']").css('display', 'block');
+        $("#cacrap option[value='9']").css('display', 'block');
+        $("#cacrap option[value='10']").css('display', 'block');
+        $("#cacrap option[value='11']").css('display', 'none');
+        $("#cacrap option[value='12']").css('display', 'none');
+        $("#cacrap option[value='13']").css('display', 'none');
+        $("#cacrap option[value='14']").css('display', 'none');
+        $("#cacrap option[value='15']").css('display', 'none');
+        $("#cacrap option[value='16']").css('display', 'none');
+        $("#cacrap option[value='17']").css('display', 'none');
+        $("#cacrap option[value='18']").css('display', 'none');
+        $("#cacrap option[value='19']").css('display', 'none');
+        $("#cacrap option[value='20']").css('display', 'none');
+        $("#cacrap option[value='21']").css('display', 'none');
+        $("#cacrap option[value='22']").css('display', 'none');
+    }
+
+    if (tp == "Bình Dương") {
+        $('#cacrap').val('');
+        $("#cacrap option[value='1']").css('display', 'none');
+        $("#cacrap option[value='2']").css('display', 'none');
+        $("#cacrap option[value='3']").css('display', 'none');
+        $("#cacrap option[value='4']").css('display', 'none');
+        $("#cacrap option[value='5']").css('display', 'none');
+        $("#cacrap option[value='6']").css('display', 'none');
+        $("#cacrap option[value='7']").css('display', 'none');
+        $("#cacrap option[value='8']").css('display', 'none');
+        $("#cacrap option[value='9']").css('display', 'none');
+        $("#cacrap option[value='10']").css('display', 'none');
+        $("#cacrap option[value='11']").css('display', 'none');
+        $("#cacrap option[value='12']").css('display', 'none');
+        $("#cacrap option[value='13']").css('display', 'none');
+        $("#cacrap option[value='14']").css('display', 'none');
+        $("#cacrap option[value='15']").css('display', 'block');
+        $("#cacrap option[value='16']").css('display', 'block');
+        $("#cacrap option[value='17']").css('display', 'block');
+        $("#cacrap option[value='18']").css('display', 'block');
+        $("#cacrap option[value='19']").css('display', 'block');
+        $("#cacrap option[value='20']").css('display', 'none');
+        $("#cacrap option[value='21']").css('display', 'none');
+        $("#cacrap option[value='22']").css('display', 'none');
+    }
+
+    if (tp == "Huế") {
+        $('#cacrap').val('');
+        $("#cacrap option[value='1']").css('display', 'none');
+        $("#cacrap option[value='2']").css('display', 'none');
+        $("#cacrap option[value='3']").css('display', 'none');
+        $("#cacrap option[value='4']").css('display', 'none');
+        $("#cacrap option[value='5']").css('display', 'none');
+        $("#cacrap option[value='6']").css('display', 'none');
+        $("#cacrap option[value='7']").css('display', 'none');
+        $("#cacrap option[value='8']").css('display', 'none');
+        $("#cacrap option[value='9']").css('display', 'none');
+        $("#cacrap option[value='10']").css('display', 'none');
+        $("#cacrap option[value='11']").css('display', 'none');
+        $("#cacrap option[value='12']").css('display', 'none');
+        $("#cacrap option[value='13']").css('display', 'none');
+        $("#cacrap option[value='14']").css('display', 'none');
+        $("#cacrap option[value='15']").css('display', 'none');
+        $("#cacrap option[value='16']").css('display', 'none');
+        $("#cacrap option[value='17']").css('display', 'none');
+        $("#cacrap option[value='18']").css('display', 'none');
+        $("#cacrap option[value='19']").css('display', 'none');
+        $("#cacrap option[value='20']").css('display', 'block');
+        $("#cacrap option[value='21']").css('display', 'block');
+        $("#cacrap option[value='22']").css('display', 'block');
+    }
 });
