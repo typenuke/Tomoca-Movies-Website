@@ -5,16 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="choose-seats.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./choose-seats.js"></script>
     <title>Document</title>
 </head>
 <body onload="onLoaderFunc()">
+    <!-- Name and amount -->
+    <div class="zone">
+        <p class="choose-your-seat">3. Number of seats</p>
+        <div class="num-grid">
+            <div  class="movie-inf">
+                <table class="inf-table">
+                    <tr>
+                        <td class="img-zone">
+                            <img class="movie-img" src="./img/Rectangle 25.png" alt="">
+                        </td>
+                        <td class="inf-zone">
+                            <p class="movie-name">A QUIET PLACE PART II</p>
+                            <p class="movie-type">Horror, Sci-Fi, Drama</p>
+                            <p class="movie-length">1hrs 23m</p>
+                            <p class="movie-day">Tuesday, Jun 30 at 1:30 AM</p>
+                            <p class="movie-place">CGV Aeon Bình Tân theater, Auditorium 5</p>
+                        </td>
+                    </tr>
+                </table>          
+            </div>
+            <div class="soghe">               
+                <form class="vevip">
+                    <p class="loaighe">V.I.P</p>
+                    <span class="vip" id="vip">150 000</span>
+                    <div style="margin-left: 55%;" class="value-button truvip" id="decrease" onclick="decreaseValue(); viptru()" value="Decrease Value">-</div>
+                    <input type="number" id="number" value="0" />
+                    <div class="value-button congvip" id="increase" onclick="increaseValue(); vipcong()" value="Increase Value">+</div>
+                  </form>
+                <hr class="hr-xam">
+                <form class="venormal">
+                    <p class="loaighe">Normal</p>
+                    <span class="thuong" id="thuong">100 000</span>
+                    <div style="margin-left: 55%;" class="value-button truthuong" id="decrease" onclick="decreaseValue2(); thuongtru()" value="Decrease Value">-</div>
+                    <input type="number" id="number2" value="0" />
+                    <div class="value-button congthuong" id="increase" onclick="increaseValue2(); thuongcong()" value="Increase Value">+</div>
+                  </form>
+                <hr class="hr-xam">
+                <span>Total</span>
+                <input style="margin-left: 60%;" type="number" class="tongtien" id="tongtien" value="0"></input>
+            </div>
+        </div>
+    </div>
     <!-- Choose your seat -->
     <div class="zone">
         <div class="inputForm">
             <center>
-              Number of Seats *: <input type="number" id="Numseats" required>
+              <div style="display: none;" class="tongsoghe">Number of Seats *: <input type="number" id="Numseats" value="0" required>
+              </div>
               <br/><br/>
-              <button onclick="takeData()">Start Selecting</button>
+              <button class="selecting" onclick="takeData()">Start Selecting</button>
             </center>
         </div>
         <p class="choose-your-seat">4. Choose your seat</p>
@@ -172,6 +217,7 @@
             </center>
         </div>
 
+        <!-- Seat info -->
         <div class="grid-seat">
             <div>
                 <ul class="seats-inf">
@@ -198,7 +244,7 @@
             <div>
                 <ul class="ticket-confirm">
                     <li onclick="confirmTicket()" class="confirm1">
-                        <p class="aa">Choose <span id="NumberDisplay">3</span> seat(s)</p>
+                        <p class="aa">Choose <span id="NumberDisplay">0</span> seat(s)</p>
                         <p class="bb">Auditorium 5</p>
                     </li>
                     <li onclick="confirmTicket()" class="confirm2">
@@ -210,8 +256,28 @@
                 
             </div>
         </div>
+
+        <!-- <div class="displayerBoxes">
+            <center>
+              <table class="Displaytable">
+                <tr>
+                    <th>Name</th>
+                    <th>Seats</th>
+                </tr>
+                <tr>
+                    <td><textarea id="nameDisplay"></textarea></td>
+                    <td><textarea id="seatsDisplay"></textarea></td>
+                </tr>
+                </table>
+            </center>
+        </div> -->
+        <form class="displayerBoxes" action="">
+        
+            <label for="lname">Seats</label>
+            <textarea type="text" id="seatsDisplay"> </textarea>
+              
+            <!-- <input type="submit" value="Submit"> -->
+          </form>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="./choose-seats.js"></script>
 </body>
 </html>
