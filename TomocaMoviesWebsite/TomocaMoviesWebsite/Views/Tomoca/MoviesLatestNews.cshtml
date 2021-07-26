@@ -5,16 +5,7 @@
     ViewBag.Title = "MoviesNews";
     Layout = "~/Views/Shared/Tomoca_Layout.cshtml";
     TomocaMoviesDataContext db = new TomocaMoviesDataContext();
-    var news = (from a in db.Contents
-                join b in db.News on a.NewsID equals b.NewsID
-                select new
-                {
-                    ID = b.NewsID,
-                    Photo = b.Photo,
-                    Title = b.Title,
-                    Content = a.Content1,
-                    UpdateTime = b.CreateTime
-                }).OrderByDescending(a => a.UpdateTime).Take(9).ToList();
+    var news = db.News.OrderByDescending(a => a.CreateTime).Take(9).ToList();
 }
 
 @section scriptsduoi{
@@ -75,8 +66,8 @@
                         <img class="mainnews-img" id="mainnews-img" src="@item.Photo">
                     </div>
                     <div class="pic1-zone">
-                        @Html.ActionLink(@item.Title, "NewsDetail" + "/" + @item.ID, "", new { @class = "title" })
-                        <p class="content" id="content">@item.Content</p>
+                        @Html.ActionLink(@item.Title, "NewsDetail" + "/" + @item.NewsID, "", new { @class = "title" })
+                        <p class="content" id="content">@item.Content1</p>
                     </div>
                 </div>
             }
@@ -84,7 +75,7 @@
             {
                 <div class="grid-zone">
                     <img class="news-img" src="@item.Photo">
-                    @Html.ActionLink(@item.Title, "NewsDetail" + "/" + @item.ID, "", new { @class = "title" })
+                    @Html.ActionLink(@item.Title, "NewsDetail" + "/" + @item.NewsID, "", new { @class = "title" })
                 </div>
             }
             dk++;

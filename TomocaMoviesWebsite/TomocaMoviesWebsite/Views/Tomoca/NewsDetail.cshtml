@@ -22,30 +22,15 @@
         <span class="create-time">@Model.newsss.CreateTime</span>
     </div>
     <div class="bot-zone">
-        @if (Model.contentsss.Image1 != "")
+        @if (Model.newsss.Image1 != "")
         {
-            <img class="img-content" src="@Html.DisplayFor(model => model.contentsss.Image1)" alt="">
-            <p class="content">@Html.DisplayFor(model => model.contentsss.Content1)</p>
+            <img class="img-content" src="@Html.DisplayFor(model => model.newsss.Image1)" alt="">
+            <p class="content">@Html.DisplayFor(model => model.newsss.Content1)</p>
         }
-        @if (Model.contentsss.Image2 != "")
+        @if (Model.newsss.Image2 != "")
         {
-            <img class="img-content" src="@Html.DisplayFor(model => model.contentsss.Image2)" alt="">
-            <p class="content">@Html.DisplayFor(model => model.contentsss.Content2)</p>
-        }
-        @if (Model.contentsss.Image3 != "")
-        {
-            <img class="img-content" src="@Html.DisplayFor(model => model.contentsss.Image3)" alt="">
-            <p class="content">@Html.DisplayFor(model => model.contentsss.Content3)</p>
-        }
-        @if (Model.contentsss.Image4 != "")
-        {
-            <img class="img-content" src="@Html.DisplayFor(model => model.contentsss.Image4)" alt="">
-            <p class="content">@Html.DisplayFor(model => model.contentsss.Content4)</p>
-        }
-        @if (Model.contentsss.Image5 != "")
-        {
-            <img class="img-content" src="@Html.DisplayFor(model => model.contentsss.Image5)" alt="">
-            <p class="content">@Html.DisplayFor(model => model.contentsss.Content5)</p>
+            <img class="img-content" src="@Html.DisplayFor(model => model.newsss.Image2)" alt="">
+            <p class="content">@Html.DisplayFor(model => model.newsss.Content2)</p>
         }
 
     </div>

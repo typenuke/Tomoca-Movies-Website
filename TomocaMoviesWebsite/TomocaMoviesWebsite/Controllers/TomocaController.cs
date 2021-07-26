@@ -181,17 +181,14 @@ namespace TomocaMoviesWebsite.Controllers
                 return HttpNotFound();
             List<User> users = db.Users.ToList();
             List<New> news = db.News.ToList();
-            List<Content> contents = db.Contents.ToList();
             var multi = from a in users
                 join b in news on a.UserID equals b.UserID into table1
                 from b in table1
-                join c in contents on b.NewsID equals c.NewsID into table2
-                from c in table2
+                
                 select new readNew
                 {
                     usersss = a,
-                    newsss = b,
-                    contentsss = c
+                    newsss = b
                 };
             var rn = multi.ToList();
             var dn = rn.Find(a => a.newsss.NewsID == id);

@@ -42,18 +42,15 @@ namespace TomocaMoviesWebsite.Models
     partial void InsertComment(Comment instance);
     partial void UpdateComment(Comment instance);
     partial void DeleteComment(Comment instance);
-    partial void InsertContent(Content instance);
-    partial void UpdateContent(Content instance);
-    partial void DeleteContent(Content instance);
     partial void InsertDirector(Director instance);
     partial void UpdateDirector(Director instance);
     partial void DeleteDirector(Director instance);
     partial void InsertGenre(Genre instance);
     partial void UpdateGenre(Genre instance);
     partial void DeleteGenre(Genre instance);
-    partial void InsertLocateMovie(LocateMovie instance);
-    partial void UpdateLocateMovie(LocateMovie instance);
-    partial void DeleteLocateMovie(LocateMovie instance);
+    partial void InsertMiAnLien(MiAnLien instance);
+    partial void UpdateMiAnLien(MiAnLien instance);
+    partial void DeleteMiAnLien(MiAnLien instance);
     partial void InsertMovieActor(MovieActor instance);
     partial void UpdateMovieActor(MovieActor instance);
     partial void DeleteMovieActor(MovieActor instance);
@@ -66,9 +63,6 @@ namespace TomocaMoviesWebsite.Models
     partial void InsertMoviesGenre(MoviesGenre instance);
     partial void UpdateMoviesGenre(MoviesGenre instance);
     partial void DeleteMoviesGenre(MoviesGenre instance);
-    partial void InsertMoviesVote(MoviesVote instance);
-    partial void UpdateMoviesVote(MoviesVote instance);
-    partial void DeleteMoviesVote(MoviesVote instance);
     partial void InsertMovieTheater(MovieTheater instance);
     partial void UpdateMovieTheater(MovieTheater instance);
     partial void DeleteMovieTheater(MovieTheater instance);
@@ -78,15 +72,6 @@ namespace TomocaMoviesWebsite.Models
     partial void InsertReviewOfMovie(ReviewOfMovie instance);
     partial void UpdateReviewOfMovie(ReviewOfMovie instance);
     partial void DeleteReviewOfMovie(ReviewOfMovie instance);
-    partial void InsertSetShowTime(SetShowTime instance);
-    partial void UpdateSetShowTime(SetShowTime instance);
-    partial void DeleteSetShowTime(SetShowTime instance);
-    partial void InsertShowTime(ShowTime instance);
-    partial void UpdateShowTime(ShowTime instance);
-    partial void DeleteShowTime(ShowTime instance);
-    partial void InsertShowTimeMovie(ShowTimeMovie instance);
-    partial void UpdateShowTimeMovie(ShowTimeMovie instance);
-    partial void DeleteShowTimeMovie(ShowTimeMovie instance);
     partial void InsertTheater(Theater instance);
     partial void UpdateTheater(Theater instance);
     partial void DeleteTheater(Theater instance);
@@ -166,14 +151,6 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<Content> Contents
-		{
-			get
-			{
-				return this.GetTable<Content>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Director> Directors
 		{
 			get
@@ -190,11 +167,11 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<LocateMovie> LocateMovies
+		public System.Data.Linq.Table<MiAnLien> MiAnLiens
 		{
 			get
 			{
-				return this.GetTable<LocateMovie>();
+				return this.GetTable<MiAnLien>();
 			}
 		}
 		
@@ -230,14 +207,6 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<MoviesVote> MoviesVotes
-		{
-			get
-			{
-				return this.GetTable<MoviesVote>();
-			}
-		}
-		
 		public System.Data.Linq.Table<MovieTheater> MovieTheaters
 		{
 			get
@@ -259,30 +228,6 @@ namespace TomocaMoviesWebsite.Models
 			get
 			{
 				return this.GetTable<ReviewOfMovie>();
-			}
-		}
-		
-		public System.Data.Linq.Table<SetShowTime> SetShowTimes
-		{
-			get
-			{
-				return this.GetTable<SetShowTime>();
-			}
-		}
-		
-		public System.Data.Linq.Table<ShowTime> ShowTimes
-		{
-			get
-			{
-				return this.GetTable<ShowTime>();
-			}
-		}
-		
-		public System.Data.Linq.Table<ShowTimeMovie> ShowTimeMovies
-		{
-			get
-			{
-				return this.GetTable<ShowTimeMovie>();
 			}
 		}
 		
@@ -1029,349 +974,6 @@ namespace TomocaMoviesWebsite.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Content")]
-	public partial class Content : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _NewsID;
-		
-		private string _Image1;
-		
-		private string _Content1;
-		
-		private string _Image2;
-		
-		private string _Content2;
-		
-		private string _Image3;
-		
-		private string _Content3;
-		
-		private string _Image4;
-		
-		private string _Content4;
-		
-		private string _Image5;
-		
-		private string _Content5;
-		
-		private EntityRef<New> _New;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnNewsIDChanging(int value);
-    partial void OnNewsIDChanged();
-    partial void OnImage1Changing(string value);
-    partial void OnImage1Changed();
-    partial void OnContent1Changing(string value);
-    partial void OnContent1Changed();
-    partial void OnImage2Changing(string value);
-    partial void OnImage2Changed();
-    partial void OnContent2Changing(string value);
-    partial void OnContent2Changed();
-    partial void OnImage3Changing(string value);
-    partial void OnImage3Changed();
-    partial void OnContent3Changing(string value);
-    partial void OnContent3Changed();
-    partial void OnImage4Changing(string value);
-    partial void OnImage4Changed();
-    partial void OnContent4Changing(string value);
-    partial void OnContent4Changed();
-    partial void OnImage5Changing(string value);
-    partial void OnImage5Changed();
-    partial void OnContent5Changing(string value);
-    partial void OnContent5Changed();
-    #endregion
-		
-		public Content()
-		{
-			this._New = default(EntityRef<New>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NewsID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int NewsID
-		{
-			get
-			{
-				return this._NewsID;
-			}
-			set
-			{
-				if ((this._NewsID != value))
-				{
-					if (this._New.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnNewsIDChanging(value);
-					this.SendPropertyChanging();
-					this._NewsID = value;
-					this.SendPropertyChanged("NewsID");
-					this.OnNewsIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image1", DbType="NVarChar(MAX)")]
-		public string Image1
-		{
-			get
-			{
-				return this._Image1;
-			}
-			set
-			{
-				if ((this._Image1 != value))
-				{
-					this.OnImage1Changing(value);
-					this.SendPropertyChanging();
-					this._Image1 = value;
-					this.SendPropertyChanged("Image1");
-					this.OnImage1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content1", DbType="NVarChar(MAX)")]
-		public string Content1
-		{
-			get
-			{
-				return this._Content1;
-			}
-			set
-			{
-				if ((this._Content1 != value))
-				{
-					this.OnContent1Changing(value);
-					this.SendPropertyChanging();
-					this._Content1 = value;
-					this.SendPropertyChanged("Content1");
-					this.OnContent1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image2", DbType="NVarChar(MAX)")]
-		public string Image2
-		{
-			get
-			{
-				return this._Image2;
-			}
-			set
-			{
-				if ((this._Image2 != value))
-				{
-					this.OnImage2Changing(value);
-					this.SendPropertyChanging();
-					this._Image2 = value;
-					this.SendPropertyChanged("Image2");
-					this.OnImage2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content2", DbType="NVarChar(MAX)")]
-		public string Content2
-		{
-			get
-			{
-				return this._Content2;
-			}
-			set
-			{
-				if ((this._Content2 != value))
-				{
-					this.OnContent2Changing(value);
-					this.SendPropertyChanging();
-					this._Content2 = value;
-					this.SendPropertyChanged("Content2");
-					this.OnContent2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image3", DbType="NVarChar(MAX)")]
-		public string Image3
-		{
-			get
-			{
-				return this._Image3;
-			}
-			set
-			{
-				if ((this._Image3 != value))
-				{
-					this.OnImage3Changing(value);
-					this.SendPropertyChanging();
-					this._Image3 = value;
-					this.SendPropertyChanged("Image3");
-					this.OnImage3Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content3", DbType="NVarChar(MAX)")]
-		public string Content3
-		{
-			get
-			{
-				return this._Content3;
-			}
-			set
-			{
-				if ((this._Content3 != value))
-				{
-					this.OnContent3Changing(value);
-					this.SendPropertyChanging();
-					this._Content3 = value;
-					this.SendPropertyChanged("Content3");
-					this.OnContent3Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image4", DbType="NVarChar(MAX)")]
-		public string Image4
-		{
-			get
-			{
-				return this._Image4;
-			}
-			set
-			{
-				if ((this._Image4 != value))
-				{
-					this.OnImage4Changing(value);
-					this.SendPropertyChanging();
-					this._Image4 = value;
-					this.SendPropertyChanged("Image4");
-					this.OnImage4Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content4", DbType="NVarChar(MAX)")]
-		public string Content4
-		{
-			get
-			{
-				return this._Content4;
-			}
-			set
-			{
-				if ((this._Content4 != value))
-				{
-					this.OnContent4Changing(value);
-					this.SendPropertyChanging();
-					this._Content4 = value;
-					this.SendPropertyChanged("Content4");
-					this.OnContent4Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image5", DbType="NVarChar(MAX)")]
-		public string Image5
-		{
-			get
-			{
-				return this._Image5;
-			}
-			set
-			{
-				if ((this._Image5 != value))
-				{
-					this.OnImage5Changing(value);
-					this.SendPropertyChanging();
-					this._Image5 = value;
-					this.SendPropertyChanged("Image5");
-					this.OnImage5Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content5", DbType="NVarChar(MAX)")]
-		public string Content5
-		{
-			get
-			{
-				return this._Content5;
-			}
-			set
-			{
-				if ((this._Content5 != value))
-				{
-					this.OnContent5Changing(value);
-					this.SendPropertyChanging();
-					this._Content5 = value;
-					this.SendPropertyChanged("Content5");
-					this.OnContent5Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="New_Content", Storage="_New", ThisKey="NewsID", OtherKey="NewsID", IsForeignKey=true)]
-		public New New
-		{
-			get
-			{
-				return this._New.Entity;
-			}
-			set
-			{
-				New previousValue = this._New.Entity;
-				if (((previousValue != value) 
-							|| (this._New.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._New.Entity = null;
-						previousValue.Content = null;
-					}
-					this._New.Entity = value;
-					if ((value != null))
-					{
-						value.Content = this;
-						this._NewsID = value.NewsID;
-					}
-					else
-					{
-						this._NewsID = default(int);
-					}
-					this.SendPropertyChanged("New");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Directors")]
 	public partial class Director : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1648,99 +1250,2181 @@ namespace TomocaMoviesWebsite.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LocateMovie")]
-	public partial class LocateMovie : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MiAnLien")]
+	public partial class MiAnLien : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _TicketID;
+		private int _MalID;
 		
-		private string _Locate;
+		private int _MovieID;
 		
-		private EntityRef<Ticket> _Ticket;
+		private int _TheaterID;
+		
+		private System.DateTime _Time;
+		
+		private System.Nullable<bool> _A4;
+		
+		private System.Nullable<bool> _A5;
+		
+		private System.Nullable<bool> _A6;
+		
+		private System.Nullable<bool> _A7;
+		
+		private System.Nullable<bool> _A8;
+		
+		private System.Nullable<bool> _A9;
+		
+		private System.Nullable<bool> _A10;
+		
+		private System.Nullable<bool> _A11;
+		
+		private System.Nullable<bool> _A12;
+		
+		private System.Nullable<bool> _A13;
+		
+		private System.Nullable<bool> _B2;
+		
+		private System.Nullable<bool> _B3;
+		
+		private System.Nullable<bool> _B4;
+		
+		private System.Nullable<bool> _B5;
+		
+		private System.Nullable<bool> _B6;
+		
+		private System.Nullable<bool> _B7;
+		
+		private System.Nullable<bool> _B8;
+		
+		private System.Nullable<bool> _B9;
+		
+		private System.Nullable<bool> _B10;
+		
+		private System.Nullable<bool> _B11;
+		
+		private System.Nullable<bool> _B12;
+		
+		private System.Nullable<bool> _B13;
+		
+		private System.Nullable<bool> _B14;
+		
+		private System.Nullable<bool> _B15;
+		
+		private System.Nullable<bool> _C2;
+		
+		private System.Nullable<bool> _C3;
+		
+		private System.Nullable<bool> _C4;
+		
+		private System.Nullable<bool> _C5;
+		
+		private System.Nullable<bool> _C6;
+		
+		private System.Nullable<bool> _C7;
+		
+		private System.Nullable<bool> _C8;
+		
+		private System.Nullable<bool> _C9;
+		
+		private System.Nullable<bool> _C10;
+		
+		private System.Nullable<bool> _C11;
+		
+		private System.Nullable<bool> _C12;
+		
+		private System.Nullable<bool> _C13;
+		
+		private System.Nullable<bool> _C14;
+		
+		private System.Nullable<bool> _C15;
+		
+		private System.Nullable<bool> _D2;
+		
+		private System.Nullable<bool> _D3;
+		
+		private System.Nullable<bool> _D4;
+		
+		private System.Nullable<bool> _D5;
+		
+		private System.Nullable<bool> _D6;
+		
+		private System.Nullable<bool> _D7;
+		
+		private System.Nullable<bool> _D8;
+		
+		private System.Nullable<bool> _D9;
+		
+		private System.Nullable<bool> _D10;
+		
+		private System.Nullable<bool> _D11;
+		
+		private System.Nullable<bool> _D12;
+		
+		private System.Nullable<bool> _D13;
+		
+		private System.Nullable<bool> _D14;
+		
+		private System.Nullable<bool> _D15;
+		
+		private System.Nullable<bool> _E2;
+		
+		private System.Nullable<bool> _E3;
+		
+		private System.Nullable<bool> _E4;
+		
+		private System.Nullable<bool> _E5;
+		
+		private System.Nullable<bool> _E6;
+		
+		private System.Nullable<bool> _E7;
+		
+		private System.Nullable<bool> _E8;
+		
+		private System.Nullable<bool> _E9;
+		
+		private System.Nullable<bool> _E10;
+		
+		private System.Nullable<bool> _E11;
+		
+		private System.Nullable<bool> _E12;
+		
+		private System.Nullable<bool> _E13;
+		
+		private System.Nullable<bool> _E14;
+		
+		private System.Nullable<bool> _E15;
+		
+		private System.Nullable<bool> _F1;
+		
+		private System.Nullable<bool> _F2;
+		
+		private System.Nullable<bool> _F3;
+		
+		private System.Nullable<bool> _F4;
+		
+		private System.Nullable<bool> _F5;
+		
+		private System.Nullable<bool> _F6;
+		
+		private System.Nullable<bool> _F7;
+		
+		private System.Nullable<bool> _F8;
+		
+		private System.Nullable<bool> _F9;
+		
+		private System.Nullable<bool> _F10;
+		
+		private System.Nullable<bool> _F11;
+		
+		private System.Nullable<bool> _F12;
+		
+		private System.Nullable<bool> _F13;
+		
+		private System.Nullable<bool> _F14;
+		
+		private System.Nullable<bool> _F15;
+		
+		private System.Nullable<bool> _F16;
+		
+		private EntitySet<Ticket> _Tickets;
+		
+		private EntityRef<Movy> _Movy;
+		
+		private EntityRef<MovieTheater> _MovieTheater;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnTicketIDChanging(int value);
-    partial void OnTicketIDChanged();
-    partial void OnLocateChanging(string value);
-    partial void OnLocateChanged();
+    partial void OnMalIDChanging(int value);
+    partial void OnMalIDChanged();
+    partial void OnMovieIDChanging(int value);
+    partial void OnMovieIDChanged();
+    partial void OnTheaterIDChanging(int value);
+    partial void OnTheaterIDChanged();
+    partial void OnTimeChanging(System.DateTime value);
+    partial void OnTimeChanged();
+    partial void OnA4Changing(System.Nullable<bool> value);
+    partial void OnA4Changed();
+    partial void OnA5Changing(System.Nullable<bool> value);
+    partial void OnA5Changed();
+    partial void OnA6Changing(System.Nullable<bool> value);
+    partial void OnA6Changed();
+    partial void OnA7Changing(System.Nullable<bool> value);
+    partial void OnA7Changed();
+    partial void OnA8Changing(System.Nullable<bool> value);
+    partial void OnA8Changed();
+    partial void OnA9Changing(System.Nullable<bool> value);
+    partial void OnA9Changed();
+    partial void OnA10Changing(System.Nullable<bool> value);
+    partial void OnA10Changed();
+    partial void OnA11Changing(System.Nullable<bool> value);
+    partial void OnA11Changed();
+    partial void OnA12Changing(System.Nullable<bool> value);
+    partial void OnA12Changed();
+    partial void OnA13Changing(System.Nullable<bool> value);
+    partial void OnA13Changed();
+    partial void OnB2Changing(System.Nullable<bool> value);
+    partial void OnB2Changed();
+    partial void OnB3Changing(System.Nullable<bool> value);
+    partial void OnB3Changed();
+    partial void OnB4Changing(System.Nullable<bool> value);
+    partial void OnB4Changed();
+    partial void OnB5Changing(System.Nullable<bool> value);
+    partial void OnB5Changed();
+    partial void OnB6Changing(System.Nullable<bool> value);
+    partial void OnB6Changed();
+    partial void OnB7Changing(System.Nullable<bool> value);
+    partial void OnB7Changed();
+    partial void OnB8Changing(System.Nullable<bool> value);
+    partial void OnB8Changed();
+    partial void OnB9Changing(System.Nullable<bool> value);
+    partial void OnB9Changed();
+    partial void OnB10Changing(System.Nullable<bool> value);
+    partial void OnB10Changed();
+    partial void OnB11Changing(System.Nullable<bool> value);
+    partial void OnB11Changed();
+    partial void OnB12Changing(System.Nullable<bool> value);
+    partial void OnB12Changed();
+    partial void OnB13Changing(System.Nullable<bool> value);
+    partial void OnB13Changed();
+    partial void OnB14Changing(System.Nullable<bool> value);
+    partial void OnB14Changed();
+    partial void OnB15Changing(System.Nullable<bool> value);
+    partial void OnB15Changed();
+    partial void OnC2Changing(System.Nullable<bool> value);
+    partial void OnC2Changed();
+    partial void OnC3Changing(System.Nullable<bool> value);
+    partial void OnC3Changed();
+    partial void OnC4Changing(System.Nullable<bool> value);
+    partial void OnC4Changed();
+    partial void OnC5Changing(System.Nullable<bool> value);
+    partial void OnC5Changed();
+    partial void OnC6Changing(System.Nullable<bool> value);
+    partial void OnC6Changed();
+    partial void OnC7Changing(System.Nullable<bool> value);
+    partial void OnC7Changed();
+    partial void OnC8Changing(System.Nullable<bool> value);
+    partial void OnC8Changed();
+    partial void OnC9Changing(System.Nullable<bool> value);
+    partial void OnC9Changed();
+    partial void OnC10Changing(System.Nullable<bool> value);
+    partial void OnC10Changed();
+    partial void OnC11Changing(System.Nullable<bool> value);
+    partial void OnC11Changed();
+    partial void OnC12Changing(System.Nullable<bool> value);
+    partial void OnC12Changed();
+    partial void OnC13Changing(System.Nullable<bool> value);
+    partial void OnC13Changed();
+    partial void OnC14Changing(System.Nullable<bool> value);
+    partial void OnC14Changed();
+    partial void OnC15Changing(System.Nullable<bool> value);
+    partial void OnC15Changed();
+    partial void OnD2Changing(System.Nullable<bool> value);
+    partial void OnD2Changed();
+    partial void OnD3Changing(System.Nullable<bool> value);
+    partial void OnD3Changed();
+    partial void OnD4Changing(System.Nullable<bool> value);
+    partial void OnD4Changed();
+    partial void OnD5Changing(System.Nullable<bool> value);
+    partial void OnD5Changed();
+    partial void OnD6Changing(System.Nullable<bool> value);
+    partial void OnD6Changed();
+    partial void OnD7Changing(System.Nullable<bool> value);
+    partial void OnD7Changed();
+    partial void OnD8Changing(System.Nullable<bool> value);
+    partial void OnD8Changed();
+    partial void OnD9Changing(System.Nullable<bool> value);
+    partial void OnD9Changed();
+    partial void OnD10Changing(System.Nullable<bool> value);
+    partial void OnD10Changed();
+    partial void OnD11Changing(System.Nullable<bool> value);
+    partial void OnD11Changed();
+    partial void OnD12Changing(System.Nullable<bool> value);
+    partial void OnD12Changed();
+    partial void OnD13Changing(System.Nullable<bool> value);
+    partial void OnD13Changed();
+    partial void OnD14Changing(System.Nullable<bool> value);
+    partial void OnD14Changed();
+    partial void OnD15Changing(System.Nullable<bool> value);
+    partial void OnD15Changed();
+    partial void OnE2Changing(System.Nullable<bool> value);
+    partial void OnE2Changed();
+    partial void OnE3Changing(System.Nullable<bool> value);
+    partial void OnE3Changed();
+    partial void OnE4Changing(System.Nullable<bool> value);
+    partial void OnE4Changed();
+    partial void OnE5Changing(System.Nullable<bool> value);
+    partial void OnE5Changed();
+    partial void OnE6Changing(System.Nullable<bool> value);
+    partial void OnE6Changed();
+    partial void OnE7Changing(System.Nullable<bool> value);
+    partial void OnE7Changed();
+    partial void OnE8Changing(System.Nullable<bool> value);
+    partial void OnE8Changed();
+    partial void OnE9Changing(System.Nullable<bool> value);
+    partial void OnE9Changed();
+    partial void OnE10Changing(System.Nullable<bool> value);
+    partial void OnE10Changed();
+    partial void OnE11Changing(System.Nullable<bool> value);
+    partial void OnE11Changed();
+    partial void OnE12Changing(System.Nullable<bool> value);
+    partial void OnE12Changed();
+    partial void OnE13Changing(System.Nullable<bool> value);
+    partial void OnE13Changed();
+    partial void OnE14Changing(System.Nullable<bool> value);
+    partial void OnE14Changed();
+    partial void OnE15Changing(System.Nullable<bool> value);
+    partial void OnE15Changed();
+    partial void OnF1Changing(System.Nullable<bool> value);
+    partial void OnF1Changed();
+    partial void OnF2Changing(System.Nullable<bool> value);
+    partial void OnF2Changed();
+    partial void OnF3Changing(System.Nullable<bool> value);
+    partial void OnF3Changed();
+    partial void OnF4Changing(System.Nullable<bool> value);
+    partial void OnF4Changed();
+    partial void OnF5Changing(System.Nullable<bool> value);
+    partial void OnF5Changed();
+    partial void OnF6Changing(System.Nullable<bool> value);
+    partial void OnF6Changed();
+    partial void OnF7Changing(System.Nullable<bool> value);
+    partial void OnF7Changed();
+    partial void OnF8Changing(System.Nullable<bool> value);
+    partial void OnF8Changed();
+    partial void OnF9Changing(System.Nullable<bool> value);
+    partial void OnF9Changed();
+    partial void OnF10Changing(System.Nullable<bool> value);
+    partial void OnF10Changed();
+    partial void OnF11Changing(System.Nullable<bool> value);
+    partial void OnF11Changed();
+    partial void OnF12Changing(System.Nullable<bool> value);
+    partial void OnF12Changed();
+    partial void OnF13Changing(System.Nullable<bool> value);
+    partial void OnF13Changed();
+    partial void OnF14Changing(System.Nullable<bool> value);
+    partial void OnF14Changed();
+    partial void OnF15Changing(System.Nullable<bool> value);
+    partial void OnF15Changed();
+    partial void OnF16Changing(System.Nullable<bool> value);
+    partial void OnF16Changed();
     #endregion
 		
-		public LocateMovie()
+		public MiAnLien()
 		{
-			this._Ticket = default(EntityRef<Ticket>);
+			this._Tickets = new EntitySet<Ticket>(new Action<Ticket>(this.attach_Tickets), new Action<Ticket>(this.detach_Tickets));
+			this._Movy = default(EntityRef<Movy>);
+			this._MovieTheater = default(EntityRef<MovieTheater>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TicketID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int TicketID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MalID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MalID
 		{
 			get
 			{
-				return this._TicketID;
+				return this._MalID;
 			}
 			set
 			{
-				if ((this._TicketID != value))
+				if ((this._MalID != value))
 				{
-					this.OnTicketIDChanging(value);
+					this.OnMalIDChanging(value);
 					this.SendPropertyChanging();
-					this._TicketID = value;
-					this.SendPropertyChanged("TicketID");
-					this.OnTicketIDChanged();
+					this._MalID = value;
+					this.SendPropertyChanged("MalID");
+					this.OnMalIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Locate", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Locate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MovieID", DbType="Int NOT NULL")]
+		public int MovieID
 		{
 			get
 			{
-				return this._Locate;
+				return this._MovieID;
 			}
 			set
 			{
-				if ((this._Locate != value))
+				if ((this._MovieID != value))
 				{
-					this.OnLocateChanging(value);
+					if (this._Movy.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMovieIDChanging(value);
 					this.SendPropertyChanging();
-					this._Locate = value;
-					this.SendPropertyChanged("Locate");
-					this.OnLocateChanged();
+					this._MovieID = value;
+					this.SendPropertyChanged("MovieID");
+					this.OnMovieIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LocateMovie_Ticket", Storage="_Ticket", ThisKey="TicketID", OtherKey="TicketID", IsUnique=true, IsForeignKey=false)]
-		public Ticket Ticket
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TheaterID", DbType="Int NOT NULL")]
+		public int TheaterID
 		{
 			get
 			{
-				return this._Ticket.Entity;
+				return this._TheaterID;
 			}
 			set
 			{
-				Ticket previousValue = this._Ticket.Entity;
+				if ((this._TheaterID != value))
+				{
+					if (this._MovieTheater.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTheaterIDChanging(value);
+					this.SendPropertyChanging();
+					this._TheaterID = value;
+					this.SendPropertyChanged("TheaterID");
+					this.OnTheaterIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time", DbType="DateTime NOT NULL")]
+		public System.DateTime Time
+		{
+			get
+			{
+				return this._Time;
+			}
+			set
+			{
+				if ((this._Time != value))
+				{
+					this.OnTimeChanging(value);
+					this.SendPropertyChanging();
+					this._Time = value;
+					this.SendPropertyChanged("Time");
+					this.OnTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A4", DbType="Bit")]
+		public System.Nullable<bool> A4
+		{
+			get
+			{
+				return this._A4;
+			}
+			set
+			{
+				if ((this._A4 != value))
+				{
+					this.OnA4Changing(value);
+					this.SendPropertyChanging();
+					this._A4 = value;
+					this.SendPropertyChanged("A4");
+					this.OnA4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A5", DbType="Bit")]
+		public System.Nullable<bool> A5
+		{
+			get
+			{
+				return this._A5;
+			}
+			set
+			{
+				if ((this._A5 != value))
+				{
+					this.OnA5Changing(value);
+					this.SendPropertyChanging();
+					this._A5 = value;
+					this.SendPropertyChanged("A5");
+					this.OnA5Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A6", DbType="Bit")]
+		public System.Nullable<bool> A6
+		{
+			get
+			{
+				return this._A6;
+			}
+			set
+			{
+				if ((this._A6 != value))
+				{
+					this.OnA6Changing(value);
+					this.SendPropertyChanging();
+					this._A6 = value;
+					this.SendPropertyChanged("A6");
+					this.OnA6Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A7", DbType="Bit")]
+		public System.Nullable<bool> A7
+		{
+			get
+			{
+				return this._A7;
+			}
+			set
+			{
+				if ((this._A7 != value))
+				{
+					this.OnA7Changing(value);
+					this.SendPropertyChanging();
+					this._A7 = value;
+					this.SendPropertyChanged("A7");
+					this.OnA7Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A8", DbType="Bit")]
+		public System.Nullable<bool> A8
+		{
+			get
+			{
+				return this._A8;
+			}
+			set
+			{
+				if ((this._A8 != value))
+				{
+					this.OnA8Changing(value);
+					this.SendPropertyChanging();
+					this._A8 = value;
+					this.SendPropertyChanged("A8");
+					this.OnA8Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A9", DbType="Bit")]
+		public System.Nullable<bool> A9
+		{
+			get
+			{
+				return this._A9;
+			}
+			set
+			{
+				if ((this._A9 != value))
+				{
+					this.OnA9Changing(value);
+					this.SendPropertyChanging();
+					this._A9 = value;
+					this.SendPropertyChanged("A9");
+					this.OnA9Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A10", DbType="Bit")]
+		public System.Nullable<bool> A10
+		{
+			get
+			{
+				return this._A10;
+			}
+			set
+			{
+				if ((this._A10 != value))
+				{
+					this.OnA10Changing(value);
+					this.SendPropertyChanging();
+					this._A10 = value;
+					this.SendPropertyChanged("A10");
+					this.OnA10Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A11", DbType="Bit")]
+		public System.Nullable<bool> A11
+		{
+			get
+			{
+				return this._A11;
+			}
+			set
+			{
+				if ((this._A11 != value))
+				{
+					this.OnA11Changing(value);
+					this.SendPropertyChanging();
+					this._A11 = value;
+					this.SendPropertyChanged("A11");
+					this.OnA11Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A12", DbType="Bit")]
+		public System.Nullable<bool> A12
+		{
+			get
+			{
+				return this._A12;
+			}
+			set
+			{
+				if ((this._A12 != value))
+				{
+					this.OnA12Changing(value);
+					this.SendPropertyChanging();
+					this._A12 = value;
+					this.SendPropertyChanged("A12");
+					this.OnA12Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A13", DbType="Bit")]
+		public System.Nullable<bool> A13
+		{
+			get
+			{
+				return this._A13;
+			}
+			set
+			{
+				if ((this._A13 != value))
+				{
+					this.OnA13Changing(value);
+					this.SendPropertyChanging();
+					this._A13 = value;
+					this.SendPropertyChanged("A13");
+					this.OnA13Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B2", DbType="Bit")]
+		public System.Nullable<bool> B2
+		{
+			get
+			{
+				return this._B2;
+			}
+			set
+			{
+				if ((this._B2 != value))
+				{
+					this.OnB2Changing(value);
+					this.SendPropertyChanging();
+					this._B2 = value;
+					this.SendPropertyChanged("B2");
+					this.OnB2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B3", DbType="Bit")]
+		public System.Nullable<bool> B3
+		{
+			get
+			{
+				return this._B3;
+			}
+			set
+			{
+				if ((this._B3 != value))
+				{
+					this.OnB3Changing(value);
+					this.SendPropertyChanging();
+					this._B3 = value;
+					this.SendPropertyChanged("B3");
+					this.OnB3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B4", DbType="Bit")]
+		public System.Nullable<bool> B4
+		{
+			get
+			{
+				return this._B4;
+			}
+			set
+			{
+				if ((this._B4 != value))
+				{
+					this.OnB4Changing(value);
+					this.SendPropertyChanging();
+					this._B4 = value;
+					this.SendPropertyChanged("B4");
+					this.OnB4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B5", DbType="Bit")]
+		public System.Nullable<bool> B5
+		{
+			get
+			{
+				return this._B5;
+			}
+			set
+			{
+				if ((this._B5 != value))
+				{
+					this.OnB5Changing(value);
+					this.SendPropertyChanging();
+					this._B5 = value;
+					this.SendPropertyChanged("B5");
+					this.OnB5Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B6", DbType="Bit")]
+		public System.Nullable<bool> B6
+		{
+			get
+			{
+				return this._B6;
+			}
+			set
+			{
+				if ((this._B6 != value))
+				{
+					this.OnB6Changing(value);
+					this.SendPropertyChanging();
+					this._B6 = value;
+					this.SendPropertyChanged("B6");
+					this.OnB6Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B7", DbType="Bit")]
+		public System.Nullable<bool> B7
+		{
+			get
+			{
+				return this._B7;
+			}
+			set
+			{
+				if ((this._B7 != value))
+				{
+					this.OnB7Changing(value);
+					this.SendPropertyChanging();
+					this._B7 = value;
+					this.SendPropertyChanged("B7");
+					this.OnB7Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B8", DbType="Bit")]
+		public System.Nullable<bool> B8
+		{
+			get
+			{
+				return this._B8;
+			}
+			set
+			{
+				if ((this._B8 != value))
+				{
+					this.OnB8Changing(value);
+					this.SendPropertyChanging();
+					this._B8 = value;
+					this.SendPropertyChanged("B8");
+					this.OnB8Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B9", DbType="Bit")]
+		public System.Nullable<bool> B9
+		{
+			get
+			{
+				return this._B9;
+			}
+			set
+			{
+				if ((this._B9 != value))
+				{
+					this.OnB9Changing(value);
+					this.SendPropertyChanging();
+					this._B9 = value;
+					this.SendPropertyChanged("B9");
+					this.OnB9Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B10", DbType="Bit")]
+		public System.Nullable<bool> B10
+		{
+			get
+			{
+				return this._B10;
+			}
+			set
+			{
+				if ((this._B10 != value))
+				{
+					this.OnB10Changing(value);
+					this.SendPropertyChanging();
+					this._B10 = value;
+					this.SendPropertyChanged("B10");
+					this.OnB10Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B11", DbType="Bit")]
+		public System.Nullable<bool> B11
+		{
+			get
+			{
+				return this._B11;
+			}
+			set
+			{
+				if ((this._B11 != value))
+				{
+					this.OnB11Changing(value);
+					this.SendPropertyChanging();
+					this._B11 = value;
+					this.SendPropertyChanged("B11");
+					this.OnB11Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B12", DbType="Bit")]
+		public System.Nullable<bool> B12
+		{
+			get
+			{
+				return this._B12;
+			}
+			set
+			{
+				if ((this._B12 != value))
+				{
+					this.OnB12Changing(value);
+					this.SendPropertyChanging();
+					this._B12 = value;
+					this.SendPropertyChanged("B12");
+					this.OnB12Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B13", DbType="Bit")]
+		public System.Nullable<bool> B13
+		{
+			get
+			{
+				return this._B13;
+			}
+			set
+			{
+				if ((this._B13 != value))
+				{
+					this.OnB13Changing(value);
+					this.SendPropertyChanging();
+					this._B13 = value;
+					this.SendPropertyChanged("B13");
+					this.OnB13Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B14", DbType="Bit")]
+		public System.Nullable<bool> B14
+		{
+			get
+			{
+				return this._B14;
+			}
+			set
+			{
+				if ((this._B14 != value))
+				{
+					this.OnB14Changing(value);
+					this.SendPropertyChanging();
+					this._B14 = value;
+					this.SendPropertyChanged("B14");
+					this.OnB14Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B15", DbType="Bit")]
+		public System.Nullable<bool> B15
+		{
+			get
+			{
+				return this._B15;
+			}
+			set
+			{
+				if ((this._B15 != value))
+				{
+					this.OnB15Changing(value);
+					this.SendPropertyChanging();
+					this._B15 = value;
+					this.SendPropertyChanged("B15");
+					this.OnB15Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C2", DbType="Bit")]
+		public System.Nullable<bool> C2
+		{
+			get
+			{
+				return this._C2;
+			}
+			set
+			{
+				if ((this._C2 != value))
+				{
+					this.OnC2Changing(value);
+					this.SendPropertyChanging();
+					this._C2 = value;
+					this.SendPropertyChanged("C2");
+					this.OnC2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C3", DbType="Bit")]
+		public System.Nullable<bool> C3
+		{
+			get
+			{
+				return this._C3;
+			}
+			set
+			{
+				if ((this._C3 != value))
+				{
+					this.OnC3Changing(value);
+					this.SendPropertyChanging();
+					this._C3 = value;
+					this.SendPropertyChanged("C3");
+					this.OnC3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C4", DbType="Bit")]
+		public System.Nullable<bool> C4
+		{
+			get
+			{
+				return this._C4;
+			}
+			set
+			{
+				if ((this._C4 != value))
+				{
+					this.OnC4Changing(value);
+					this.SendPropertyChanging();
+					this._C4 = value;
+					this.SendPropertyChanged("C4");
+					this.OnC4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C5", DbType="Bit")]
+		public System.Nullable<bool> C5
+		{
+			get
+			{
+				return this._C5;
+			}
+			set
+			{
+				if ((this._C5 != value))
+				{
+					this.OnC5Changing(value);
+					this.SendPropertyChanging();
+					this._C5 = value;
+					this.SendPropertyChanged("C5");
+					this.OnC5Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C6", DbType="Bit")]
+		public System.Nullable<bool> C6
+		{
+			get
+			{
+				return this._C6;
+			}
+			set
+			{
+				if ((this._C6 != value))
+				{
+					this.OnC6Changing(value);
+					this.SendPropertyChanging();
+					this._C6 = value;
+					this.SendPropertyChanged("C6");
+					this.OnC6Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C7", DbType="Bit")]
+		public System.Nullable<bool> C7
+		{
+			get
+			{
+				return this._C7;
+			}
+			set
+			{
+				if ((this._C7 != value))
+				{
+					this.OnC7Changing(value);
+					this.SendPropertyChanging();
+					this._C7 = value;
+					this.SendPropertyChanged("C7");
+					this.OnC7Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C8", DbType="Bit")]
+		public System.Nullable<bool> C8
+		{
+			get
+			{
+				return this._C8;
+			}
+			set
+			{
+				if ((this._C8 != value))
+				{
+					this.OnC8Changing(value);
+					this.SendPropertyChanging();
+					this._C8 = value;
+					this.SendPropertyChanged("C8");
+					this.OnC8Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C9", DbType="Bit")]
+		public System.Nullable<bool> C9
+		{
+			get
+			{
+				return this._C9;
+			}
+			set
+			{
+				if ((this._C9 != value))
+				{
+					this.OnC9Changing(value);
+					this.SendPropertyChanging();
+					this._C9 = value;
+					this.SendPropertyChanged("C9");
+					this.OnC9Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C10", DbType="Bit")]
+		public System.Nullable<bool> C10
+		{
+			get
+			{
+				return this._C10;
+			}
+			set
+			{
+				if ((this._C10 != value))
+				{
+					this.OnC10Changing(value);
+					this.SendPropertyChanging();
+					this._C10 = value;
+					this.SendPropertyChanged("C10");
+					this.OnC10Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C11", DbType="Bit")]
+		public System.Nullable<bool> C11
+		{
+			get
+			{
+				return this._C11;
+			}
+			set
+			{
+				if ((this._C11 != value))
+				{
+					this.OnC11Changing(value);
+					this.SendPropertyChanging();
+					this._C11 = value;
+					this.SendPropertyChanged("C11");
+					this.OnC11Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C12", DbType="Bit")]
+		public System.Nullable<bool> C12
+		{
+			get
+			{
+				return this._C12;
+			}
+			set
+			{
+				if ((this._C12 != value))
+				{
+					this.OnC12Changing(value);
+					this.SendPropertyChanging();
+					this._C12 = value;
+					this.SendPropertyChanged("C12");
+					this.OnC12Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C13", DbType="Bit")]
+		public System.Nullable<bool> C13
+		{
+			get
+			{
+				return this._C13;
+			}
+			set
+			{
+				if ((this._C13 != value))
+				{
+					this.OnC13Changing(value);
+					this.SendPropertyChanging();
+					this._C13 = value;
+					this.SendPropertyChanged("C13");
+					this.OnC13Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C14", DbType="Bit")]
+		public System.Nullable<bool> C14
+		{
+			get
+			{
+				return this._C14;
+			}
+			set
+			{
+				if ((this._C14 != value))
+				{
+					this.OnC14Changing(value);
+					this.SendPropertyChanging();
+					this._C14 = value;
+					this.SendPropertyChanged("C14");
+					this.OnC14Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C15", DbType="Bit")]
+		public System.Nullable<bool> C15
+		{
+			get
+			{
+				return this._C15;
+			}
+			set
+			{
+				if ((this._C15 != value))
+				{
+					this.OnC15Changing(value);
+					this.SendPropertyChanging();
+					this._C15 = value;
+					this.SendPropertyChanged("C15");
+					this.OnC15Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D2", DbType="Bit")]
+		public System.Nullable<bool> D2
+		{
+			get
+			{
+				return this._D2;
+			}
+			set
+			{
+				if ((this._D2 != value))
+				{
+					this.OnD2Changing(value);
+					this.SendPropertyChanging();
+					this._D2 = value;
+					this.SendPropertyChanged("D2");
+					this.OnD2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D3", DbType="Bit")]
+		public System.Nullable<bool> D3
+		{
+			get
+			{
+				return this._D3;
+			}
+			set
+			{
+				if ((this._D3 != value))
+				{
+					this.OnD3Changing(value);
+					this.SendPropertyChanging();
+					this._D3 = value;
+					this.SendPropertyChanged("D3");
+					this.OnD3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D4", DbType="Bit")]
+		public System.Nullable<bool> D4
+		{
+			get
+			{
+				return this._D4;
+			}
+			set
+			{
+				if ((this._D4 != value))
+				{
+					this.OnD4Changing(value);
+					this.SendPropertyChanging();
+					this._D4 = value;
+					this.SendPropertyChanged("D4");
+					this.OnD4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D5", DbType="Bit")]
+		public System.Nullable<bool> D5
+		{
+			get
+			{
+				return this._D5;
+			}
+			set
+			{
+				if ((this._D5 != value))
+				{
+					this.OnD5Changing(value);
+					this.SendPropertyChanging();
+					this._D5 = value;
+					this.SendPropertyChanged("D5");
+					this.OnD5Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D6", DbType="Bit")]
+		public System.Nullable<bool> D6
+		{
+			get
+			{
+				return this._D6;
+			}
+			set
+			{
+				if ((this._D6 != value))
+				{
+					this.OnD6Changing(value);
+					this.SendPropertyChanging();
+					this._D6 = value;
+					this.SendPropertyChanged("D6");
+					this.OnD6Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D7", DbType="Bit")]
+		public System.Nullable<bool> D7
+		{
+			get
+			{
+				return this._D7;
+			}
+			set
+			{
+				if ((this._D7 != value))
+				{
+					this.OnD7Changing(value);
+					this.SendPropertyChanging();
+					this._D7 = value;
+					this.SendPropertyChanged("D7");
+					this.OnD7Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D8", DbType="Bit")]
+		public System.Nullable<bool> D8
+		{
+			get
+			{
+				return this._D8;
+			}
+			set
+			{
+				if ((this._D8 != value))
+				{
+					this.OnD8Changing(value);
+					this.SendPropertyChanging();
+					this._D8 = value;
+					this.SendPropertyChanged("D8");
+					this.OnD8Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D9", DbType="Bit")]
+		public System.Nullable<bool> D9
+		{
+			get
+			{
+				return this._D9;
+			}
+			set
+			{
+				if ((this._D9 != value))
+				{
+					this.OnD9Changing(value);
+					this.SendPropertyChanging();
+					this._D9 = value;
+					this.SendPropertyChanged("D9");
+					this.OnD9Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D10", DbType="Bit")]
+		public System.Nullable<bool> D10
+		{
+			get
+			{
+				return this._D10;
+			}
+			set
+			{
+				if ((this._D10 != value))
+				{
+					this.OnD10Changing(value);
+					this.SendPropertyChanging();
+					this._D10 = value;
+					this.SendPropertyChanged("D10");
+					this.OnD10Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D11", DbType="Bit")]
+		public System.Nullable<bool> D11
+		{
+			get
+			{
+				return this._D11;
+			}
+			set
+			{
+				if ((this._D11 != value))
+				{
+					this.OnD11Changing(value);
+					this.SendPropertyChanging();
+					this._D11 = value;
+					this.SendPropertyChanged("D11");
+					this.OnD11Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D12", DbType="Bit")]
+		public System.Nullable<bool> D12
+		{
+			get
+			{
+				return this._D12;
+			}
+			set
+			{
+				if ((this._D12 != value))
+				{
+					this.OnD12Changing(value);
+					this.SendPropertyChanging();
+					this._D12 = value;
+					this.SendPropertyChanged("D12");
+					this.OnD12Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D13", DbType="Bit")]
+		public System.Nullable<bool> D13
+		{
+			get
+			{
+				return this._D13;
+			}
+			set
+			{
+				if ((this._D13 != value))
+				{
+					this.OnD13Changing(value);
+					this.SendPropertyChanging();
+					this._D13 = value;
+					this.SendPropertyChanged("D13");
+					this.OnD13Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D14", DbType="Bit")]
+		public System.Nullable<bool> D14
+		{
+			get
+			{
+				return this._D14;
+			}
+			set
+			{
+				if ((this._D14 != value))
+				{
+					this.OnD14Changing(value);
+					this.SendPropertyChanging();
+					this._D14 = value;
+					this.SendPropertyChanged("D14");
+					this.OnD14Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D15", DbType="Bit")]
+		public System.Nullable<bool> D15
+		{
+			get
+			{
+				return this._D15;
+			}
+			set
+			{
+				if ((this._D15 != value))
+				{
+					this.OnD15Changing(value);
+					this.SendPropertyChanging();
+					this._D15 = value;
+					this.SendPropertyChanged("D15");
+					this.OnD15Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E2", DbType="Bit")]
+		public System.Nullable<bool> E2
+		{
+			get
+			{
+				return this._E2;
+			}
+			set
+			{
+				if ((this._E2 != value))
+				{
+					this.OnE2Changing(value);
+					this.SendPropertyChanging();
+					this._E2 = value;
+					this.SendPropertyChanged("E2");
+					this.OnE2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E3", DbType="Bit")]
+		public System.Nullable<bool> E3
+		{
+			get
+			{
+				return this._E3;
+			}
+			set
+			{
+				if ((this._E3 != value))
+				{
+					this.OnE3Changing(value);
+					this.SendPropertyChanging();
+					this._E3 = value;
+					this.SendPropertyChanged("E3");
+					this.OnE3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E4", DbType="Bit")]
+		public System.Nullable<bool> E4
+		{
+			get
+			{
+				return this._E4;
+			}
+			set
+			{
+				if ((this._E4 != value))
+				{
+					this.OnE4Changing(value);
+					this.SendPropertyChanging();
+					this._E4 = value;
+					this.SendPropertyChanged("E4");
+					this.OnE4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E5", DbType="Bit")]
+		public System.Nullable<bool> E5
+		{
+			get
+			{
+				return this._E5;
+			}
+			set
+			{
+				if ((this._E5 != value))
+				{
+					this.OnE5Changing(value);
+					this.SendPropertyChanging();
+					this._E5 = value;
+					this.SendPropertyChanged("E5");
+					this.OnE5Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E6", DbType="Bit")]
+		public System.Nullable<bool> E6
+		{
+			get
+			{
+				return this._E6;
+			}
+			set
+			{
+				if ((this._E6 != value))
+				{
+					this.OnE6Changing(value);
+					this.SendPropertyChanging();
+					this._E6 = value;
+					this.SendPropertyChanged("E6");
+					this.OnE6Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E7", DbType="Bit")]
+		public System.Nullable<bool> E7
+		{
+			get
+			{
+				return this._E7;
+			}
+			set
+			{
+				if ((this._E7 != value))
+				{
+					this.OnE7Changing(value);
+					this.SendPropertyChanging();
+					this._E7 = value;
+					this.SendPropertyChanged("E7");
+					this.OnE7Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E8", DbType="Bit")]
+		public System.Nullable<bool> E8
+		{
+			get
+			{
+				return this._E8;
+			}
+			set
+			{
+				if ((this._E8 != value))
+				{
+					this.OnE8Changing(value);
+					this.SendPropertyChanging();
+					this._E8 = value;
+					this.SendPropertyChanged("E8");
+					this.OnE8Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E9", DbType="Bit")]
+		public System.Nullable<bool> E9
+		{
+			get
+			{
+				return this._E9;
+			}
+			set
+			{
+				if ((this._E9 != value))
+				{
+					this.OnE9Changing(value);
+					this.SendPropertyChanging();
+					this._E9 = value;
+					this.SendPropertyChanged("E9");
+					this.OnE9Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E10", DbType="Bit")]
+		public System.Nullable<bool> E10
+		{
+			get
+			{
+				return this._E10;
+			}
+			set
+			{
+				if ((this._E10 != value))
+				{
+					this.OnE10Changing(value);
+					this.SendPropertyChanging();
+					this._E10 = value;
+					this.SendPropertyChanged("E10");
+					this.OnE10Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E11", DbType="Bit")]
+		public System.Nullable<bool> E11
+		{
+			get
+			{
+				return this._E11;
+			}
+			set
+			{
+				if ((this._E11 != value))
+				{
+					this.OnE11Changing(value);
+					this.SendPropertyChanging();
+					this._E11 = value;
+					this.SendPropertyChanged("E11");
+					this.OnE11Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E12", DbType="Bit")]
+		public System.Nullable<bool> E12
+		{
+			get
+			{
+				return this._E12;
+			}
+			set
+			{
+				if ((this._E12 != value))
+				{
+					this.OnE12Changing(value);
+					this.SendPropertyChanging();
+					this._E12 = value;
+					this.SendPropertyChanged("E12");
+					this.OnE12Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E13", DbType="Bit")]
+		public System.Nullable<bool> E13
+		{
+			get
+			{
+				return this._E13;
+			}
+			set
+			{
+				if ((this._E13 != value))
+				{
+					this.OnE13Changing(value);
+					this.SendPropertyChanging();
+					this._E13 = value;
+					this.SendPropertyChanged("E13");
+					this.OnE13Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E14", DbType="Bit")]
+		public System.Nullable<bool> E14
+		{
+			get
+			{
+				return this._E14;
+			}
+			set
+			{
+				if ((this._E14 != value))
+				{
+					this.OnE14Changing(value);
+					this.SendPropertyChanging();
+					this._E14 = value;
+					this.SendPropertyChanged("E14");
+					this.OnE14Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E15", DbType="Bit")]
+		public System.Nullable<bool> E15
+		{
+			get
+			{
+				return this._E15;
+			}
+			set
+			{
+				if ((this._E15 != value))
+				{
+					this.OnE15Changing(value);
+					this.SendPropertyChanging();
+					this._E15 = value;
+					this.SendPropertyChanged("E15");
+					this.OnE15Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F1", DbType="Bit")]
+		public System.Nullable<bool> F1
+		{
+			get
+			{
+				return this._F1;
+			}
+			set
+			{
+				if ((this._F1 != value))
+				{
+					this.OnF1Changing(value);
+					this.SendPropertyChanging();
+					this._F1 = value;
+					this.SendPropertyChanged("F1");
+					this.OnF1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F2", DbType="Bit")]
+		public System.Nullable<bool> F2
+		{
+			get
+			{
+				return this._F2;
+			}
+			set
+			{
+				if ((this._F2 != value))
+				{
+					this.OnF2Changing(value);
+					this.SendPropertyChanging();
+					this._F2 = value;
+					this.SendPropertyChanged("F2");
+					this.OnF2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F3", DbType="Bit")]
+		public System.Nullable<bool> F3
+		{
+			get
+			{
+				return this._F3;
+			}
+			set
+			{
+				if ((this._F3 != value))
+				{
+					this.OnF3Changing(value);
+					this.SendPropertyChanging();
+					this._F3 = value;
+					this.SendPropertyChanged("F3");
+					this.OnF3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F4", DbType="Bit")]
+		public System.Nullable<bool> F4
+		{
+			get
+			{
+				return this._F4;
+			}
+			set
+			{
+				if ((this._F4 != value))
+				{
+					this.OnF4Changing(value);
+					this.SendPropertyChanging();
+					this._F4 = value;
+					this.SendPropertyChanged("F4");
+					this.OnF4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F5", DbType="Bit")]
+		public System.Nullable<bool> F5
+		{
+			get
+			{
+				return this._F5;
+			}
+			set
+			{
+				if ((this._F5 != value))
+				{
+					this.OnF5Changing(value);
+					this.SendPropertyChanging();
+					this._F5 = value;
+					this.SendPropertyChanged("F5");
+					this.OnF5Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F6", DbType="Bit")]
+		public System.Nullable<bool> F6
+		{
+			get
+			{
+				return this._F6;
+			}
+			set
+			{
+				if ((this._F6 != value))
+				{
+					this.OnF6Changing(value);
+					this.SendPropertyChanging();
+					this._F6 = value;
+					this.SendPropertyChanged("F6");
+					this.OnF6Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F7", DbType="Bit")]
+		public System.Nullable<bool> F7
+		{
+			get
+			{
+				return this._F7;
+			}
+			set
+			{
+				if ((this._F7 != value))
+				{
+					this.OnF7Changing(value);
+					this.SendPropertyChanging();
+					this._F7 = value;
+					this.SendPropertyChanged("F7");
+					this.OnF7Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F8", DbType="Bit")]
+		public System.Nullable<bool> F8
+		{
+			get
+			{
+				return this._F8;
+			}
+			set
+			{
+				if ((this._F8 != value))
+				{
+					this.OnF8Changing(value);
+					this.SendPropertyChanging();
+					this._F8 = value;
+					this.SendPropertyChanged("F8");
+					this.OnF8Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F9", DbType="Bit")]
+		public System.Nullable<bool> F9
+		{
+			get
+			{
+				return this._F9;
+			}
+			set
+			{
+				if ((this._F9 != value))
+				{
+					this.OnF9Changing(value);
+					this.SendPropertyChanging();
+					this._F9 = value;
+					this.SendPropertyChanged("F9");
+					this.OnF9Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F10", DbType="Bit")]
+		public System.Nullable<bool> F10
+		{
+			get
+			{
+				return this._F10;
+			}
+			set
+			{
+				if ((this._F10 != value))
+				{
+					this.OnF10Changing(value);
+					this.SendPropertyChanging();
+					this._F10 = value;
+					this.SendPropertyChanged("F10");
+					this.OnF10Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F11", DbType="Bit")]
+		public System.Nullable<bool> F11
+		{
+			get
+			{
+				return this._F11;
+			}
+			set
+			{
+				if ((this._F11 != value))
+				{
+					this.OnF11Changing(value);
+					this.SendPropertyChanging();
+					this._F11 = value;
+					this.SendPropertyChanged("F11");
+					this.OnF11Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F12", DbType="Bit")]
+		public System.Nullable<bool> F12
+		{
+			get
+			{
+				return this._F12;
+			}
+			set
+			{
+				if ((this._F12 != value))
+				{
+					this.OnF12Changing(value);
+					this.SendPropertyChanging();
+					this._F12 = value;
+					this.SendPropertyChanged("F12");
+					this.OnF12Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F13", DbType="Bit")]
+		public System.Nullable<bool> F13
+		{
+			get
+			{
+				return this._F13;
+			}
+			set
+			{
+				if ((this._F13 != value))
+				{
+					this.OnF13Changing(value);
+					this.SendPropertyChanging();
+					this._F13 = value;
+					this.SendPropertyChanged("F13");
+					this.OnF13Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F14", DbType="Bit")]
+		public System.Nullable<bool> F14
+		{
+			get
+			{
+				return this._F14;
+			}
+			set
+			{
+				if ((this._F14 != value))
+				{
+					this.OnF14Changing(value);
+					this.SendPropertyChanging();
+					this._F14 = value;
+					this.SendPropertyChanged("F14");
+					this.OnF14Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F15", DbType="Bit")]
+		public System.Nullable<bool> F15
+		{
+			get
+			{
+				return this._F15;
+			}
+			set
+			{
+				if ((this._F15 != value))
+				{
+					this.OnF15Changing(value);
+					this.SendPropertyChanging();
+					this._F15 = value;
+					this.SendPropertyChanged("F15");
+					this.OnF15Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F16", DbType="Bit")]
+		public System.Nullable<bool> F16
+		{
+			get
+			{
+				return this._F16;
+			}
+			set
+			{
+				if ((this._F16 != value))
+				{
+					this.OnF16Changing(value);
+					this.SendPropertyChanging();
+					this._F16 = value;
+					this.SendPropertyChanged("F16");
+					this.OnF16Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MiAnLien_Ticket", Storage="_Tickets", ThisKey="MalID", OtherKey="MalID")]
+		public EntitySet<Ticket> Tickets
+		{
+			get
+			{
+				return this._Tickets;
+			}
+			set
+			{
+				this._Tickets.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Movy_MiAnLien", Storage="_Movy", ThisKey="MovieID", OtherKey="MovieID", IsForeignKey=true)]
+		public Movy Movy
+		{
+			get
+			{
+				return this._Movy.Entity;
+			}
+			set
+			{
+				Movy previousValue = this._Movy.Entity;
 				if (((previousValue != value) 
-							|| (this._Ticket.HasLoadedOrAssignedValue == false)))
+							|| (this._Movy.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Ticket.Entity = null;
-						previousValue.LocateMovie = null;
+						this._Movy.Entity = null;
+						previousValue.MiAnLiens.Remove(this);
 					}
-					this._Ticket.Entity = value;
+					this._Movy.Entity = value;
 					if ((value != null))
 					{
-						value.LocateMovie = this;
+						value.MiAnLiens.Add(this);
+						this._MovieID = value.MovieID;
 					}
-					this.SendPropertyChanged("Ticket");
+					else
+					{
+						this._MovieID = default(int);
+					}
+					this.SendPropertyChanged("Movy");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MovieTheater_MiAnLien", Storage="_MovieTheater", ThisKey="TheaterID", OtherKey="TheaterID", IsForeignKey=true)]
+		public MovieTheater MovieTheater
+		{
+			get
+			{
+				return this._MovieTheater.Entity;
+			}
+			set
+			{
+				MovieTheater previousValue = this._MovieTheater.Entity;
+				if (((previousValue != value) 
+							|| (this._MovieTheater.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._MovieTheater.Entity = null;
+						previousValue.MiAnLiens.Remove(this);
+					}
+					this._MovieTheater.Entity = value;
+					if ((value != null))
+					{
+						value.MiAnLiens.Add(this);
+						this._TheaterID = value.TheaterID;
+					}
+					else
+					{
+						this._TheaterID = default(int);
+					}
+					this.SendPropertyChanged("MovieTheater");
 				}
 			}
 		}
@@ -1763,6 +3447,18 @@ namespace TomocaMoviesWebsite.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Tickets(Ticket entity)
+		{
+			this.SendPropertyChanging();
+			entity.MiAnLien = this;
+		}
+		
+		private void detach_Tickets(Ticket entity)
+		{
+			this.SendPropertyChanging();
+			entity.MiAnLien = null;
 		}
 	}
 	
@@ -2130,9 +3826,11 @@ namespace TomocaMoviesWebsite.Models
 		
 		private string _Banner;
 		
-		private System.Nullable<bool> _UpComming;
+		private System.Nullable<bool> _ComingSoon;
 		
 		private EntitySet<Comment> _Comments;
+		
+		private EntitySet<MiAnLien> _MiAnLiens;
 		
 		private EntitySet<MovieActor> _MovieActors;
 		
@@ -2140,13 +3838,7 @@ namespace TomocaMoviesWebsite.Models
 		
 		private EntitySet<MoviesGenre> _MoviesGenres;
 		
-		private EntitySet<MoviesVote> _MoviesVotes;
-		
 		private EntitySet<ReviewOfMovie> _ReviewOfMovies;
-		
-		private EntitySet<ShowTimeMovie> _ShowTimeMovies;
-		
-		private EntitySet<Ticket> _Tickets;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2174,20 +3866,18 @@ namespace TomocaMoviesWebsite.Models
     partial void OnTimeOfFilmChanged();
     partial void OnBannerChanging(string value);
     partial void OnBannerChanged();
-    partial void OnUpCommingChanging(System.Nullable<bool> value);
-    partial void OnUpCommingChanged();
+    partial void OnComingSoonChanging(System.Nullable<bool> value);
+    partial void OnComingSoonChanged();
     #endregion
 		
 		public Movy()
 		{
 			this._Comments = new EntitySet<Comment>(new Action<Comment>(this.attach_Comments), new Action<Comment>(this.detach_Comments));
+			this._MiAnLiens = new EntitySet<MiAnLien>(new Action<MiAnLien>(this.attach_MiAnLiens), new Action<MiAnLien>(this.detach_MiAnLiens));
 			this._MovieActors = new EntitySet<MovieActor>(new Action<MovieActor>(this.attach_MovieActors), new Action<MovieActor>(this.detach_MovieActors));
 			this._MovieDirectors = new EntitySet<MovieDirector>(new Action<MovieDirector>(this.attach_MovieDirectors), new Action<MovieDirector>(this.detach_MovieDirectors));
 			this._MoviesGenres = new EntitySet<MoviesGenre>(new Action<MoviesGenre>(this.attach_MoviesGenres), new Action<MoviesGenre>(this.detach_MoviesGenres));
-			this._MoviesVotes = new EntitySet<MoviesVote>(new Action<MoviesVote>(this.attach_MoviesVotes), new Action<MoviesVote>(this.detach_MoviesVotes));
 			this._ReviewOfMovies = new EntitySet<ReviewOfMovie>(new Action<ReviewOfMovie>(this.attach_ReviewOfMovies), new Action<ReviewOfMovie>(this.detach_ReviewOfMovies));
-			this._ShowTimeMovies = new EntitySet<ShowTimeMovie>(new Action<ShowTimeMovie>(this.attach_ShowTimeMovies), new Action<ShowTimeMovie>(this.detach_ShowTimeMovies));
-			this._Tickets = new EntitySet<Ticket>(new Action<Ticket>(this.attach_Tickets), new Action<Ticket>(this.detach_Tickets));
 			OnCreated();
 		}
 		
@@ -2411,22 +4101,22 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpComming", DbType="Bit")]
-		public System.Nullable<bool> UpComming
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ComingSoon", DbType="Bit")]
+		public System.Nullable<bool> ComingSoon
 		{
 			get
 			{
-				return this._UpComming;
+				return this._ComingSoon;
 			}
 			set
 			{
-				if ((this._UpComming != value))
+				if ((this._ComingSoon != value))
 				{
-					this.OnUpCommingChanging(value);
+					this.OnComingSoonChanging(value);
 					this.SendPropertyChanging();
-					this._UpComming = value;
-					this.SendPropertyChanged("UpComming");
-					this.OnUpCommingChanged();
+					this._ComingSoon = value;
+					this.SendPropertyChanged("ComingSoon");
+					this.OnComingSoonChanged();
 				}
 			}
 		}
@@ -2441,6 +4131,19 @@ namespace TomocaMoviesWebsite.Models
 			set
 			{
 				this._Comments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Movy_MiAnLien", Storage="_MiAnLiens", ThisKey="MovieID", OtherKey="MovieID")]
+		public EntitySet<MiAnLien> MiAnLiens
+		{
+			get
+			{
+				return this._MiAnLiens;
+			}
+			set
+			{
+				this._MiAnLiens.Assign(value);
 			}
 		}
 		
@@ -2483,19 +4186,6 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Movy_MoviesVote", Storage="_MoviesVotes", ThisKey="MovieID", OtherKey="MovieID")]
-		public EntitySet<MoviesVote> MoviesVotes
-		{
-			get
-			{
-				return this._MoviesVotes;
-			}
-			set
-			{
-				this._MoviesVotes.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Movy_ReviewOfMovie", Storage="_ReviewOfMovies", ThisKey="MovieID", OtherKey="MovieID")]
 		public EntitySet<ReviewOfMovie> ReviewOfMovies
 		{
@@ -2506,32 +4196,6 @@ namespace TomocaMoviesWebsite.Models
 			set
 			{
 				this._ReviewOfMovies.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Movy_ShowTimeMovie", Storage="_ShowTimeMovies", ThisKey="MovieID", OtherKey="MovieID")]
-		public EntitySet<ShowTimeMovie> ShowTimeMovies
-		{
-			get
-			{
-				return this._ShowTimeMovies;
-			}
-			set
-			{
-				this._ShowTimeMovies.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Movy_Ticket", Storage="_Tickets", ThisKey="MovieID", OtherKey="MovieID")]
-		public EntitySet<Ticket> Tickets
-		{
-			get
-			{
-				return this._Tickets;
-			}
-			set
-			{
-				this._Tickets.Assign(value);
 			}
 		}
 		
@@ -2562,6 +4226,18 @@ namespace TomocaMoviesWebsite.Models
 		}
 		
 		private void detach_Comments(Comment entity)
+		{
+			this.SendPropertyChanging();
+			entity.Movy = null;
+		}
+		
+		private void attach_MiAnLiens(MiAnLien entity)
+		{
+			this.SendPropertyChanging();
+			entity.Movy = this;
+		}
+		
+		private void detach_MiAnLiens(MiAnLien entity)
 		{
 			this.SendPropertyChanging();
 			entity.Movy = null;
@@ -2603,18 +4279,6 @@ namespace TomocaMoviesWebsite.Models
 			entity.Movy = null;
 		}
 		
-		private void attach_MoviesVotes(MoviesVote entity)
-		{
-			this.SendPropertyChanging();
-			entity.Movy = this;
-		}
-		
-		private void detach_MoviesVotes(MoviesVote entity)
-		{
-			this.SendPropertyChanging();
-			entity.Movy = null;
-		}
-		
 		private void attach_ReviewOfMovies(ReviewOfMovie entity)
 		{
 			this.SendPropertyChanging();
@@ -2622,30 +4286,6 @@ namespace TomocaMoviesWebsite.Models
 		}
 		
 		private void detach_ReviewOfMovies(ReviewOfMovie entity)
-		{
-			this.SendPropertyChanging();
-			entity.Movy = null;
-		}
-		
-		private void attach_ShowTimeMovies(ShowTimeMovie entity)
-		{
-			this.SendPropertyChanging();
-			entity.Movy = this;
-		}
-		
-		private void detach_ShowTimeMovies(ShowTimeMovie entity)
-		{
-			this.SendPropertyChanging();
-			entity.Movy = null;
-		}
-		
-		private void attach_Tickets(Ticket entity)
-		{
-			this.SendPropertyChanging();
-			entity.Movy = this;
-		}
-		
-		private void detach_Tickets(Ticket entity)
 		{
 			this.SendPropertyChanging();
 			entity.Movy = null;
@@ -2820,198 +4460,6 @@ namespace TomocaMoviesWebsite.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MoviesVote")]
-	public partial class MoviesVote : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _UserID;
-		
-		private int _MovieID;
-		
-		private bool _Action;
-		
-		private EntityRef<Movy> _Movy;
-		
-		private EntityRef<User> _User;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUserIDChanging(int value);
-    partial void OnUserIDChanged();
-    partial void OnMovieIDChanging(int value);
-    partial void OnMovieIDChanged();
-    partial void OnActionChanging(bool value);
-    partial void OnActionChanged();
-    #endregion
-		
-		public MoviesVote()
-		{
-			this._Movy = default(EntityRef<Movy>);
-			this._User = default(EntityRef<User>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int UserID
-		{
-			get
-			{
-				return this._UserID;
-			}
-			set
-			{
-				if ((this._UserID != value))
-				{
-					if (this._User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUserIDChanging(value);
-					this.SendPropertyChanging();
-					this._UserID = value;
-					this.SendPropertyChanged("UserID");
-					this.OnUserIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MovieID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MovieID
-		{
-			get
-			{
-				return this._MovieID;
-			}
-			set
-			{
-				if ((this._MovieID != value))
-				{
-					if (this._Movy.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMovieIDChanging(value);
-					this.SendPropertyChanging();
-					this._MovieID = value;
-					this.SendPropertyChanged("MovieID");
-					this.OnMovieIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Action", DbType="Bit NOT NULL")]
-		public bool Action
-		{
-			get
-			{
-				return this._Action;
-			}
-			set
-			{
-				if ((this._Action != value))
-				{
-					this.OnActionChanging(value);
-					this.SendPropertyChanging();
-					this._Action = value;
-					this.SendPropertyChanged("Action");
-					this.OnActionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Movy_MoviesVote", Storage="_Movy", ThisKey="MovieID", OtherKey="MovieID", IsForeignKey=true)]
-		public Movy Movy
-		{
-			get
-			{
-				return this._Movy.Entity;
-			}
-			set
-			{
-				Movy previousValue = this._Movy.Entity;
-				if (((previousValue != value) 
-							|| (this._Movy.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Movy.Entity = null;
-						previousValue.MoviesVotes.Remove(this);
-					}
-					this._Movy.Entity = value;
-					if ((value != null))
-					{
-						value.MoviesVotes.Add(this);
-						this._MovieID = value.MovieID;
-					}
-					else
-					{
-						this._MovieID = default(int);
-					}
-					this.SendPropertyChanged("Movy");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_MoviesVote", Storage="_User", ThisKey="UserID", OtherKey="UserID", IsForeignKey=true)]
-		public User User
-		{
-			get
-			{
-				return this._User.Entity;
-			}
-			set
-			{
-				User previousValue = this._User.Entity;
-				if (((previousValue != value) 
-							|| (this._User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._User.Entity = null;
-						previousValue.MoviesVotes.Remove(this);
-					}
-					this._User.Entity = value;
-					if ((value != null))
-					{
-						value.MoviesVotes.Add(this);
-						this._UserID = value.UserID;
-					}
-					else
-					{
-						this._UserID = default(int);
-					}
-					this.SendPropertyChanged("User");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MovieTheater")]
 	public partial class MovieTheater : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3024,13 +4472,11 @@ namespace TomocaMoviesWebsite.Models
 		
 		private int _CityID;
 		
-		private System.Nullable<int> _Type;
+		private System.Nullable<int> _TypeID;
 		
 		private string _Address;
 		
-		private EntitySet<ShowTimeMovie> _ShowTimeMovies;
-		
-		private EntitySet<Ticket> _Tickets;
+		private EntitySet<MiAnLien> _MiAnLiens;
 		
 		private EntityRef<City> _City;
 		
@@ -3046,16 +4492,15 @@ namespace TomocaMoviesWebsite.Models
     partial void OnTheaterNameChanged();
     partial void OnCityIDChanging(int value);
     partial void OnCityIDChanged();
-    partial void OnTypeChanging(System.Nullable<int> value);
-    partial void OnTypeChanged();
+    partial void OnTypeIDChanging(System.Nullable<int> value);
+    partial void OnTypeIDChanged();
     partial void OnAddressChanging(string value);
     partial void OnAddressChanged();
     #endregion
 		
 		public MovieTheater()
 		{
-			this._ShowTimeMovies = new EntitySet<ShowTimeMovie>(new Action<ShowTimeMovie>(this.attach_ShowTimeMovies), new Action<ShowTimeMovie>(this.detach_ShowTimeMovies));
-			this._Tickets = new EntitySet<Ticket>(new Action<Ticket>(this.attach_Tickets), new Action<Ticket>(this.detach_Tickets));
+			this._MiAnLiens = new EntitySet<MiAnLien>(new Action<MiAnLien>(this.attach_MiAnLiens), new Action<MiAnLien>(this.detach_MiAnLiens));
 			this._City = default(EntityRef<City>);
 			this._Theater = default(EntityRef<Theater>);
 			OnCreated();
@@ -3125,26 +4570,26 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="Int")]
-		public System.Nullable<int> Type
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeID", DbType="Int")]
+		public System.Nullable<int> TypeID
 		{
 			get
 			{
-				return this._Type;
+				return this._TypeID;
 			}
 			set
 			{
-				if ((this._Type != value))
+				if ((this._TypeID != value))
 				{
 					if (this._Theater.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnTypeChanging(value);
+					this.OnTypeIDChanging(value);
 					this.SendPropertyChanging();
-					this._Type = value;
-					this.SendPropertyChanged("Type");
-					this.OnTypeChanged();
+					this._TypeID = value;
+					this.SendPropertyChanged("TypeID");
+					this.OnTypeIDChanged();
 				}
 			}
 		}
@@ -3169,29 +4614,16 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MovieTheater_ShowTimeMovie", Storage="_ShowTimeMovies", ThisKey="TheaterID", OtherKey="TheaterID")]
-		public EntitySet<ShowTimeMovie> ShowTimeMovies
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MovieTheater_MiAnLien", Storage="_MiAnLiens", ThisKey="TheaterID", OtherKey="TheaterID")]
+		public EntitySet<MiAnLien> MiAnLiens
 		{
 			get
 			{
-				return this._ShowTimeMovies;
+				return this._MiAnLiens;
 			}
 			set
 			{
-				this._ShowTimeMovies.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MovieTheater_Ticket", Storage="_Tickets", ThisKey="TheaterID", OtherKey="TheaterID")]
-		public EntitySet<Ticket> Tickets
-		{
-			get
-			{
-				return this._Tickets;
-			}
-			set
-			{
-				this._Tickets.Assign(value);
+				this._MiAnLiens.Assign(value);
 			}
 		}
 		
@@ -3229,7 +4661,7 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Theater_MovieTheater", Storage="_Theater", ThisKey="Type", OtherKey="TheaterID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Theater_MovieTheater", Storage="_Theater", ThisKey="TypeID", OtherKey="TypeID", IsForeignKey=true)]
 		public Theater Theater
 		{
 			get
@@ -3252,11 +4684,11 @@ namespace TomocaMoviesWebsite.Models
 					if ((value != null))
 					{
 						value.MovieTheaters.Add(this);
-						this._Type = value.TheaterID;
+						this._TypeID = value.TypeID;
 					}
 					else
 					{
-						this._Type = default(Nullable<int>);
+						this._TypeID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Theater");
 				}
@@ -3283,25 +4715,13 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		private void attach_ShowTimeMovies(ShowTimeMovie entity)
+		private void attach_MiAnLiens(MiAnLien entity)
 		{
 			this.SendPropertyChanging();
 			entity.MovieTheater = this;
 		}
 		
-		private void detach_ShowTimeMovies(ShowTimeMovie entity)
-		{
-			this.SendPropertyChanging();
-			entity.MovieTheater = null;
-		}
-		
-		private void attach_Tickets(Ticket entity)
-		{
-			this.SendPropertyChanging();
-			entity.MovieTheater = this;
-		}
-		
-		private void detach_Tickets(Ticket entity)
+		private void detach_MiAnLiens(MiAnLien entity)
 		{
 			this.SendPropertyChanging();
 			entity.MovieTheater = null;
@@ -3316,17 +4736,23 @@ namespace TomocaMoviesWebsite.Models
 		
 		private int _NewsID;
 		
-		private int _UserID;
+		private System.Nullable<int> _UserID;
 		
 		private string _Title;
 		
-		private System.DateTime _CreateTime;
+		private string _Image1;
+		
+		private string _Content1;
+		
+		private string _Image2;
+		
+		private string _Content2;
+		
+		private System.Nullable<System.DateTime> _CreateTime;
 		
 		private string _Photo;
 		
-		private decimal _ReadCount;
-		
-		private EntityRef<Content> _Content;
+		private System.Nullable<decimal> _ReadCount;
 		
 		private EntityRef<User> _User;
 		
@@ -3336,21 +4762,28 @@ namespace TomocaMoviesWebsite.Models
     partial void OnCreated();
     partial void OnNewsIDChanging(int value);
     partial void OnNewsIDChanged();
-    partial void OnUserIDChanging(int value);
+    partial void OnUserIDChanging(System.Nullable<int> value);
     partial void OnUserIDChanged();
     partial void OnTitleChanging(string value);
     partial void OnTitleChanged();
-    partial void OnCreateTimeChanging(System.DateTime value);
+    partial void OnImage1Changing(string value);
+    partial void OnImage1Changed();
+    partial void OnContent1Changing(string value);
+    partial void OnContent1Changed();
+    partial void OnImage2Changing(string value);
+    partial void OnImage2Changed();
+    partial void OnContent2Changing(string value);
+    partial void OnContent2Changed();
+    partial void OnCreateTimeChanging(System.Nullable<System.DateTime> value);
     partial void OnCreateTimeChanged();
     partial void OnPhotoChanging(string value);
     partial void OnPhotoChanged();
-    partial void OnReadCountChanging(decimal value);
+    partial void OnReadCountChanging(System.Nullable<decimal> value);
     partial void OnReadCountChanged();
     #endregion
 		
 		public New()
 		{
-			this._Content = default(EntityRef<Content>);
 			this._User = default(EntityRef<User>);
 			OnCreated();
 		}
@@ -3375,8 +4808,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL")]
-		public int UserID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int")]
+		public System.Nullable<int> UserID
 		{
 			get
 			{
@@ -3399,7 +4832,7 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(MAX)")]
 		public string Title
 		{
 			get
@@ -3419,8 +4852,88 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateTime", DbType="DateTime NOT NULL")]
-		public System.DateTime CreateTime
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image1", DbType="NVarChar(MAX)")]
+		public string Image1
+		{
+			get
+			{
+				return this._Image1;
+			}
+			set
+			{
+				if ((this._Image1 != value))
+				{
+					this.OnImage1Changing(value);
+					this.SendPropertyChanging();
+					this._Image1 = value;
+					this.SendPropertyChanged("Image1");
+					this.OnImage1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content1", DbType="NVarChar(MAX)")]
+		public string Content1
+		{
+			get
+			{
+				return this._Content1;
+			}
+			set
+			{
+				if ((this._Content1 != value))
+				{
+					this.OnContent1Changing(value);
+					this.SendPropertyChanging();
+					this._Content1 = value;
+					this.SendPropertyChanged("Content1");
+					this.OnContent1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image2", DbType="NVarChar(MAX)")]
+		public string Image2
+		{
+			get
+			{
+				return this._Image2;
+			}
+			set
+			{
+				if ((this._Image2 != value))
+				{
+					this.OnImage2Changing(value);
+					this.SendPropertyChanging();
+					this._Image2 = value;
+					this.SendPropertyChanged("Image2");
+					this.OnImage2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content2", DbType="NVarChar(MAX)")]
+		public string Content2
+		{
+			get
+			{
+				return this._Content2;
+			}
+			set
+			{
+				if ((this._Content2 != value))
+				{
+					this.OnContent2Changing(value);
+					this.SendPropertyChanging();
+					this._Content2 = value;
+					this.SendPropertyChanged("Content2");
+					this.OnContent2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CreateTime
 		{
 			get
 			{
@@ -3459,8 +4972,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReadCount", DbType="Money NOT NULL")]
-		public decimal ReadCount
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReadCount", DbType="Money")]
+		public System.Nullable<decimal> ReadCount
 		{
 			get
 			{
@@ -3475,35 +4988,6 @@ namespace TomocaMoviesWebsite.Models
 					this._ReadCount = value;
 					this.SendPropertyChanged("ReadCount");
 					this.OnReadCountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="New_Content", Storage="_Content", ThisKey="NewsID", OtherKey="NewsID", IsUnique=true, IsForeignKey=false)]
-		public Content Content
-		{
-			get
-			{
-				return this._Content.Entity;
-			}
-			set
-			{
-				Content previousValue = this._Content.Entity;
-				if (((previousValue != value) 
-							|| (this._Content.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Content.Entity = null;
-						previousValue.New = null;
-					}
-					this._Content.Entity = value;
-					if ((value != null))
-					{
-						value.New = this;
-					}
-					this.SendPropertyChanged("Content");
 				}
 			}
 		}
@@ -3535,7 +5019,7 @@ namespace TomocaMoviesWebsite.Models
 					}
 					else
 					{
-						this._UserID = default(int);
+						this._UserID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("User");
 				}
@@ -3731,515 +5215,13 @@ namespace TomocaMoviesWebsite.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SetShowTime")]
-	public partial class SetShowTime : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private int _TimeID;
-		
-		private EntityRef<ShowTime> _ShowTime;
-		
-		private EntityRef<ShowTimeMovie> _ShowTimeMovie;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnTimeIDChanging(int value);
-    partial void OnTimeIDChanged();
-    #endregion
-		
-		public SetShowTime()
-		{
-			this._ShowTime = default(EntityRef<ShowTime>);
-			this._ShowTimeMovie = default(EntityRef<ShowTimeMovie>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					if (this._ShowTimeMovie.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int TimeID
-		{
-			get
-			{
-				return this._TimeID;
-			}
-			set
-			{
-				if ((this._TimeID != value))
-				{
-					if (this._ShowTime.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTimeIDChanging(value);
-					this.SendPropertyChanging();
-					this._TimeID = value;
-					this.SendPropertyChanged("TimeID");
-					this.OnTimeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ShowTime_SetShowTime", Storage="_ShowTime", ThisKey="TimeID", OtherKey="TimeID", IsForeignKey=true)]
-		public ShowTime ShowTime
-		{
-			get
-			{
-				return this._ShowTime.Entity;
-			}
-			set
-			{
-				ShowTime previousValue = this._ShowTime.Entity;
-				if (((previousValue != value) 
-							|| (this._ShowTime.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ShowTime.Entity = null;
-						previousValue.SetShowTimes.Remove(this);
-					}
-					this._ShowTime.Entity = value;
-					if ((value != null))
-					{
-						value.SetShowTimes.Add(this);
-						this._TimeID = value.TimeID;
-					}
-					else
-					{
-						this._TimeID = default(int);
-					}
-					this.SendPropertyChanged("ShowTime");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ShowTimeMovie_SetShowTime", Storage="_ShowTimeMovie", ThisKey="ID", OtherKey="ID", IsForeignKey=true)]
-		public ShowTimeMovie ShowTimeMovie
-		{
-			get
-			{
-				return this._ShowTimeMovie.Entity;
-			}
-			set
-			{
-				ShowTimeMovie previousValue = this._ShowTimeMovie.Entity;
-				if (((previousValue != value) 
-							|| (this._ShowTimeMovie.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._ShowTimeMovie.Entity = null;
-						previousValue.SetShowTimes.Remove(this);
-					}
-					this._ShowTimeMovie.Entity = value;
-					if ((value != null))
-					{
-						value.SetShowTimes.Add(this);
-						this._ID = value.ID;
-					}
-					else
-					{
-						this._ID = default(int);
-					}
-					this.SendPropertyChanged("ShowTimeMovie");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ShowTime")]
-	public partial class ShowTime : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _TimeID;
-		
-		private System.DateTime _Time;
-		
-		private EntitySet<SetShowTime> _SetShowTimes;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnTimeIDChanging(int value);
-    partial void OnTimeIDChanged();
-    partial void OnTimeChanging(System.DateTime value);
-    partial void OnTimeChanged();
-    #endregion
-		
-		public ShowTime()
-		{
-			this._SetShowTimes = new EntitySet<SetShowTime>(new Action<SetShowTime>(this.attach_SetShowTimes), new Action<SetShowTime>(this.detach_SetShowTimes));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int TimeID
-		{
-			get
-			{
-				return this._TimeID;
-			}
-			set
-			{
-				if ((this._TimeID != value))
-				{
-					this.OnTimeIDChanging(value);
-					this.SendPropertyChanging();
-					this._TimeID = value;
-					this.SendPropertyChanged("TimeID");
-					this.OnTimeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time", DbType="DateTime NOT NULL")]
-		public System.DateTime Time
-		{
-			get
-			{
-				return this._Time;
-			}
-			set
-			{
-				if ((this._Time != value))
-				{
-					this.OnTimeChanging(value);
-					this.SendPropertyChanging();
-					this._Time = value;
-					this.SendPropertyChanged("Time");
-					this.OnTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ShowTime_SetShowTime", Storage="_SetShowTimes", ThisKey="TimeID", OtherKey="TimeID")]
-		public EntitySet<SetShowTime> SetShowTimes
-		{
-			get
-			{
-				return this._SetShowTimes;
-			}
-			set
-			{
-				this._SetShowTimes.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_SetShowTimes(SetShowTime entity)
-		{
-			this.SendPropertyChanging();
-			entity.ShowTime = this;
-		}
-		
-		private void detach_SetShowTimes(SetShowTime entity)
-		{
-			this.SendPropertyChanging();
-			entity.ShowTime = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ShowTimeMovie")]
-	public partial class ShowTimeMovie : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private int _MovieID;
-		
-		private int _TheaterID;
-		
-		private EntitySet<SetShowTime> _SetShowTimes;
-		
-		private EntityRef<Movy> _Movy;
-		
-		private EntityRef<MovieTheater> _MovieTheater;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnMovieIDChanging(int value);
-    partial void OnMovieIDChanged();
-    partial void OnTheaterIDChanging(int value);
-    partial void OnTheaterIDChanged();
-    #endregion
-		
-		public ShowTimeMovie()
-		{
-			this._SetShowTimes = new EntitySet<SetShowTime>(new Action<SetShowTime>(this.attach_SetShowTimes), new Action<SetShowTime>(this.detach_SetShowTimes));
-			this._Movy = default(EntityRef<Movy>);
-			this._MovieTheater = default(EntityRef<MovieTheater>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MovieID", DbType="Int NOT NULL")]
-		public int MovieID
-		{
-			get
-			{
-				return this._MovieID;
-			}
-			set
-			{
-				if ((this._MovieID != value))
-				{
-					if (this._Movy.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMovieIDChanging(value);
-					this.SendPropertyChanging();
-					this._MovieID = value;
-					this.SendPropertyChanged("MovieID");
-					this.OnMovieIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TheaterID", DbType="Int NOT NULL")]
-		public int TheaterID
-		{
-			get
-			{
-				return this._TheaterID;
-			}
-			set
-			{
-				if ((this._TheaterID != value))
-				{
-					if (this._MovieTheater.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTheaterIDChanging(value);
-					this.SendPropertyChanging();
-					this._TheaterID = value;
-					this.SendPropertyChanged("TheaterID");
-					this.OnTheaterIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ShowTimeMovie_SetShowTime", Storage="_SetShowTimes", ThisKey="ID", OtherKey="ID")]
-		public EntitySet<SetShowTime> SetShowTimes
-		{
-			get
-			{
-				return this._SetShowTimes;
-			}
-			set
-			{
-				this._SetShowTimes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Movy_ShowTimeMovie", Storage="_Movy", ThisKey="MovieID", OtherKey="MovieID", IsForeignKey=true)]
-		public Movy Movy
-		{
-			get
-			{
-				return this._Movy.Entity;
-			}
-			set
-			{
-				Movy previousValue = this._Movy.Entity;
-				if (((previousValue != value) 
-							|| (this._Movy.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Movy.Entity = null;
-						previousValue.ShowTimeMovies.Remove(this);
-					}
-					this._Movy.Entity = value;
-					if ((value != null))
-					{
-						value.ShowTimeMovies.Add(this);
-						this._MovieID = value.MovieID;
-					}
-					else
-					{
-						this._MovieID = default(int);
-					}
-					this.SendPropertyChanged("Movy");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MovieTheater_ShowTimeMovie", Storage="_MovieTheater", ThisKey="TheaterID", OtherKey="TheaterID", IsForeignKey=true)]
-		public MovieTheater MovieTheater
-		{
-			get
-			{
-				return this._MovieTheater.Entity;
-			}
-			set
-			{
-				MovieTheater previousValue = this._MovieTheater.Entity;
-				if (((previousValue != value) 
-							|| (this._MovieTheater.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._MovieTheater.Entity = null;
-						previousValue.ShowTimeMovies.Remove(this);
-					}
-					this._MovieTheater.Entity = value;
-					if ((value != null))
-					{
-						value.ShowTimeMovies.Add(this);
-						this._TheaterID = value.TheaterID;
-					}
-					else
-					{
-						this._TheaterID = default(int);
-					}
-					this.SendPropertyChanged("MovieTheater");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_SetShowTimes(SetShowTime entity)
-		{
-			this.SendPropertyChanging();
-			entity.ShowTimeMovie = this;
-		}
-		
-		private void detach_SetShowTimes(SetShowTime entity)
-		{
-			this.SendPropertyChanging();
-			entity.ShowTimeMovie = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Theater")]
 	public partial class Theater : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _TheaterID;
+		private int _TypeID;
 		
 		private string _Theater1;
 		
@@ -4251,8 +5233,8 @@ namespace TomocaMoviesWebsite.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnTheaterIDChanging(int value);
-    partial void OnTheaterIDChanged();
+    partial void OnTypeIDChanging(int value);
+    partial void OnTypeIDChanged();
     partial void OnTheater1Changing(string value);
     partial void OnTheater1Changed();
     partial void OnLogoChanging(string value);
@@ -4265,22 +5247,22 @@ namespace TomocaMoviesWebsite.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TheaterID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int TheaterID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int TypeID
 		{
 			get
 			{
-				return this._TheaterID;
+				return this._TypeID;
 			}
 			set
 			{
-				if ((this._TheaterID != value))
+				if ((this._TypeID != value))
 				{
-					this.OnTheaterIDChanging(value);
+					this.OnTypeIDChanging(value);
 					this.SendPropertyChanging();
-					this._TheaterID = value;
-					this.SendPropertyChanged("TheaterID");
-					this.OnTheaterIDChanged();
+					this._TypeID = value;
+					this.SendPropertyChanged("TypeID");
+					this.OnTypeIDChanged();
 				}
 			}
 		}
@@ -4325,7 +5307,7 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Theater_MovieTheater", Storage="_MovieTheaters", ThisKey="TheaterID", OtherKey="Type")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Theater_MovieTheater", Storage="_MovieTheaters", ThisKey="TypeID", OtherKey="TypeID")]
 		public EntitySet<MovieTheater> MovieTheaters
 		{
 			get
@@ -4379,23 +5361,15 @@ namespace TomocaMoviesWebsite.Models
 		
 		private int _TicketID;
 		
-		private int _TicketNumber;
-		
-		private int _TicketAvailable;
-		
-		private int _MovieID;
-		
-		private int _TheaterID;
-		
 		private int _Money;
+		
+		private System.Nullable<int> _MalID;
+		
+		private string _Seat;
 		
 		private EntitySet<UserBook> _UserBooks;
 		
-		private EntityRef<LocateMovie> _LocateMovie;
-		
-		private EntityRef<Movy> _Movy;
-		
-		private EntityRef<MovieTheater> _MovieTheater;
+		private EntityRef<MiAnLien> _MiAnLien;
 		
 		private EntityRef<TicketType> _TicketType;
 		
@@ -4405,24 +5379,18 @@ namespace TomocaMoviesWebsite.Models
     partial void OnCreated();
     partial void OnTicketIDChanging(int value);
     partial void OnTicketIDChanged();
-    partial void OnTicketNumberChanging(int value);
-    partial void OnTicketNumberChanged();
-    partial void OnTicketAvailableChanging(int value);
-    partial void OnTicketAvailableChanged();
-    partial void OnMovieIDChanging(int value);
-    partial void OnMovieIDChanged();
-    partial void OnTheaterIDChanging(int value);
-    partial void OnTheaterIDChanged();
     partial void OnMoneyChanging(int value);
     partial void OnMoneyChanged();
+    partial void OnMalIDChanging(System.Nullable<int> value);
+    partial void OnMalIDChanged();
+    partial void OnSeatChanging(string value);
+    partial void OnSeatChanged();
     #endregion
 		
 		public Ticket()
 		{
 			this._UserBooks = new EntitySet<UserBook>(new Action<UserBook>(this.attach_UserBooks), new Action<UserBook>(this.detach_UserBooks));
-			this._LocateMovie = default(EntityRef<LocateMovie>);
-			this._Movy = default(EntityRef<Movy>);
-			this._MovieTheater = default(EntityRef<MovieTheater>);
+			this._MiAnLien = default(EntityRef<MiAnLien>);
 			this._TicketType = default(EntityRef<TicketType>);
 			OnCreated();
 		}
@@ -4438,7 +5406,7 @@ namespace TomocaMoviesWebsite.Models
 			{
 				if ((this._TicketID != value))
 				{
-					if ((this._LocateMovie.HasLoadedOrAssignedValue || this._TicketType.HasLoadedOrAssignedValue))
+					if (this._TicketType.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -4447,94 +5415,6 @@ namespace TomocaMoviesWebsite.Models
 					this._TicketID = value;
 					this.SendPropertyChanged("TicketID");
 					this.OnTicketIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TicketNumber", DbType="Int NOT NULL")]
-		public int TicketNumber
-		{
-			get
-			{
-				return this._TicketNumber;
-			}
-			set
-			{
-				if ((this._TicketNumber != value))
-				{
-					this.OnTicketNumberChanging(value);
-					this.SendPropertyChanging();
-					this._TicketNumber = value;
-					this.SendPropertyChanged("TicketNumber");
-					this.OnTicketNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TicketAvailable", DbType="Int NOT NULL")]
-		public int TicketAvailable
-		{
-			get
-			{
-				return this._TicketAvailable;
-			}
-			set
-			{
-				if ((this._TicketAvailable != value))
-				{
-					this.OnTicketAvailableChanging(value);
-					this.SendPropertyChanging();
-					this._TicketAvailable = value;
-					this.SendPropertyChanged("TicketAvailable");
-					this.OnTicketAvailableChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MovieID", DbType="Int NOT NULL")]
-		public int MovieID
-		{
-			get
-			{
-				return this._MovieID;
-			}
-			set
-			{
-				if ((this._MovieID != value))
-				{
-					if (this._Movy.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMovieIDChanging(value);
-					this.SendPropertyChanging();
-					this._MovieID = value;
-					this.SendPropertyChanged("MovieID");
-					this.OnMovieIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TheaterID", DbType="Int NOT NULL")]
-		public int TheaterID
-		{
-			get
-			{
-				return this._TheaterID;
-			}
-			set
-			{
-				if ((this._TheaterID != value))
-				{
-					if (this._MovieTheater.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTheaterIDChanging(value);
-					this.SendPropertyChanging();
-					this._TheaterID = value;
-					this.SendPropertyChanged("TheaterID");
-					this.OnTheaterIDChanged();
 				}
 			}
 		}
@@ -4559,6 +5439,50 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MalID", DbType="Int")]
+		public System.Nullable<int> MalID
+		{
+			get
+			{
+				return this._MalID;
+			}
+			set
+			{
+				if ((this._MalID != value))
+				{
+					if (this._MiAnLien.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMalIDChanging(value);
+					this.SendPropertyChanging();
+					this._MalID = value;
+					this.SendPropertyChanged("MalID");
+					this.OnMalIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Seat", DbType="NVarChar(500)")]
+		public string Seat
+		{
+			get
+			{
+				return this._Seat;
+			}
+			set
+			{
+				if ((this._Seat != value))
+				{
+					this.OnSeatChanging(value);
+					this.SendPropertyChanging();
+					this._Seat = value;
+					this.SendPropertyChanged("Seat");
+					this.OnSeatChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ticket_UserBook", Storage="_UserBooks", ThisKey="TicketID", OtherKey="TicketID")]
 		public EntitySet<UserBook> UserBooks
 		{
@@ -4572,104 +5496,36 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LocateMovie_Ticket", Storage="_LocateMovie", ThisKey="TicketID", OtherKey="TicketID", IsForeignKey=true)]
-		public LocateMovie LocateMovie
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MiAnLien_Ticket", Storage="_MiAnLien", ThisKey="MalID", OtherKey="MalID", IsForeignKey=true)]
+		public MiAnLien MiAnLien
 		{
 			get
 			{
-				return this._LocateMovie.Entity;
+				return this._MiAnLien.Entity;
 			}
 			set
 			{
-				LocateMovie previousValue = this._LocateMovie.Entity;
+				MiAnLien previousValue = this._MiAnLien.Entity;
 				if (((previousValue != value) 
-							|| (this._LocateMovie.HasLoadedOrAssignedValue == false)))
+							|| (this._MiAnLien.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._LocateMovie.Entity = null;
-						previousValue.Ticket = null;
-					}
-					this._LocateMovie.Entity = value;
-					if ((value != null))
-					{
-						value.Ticket = this;
-						this._TicketID = value.TicketID;
-					}
-					else
-					{
-						this._TicketID = default(int);
-					}
-					this.SendPropertyChanged("LocateMovie");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Movy_Ticket", Storage="_Movy", ThisKey="MovieID", OtherKey="MovieID", IsForeignKey=true)]
-		public Movy Movy
-		{
-			get
-			{
-				return this._Movy.Entity;
-			}
-			set
-			{
-				Movy previousValue = this._Movy.Entity;
-				if (((previousValue != value) 
-							|| (this._Movy.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Movy.Entity = null;
+						this._MiAnLien.Entity = null;
 						previousValue.Tickets.Remove(this);
 					}
-					this._Movy.Entity = value;
+					this._MiAnLien.Entity = value;
 					if ((value != null))
 					{
 						value.Tickets.Add(this);
-						this._MovieID = value.MovieID;
+						this._MalID = value.MalID;
 					}
 					else
 					{
-						this._MovieID = default(int);
+						this._MalID = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("Movy");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MovieTheater_Ticket", Storage="_MovieTheater", ThisKey="TheaterID", OtherKey="TheaterID", IsForeignKey=true)]
-		public MovieTheater MovieTheater
-		{
-			get
-			{
-				return this._MovieTheater.Entity;
-			}
-			set
-			{
-				MovieTheater previousValue = this._MovieTheater.Entity;
-				if (((previousValue != value) 
-							|| (this._MovieTheater.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._MovieTheater.Entity = null;
-						previousValue.Tickets.Remove(this);
-					}
-					this._MovieTheater.Entity = value;
-					if ((value != null))
-					{
-						value.Tickets.Add(this);
-						this._TheaterID = value.TheaterID;
-					}
-					else
-					{
-						this._TheaterID = default(int);
-					}
-					this.SendPropertyChanged("MovieTheater");
+					this.SendPropertyChanged("MiAnLien");
 				}
 			}
 		}
@@ -4751,13 +5607,7 @@ namespace TomocaMoviesWebsite.Models
 		
 		private int _VIP;
 		
-		private int _Adult;
-		
-		private int _Student;
-		
-		private int _Child;
-		
-		private int _Total;
+		private int _Normal;
 		
 		private EntityRef<Ticket> _Ticket;
 		
@@ -4769,14 +5619,8 @@ namespace TomocaMoviesWebsite.Models
     partial void OnTicketIDChanged();
     partial void OnVIPChanging(int value);
     partial void OnVIPChanged();
-    partial void OnAdultChanging(int value);
-    partial void OnAdultChanged();
-    partial void OnStudentChanging(int value);
-    partial void OnStudentChanged();
-    partial void OnChildChanging(int value);
-    partial void OnChildChanged();
-    partial void OnTotalChanging(int value);
-    partial void OnTotalChanged();
+    partial void OnNormalChanging(int value);
+    partial void OnNormalChanged();
     #endregion
 		
 		public TicketType()
@@ -4825,82 +5669,22 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Adult", DbType="Int NOT NULL")]
-		public int Adult
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Normal", DbType="Int NOT NULL")]
+		public int Normal
 		{
 			get
 			{
-				return this._Adult;
+				return this._Normal;
 			}
 			set
 			{
-				if ((this._Adult != value))
+				if ((this._Normal != value))
 				{
-					this.OnAdultChanging(value);
+					this.OnNormalChanging(value);
 					this.SendPropertyChanging();
-					this._Adult = value;
-					this.SendPropertyChanged("Adult");
-					this.OnAdultChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Student", DbType="Int NOT NULL")]
-		public int Student
-		{
-			get
-			{
-				return this._Student;
-			}
-			set
-			{
-				if ((this._Student != value))
-				{
-					this.OnStudentChanging(value);
-					this.SendPropertyChanging();
-					this._Student = value;
-					this.SendPropertyChanged("Student");
-					this.OnStudentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Child", DbType="Int NOT NULL")]
-		public int Child
-		{
-			get
-			{
-				return this._Child;
-			}
-			set
-			{
-				if ((this._Child != value))
-				{
-					this.OnChildChanging(value);
-					this.SendPropertyChanging();
-					this._Child = value;
-					this.SendPropertyChanged("Child");
-					this.OnChildChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Int NOT NULL")]
-		public int Total
-		{
-			get
-			{
-				return this._Total;
-			}
-			set
-			{
-				if ((this._Total != value))
-				{
-					this.OnTotalChanging(value);
-					this.SendPropertyChanging();
-					this._Total = value;
-					this.SendPropertyChanged("Total");
-					this.OnTotalChanged();
+					this._Normal = value;
+					this.SendPropertyChanged("Normal");
+					this.OnNormalChanged();
 				}
 			}
 		}
@@ -5147,8 +5931,6 @@ namespace TomocaMoviesWebsite.Models
 		
 		private EntitySet<Comment> _Comments;
 		
-		private EntitySet<MoviesVote> _MoviesVotes;
-		
 		private EntitySet<New> _News;
 		
 		private EntitySet<UserBook> _UserBooks;
@@ -5178,7 +5960,6 @@ namespace TomocaMoviesWebsite.Models
 		public User()
 		{
 			this._Comments = new EntitySet<Comment>(new Action<Comment>(this.attach_Comments), new Action<Comment>(this.detach_Comments));
-			this._MoviesVotes = new EntitySet<MoviesVote>(new Action<MoviesVote>(this.attach_MoviesVotes), new Action<MoviesVote>(this.detach_MoviesVotes));
 			this._News = new EntitySet<New>(new Action<New>(this.attach_News), new Action<New>(this.detach_News));
 			this._UserBooks = new EntitySet<UserBook>(new Action<UserBook>(this.attach_UserBooks), new Action<UserBook>(this.detach_UserBooks));
 			OnCreated();
@@ -5357,19 +6138,6 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_MoviesVote", Storage="_MoviesVotes", ThisKey="UserID", OtherKey="UserID")]
-		public EntitySet<MoviesVote> MoviesVotes
-		{
-			get
-			{
-				return this._MoviesVotes;
-			}
-			set
-			{
-				this._MoviesVotes.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_New", Storage="_News", ThisKey="UserID", OtherKey="UserID")]
 		public EntitySet<New> News
 		{
@@ -5423,18 +6191,6 @@ namespace TomocaMoviesWebsite.Models
 		}
 		
 		private void detach_Comments(Comment entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
-		}
-		
-		private void attach_MoviesVotes(MoviesVote entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_MoviesVotes(MoviesVote entity)
 		{
 			this.SendPropertyChanging();
 			entity.User = null;

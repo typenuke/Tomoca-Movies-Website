@@ -30,7 +30,7 @@
                     <div class="tieude" style="margin-top: 10px;text-align:left">@item.Title</div>
                 </a>
                 <div class="thoigian_luotxem" style="display: flex;">
-                    <div>@item.CreateTime.ToString("dd/MM/yyyy")</div>
+                    <div>@item.CreateTime</div>
                 </div>
                 <div>
                     <button type="button" class="btn btn-success">@Html.ActionLink("Sửa", "SuaTinTuc", new { id = item.NewsID })</button>

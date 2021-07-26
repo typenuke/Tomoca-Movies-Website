@@ -316,20 +316,13 @@ namespace TomocaMoviesWebsite.Controllers
         }
         public ActionResult XoaTinTuc(int id)
         {
-            New tt = data.News.SingleOrDefault(n => n.NewsID == id);
-            Content ct = data.Contents.SingleOrDefault(n => n.NewsID == id);
-            if (tt == null)
+            New tl = data.News.SingleOrDefault(n => n.NewsID == id);
+            if (tl == null)
             {
                 Response.SubStatusCode = 404;
                 return null;
             }
-            if (ct == null)
-            {
-                Response.SubStatusCode = 404;
-                return null;
-            }
-            data.Contents.DeleteOnSubmit(ct);
-            data.News.DeleteOnSubmit(tt);
+            data.News.DeleteOnSubmit(tl);
             data.SubmitChanges();
             return RedirectToAction("TinTuc");
         }
@@ -340,120 +333,43 @@ namespace TomocaMoviesWebsite.Controllers
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult ThemTinTuc(New tt, Content ct,FormCollection coll, List<HttpPostedFileBase> uploadFile)
+        public ActionResult ThemTinTuc(IEnumerable<HttpPostedFileBase> files, New tt)
         {
             User us = data.Users.First(ab => ab.Username == Session["Username"].ToString());
             DateTime a = DateTime.Now;
-            var ten = coll["tieude"];
-            var hinh = coll["hinh"];
-            var nd1 = coll["nd1"];
-            var nd2 = coll["nd2"];
-            var nd3 = coll["nd3"];
-            var nd4 = coll["nd4"];
-            var nd5 = coll["nd5"];
             var tintuc = data.News.ToList();
-            if (string.IsNullOrEmpty(ten))
+            int count = 1;
+            foreach (var item in files)
             {
-                ViewData["Loi1"] = "Tóm tắt không được để trống";
-                return View();
-            }
-            if (string.IsNullOrEmpty(nd1))
-            {
-                ViewData["Loi2"] = "Nội dung không được để trống";
-                return View();
-            }
-            if (string.IsNullOrEmpty(nd2))
-            {
-                ViewData["Loi2"] = "Nội dung không được để trống";
-                return View();
-            }
-            if (string.IsNullOrEmpty(nd3))
-            {
-                ViewData["Loi2"] = "Nội dung không được để trống";
-                return View();
-            }
-            if (string.IsNullOrEmpty(nd4))
-            {
-                ViewData["Loi2"] = "Nội dung không được để trống";
-                return View();
-            }
-            if (string.IsNullOrEmpty(nd5))
-            {
-                ViewData["Loi2"] = "Nội dung không được để trống";
-                return View();
-            }
-            else
-            {
-                foreach (var item in tintuc)
+                if (item.ContentLength > 0)
                 {
-                    if (String.Compare(item.Title, ten, true) == 0)
+                    var fileName = Path.GetFileName(item.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/image/news"), fileName);
+                    item.SaveAs(path);
+                    if (count == 1)
                     {
-                        ViewData["Loi4"] = "Tin tức này có rồi!!!";
-                        return View();
-                    }
-                }
-            }
-            if (nd1 == null)
-            {
-                return View();
-            }    
-            else
-            {
-                tt.Title = ten;
-                tt.UserID = us.UserID;
-                tt.CreateTime = a;
-                tt.ReadCount = 1;
-                /// Content
-                ct.Image1 = null;
-                ct.Image2 = null;
-                ct.Image3 = null;
-                ct.Image4 = null;
-                ct.Image5 = null;
-                int count = 1;
-                foreach (var item in uploadFile)
-                {
 
-                    string filePath = Path.Combine(HttpContext.Server.MapPath("~/public/image"),Path.GetFileName(item.FileName));
-                    item.SaveAs(filePath);
-                    if( count == 1)
-                    {
-                        string filePath1 = Path.Combine(HttpContext.Server.MapPath("~/public/image"), Path.GetFileName(item.FileName));
-                        item.SaveAs(filePath);
-                        tt.Photo = "~/public/image" + filePath1;
-                        data.News.InsertOnSubmit(tt);
-                        data.SubmitChanges();
+                        tt.Photo = "/Content/image/news/" + fileName;
+                        
                     }
-                    if (count == 2 && uploadFile.Count>= count)
+                    if (count == 2)
                     {
-                        ct.Image1 = "~/public/image" + filePath;
+
+                        tt.Image1 = "/Content/image/news/" + fileName;
                     }
-                    if (count == 3 && uploadFile.Count >= count)
+                    if (count == 3)
                     {
-                        ct.Image2 = "~/public/image" + filePath;
+
+                        tt.Image2 = "/Content/image/news/" + fileName;
                     }
-                    if (count == 4 && uploadFile.Count >= count)
-                    {
-                        ct.Image3 = "~/public/image" + filePath;
-                    }
-                    if (count == 5 && uploadFile.Count >= count)
-                    {
-                        ct.Image4 = "~/public/image" + filePath;
-                    }
-                    if (count == 6 && uploadFile.Count >= count)
-                    {
-                        ct.Image5 = "~/public/image" + filePath;
-                    }
-                    count++;
+                    
                 }
-                ct.Content1 = nd1;
-                ct.Content2 = nd2;
-                ct.Content3 = nd3;
-                ct.Content4 = nd4;
-                ct.Content5 = nd5;
-                data.Contents.InsertOnSubmit(ct);
-                data.SubmitChanges();
-                    return RedirectToAction("TinTuc");
+                if (count == item.ContentLength)
+                    break;
+                count++;
             }
+            data.News.InsertOnSubmit(tt);
+            data.SubmitChanges();
             return RedirectToAction("TinTuc");
         }
     }

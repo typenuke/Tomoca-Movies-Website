@@ -13,16 +13,7 @@
     var stR = "grid-container blur itemgrid";
     var strq = "grid-item item2 bg-itemreviews";
     var str2 = "gr-content1 con-item";
-    var news = (from a in db.Contents
-                join b in db.News on a.NewsID equals b.NewsID
-                select new
-                {
-                    NewsID = b.NewsID,
-                    Photo = b.Photo,
-                    Title = b.Title,
-                    Content = a.Content1,
-                    UpdateTime = b.CreateTime
-                }).OrderByDescending(a => a.UpdateTime).Take(1).ToList();
+    var news = db.News.OrderByDescending(a => a.CreateTime).Take(1).ToList();
     var hotnews = db.News.OrderByDescending(a => a.ReadCount).Take(3).ToList();
     var news2 = db.News.OrderByDescending(a => a.CreateTime).Take(4).ToList();
     var banner = db.Movies.OrderByDescending(a => a.MovieID).Take(5).ToList();
@@ -324,7 +315,7 @@
                             </div>
                             <div class="gr-content con-item2">
                                 <h3>@item.Title</h3>
-                                <p>@item.Content</p>
+                                <p>@item.Content1</p>
                             </div>
                         </div>
                     </a>
