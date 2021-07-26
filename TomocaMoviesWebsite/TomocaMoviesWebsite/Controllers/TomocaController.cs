@@ -155,23 +155,52 @@ namespace TomocaMoviesWebsite.Controllers
         //ticket
 
         public ActionResult Tickets(string daysd)
-        {   
+        {
             if (daysd == null)
             {
                 var listMovies = db.MiAnLiens.Where(x => x.MalID > 0);
                 var links = from l in listMovies
                             where l.Time >= DateTime.Now
                             select l;
+                IList<City> lstcity = new List<City>();
+
+                foreach (var item in links)
+                {
+                    foreach (var i in db.Cities)
+                    {
+                        if (item.MovieTheater.CityID == i.CityID)
+                        {
+                            lstcity.Add(i);
+                        }
+                    }
+                }
+                for(int i = 0; i< lstcity.Count(); i++)
+                {
+                    
+                }
+                ViewData["lstcity"] = lstcity;
                 return View(links);
             }
             else
             {
-
                 var dayy = DateTime.Today.AddDays(int.Parse(daysd));
                 var listMovies = db.MiAnLiens.Where(x => x.MalID > 0);
                 var links = from l in listMovies
                             where l.Time >= dayy
                             select l;
+                IList<City> lstcity = new List<City>();
+
+                foreach (var item in links)
+                {
+                    foreach (var i in db.Cities)
+                    {
+                        if (item.MovieTheater.CityID == i.CityID)
+                        {
+                            lstcity.Add(i);
+                        }
+                    }
+                }
+                ViewData["lstcity"] = lstcity;
                 return View(links);
             }
         }

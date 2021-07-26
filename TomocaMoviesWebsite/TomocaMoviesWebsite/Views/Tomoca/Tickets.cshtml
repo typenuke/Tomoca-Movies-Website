@@ -6,10 +6,13 @@
     TomocaMoviesDataContext db = new TomocaMoviesDataContext();
     int Day = DateTime.Now.Day;
     var listMoviesDay = db.MiAnLiens.Where(x => x.MovieID > Day);
+    var lstcity = ViewData["lstcity"] as IList<City>;
+
 }
 @section css{
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/choose-seats.css" rel="stylesheet" />
+    <link href="~/Content/tiecketsieucapvippro.css" rel="stylesheet" />
 }
 <style>
     body {
@@ -29,7 +32,8 @@
     .textboxx {
         display: none;
     }
-    .ticket:hover{
+
+    .ticket:hover {
         text-decoration: none;
     }
 </style>
@@ -49,7 +53,7 @@
         int daysd = int.Parse(dayy.ToString("ddMM"));
         string strMonth = dayy.ToString("MMMM");
         string dayd = dayy.DayOfWeek.ToString();
-        <a class="ticket" href="~/Tomoca/Tickets?daysd=@dm1">
+        <div class="ticket" onclick="document.getElementById('id01').style.display='block'" @*href="~/Tomoca/Tickets?daysd=@dm1"*@>
             <div class="item-day">
                 <span class="day-big">@strday</span><br>
                 <span class="day-small">@strMonth</span>
@@ -57,19 +61,15 @@
             <div class="item-day-l">
                 @dayd
             </div>
-        </a>
+        </div>
         dm++;
         dm1++;
     }
 </div>
 <div class="nowplaying">
-    <ul>
-        <li class="crossn"></li>
-        <li class="nowplaying-count">
+        <div class="nowplaying-count">
             <p class="ccc">NOWPLAYING ()<span style="color:#5C5C5C; margin-left: 20px;">UPCOMING</span></p>
-        </li>
-        <li class="crossn" style="width: 52%;"></li>
-    </ul>
+        </div>
 </div>
 <div class="container">
     <div class="row">
@@ -78,10 +78,10 @@
                 @foreach (var item in Model)
                 {
                     <div class="item">
-                        <div class="pad15">
+                        <div class="pad15" style="margin-top:30px;">
                             <img class="clickdeto" style="width: 100%; height: 100%;" src="@item.Movy.Image" />
                         </div>
-                        <div class="pad151 font-pad">
+                        <div class="pad151 font-pad">@item.Movy.Title
                         </div>
                         <div class="pad152 font-pad">
                             <span style="color: #434343; font-size: 16px; font-weight: bold;">@item.Movy.Title</span><br>
@@ -95,12 +95,12 @@
                                     lstg.Add(tam);
                                 }
                             }
-                        <span>
-                            @for (int i = 0; i < lstg.Count(); i++)
-                            {
-                                <span>@lstg[i].ToString(), </span>
-                            }
-                        </span><br>
+                            <span>
+                                @for (int i = 0; i < lstg.Count(); i++)
+                                {
+                                    <span>@lstg[i].ToString(), </span>
+                                }
+                            </span><br>
                             <span><img src="~/Content/image/clock.png" />@item.Movy.TimeOfFilm</span>
                         </div>
                     </div>
@@ -117,35 +117,18 @@
     <div class="bookticket-first" style="padding-top: 1px;;">
         <p style="margin: 20px;">1. Choose your theater</p>
         <div style="display:flex">
-            <div class="dropdown1">
-                <div onclick="myDropdown()" class="dropbtn bg-dropbtn">
-                    Click here to choose your theater
-                    <span style="float: right;" onclick="myDropdown()" class="dropdown-toggle"></span>
-                </div>
-                <div id="myDropdown11" class="testtuong">
-                    <a href="#"><img src="~/Content/image/Rectangle 209.png" alt=""></a><br>
-                    <a href="#"><img src="~/Content/image/Rectangle 209.png" alt=""></a><br>
-                    <a href="#"><img src="~/Content/image/Rectangle 209.png" alt=""></a><br>
-                    <a href="#"><img src="~/Content/image/Rectangle 209.png" alt=""></a><br>
-                </div>
-                <div id="myDropdown1" class="dropdown-content">
-                    <button class="dropdown-content-1 size-img-dropdown" onclick="baymavl()"><img src="~/Content/image/Rectangle 209.png" alt=""></button>
-                    <button class="dropdown-content-1 size-img-dropdown" onclick="baymavl1()"><img src="~/Content/image/Rectangle 209.png" alt=""></button>
-                    <a href="#" class="dropdown-content-2 size-img-dropdown"><img src="~/Content/image/Rectangle 209.png" alt=""></a>
-                    <a href="#" class="dropdown-content-3 size-img-dropdown"><img src="~/Content/image/Rectangle 209.png" alt=""></a>
-                    <a href="#" class="dropdown-content-4 size-img-dropdown"><img src="~/Content/image/Rectangle 209.png" alt=""></a>
-                    <a href="#" class="dropdown-content-5 size-img-dropdown"><img src="~/Content/image/Rectangle 209.png" alt=""></a>
-                </div>
-
-            </div>
-            <div class="dropdown">
-                <div onclick="myFunctiondrop()" class="dropbtnn  bg-dropbtn">City<span style="float: right;" class="dropdown-toggle"></span></div>
-                <div id="myDropdown2" class="dropdown-content2">
-                    <a href="#home" class="size-img-dropdown2">Home</a>
-                    <a href="#about" class="size-img-dropdown2">About</a>
-                    <a href="#contact" class="size-img-dropdown2">Contact</a>
-                </div>
-            </div>
+            <select name="city" class="dropbtn bg-dropbtn" >
+                @foreach (var item in ViewData["lstcity"] as List<City>)
+                {
+                    <option style="background: white;" value="@item.CityID">@item.City1</option>
+                }
+            </select>
+            <select name="city" class="dropbtnn bg-dropbtn">
+                @foreach (var item in ViewData["lstcity"] as List<City>)
+                {
+                    <option value="@item.CityID">@item.City1</option>
+                }
+            </select>
         </div>
     </div>
 
@@ -156,13 +139,13 @@
         <div class="num-grid">
             <div class="movie-inf">
                 <table class="inf-table">
-                    <tr >
+                    <tr>
                         <td class="img-zone3" style="width: 134px; text-align: center;">
                             <img class="movie-img" src="~/Content/image/Rectangle 25.png" alt="">
                         </td>
                         <td class="inf-zone3" style="width: 285px; line-height: 3px; ">
                             <p class="movie-name">A QUIET PLACE PART II</p>
-                            <p style="margin-top: 20px; "  class="movie-type">Horror, Sci-Fi, Drama</pstyle="margin:>
+                            <p style="margin-top: 20px; " class="movie-type">Horror, Sci-Fi, Drama</pstyle="margin:>
                             <p style="margin-top: 20px; " class="movie-length">1hrs 23m</p>
                             <p style="margin-top: 20px; " class="movie-day">Tuesday, Jun 30 at 1:30 AM</p>
                             <p style="margin-top: 20px; " class="movie-place">CGV Aeon Bình Tân theater, Auditorium 5</p>

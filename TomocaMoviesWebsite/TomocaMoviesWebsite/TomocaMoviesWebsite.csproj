@@ -516,6 +516,7 @@
     <Content Include="Views\adminmanager\phimSC.cshtml" />
     <Content Include="Views\adminmanager\phimdangchieu.cshtml" />
     <Content Include="Views\adminmanager\datve.cshtml" />
+    <Content Include="Views\Tomoca\Ticket_PartialPage1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
