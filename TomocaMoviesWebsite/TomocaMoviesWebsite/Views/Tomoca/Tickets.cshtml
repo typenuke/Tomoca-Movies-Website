@@ -118,9 +118,9 @@
         <p style="margin: 20px;">1. Choose your theater</p>
         <div style="display:flex">
             <select name="city" class="dropbtn bg-dropbtn" >
-                @foreach (var item in ViewData["lstcity"] as List<City>)
+                @foreach (var item in db.MovieTheaters)
                 {
-                    <option style="background: white;" value="@item.CityID">@item.City1</option>
+                    <option style="background: white;" value="@item.TheaterID">@item.TheaterName</option>
                 }
             </select>
             <select name="city" class="dropbtnn bg-dropbtn">
