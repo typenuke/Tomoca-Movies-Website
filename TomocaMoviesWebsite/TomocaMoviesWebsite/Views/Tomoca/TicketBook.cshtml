@@ -18,6 +18,11 @@
     body {
         background-color: #E5E5E5;
     }
+
+    .thoigianbatdau:hover {
+        cursor: pointer;
+        background: #FF7300 !important;
+    }
 </style>
 @section scriptstren{
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -68,7 +73,7 @@
 </div>
 <div class="nowplaying">
     <div class="nowplaying-count">
-        <p class="ccc">NOWPLAYING ()<span style="color:#5C5C5C; margin-left: 20px;">UPCOMING</span></p>
+        <p class="ccc">NOWPLAYING (@Model.Count())<span style="color:#5C5C5C; margin-left: 20px;">UPCOMING</span></p>
     </div>
 </div>
 <div class="container">
@@ -95,7 +100,9 @@
                                     string tam = temp.GenreName;
                                     lstg.Add(tam);
                                 }
-                                }
+                            }
+                            <span hidden id="thoigianotren">@item.Time</span>
+                            <span hidden id="tenrapotren">@item.MovieTheater.TheaterName</span>
                             <span id="theloaiphim">
                                 @for (int i = 0; i < lstg.Count(); i++)
                                 {
@@ -103,6 +110,7 @@
                                 }
                             </span><br>
                             <span><img src="~/Content/image/clock.png" /> <span id="thoigianphim">@item.Movy.TimeOfFilm</span></span>
+
                         </div>
                 </div>
             }
@@ -117,7 +125,7 @@
 <div class="content-bookticket">
     <div class="bookticket-first" style="padding-top: 1px;">
         <p class="choose-your-seat">2. Select a movie time</p>
-        <input type="type" name="name" value="99" id="timebatdau" />
+        <span id="thoigiandechon" style="margin-left:40px; border-radius:5px; background:#5C5C5C; padding:10px 40px; color:white; font-weight:bold" class="thoigianbatdau">0:00</span>
     </div>
 </div>
 <div onload="onLoaderFunc()">
@@ -134,8 +142,8 @@
                             <p class="movie-name" id="tenphimtrongo">A QUIET PLACE PART II</p>
                             <p id="theloaiphimtrongo" style="margin-top: 20px; " class="movie-type">Horror, Sci-Fi, Drama</pstyle="margin:>
                             <p id="thoigianphimtrongo" style="margin-top: 20px; " class="movie-length">1hrs 23m</p>
-                            <p style="margin-top: 20px; " class="movie-day">Tuesday, Jun 30 at 1:30 AM</p>
-                            <p style="margin-top: 20px; " class="movie-place">CGV Aeon Bình Tân theater, Auditorium 5</p>
+                            <p id="thoigianoduoi" style="margin-top: 20px; " class="movie-day">Tuesday, Jun 30 at 1:30 AM</p>
+                            <p id="rapphimoduoi" style="margin-top: 20px; " class="movie-place">CGV Aeon Bình Tân theater, Auditorium 5</p>
                         </td>
                     </tr>
                 </table>

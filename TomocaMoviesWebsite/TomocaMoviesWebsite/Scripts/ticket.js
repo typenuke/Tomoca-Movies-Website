@@ -350,7 +350,7 @@ $(document).ready(function () {
 
 $(".item").click(function () {
     var tam = $(this).find("#tieudephim").text();
-    console.log(tam);
+
     $("#tenphimtrongo").text(tam);
 
 });
@@ -358,15 +358,17 @@ $(".item").click(function () {
 
 $(".item").click(function () {
     var tam = $(this).find("#theloaiphim").text();
-    console.log(tam);
+
     $("#theloaiphimtrongo").text(tam);
 
 });
 
 $(".item").click(function () {
     var tam = $(this).find("#thoigianphim").text();
-    console.log(tam);
+
     $("#thoigianphimtrongo").text(tam);
+
+    $("#thoigiandechon").css("background", "#5C5C5C");
 
 });
 
@@ -374,4 +376,30 @@ $(".item").click(function () {
     var src2 = $("img:first", this).attr("src");
 
     $("#hinhtrongo").attr("src", src2);
+});
+
+$(".item").click(function () {
+    var tam = $(this).find("#thoigianotren").text();
+
+    $("#thoigiandechon").text(tam);
+
+});
+
+$(".item").click(function () {
+    var tam = $(this).find("#tenrapotren").text();
+
+    $("#rapphimoduoi").text(tam);
+
+});
+
+$("#thoigiandechon").click(function () {
+    var tam = $(this).text();
+
+    $("#thoigianoduoi").text(tam);
+
+});
+
+$("#thoigiandechon").click(function () {
+    $("#thoigiandechon").css("background", "#FF7300");
+
 });
