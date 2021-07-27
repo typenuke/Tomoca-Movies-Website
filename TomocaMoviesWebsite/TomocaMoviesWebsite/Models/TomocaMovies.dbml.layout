@@ -2,225 +2,225 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.5, 25.125" name="TomocaMovies">
   <DataContextMoniker Name="/TomocaMoviesDataContext" />
   <nestedChildShapes>
-    <classShape Id="0c0fb3b1-a8e7-4edb-8ab9-2040e178384b" absoluteBounds="0.75, 19.375, 2, 1.5785953776041666">
+    <classShape Id="0b77809b-1519-436e-b23f-6d5ed37bac52" absoluteBounds="0.75, 19.375, 2, 1.5785953776041666">
       <DataClassMoniker Name="/TomocaMoviesDataContext/Actor" />
       <nestedChildShapes>
-        <elementListCompartment Id="d951bcab-a364-462b-9cfe-c9c9c2715208" absoluteBounds="0.765, 19.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="48a0cde0-8d7a-406e-83a7-9d36b01fe69d" absoluteBounds="0.765, 19.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="3d38aa47-bf28-49fe-8be2-9674ba494e54" absoluteBounds="3.75, 7.375, 2, 1.5785953776041666">
+    <classShape Id="82946b71-e562-4e26-b4e0-66d981280baa" absoluteBounds="3.75, 7.375, 2, 1.5785953776041666">
       <DataClassMoniker Name="/TomocaMoviesDataContext/YoutubeReview" />
       <nestedChildShapes>
-        <elementListCompartment Id="3bc1d592-7567-4f73-bb17-137569af966b" absoluteBounds="3.765, 7.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="e7001fae-87a5-411e-b732-9fc7f3a08ddc" absoluteBounds="3.765, 7.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="7e37522a-c893-40b5-9fbf-cee996bcc9ca" absoluteBounds="4, 20.5, 2, 1.1939925130208309">
+    <classShape Id="ac2c8d20-aec6-4146-8acb-4276efb26450" absoluteBounds="4, 20.5, 2, 1.1939925130208309">
       <DataClassMoniker Name="/TomocaMoviesDataContext/City" />
       <nestedChildShapes>
-        <elementListCompartment Id="b298ec90-87a6-43e7-9370-be157d27df55" absoluteBounds="4.015, 20.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="b8036424-b7fe-480c-b680-fa7b5f09d2ea" absoluteBounds="4.015, 20.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="e77611f6-abfe-4f5a-82d7-3e053c90d797" absoluteBounds="6.5, 12.125, 2, 1.9631982421874987">
+    <classShape Id="61d46a9e-ec14-4dc0-8845-b69f1f35aedf" absoluteBounds="6.5, 12.125, 2, 1.9631982421874987">
       <DataClassMoniker Name="/TomocaMoviesDataContext/Comment" />
       <nestedChildShapes>
-        <elementListCompartment Id="6eaa6562-331f-408f-af10-b6783337947a" absoluteBounds="6.515, 12.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="aecae25b-3320-41f2-97bf-f6f54dfda6f5" absoluteBounds="6.515, 12.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="fc61c17b-f488-4fee-b07c-dbc3b331dd7a" absoluteBounds="0.75, 11.375, 2, 1.5785953776041666">
+    <classShape Id="15cee7e3-95f1-47ec-8fc3-5f2756d87111" absoluteBounds="0.75, 11.375, 2, 1.5785953776041666">
       <DataClassMoniker Name="/TomocaMoviesDataContext/Director" />
       <nestedChildShapes>
-        <elementListCompartment Id="595bf844-aa5f-44cc-96cd-3eaf3d2a2965" absoluteBounds="0.765, 11.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="1a774ec2-4e48-4e5d-91f4-9779befd8098" absoluteBounds="0.765, 11.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="0e8e862f-ead5-4ec3-a31f-ffe6ebe43d1c" absoluteBounds="0.75, 22.5, 2, 1.1939925130208309">
+    <classShape Id="80d57d83-798a-43c5-b7fb-5c12b528ba57" absoluteBounds="0.75, 22.5, 2, 1.1939925130208309">
       <DataClassMoniker Name="/TomocaMoviesDataContext/Genre" />
       <nestedChildShapes>
-        <elementListCompartment Id="3048ab98-7840-4d6f-a099-9107e6bf87e9" absoluteBounds="0.765, 22.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="aaf85549-cf97-48cb-8624-c28b3fef06c4" absoluteBounds="0.765, 22.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="aa9e9873-52bd-428f-a209-61ed2d27c3fe" absoluteBounds="9.5, 7.5, 2, 17.347312825520831">
+    <classShape Id="b75fd028-63f1-4dd5-a46e-f4558dd7ed61" absoluteBounds="9.5, 7.5, 2, 17.347312825520831">
       <DataClassMoniker Name="/TomocaMoviesDataContext/MiAnLien" />
       <nestedChildShapes>
-        <elementListCompartment Id="7f8d92de-e4df-4968-9c54-53b659339f41" absoluteBounds="9.515, 7.96, 1.9700000000000002, 16.787312825520832" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="6e5c730c-5aa8-4245-a057-6109a628a7c8" absoluteBounds="9.515, 7.96, 1.9700000000000002, 16.787312825520832" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="c4b5753f-1658-4057-9754-790edb1975cf" absoluteBounds="3.5, 15.5, 2, 1.1939925130208327">
+    <classShape Id="0b2bca26-7756-47a5-9311-6f30ca3b71ca" absoluteBounds="3.5, 15.5, 2, 1.1939925130208327">
       <DataClassMoniker Name="/TomocaMoviesDataContext/MovieActor" />
       <nestedChildShapes>
-        <elementListCompartment Id="4c578317-9e52-4c64-8d9e-c268a30f843f" absoluteBounds="3.515, 15.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f86a32ed-e3ed-4a51-8729-31d73cd83c80" absoluteBounds="3.515, 15.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="ccb01308-d43c-4fba-8c12-2ee163e72278" absoluteBounds="3.5, 13.5, 2, 1.1939925130208344">
+    <classShape Id="dc666b25-addd-49f5-ad71-77362185d2d4" absoluteBounds="3.5, 13.5, 2, 1.1939925130208344">
       <DataClassMoniker Name="/TomocaMoviesDataContext/MovieDirector" />
       <nestedChildShapes>
-        <elementListCompartment Id="d34bca52-c9bb-4e5c-a08e-678619bcec34" absoluteBounds="3.515, 13.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="4a356afc-ece4-42f4-a143-8a3b2a1cba14" absoluteBounds="3.515, 13.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="567ffa34-a649-40dd-9b22-dee47691a350" absoluteBounds="0.75, 14.625, 2, 3.1170068359375023">
+    <classShape Id="bb2e98a4-5403-4adc-b30c-40380043696a" absoluteBounds="0.75, 14.625, 2, 3.1170068359375023">
       <DataClassMoniker Name="/TomocaMoviesDataContext/Movy" />
       <nestedChildShapes>
-        <elementListCompartment Id="82b9cb96-01ea-4c62-9019-53d29dce32ec" absoluteBounds="0.765, 15.085, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9b55ed03-603e-4adb-b079-e2a42fbffd8d" absoluteBounds="0.765, 15.085, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="d4b68b79-cbf1-4544-91c1-5fb3bbb7def2" absoluteBounds="3.5, 17.5, 2, 1.1939925130208309">
+    <classShape Id="0cdb351a-5733-479b-8783-c49277fbb207" absoluteBounds="3.5, 17.5, 2, 1.1939925130208309">
       <DataClassMoniker Name="/TomocaMoviesDataContext/MoviesGenre" />
       <nestedChildShapes>
-        <elementListCompartment Id="5f9e1d7d-9443-4386-ad51-0827adfc52c3" absoluteBounds="3.515, 17.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="fcc36802-c61d-4382-94c5-4c6ba1198420" absoluteBounds="3.515, 17.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="55fdf123-10da-49f7-ac43-b77d8af21979" absoluteBounds="6.75, 21.25, 2, 1.7708968098958309">
+    <classShape Id="1c8b71dc-dbf9-4dd0-be54-a98d518efad0" absoluteBounds="6.75, 21.25, 2, 1.7708968098958309">
       <DataClassMoniker Name="/TomocaMoviesDataContext/MovieTheater" />
       <nestedChildShapes>
-        <elementListCompartment Id="899987c8-1d5d-4cb4-8e4c-7c6348020e8c" absoluteBounds="6.765, 21.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="729d80f5-5bee-4661-89de-d1464d9095db" absoluteBounds="6.765, 21.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="93e3d870-9a35-4df9-a57b-7305f15bfc17" absoluteBounds="6.5, 7.75, 2, 2.7324039713541666">
+    <classShape Id="2fc03b2c-b5f4-4800-a0fa-2e0a4600caa2" absoluteBounds="6.5, 7.75, 2, 2.7324039713541666">
       <DataClassMoniker Name="/TomocaMoviesDataContext/New" />
       <nestedChildShapes>
-        <elementListCompartment Id="0a4dc820-681b-4e07-b1e3-46664258eff2" absoluteBounds="6.515, 8.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="94a46dd4-fc8b-42f6-8662-d91144fb90cc" absoluteBounds="6.515, 8.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="cdfe8f2a-2bf2-4587-b7e7-03b373b43112" absoluteBounds="6.5, 15.5, 2, 1.1939925130208327">
+    <classShape Id="3ba02364-145d-4ee7-bd1e-4f318f5a4f5b" absoluteBounds="6.5, 15.5, 2, 1.1939925130208327">
       <DataClassMoniker Name="/TomocaMoviesDataContext/ReviewOfMovie" />
       <nestedChildShapes>
-        <elementListCompartment Id="2955f0d6-8990-4ea2-a2d3-714aa40f0ba6" absoluteBounds="6.515, 15.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c18812c4-6da3-4cbb-9c50-b796d009001e" absoluteBounds="6.515, 15.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f2922975-ded5-4c79-b234-eb80b02ff037" absoluteBounds="4, 22.375, 2, 1.3862939453125023">
+    <classShape Id="95290c96-407e-4d6b-ba35-9d569dead786" absoluteBounds="4, 22.375, 2, 1.3862939453125023">
       <DataClassMoniker Name="/TomocaMoviesDataContext/Theater" />
       <nestedChildShapes>
-        <elementListCompartment Id="0517dfca-8f77-4feb-88b7-160b7d1df421" absoluteBounds="4.015, 22.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="19f1ff53-2183-449c-8ffc-03c8d677a241" absoluteBounds="4.015, 22.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="66463bbb-203b-430a-8fdf-b31bc9671d78" absoluteBounds="12.25, 15, 2, 2.1554996744791666">
+    <classShape Id="26c763c7-938c-4af9-97a2-639c7b057330" absoluteBounds="12.25, 15, 2, 2.1554996744791666">
       <DataClassMoniker Name="/TomocaMoviesDataContext/Ticket" />
       <nestedChildShapes>
-        <elementListCompartment Id="2a2eaa78-c7fc-408d-a3ea-af4a1c11b813" absoluteBounds="12.265, 15.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="ae07198e-b3dc-4126-9fdb-276f33b4b0f0" absoluteBounds="12.265, 15.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="e0db826c-c96a-47be-b1b6-54b823d8478a" absoluteBounds="3.75, 10, 2, 2.3478011067708344">
+    <classShape Id="07e8858b-1b17-4336-bce9-506ce0355798" absoluteBounds="3.75, 10, 2, 2.3478011067708344">
       <DataClassMoniker Name="/TomocaMoviesDataContext/User" />
       <nestedChildShapes>
-        <elementListCompartment Id="9b9ded0b-4d0e-43f5-8bed-dd83ff88d066" absoluteBounds="3.765, 10.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="5c812add-7bdc-484a-804e-f279dca30990" absoluteBounds="3.765, 10.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(2.75 : 19.3762133041366); (3.125 : 19.0012133041366); (3.125 : 16.0969962565104); (3.5 : 16.0969962565104)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/TomocaMoviesDataContext/Actor/Actor_MovieActor" />
       <nodes>
-        <classShapeMoniker Id="0c0fb3b1-a8e7-4edb-8ab9-2040e178384b" />
-        <classShapeMoniker Id="c4b5753f-1658-4057-9754-790edb1975cf" />
+        <classShapeMoniker Id="0b77809b-1519-436e-b23f-6d5ed37bac52" />
+        <classShapeMoniker Id="0b2bca26-7756-47a5-9311-6f30ca3b71ca" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 12.6819482421875); (3.59375 : 12.6819482421875); (3.59375 : 13.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TomocaMoviesDataContext/Director/Director_MovieDirector" />
       <nodes>
-        <classShapeMoniker Id="fc61c17b-f488-4fee-b07c-dbc3b331dd7a" />
-        <classShapeMoniker Id="ccb01308-d43c-4fba-8c12-2ee163e72278" />
+        <classShapeMoniker Id="15cee7e3-95f1-47ec-8fc3-5f2756d87111" />
+        <classShapeMoniker Id="dc666b25-addd-49f5-ad71-77362185d2d4" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(1.75 : 14.625); (1.75 : 13.1065991210937); (3.51041666666667 : 13.1065991210937 : JumpStart); (3.67708333333333 : 13.1065991210937 : JumpEnd); (6.04166666666667 : 13.1065991210937 : JumpStart); (6.20833333333333 : 13.1065991210937 : JumpEnd); (6.5 : 13.1065991210937)]" fixedFrom="Algorithm" fixedTo="NotFixed">
       <AssociationMoniker Name="/TomocaMoviesDataContext/Movy/Movy_Comment" />
       <nodes>
-        <classShapeMoniker Id="567ffa34-a649-40dd-9b22-dee47691a350" />
-        <classShapeMoniker Id="e77611f6-abfe-4f5a-82d7-3e053c90d797" />
+        <classShapeMoniker Id="bb2e98a4-5403-4adc-b30c-40380043696a" />
+        <classShapeMoniker Id="61d46a9e-ec14-4dc0-8845-b69f1f35aedf" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 17.0969962565104); (3.04166666666667 : 17.0969962565104 : JumpStart); (3.20833333333333 : 17.0969962565104 : JumpEnd); (7.41666666666667 : 17.0969962565104 : JumpStart); (7.58333333333333 : 17.0969962565104 : JumpEnd); (9.5 : 17.0969962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TomocaMoviesDataContext/Movy/Movy_MiAnLien" />
       <nodes>
-        <classShapeMoniker Id="567ffa34-a649-40dd-9b22-dee47691a350" />
-        <classShapeMoniker Id="aa9e9873-52bd-428f-a209-61ed2d27c3fe" />
+        <classShapeMoniker Id="bb2e98a4-5403-4adc-b30c-40380043696a" />
+        <classShapeMoniker Id="b75fd028-63f1-4dd5-a46e-f4558dd7ed61" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 15.7359981282552); (3.5 : 15.7359981282552)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TomocaMoviesDataContext/Movy/Movy_MovieActor" />
       <nodes>
-        <classShapeMoniker Id="567ffa34-a649-40dd-9b22-dee47691a350" />
-        <classShapeMoniker Id="c4b5753f-1658-4057-9754-790edb1975cf" />
+        <classShapeMoniker Id="bb2e98a4-5403-4adc-b30c-40380043696a" />
+        <classShapeMoniker Id="0b2bca26-7756-47a5-9311-6f30ca3b71ca" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.2812525 : 14.625); (2.2812525 : 14.0312475); (3.5 : 14.0312475)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TomocaMoviesDataContext/Movy/Movy_MovieDirector" />
       <nodes>
-        <classShapeMoniker Id="567ffa34-a649-40dd-9b22-dee47691a350" />
-        <classShapeMoniker Id="ccb01308-d43c-4fba-8c12-2ee163e72278" />
+        <classShapeMoniker Id="bb2e98a4-5403-4adc-b30c-40380043696a" />
+        <classShapeMoniker Id="dc666b25-addd-49f5-ad71-77362185d2d4" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 22.5312264964944); (3.40625 : 21.8749764964944); (3.40625 : 18.7877425130208); (3.5 : 18.6939925130208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/TomocaMoviesDataContext/Genre/Genre_MoviesGenre" />
       <nodes>
-        <classShapeMoniker Id="0e8e862f-ead5-4ec3-a31f-ffe6ebe43d1c" />
-        <classShapeMoniker Id="d4b68b79-cbf1-4544-91c1-5fb3bbb7def2" />
+        <classShapeMoniker Id="80d57d83-798a-43c5-b7fb-5c12b528ba57" />
+        <classShapeMoniker Id="0cdb351a-5733-479b-8783-c49277fbb207" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(1.75 : 17.7420068359375); (1.75 : 18.1867476744792); (3.04166666666667 : 18.1867476744792 : JumpStart); (3.20833333333333 : 18.1867476744792 : JumpEnd); (3.5 : 18.1867476744792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TomocaMoviesDataContext/Movy/Movy_MoviesGenre" />
       <nodes>
-        <classShapeMoniker Id="567ffa34-a649-40dd-9b22-dee47691a350" />
-        <classShapeMoniker Id="d4b68b79-cbf1-4544-91c1-5fb3bbb7def2" />
+        <classShapeMoniker Id="bb2e98a4-5403-4adc-b30c-40380043696a" />
+        <classShapeMoniker Id="0cdb351a-5733-479b-8783-c49277fbb207" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(8.75 : 22.1354484049479); (9.5 : 22.1354484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TomocaMoviesDataContext/MovieTheater/MovieTheater_MiAnLien" />
       <nodes>
-        <classShapeMoniker Id="55fdf123-10da-49f7-ac43-b77d8af21979" />
-        <classShapeMoniker Id="aa9e9873-52bd-428f-a209-61ed2d27c3fe" />
+        <classShapeMoniker Id="1c8b71dc-dbf9-4dd0-be54-a98d518efad0" />
+        <classShapeMoniker Id="b75fd028-63f1-4dd5-a46e-f4558dd7ed61" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(6 : 21.4719962565104); (6.75 : 21.4719962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TomocaMoviesDataContext/City/City_MovieTheater" />
       <nodes>
-        <classShapeMoniker Id="7e37522a-c893-40b5-9fbf-cee996bcc9ca" />
-        <classShapeMoniker Id="55fdf123-10da-49f7-ac43-b77d8af21979" />
+        <classShapeMoniker Id="ac2c8d20-aec6-4146-8acb-4276efb26450" />
+        <classShapeMoniker Id="1c8b71dc-dbf9-4dd0-be54-a98d518efad0" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 17.2985006282552); (3.04166666666667 : 17.2985006282552 : JumpStart); (3.20833333333333 : 17.2985006282552 : JumpEnd); (7.5 : 17.2985006282552); (7.5 : 16.6939925130208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TomocaMoviesDataContext/Movy/Movy_ReviewOfMovie" />
       <nodes>
-        <classShapeMoniker Id="567ffa34-a649-40dd-9b22-dee47691a350" />
-        <classShapeMoniker Id="cdfe8f2a-2bf2-4587-b7e7-03b373b43112" />
+        <classShapeMoniker Id="bb2e98a4-5403-4adc-b30c-40380043696a" />
+        <classShapeMoniker Id="3ba02364-145d-4ee7-bd1e-4f318f5a4f5b" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(5.75 : 8.95359537760417); (6.125 : 9.32859537760417); (6.125 : 16.0969962565104); (6.5 : 16.0969962565104)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/TomocaMoviesDataContext/YoutubeReview/YoutubeReview_ReviewOfMovie" />
       <nodes>
-        <classShapeMoniker Id="3d38aa47-bf28-49fe-8be2-9674ba494e54" />
-        <classShapeMoniker Id="cdfe8f2a-2bf2-4587-b7e7-03b373b43112" />
+        <classShapeMoniker Id="82946b71-e562-4e26-b4e0-66d981280baa" />
+        <classShapeMoniker Id="3ba02364-145d-4ee7-bd1e-4f318f5a4f5b" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(6 : 22.6979484049479); (6.75 : 22.6979484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TomocaMoviesDataContext/Theater/Theater_MovieTheater" />
       <nodes>
-        <classShapeMoniker Id="f2922975-ded5-4c79-b234-eb80b02ff037" />
-        <classShapeMoniker Id="55fdf123-10da-49f7-ac43-b77d8af21979" />
+        <classShapeMoniker Id="95290c96-407e-4d6b-ba35-9d569dead786" />
+        <classShapeMoniker Id="1c8b71dc-dbf9-4dd0-be54-a98d518efad0" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(11.5 : 16.0777498372396); (12.25 : 16.0777498372396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TomocaMoviesDataContext/MiAnLien/MiAnLien_Ticket" />
       <nodes>
-        <classShapeMoniker Id="aa9e9873-52bd-428f-a209-61ed2d27c3fe" />
-        <classShapeMoniker Id="66463bbb-203b-430a-8fdf-b31bc9671d78" />
+        <classShapeMoniker Id="b75fd028-63f1-4dd5-a46e-f4558dd7ed61" />
+        <classShapeMoniker Id="26c763c7-938c-4af9-97a2-639c7b057330" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(5.65625 : 12.3478011067708); (5.65625 : 12.6959481139323); (6.04166666666667 : 12.6959481139323 : JumpStart); (6.20833333333333 : 12.6959481139323 : JumpEnd); (6.5 : 12.6959481139323)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TomocaMoviesDataContext/User/User_Comment" />
       <nodes>
-        <classShapeMoniker Id="e0db826c-c96a-47be-b1b6-54b823d8478a" />
-        <classShapeMoniker Id="e77611f6-abfe-4f5a-82d7-3e053c90d797" />
+        <classShapeMoniker Id="07e8858b-1b17-4336-bce9-506ce0355798" />
+        <classShapeMoniker Id="61d46a9e-ec14-4dc0-8845-b69f1f35aedf" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(5.75 : 10.2412019856771); (6.04166666666667 : 10.2412019856771 : JumpStart); (6.20833333333333 : 10.2412019856771 : JumpEnd); (6.5 : 10.2412019856771)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TomocaMoviesDataContext/User/User_New" />
       <nodes>
-        <classShapeMoniker Id="e0db826c-c96a-47be-b1b6-54b823d8478a" />
-        <classShapeMoniker Id="93e3d870-9a35-4df9-a57b-7305f15bfc17" />
+        <classShapeMoniker Id="07e8858b-1b17-4336-bce9-506ce0355798" />
+        <classShapeMoniker Id="2fc03b2c-b5f4-4800-a0fa-2e0a4600caa2" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(5.75 : 11.3037019856771); (6.04166666666667 : 11.3037019856771 : JumpStart); (6.20833333333333 : 11.3037019856771 : JumpEnd); (9.25 : 11.3037019856771); (9.25 : 7.25); (13.25 : 7.25); (13.25 : 15)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/TomocaMoviesDataContext/User/User_Ticket" />
       <nodes>
-        <classShapeMoniker Id="e0db826c-c96a-47be-b1b6-54b823d8478a" />
-        <classShapeMoniker Id="66463bbb-203b-430a-8fdf-b31bc9671d78" />
+        <classShapeMoniker Id="07e8858b-1b17-4336-bce9-506ce0355798" />
+        <classShapeMoniker Id="26c763c7-938c-4af9-97a2-639c7b057330" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

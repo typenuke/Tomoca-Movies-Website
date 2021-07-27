@@ -12,10 +12,6 @@
     });
 
     ResCarouselSize();
-
-
-
-
     $(window).resize(function() {
         ResCarouselSize();
     });

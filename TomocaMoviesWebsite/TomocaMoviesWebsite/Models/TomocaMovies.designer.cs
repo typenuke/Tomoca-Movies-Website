@@ -22,7 +22,7 @@ namespace TomocaMoviesWebsite.Models
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="newDBTomoca")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DBTomocaUpdate")]
 	public partial class TomocaMoviesDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -84,7 +84,7 @@ namespace TomocaMoviesWebsite.Models
     #endregion
 		
 		public TomocaMoviesDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["newDBTomocaConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DBTomocaUpdateConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1242,169 +1242,169 @@ namespace TomocaMoviesWebsite.Models
 		
 		private System.DateTime _Time;
 		
-		private System.Nullable<bool> _A4;
+		private string _A4;
 		
-		private System.Nullable<bool> _A5;
+		private string _A5;
 		
-		private System.Nullable<bool> _A6;
+		private string _A6;
 		
-		private System.Nullable<bool> _A7;
+		private string _A7;
 		
-		private System.Nullable<bool> _A8;
+		private string _A8;
 		
-		private System.Nullable<bool> _A9;
+		private string _A9;
 		
-		private System.Nullable<bool> _A10;
+		private string _A10;
 		
-		private System.Nullable<bool> _A11;
+		private string _A11;
 		
-		private System.Nullable<bool> _A12;
+		private string _A12;
 		
-		private System.Nullable<bool> _A13;
+		private string _A13;
 		
-		private System.Nullable<bool> _B2;
+		private string _B2;
 		
-		private System.Nullable<bool> _B3;
+		private string _B3;
 		
-		private System.Nullable<bool> _B4;
+		private string _B4;
 		
-		private System.Nullable<bool> _B5;
+		private string _B5;
 		
-		private System.Nullable<bool> _B6;
+		private string _B6;
 		
-		private System.Nullable<bool> _B7;
+		private string _B7;
 		
-		private System.Nullable<bool> _B8;
+		private string _B8;
 		
-		private System.Nullable<bool> _B9;
+		private string _B9;
 		
-		private System.Nullable<bool> _B10;
+		private string _B10;
 		
-		private System.Nullable<bool> _B11;
+		private string _B11;
 		
-		private System.Nullable<bool> _B12;
+		private string _B12;
 		
-		private System.Nullable<bool> _B13;
+		private string _B13;
 		
-		private System.Nullable<bool> _B14;
+		private string _B14;
 		
-		private System.Nullable<bool> _B15;
+		private string _B15;
 		
-		private System.Nullable<bool> _C2;
+		private string _C2;
 		
-		private System.Nullable<bool> _C3;
+		private string _C3;
 		
-		private System.Nullable<bool> _C4;
+		private string _C4;
 		
-		private System.Nullable<bool> _C5;
+		private string _C5;
 		
-		private System.Nullable<bool> _C6;
+		private string _C6;
 		
-		private System.Nullable<bool> _C7;
+		private string _C7;
 		
-		private System.Nullable<bool> _C8;
+		private string _C8;
 		
-		private System.Nullable<bool> _C9;
+		private string _C9;
 		
-		private System.Nullable<bool> _C10;
+		private string _C10;
 		
-		private System.Nullable<bool> _C11;
+		private string _C11;
 		
-		private System.Nullable<bool> _C12;
+		private string _C12;
 		
-		private System.Nullable<bool> _C13;
+		private string _C13;
 		
-		private System.Nullable<bool> _C14;
+		private string _C14;
 		
-		private System.Nullable<bool> _C15;
+		private string _C15;
 		
-		private System.Nullable<bool> _D2;
+		private string _D2;
 		
-		private System.Nullable<bool> _D3;
+		private string _D3;
 		
-		private System.Nullable<bool> _D4;
+		private string _D4;
 		
-		private System.Nullable<bool> _D5;
+		private string _D5;
 		
-		private System.Nullable<bool> _D6;
+		private string _D6;
 		
-		private System.Nullable<bool> _D7;
+		private string _D7;
 		
-		private System.Nullable<bool> _D8;
+		private string _D8;
 		
-		private System.Nullable<bool> _D9;
+		private string _D9;
 		
-		private System.Nullable<bool> _D10;
+		private string _D10;
 		
-		private System.Nullable<bool> _D11;
+		private string _D11;
 		
-		private System.Nullable<bool> _D12;
+		private string _D12;
 		
-		private System.Nullable<bool> _D13;
+		private string _D13;
 		
-		private System.Nullable<bool> _D14;
+		private string _D14;
 		
-		private System.Nullable<bool> _D15;
+		private string _D15;
 		
-		private System.Nullable<bool> _E2;
+		private string _E2;
 		
-		private System.Nullable<bool> _E3;
+		private string _E3;
 		
-		private System.Nullable<bool> _E4;
+		private string _E4;
 		
-		private System.Nullable<bool> _E5;
+		private string _E5;
 		
-		private System.Nullable<bool> _E6;
+		private string _E6;
 		
-		private System.Nullable<bool> _E7;
+		private string _E7;
 		
-		private System.Nullable<bool> _E8;
+		private string _E8;
 		
-		private System.Nullable<bool> _E9;
+		private string _E9;
 		
-		private System.Nullable<bool> _E10;
+		private string _E10;
 		
-		private System.Nullable<bool> _E11;
+		private string _E11;
 		
-		private System.Nullable<bool> _E12;
+		private string _E12;
 		
-		private System.Nullable<bool> _E13;
+		private string _E13;
 		
-		private System.Nullable<bool> _E14;
+		private string _E14;
 		
-		private System.Nullable<bool> _E15;
+		private string _E15;
 		
-		private System.Nullable<bool> _F1;
+		private string _F1;
 		
-		private System.Nullable<bool> _F2;
+		private string _F2;
 		
-		private System.Nullable<bool> _F3;
+		private string _F3;
 		
-		private System.Nullable<bool> _F4;
+		private string _F4;
 		
-		private System.Nullable<bool> _F5;
+		private string _F5;
 		
-		private System.Nullable<bool> _F6;
+		private string _F6;
 		
-		private System.Nullable<bool> _F7;
+		private string _F7;
 		
-		private System.Nullable<bool> _F8;
+		private string _F8;
 		
-		private System.Nullable<bool> _F9;
+		private string _F9;
 		
-		private System.Nullable<bool> _F10;
+		private string _F10;
 		
-		private System.Nullable<bool> _F11;
+		private string _F11;
 		
-		private System.Nullable<bool> _F12;
+		private string _F12;
 		
-		private System.Nullable<bool> _F13;
+		private string _F13;
 		
-		private System.Nullable<bool> _F14;
+		private string _F14;
 		
-		private System.Nullable<bool> _F15;
+		private string _F15;
 		
-		private System.Nullable<bool> _F16;
+		private string _F16;
 		
 		private EntitySet<Ticket> _Tickets;
 		
@@ -1424,169 +1424,169 @@ namespace TomocaMoviesWebsite.Models
     partial void OnTheaterIDChanged();
     partial void OnTimeChanging(System.DateTime value);
     partial void OnTimeChanged();
-    partial void OnA4Changing(System.Nullable<bool> value);
+    partial void OnA4Changing(string value);
     partial void OnA4Changed();
-    partial void OnA5Changing(System.Nullable<bool> value);
+    partial void OnA5Changing(string value);
     partial void OnA5Changed();
-    partial void OnA6Changing(System.Nullable<bool> value);
+    partial void OnA6Changing(string value);
     partial void OnA6Changed();
-    partial void OnA7Changing(System.Nullable<bool> value);
+    partial void OnA7Changing(string value);
     partial void OnA7Changed();
-    partial void OnA8Changing(System.Nullable<bool> value);
+    partial void OnA8Changing(string value);
     partial void OnA8Changed();
-    partial void OnA9Changing(System.Nullable<bool> value);
+    partial void OnA9Changing(string value);
     partial void OnA9Changed();
-    partial void OnA10Changing(System.Nullable<bool> value);
+    partial void OnA10Changing(string value);
     partial void OnA10Changed();
-    partial void OnA11Changing(System.Nullable<bool> value);
+    partial void OnA11Changing(string value);
     partial void OnA11Changed();
-    partial void OnA12Changing(System.Nullable<bool> value);
+    partial void OnA12Changing(string value);
     partial void OnA12Changed();
-    partial void OnA13Changing(System.Nullable<bool> value);
+    partial void OnA13Changing(string value);
     partial void OnA13Changed();
-    partial void OnB2Changing(System.Nullable<bool> value);
+    partial void OnB2Changing(string value);
     partial void OnB2Changed();
-    partial void OnB3Changing(System.Nullable<bool> value);
+    partial void OnB3Changing(string value);
     partial void OnB3Changed();
-    partial void OnB4Changing(System.Nullable<bool> value);
+    partial void OnB4Changing(string value);
     partial void OnB4Changed();
-    partial void OnB5Changing(System.Nullable<bool> value);
+    partial void OnB5Changing(string value);
     partial void OnB5Changed();
-    partial void OnB6Changing(System.Nullable<bool> value);
+    partial void OnB6Changing(string value);
     partial void OnB6Changed();
-    partial void OnB7Changing(System.Nullable<bool> value);
+    partial void OnB7Changing(string value);
     partial void OnB7Changed();
-    partial void OnB8Changing(System.Nullable<bool> value);
+    partial void OnB8Changing(string value);
     partial void OnB8Changed();
-    partial void OnB9Changing(System.Nullable<bool> value);
+    partial void OnB9Changing(string value);
     partial void OnB9Changed();
-    partial void OnB10Changing(System.Nullable<bool> value);
+    partial void OnB10Changing(string value);
     partial void OnB10Changed();
-    partial void OnB11Changing(System.Nullable<bool> value);
+    partial void OnB11Changing(string value);
     partial void OnB11Changed();
-    partial void OnB12Changing(System.Nullable<bool> value);
+    partial void OnB12Changing(string value);
     partial void OnB12Changed();
-    partial void OnB13Changing(System.Nullable<bool> value);
+    partial void OnB13Changing(string value);
     partial void OnB13Changed();
-    partial void OnB14Changing(System.Nullable<bool> value);
+    partial void OnB14Changing(string value);
     partial void OnB14Changed();
-    partial void OnB15Changing(System.Nullable<bool> value);
+    partial void OnB15Changing(string value);
     partial void OnB15Changed();
-    partial void OnC2Changing(System.Nullable<bool> value);
+    partial void OnC2Changing(string value);
     partial void OnC2Changed();
-    partial void OnC3Changing(System.Nullable<bool> value);
+    partial void OnC3Changing(string value);
     partial void OnC3Changed();
-    partial void OnC4Changing(System.Nullable<bool> value);
+    partial void OnC4Changing(string value);
     partial void OnC4Changed();
-    partial void OnC5Changing(System.Nullable<bool> value);
+    partial void OnC5Changing(string value);
     partial void OnC5Changed();
-    partial void OnC6Changing(System.Nullable<bool> value);
+    partial void OnC6Changing(string value);
     partial void OnC6Changed();
-    partial void OnC7Changing(System.Nullable<bool> value);
+    partial void OnC7Changing(string value);
     partial void OnC7Changed();
-    partial void OnC8Changing(System.Nullable<bool> value);
+    partial void OnC8Changing(string value);
     partial void OnC8Changed();
-    partial void OnC9Changing(System.Nullable<bool> value);
+    partial void OnC9Changing(string value);
     partial void OnC9Changed();
-    partial void OnC10Changing(System.Nullable<bool> value);
+    partial void OnC10Changing(string value);
     partial void OnC10Changed();
-    partial void OnC11Changing(System.Nullable<bool> value);
+    partial void OnC11Changing(string value);
     partial void OnC11Changed();
-    partial void OnC12Changing(System.Nullable<bool> value);
+    partial void OnC12Changing(string value);
     partial void OnC12Changed();
-    partial void OnC13Changing(System.Nullable<bool> value);
+    partial void OnC13Changing(string value);
     partial void OnC13Changed();
-    partial void OnC14Changing(System.Nullable<bool> value);
+    partial void OnC14Changing(string value);
     partial void OnC14Changed();
-    partial void OnC15Changing(System.Nullable<bool> value);
+    partial void OnC15Changing(string value);
     partial void OnC15Changed();
-    partial void OnD2Changing(System.Nullable<bool> value);
+    partial void OnD2Changing(string value);
     partial void OnD2Changed();
-    partial void OnD3Changing(System.Nullable<bool> value);
+    partial void OnD3Changing(string value);
     partial void OnD3Changed();
-    partial void OnD4Changing(System.Nullable<bool> value);
+    partial void OnD4Changing(string value);
     partial void OnD4Changed();
-    partial void OnD5Changing(System.Nullable<bool> value);
+    partial void OnD5Changing(string value);
     partial void OnD5Changed();
-    partial void OnD6Changing(System.Nullable<bool> value);
+    partial void OnD6Changing(string value);
     partial void OnD6Changed();
-    partial void OnD7Changing(System.Nullable<bool> value);
+    partial void OnD7Changing(string value);
     partial void OnD7Changed();
-    partial void OnD8Changing(System.Nullable<bool> value);
+    partial void OnD8Changing(string value);
     partial void OnD8Changed();
-    partial void OnD9Changing(System.Nullable<bool> value);
+    partial void OnD9Changing(string value);
     partial void OnD9Changed();
-    partial void OnD10Changing(System.Nullable<bool> value);
+    partial void OnD10Changing(string value);
     partial void OnD10Changed();
-    partial void OnD11Changing(System.Nullable<bool> value);
+    partial void OnD11Changing(string value);
     partial void OnD11Changed();
-    partial void OnD12Changing(System.Nullable<bool> value);
+    partial void OnD12Changing(string value);
     partial void OnD12Changed();
-    partial void OnD13Changing(System.Nullable<bool> value);
+    partial void OnD13Changing(string value);
     partial void OnD13Changed();
-    partial void OnD14Changing(System.Nullable<bool> value);
+    partial void OnD14Changing(string value);
     partial void OnD14Changed();
-    partial void OnD15Changing(System.Nullable<bool> value);
+    partial void OnD15Changing(string value);
     partial void OnD15Changed();
-    partial void OnE2Changing(System.Nullable<bool> value);
+    partial void OnE2Changing(string value);
     partial void OnE2Changed();
-    partial void OnE3Changing(System.Nullable<bool> value);
+    partial void OnE3Changing(string value);
     partial void OnE3Changed();
-    partial void OnE4Changing(System.Nullable<bool> value);
+    partial void OnE4Changing(string value);
     partial void OnE4Changed();
-    partial void OnE5Changing(System.Nullable<bool> value);
+    partial void OnE5Changing(string value);
     partial void OnE5Changed();
-    partial void OnE6Changing(System.Nullable<bool> value);
+    partial void OnE6Changing(string value);
     partial void OnE6Changed();
-    partial void OnE7Changing(System.Nullable<bool> value);
+    partial void OnE7Changing(string value);
     partial void OnE7Changed();
-    partial void OnE8Changing(System.Nullable<bool> value);
+    partial void OnE8Changing(string value);
     partial void OnE8Changed();
-    partial void OnE9Changing(System.Nullable<bool> value);
+    partial void OnE9Changing(string value);
     partial void OnE9Changed();
-    partial void OnE10Changing(System.Nullable<bool> value);
+    partial void OnE10Changing(string value);
     partial void OnE10Changed();
-    partial void OnE11Changing(System.Nullable<bool> value);
+    partial void OnE11Changing(string value);
     partial void OnE11Changed();
-    partial void OnE12Changing(System.Nullable<bool> value);
+    partial void OnE12Changing(string value);
     partial void OnE12Changed();
-    partial void OnE13Changing(System.Nullable<bool> value);
+    partial void OnE13Changing(string value);
     partial void OnE13Changed();
-    partial void OnE14Changing(System.Nullable<bool> value);
+    partial void OnE14Changing(string value);
     partial void OnE14Changed();
-    partial void OnE15Changing(System.Nullable<bool> value);
+    partial void OnE15Changing(string value);
     partial void OnE15Changed();
-    partial void OnF1Changing(System.Nullable<bool> value);
+    partial void OnF1Changing(string value);
     partial void OnF1Changed();
-    partial void OnF2Changing(System.Nullable<bool> value);
+    partial void OnF2Changing(string value);
     partial void OnF2Changed();
-    partial void OnF3Changing(System.Nullable<bool> value);
+    partial void OnF3Changing(string value);
     partial void OnF3Changed();
-    partial void OnF4Changing(System.Nullable<bool> value);
+    partial void OnF4Changing(string value);
     partial void OnF4Changed();
-    partial void OnF5Changing(System.Nullable<bool> value);
+    partial void OnF5Changing(string value);
     partial void OnF5Changed();
-    partial void OnF6Changing(System.Nullable<bool> value);
+    partial void OnF6Changing(string value);
     partial void OnF6Changed();
-    partial void OnF7Changing(System.Nullable<bool> value);
+    partial void OnF7Changing(string value);
     partial void OnF7Changed();
-    partial void OnF8Changing(System.Nullable<bool> value);
+    partial void OnF8Changing(string value);
     partial void OnF8Changed();
-    partial void OnF9Changing(System.Nullable<bool> value);
+    partial void OnF9Changing(string value);
     partial void OnF9Changed();
-    partial void OnF10Changing(System.Nullable<bool> value);
+    partial void OnF10Changing(string value);
     partial void OnF10Changed();
-    partial void OnF11Changing(System.Nullable<bool> value);
+    partial void OnF11Changing(string value);
     partial void OnF11Changed();
-    partial void OnF12Changing(System.Nullable<bool> value);
+    partial void OnF12Changing(string value);
     partial void OnF12Changed();
-    partial void OnF13Changing(System.Nullable<bool> value);
+    partial void OnF13Changing(string value);
     partial void OnF13Changed();
-    partial void OnF14Changing(System.Nullable<bool> value);
+    partial void OnF14Changing(string value);
     partial void OnF14Changed();
-    partial void OnF15Changing(System.Nullable<bool> value);
+    partial void OnF15Changing(string value);
     partial void OnF15Changed();
-    partial void OnF16Changing(System.Nullable<bool> value);
+    partial void OnF16Changing(string value);
     partial void OnF16Changed();
     #endregion
 		
@@ -1598,7 +1598,7 @@ namespace TomocaMoviesWebsite.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MalID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MalID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int MalID
 		{
 			get
@@ -1686,8 +1686,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A4", DbType="Bit")]
-		public System.Nullable<bool> A4
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A4", DbType="Char(5)")]
+		public string A4
 		{
 			get
 			{
@@ -1706,8 +1706,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A5", DbType="Bit")]
-		public System.Nullable<bool> A5
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A5", DbType="Char(5)")]
+		public string A5
 		{
 			get
 			{
@@ -1726,8 +1726,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A6", DbType="Bit")]
-		public System.Nullable<bool> A6
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A6", DbType="Char(5)")]
+		public string A6
 		{
 			get
 			{
@@ -1746,8 +1746,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A7", DbType="Bit")]
-		public System.Nullable<bool> A7
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A7", DbType="Char(5)")]
+		public string A7
 		{
 			get
 			{
@@ -1766,8 +1766,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A8", DbType="Bit")]
-		public System.Nullable<bool> A8
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A8", DbType="Char(5)")]
+		public string A8
 		{
 			get
 			{
@@ -1786,8 +1786,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A9", DbType="Bit")]
-		public System.Nullable<bool> A9
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A9", DbType="Char(5)")]
+		public string A9
 		{
 			get
 			{
@@ -1806,8 +1806,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A10", DbType="Bit")]
-		public System.Nullable<bool> A10
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A10", DbType="Char(5)")]
+		public string A10
 		{
 			get
 			{
@@ -1826,8 +1826,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A11", DbType="Bit")]
-		public System.Nullable<bool> A11
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A11", DbType="Char(5)")]
+		public string A11
 		{
 			get
 			{
@@ -1846,8 +1846,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A12", DbType="Bit")]
-		public System.Nullable<bool> A12
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A12", DbType="Char(5)")]
+		public string A12
 		{
 			get
 			{
@@ -1866,8 +1866,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A13", DbType="Bit")]
-		public System.Nullable<bool> A13
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A13", DbType="Char(5)")]
+		public string A13
 		{
 			get
 			{
@@ -1886,8 +1886,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B2", DbType="Bit")]
-		public System.Nullable<bool> B2
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B2", DbType="Char(5)")]
+		public string B2
 		{
 			get
 			{
@@ -1906,8 +1906,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B3", DbType="Bit")]
-		public System.Nullable<bool> B3
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B3", DbType="Char(5)")]
+		public string B3
 		{
 			get
 			{
@@ -1926,8 +1926,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B4", DbType="Bit")]
-		public System.Nullable<bool> B4
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B4", DbType="Char(5)")]
+		public string B4
 		{
 			get
 			{
@@ -1946,8 +1946,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B5", DbType="Bit")]
-		public System.Nullable<bool> B5
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B5", DbType="Char(5)")]
+		public string B5
 		{
 			get
 			{
@@ -1966,8 +1966,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B6", DbType="Bit")]
-		public System.Nullable<bool> B6
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B6", DbType="Char(5)")]
+		public string B6
 		{
 			get
 			{
@@ -1986,8 +1986,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B7", DbType="Bit")]
-		public System.Nullable<bool> B7
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B7", DbType="Char(5)")]
+		public string B7
 		{
 			get
 			{
@@ -2006,8 +2006,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B8", DbType="Bit")]
-		public System.Nullable<bool> B8
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B8", DbType="Char(5)")]
+		public string B8
 		{
 			get
 			{
@@ -2026,8 +2026,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B9", DbType="Bit")]
-		public System.Nullable<bool> B9
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B9", DbType="Char(5)")]
+		public string B9
 		{
 			get
 			{
@@ -2046,8 +2046,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B10", DbType="Bit")]
-		public System.Nullable<bool> B10
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B10", DbType="Char(5)")]
+		public string B10
 		{
 			get
 			{
@@ -2066,8 +2066,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B11", DbType="Bit")]
-		public System.Nullable<bool> B11
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B11", DbType="Char(5)")]
+		public string B11
 		{
 			get
 			{
@@ -2086,8 +2086,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B12", DbType="Bit")]
-		public System.Nullable<bool> B12
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B12", DbType="Char(5)")]
+		public string B12
 		{
 			get
 			{
@@ -2106,8 +2106,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B13", DbType="Bit")]
-		public System.Nullable<bool> B13
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B13", DbType="Char(5)")]
+		public string B13
 		{
 			get
 			{
@@ -2126,8 +2126,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B14", DbType="Bit")]
-		public System.Nullable<bool> B14
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B14", DbType="Char(5)")]
+		public string B14
 		{
 			get
 			{
@@ -2146,8 +2146,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B15", DbType="Bit")]
-		public System.Nullable<bool> B15
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_B15", DbType="Char(5)")]
+		public string B15
 		{
 			get
 			{
@@ -2166,8 +2166,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C2", DbType="Bit")]
-		public System.Nullable<bool> C2
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C2", DbType="Char(5)")]
+		public string C2
 		{
 			get
 			{
@@ -2186,8 +2186,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C3", DbType="Bit")]
-		public System.Nullable<bool> C3
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C3", DbType="Char(5)")]
+		public string C3
 		{
 			get
 			{
@@ -2206,8 +2206,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C4", DbType="Bit")]
-		public System.Nullable<bool> C4
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C4", DbType="Char(5)")]
+		public string C4
 		{
 			get
 			{
@@ -2226,8 +2226,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C5", DbType="Bit")]
-		public System.Nullable<bool> C5
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C5", DbType="Char(5)")]
+		public string C5
 		{
 			get
 			{
@@ -2246,8 +2246,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C6", DbType="Bit")]
-		public System.Nullable<bool> C6
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C6", DbType="Char(5)")]
+		public string C6
 		{
 			get
 			{
@@ -2266,8 +2266,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C7", DbType="Bit")]
-		public System.Nullable<bool> C7
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C7", DbType="Char(5)")]
+		public string C7
 		{
 			get
 			{
@@ -2286,8 +2286,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C8", DbType="Bit")]
-		public System.Nullable<bool> C8
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C8", DbType="Char(5)")]
+		public string C8
 		{
 			get
 			{
@@ -2306,8 +2306,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C9", DbType="Bit")]
-		public System.Nullable<bool> C9
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C9", DbType="Char(5)")]
+		public string C9
 		{
 			get
 			{
@@ -2326,8 +2326,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C10", DbType="Bit")]
-		public System.Nullable<bool> C10
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C10", DbType="Char(5)")]
+		public string C10
 		{
 			get
 			{
@@ -2346,8 +2346,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C11", DbType="Bit")]
-		public System.Nullable<bool> C11
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C11", DbType="Char(5)")]
+		public string C11
 		{
 			get
 			{
@@ -2366,8 +2366,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C12", DbType="Bit")]
-		public System.Nullable<bool> C12
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C12", DbType="Char(5)")]
+		public string C12
 		{
 			get
 			{
@@ -2386,8 +2386,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C13", DbType="Bit")]
-		public System.Nullable<bool> C13
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C13", DbType="Char(5)")]
+		public string C13
 		{
 			get
 			{
@@ -2406,8 +2406,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C14", DbType="Bit")]
-		public System.Nullable<bool> C14
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C14", DbType="Char(5)")]
+		public string C14
 		{
 			get
 			{
@@ -2426,8 +2426,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C15", DbType="Bit")]
-		public System.Nullable<bool> C15
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_C15", DbType="Char(5)")]
+		public string C15
 		{
 			get
 			{
@@ -2446,8 +2446,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D2", DbType="Bit")]
-		public System.Nullable<bool> D2
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D2", DbType="Char(5)")]
+		public string D2
 		{
 			get
 			{
@@ -2466,8 +2466,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D3", DbType="Bit")]
-		public System.Nullable<bool> D3
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D3", DbType="Char(5)")]
+		public string D3
 		{
 			get
 			{
@@ -2486,8 +2486,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D4", DbType="Bit")]
-		public System.Nullable<bool> D4
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D4", DbType="Char(5)")]
+		public string D4
 		{
 			get
 			{
@@ -2506,8 +2506,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D5", DbType="Bit")]
-		public System.Nullable<bool> D5
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D5", DbType="Char(5)")]
+		public string D5
 		{
 			get
 			{
@@ -2526,8 +2526,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D6", DbType="Bit")]
-		public System.Nullable<bool> D6
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D6", DbType="Char(5)")]
+		public string D6
 		{
 			get
 			{
@@ -2546,8 +2546,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D7", DbType="Bit")]
-		public System.Nullable<bool> D7
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D7", DbType="Char(5)")]
+		public string D7
 		{
 			get
 			{
@@ -2566,8 +2566,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D8", DbType="Bit")]
-		public System.Nullable<bool> D8
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D8", DbType="Char(5)")]
+		public string D8
 		{
 			get
 			{
@@ -2586,8 +2586,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D9", DbType="Bit")]
-		public System.Nullable<bool> D9
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D9", DbType="Char(5)")]
+		public string D9
 		{
 			get
 			{
@@ -2606,8 +2606,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D10", DbType="Bit")]
-		public System.Nullable<bool> D10
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D10", DbType="Char(5)")]
+		public string D10
 		{
 			get
 			{
@@ -2626,8 +2626,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D11", DbType="Bit")]
-		public System.Nullable<bool> D11
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D11", DbType="Char(5)")]
+		public string D11
 		{
 			get
 			{
@@ -2646,8 +2646,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D12", DbType="Bit")]
-		public System.Nullable<bool> D12
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D12", DbType="Char(5)")]
+		public string D12
 		{
 			get
 			{
@@ -2666,8 +2666,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D13", DbType="Bit")]
-		public System.Nullable<bool> D13
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D13", DbType="Char(5)")]
+		public string D13
 		{
 			get
 			{
@@ -2686,8 +2686,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D14", DbType="Bit")]
-		public System.Nullable<bool> D14
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D14", DbType="Char(5)")]
+		public string D14
 		{
 			get
 			{
@@ -2706,8 +2706,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D15", DbType="Bit")]
-		public System.Nullable<bool> D15
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_D15", DbType="Char(5)")]
+		public string D15
 		{
 			get
 			{
@@ -2726,8 +2726,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E2", DbType="Bit")]
-		public System.Nullable<bool> E2
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E2", DbType="Char(5)")]
+		public string E2
 		{
 			get
 			{
@@ -2746,8 +2746,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E3", DbType="Bit")]
-		public System.Nullable<bool> E3
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E3", DbType="Char(5)")]
+		public string E3
 		{
 			get
 			{
@@ -2766,8 +2766,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E4", DbType="Bit")]
-		public System.Nullable<bool> E4
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E4", DbType="Char(5)")]
+		public string E4
 		{
 			get
 			{
@@ -2786,8 +2786,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E5", DbType="Bit")]
-		public System.Nullable<bool> E5
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E5", DbType="Char(5)")]
+		public string E5
 		{
 			get
 			{
@@ -2806,8 +2806,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E6", DbType="Bit")]
-		public System.Nullable<bool> E6
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E6", DbType="Char(5)")]
+		public string E6
 		{
 			get
 			{
@@ -2826,8 +2826,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E7", DbType="Bit")]
-		public System.Nullable<bool> E7
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E7", DbType="Char(5)")]
+		public string E7
 		{
 			get
 			{
@@ -2846,8 +2846,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E8", DbType="Bit")]
-		public System.Nullable<bool> E8
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E8", DbType="Char(5)")]
+		public string E8
 		{
 			get
 			{
@@ -2866,8 +2866,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E9", DbType="Bit")]
-		public System.Nullable<bool> E9
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E9", DbType="Char(5)")]
+		public string E9
 		{
 			get
 			{
@@ -2886,8 +2886,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E10", DbType="Bit")]
-		public System.Nullable<bool> E10
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E10", DbType="Char(5)")]
+		public string E10
 		{
 			get
 			{
@@ -2906,8 +2906,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E11", DbType="Bit")]
-		public System.Nullable<bool> E11
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E11", DbType="Char(5)")]
+		public string E11
 		{
 			get
 			{
@@ -2926,8 +2926,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E12", DbType="Bit")]
-		public System.Nullable<bool> E12
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E12", DbType="Char(5)")]
+		public string E12
 		{
 			get
 			{
@@ -2946,8 +2946,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E13", DbType="Bit")]
-		public System.Nullable<bool> E13
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E13", DbType="Char(5)")]
+		public string E13
 		{
 			get
 			{
@@ -2966,8 +2966,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E14", DbType="Bit")]
-		public System.Nullable<bool> E14
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E14", DbType="Char(5)")]
+		public string E14
 		{
 			get
 			{
@@ -2986,8 +2986,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E15", DbType="Bit")]
-		public System.Nullable<bool> E15
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_E15", DbType="Char(5)")]
+		public string E15
 		{
 			get
 			{
@@ -3006,8 +3006,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F1", DbType="Bit")]
-		public System.Nullable<bool> F1
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F1", DbType="Char(5)")]
+		public string F1
 		{
 			get
 			{
@@ -3026,8 +3026,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F2", DbType="Bit")]
-		public System.Nullable<bool> F2
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F2", DbType="Char(5)")]
+		public string F2
 		{
 			get
 			{
@@ -3046,8 +3046,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F3", DbType="Bit")]
-		public System.Nullable<bool> F3
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F3", DbType="Char(5)")]
+		public string F3
 		{
 			get
 			{
@@ -3066,8 +3066,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F4", DbType="Bit")]
-		public System.Nullable<bool> F4
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F4", DbType="Char(5)")]
+		public string F4
 		{
 			get
 			{
@@ -3086,8 +3086,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F5", DbType="Bit")]
-		public System.Nullable<bool> F5
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F5", DbType="Char(5)")]
+		public string F5
 		{
 			get
 			{
@@ -3106,8 +3106,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F6", DbType="Bit")]
-		public System.Nullable<bool> F6
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F6", DbType="Char(5)")]
+		public string F6
 		{
 			get
 			{
@@ -3126,8 +3126,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F7", DbType="Bit")]
-		public System.Nullable<bool> F7
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F7", DbType="Char(5)")]
+		public string F7
 		{
 			get
 			{
@@ -3146,8 +3146,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F8", DbType="Bit")]
-		public System.Nullable<bool> F8
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F8", DbType="Char(5)")]
+		public string F8
 		{
 			get
 			{
@@ -3166,8 +3166,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F9", DbType="Bit")]
-		public System.Nullable<bool> F9
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F9", DbType="Char(5)")]
+		public string F9
 		{
 			get
 			{
@@ -3186,8 +3186,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F10", DbType="Bit")]
-		public System.Nullable<bool> F10
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F10", DbType="Char(5)")]
+		public string F10
 		{
 			get
 			{
@@ -3206,8 +3206,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F11", DbType="Bit")]
-		public System.Nullable<bool> F11
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F11", DbType="Char(5)")]
+		public string F11
 		{
 			get
 			{
@@ -3226,8 +3226,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F12", DbType="Bit")]
-		public System.Nullable<bool> F12
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F12", DbType="Char(5)")]
+		public string F12
 		{
 			get
 			{
@@ -3246,8 +3246,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F13", DbType="Bit")]
-		public System.Nullable<bool> F13
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F13", DbType="Char(5)")]
+		public string F13
 		{
 			get
 			{
@@ -3266,8 +3266,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F14", DbType="Bit")]
-		public System.Nullable<bool> F14
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F14", DbType="Char(5)")]
+		public string F14
 		{
 			get
 			{
@@ -3286,8 +3286,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F15", DbType="Bit")]
-		public System.Nullable<bool> F15
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F15", DbType="Char(5)")]
+		public string F15
 		{
 			get
 			{
@@ -3306,8 +3306,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F16", DbType="Bit")]
-		public System.Nullable<bool> F16
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_F16", DbType="Char(5)")]
+		public string F16
 		{
 			get
 			{

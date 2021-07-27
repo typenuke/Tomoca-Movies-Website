@@ -352,6 +352,34 @@ namespace TomocaMoviesWebsite.Controllers
             var malid = from l in db.MiAnLiens
                         where l.MalID == int.Parse(coll["idmal"])
                         select l;
+            ml.A4 = coll["A4"]; ml.B2 = coll["B2"];
+            ml.A5 = coll["A5"]; ml.B3 = coll["B3"];
+            ml.A6 = coll["A6"]; ml.B4 = coll["B4"];
+            ml.A7 = coll["A7"]; ml.B5 = coll["B5"];
+            ml.A8 = coll["A8"]; ml.B6 = coll["B6"];
+            ml.A9 = coll["A9"]; ml.B7 = coll["B7"];
+            ml.A10 = coll["A10"]; ml.B8 = coll["B8"];
+            ml.A11 = coll["A11"]; ml.B9 = coll["B9"];
+            ml.A12 = coll["A12"]; ml.B10 = coll["B10"];
+            ml.A13 = coll["A13"]; ml.B11 = coll["B11"];
+            ml.B11 = coll["B11"]; ml.B12 = coll["B12"];
+            ml.B14 = coll["B14"]; ml.B13 = coll["B13"];
+            ml.B15 = coll["B15"];
+            ml.C2 = coll["C2"]; ml.D2 = coll["B2"];
+            ml.C3 = coll["C3"]; ml.D2 = coll["B2"];
+            ml.C4 = coll["C4"]; ml.D2 = coll["B2"];
+            ml.C5 = coll["C5"]; ml.D2 = coll["B2"];
+            ml.C6 = coll["C6"]; ml.D2 = coll["B2"];
+            ml.C7 = coll["C7"]; ml.D2 = coll["B2"];
+            ml.C8 = coll["C8"]; ml.D2 = coll["B2"];
+            ml.C9 = coll["C9"]; ml.D2 = coll["B2"];
+            ml.C10 = coll["C10"]; ml.D2 = coll["B2"];
+            ml.C11 = coll["C11"]; ml.D2 = coll["B2"];
+            ml.C12 = coll["C12"]; ml.D2 = coll["B12"];
+            ml.C13 = coll["C13"]; ml.D2 = coll["B13"];
+            ml.C14 = coll["C14"]; ml.D2 = coll["B13"];
+            ml.C15 = coll["C15"]; ml.D2 = coll["B13"];
+
             return View();
         }
     }
