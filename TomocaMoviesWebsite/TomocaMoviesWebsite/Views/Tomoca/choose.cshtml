@@ -28,9 +28,9 @@
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/ticket.js"></script>
     <script src="~/Scripts/loginsignup.js"></script>
-    <script src="~/Scripts/choose-seats.js"></script>
+    <script src="~/Scripts/choose.js"></script>
 }
-<div hidden onload="onLoaderFunc()">
+<div onload="onLoaderFunc()">
     <div class="zone3">
         <div class="soghe">
             <form class="vevip">
@@ -61,11 +61,11 @@
     <div class="zone3">
         <div class="inputForm">
             <center>
-                <div style="display: none;" class="tongsoghe">
+                <div class="tongsoghe">
                     Number of Seats *: <input type="number" id="Numseats" value="0" required>
                 </div>
                 <br /><br />
-                <button class="selecting" onclick="takeData()">Start Selecting</button>
+                <button class="selecting" onclick="tinhtruoc(); takeData()">Start Selecting</button>
             </center>
         </div>
     </div>
