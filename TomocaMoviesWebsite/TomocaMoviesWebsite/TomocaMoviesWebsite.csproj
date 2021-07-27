@@ -215,8 +215,11 @@
     <Content Include="Content\image\News.png" />
     <Content Include="Content\image\news\00-2021-summerpreviewlead-blackwidow.jpg" />
     <Content Include="Content\image\news\bossbabymain.png" />
+    <Content Include="Content\image\news\emojione-v1_credit-card.png" />
     <Content Include="Content\image\news\fan_emma-stone_cruella_20210512.jpg" />
     <Content Include="Content\image\news\fan_nobody_postercrop.jpg" />
+    <Content Include="Content\image\news\momo-logo.png" />
+    <Content Include="Content\image\news\paypal-logo.png" />
     <Content Include="Content\image\news\Rectangle 92.png" />
     <Content Include="Content\image\news\Rectangle 93.png" />
     <Content Include="Content\image\news\Rectangle 95.png" />
@@ -339,6 +342,7 @@
     <Content Include="Content\Style-ticket-show.css" />
     <Content Include="Content\Style.css" />
     <Content Include="Content\Style_MoviesDetails.css" />
+    <Content Include="Content\thankyou.css" />
     <Content Include="Content\ticket.css" />
     <Content Include="Content\tiecketsieucapvippro.css" />
     <Content Include="Content\vendor\bootstrap\js\bootstrap.bundle.js" />
@@ -519,6 +523,7 @@
     <Content Include="Views\adminmanager\ThemPhimDC.cshtml" />
     <Content Include="Views\adminmanager\ThemChiTiet.cshtml" />
     <Content Include="Views\Tomoca\TicketBook.cshtml" />
+    <Content Include="Views\Tomoca\thankyou.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

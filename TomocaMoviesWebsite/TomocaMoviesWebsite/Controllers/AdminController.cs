@@ -15,19 +15,17 @@ namespace TomocaMoviesWebsite.Controllers
         public ActionResult Home()
         {
             int demnd = data.Users.ToList().Count;
-            int demphimle = data.Movies.ToList().Count;
-            int demphimbo = data.News.ToList().Count;
+            int phimsapchieu = data.Movies.Where(x => x.ComingSoon == true).ToList().Count;
+            int phimdangchieu = data.Movies.Where(x => x.ComingSoon == null || x.ComingSoon == false).ToList().Count;
             ViewData["NguoiDung"] = demnd;
-            ViewData["PhimLe"] = demphimle;
-            ViewData["PhimBo"] = demphimbo;
-            var DSPhimBo = data.Movies.OrderByDescending(x => x.ReleaseYear).Take(10).ToList();
-            ViewData["ListMovies"] = DSPhimBo;
-            var DSPhimLe = data.Actors.OrderByDescending(x => x.ActorID).Take(10).ToList();
-            ViewData["ListActors"] = DSPhimLe;
-            var DSPhimBoMoi = data.MovieTheaters.OrderByDescending(a => a.TheaterID).Take(10).ToList();
-            ViewData["ListTheaters"] = DSPhimBoMoi;
-            var DSPhimLeMoi = data.News.OrderByDescending(a => a.CreateTime).Take(10).ToList();
-            ViewData["PhimLeMoi"] = DSPhimLeMoi;
+            ViewData["phimsapchieu"] = phimsapchieu;
+            ViewData["phimdangchieu"] = phimdangchieu;
+            var DSPhimSapChieu = data.Movies.Where(x => x.ComingSoon == true).Take(10).ToList();
+            ViewData["DSPhimSapChieu"] = DSPhimSapChieu;
+            var DSPhimDangChieu = data.Movies.OrderByDescending(x => x.MovieID).Take(10).ToList();
+            ViewData["DSPhimDangChieu"] = DSPhimDangChieu;
+            var DSDatVe = data.Users.OrderByDescending(a => a.UserID).Take(10).ToList();
+            ViewData["DSDatVe"] = DSDatVe;
             return View();
         }
         //Actor thêm, xóa, sửa

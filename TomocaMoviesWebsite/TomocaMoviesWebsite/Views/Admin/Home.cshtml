@@ -34,7 +34,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Phim sắp ra mắt</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewData["PhimLe"]</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewData["phimsapchieu"]</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-video fa-2x text-gray-300"></i>
@@ -50,10 +50,10 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Phim bộ</div>
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Phim đang chiếu</div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@ViewData["PhimBo"]</div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@ViewData["phimdangchieu"]</div>
                             </div>
 
                         </div>
@@ -72,8 +72,8 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Lượt thích</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Doanh thu</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">1.800.000</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-heart fa-2x text-gray-300"></i>
@@ -93,14 +93,14 @@
         <!-- Custom Text Color Utilities -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary" style="text-align:center">Phim Mới Cập Nhật</h6>
+                <h6 class="m-0 font-weight-bold text-primary" style="text-align:center">Phim Sắp Chiếu</h6>
             </div>
             <div class="card-body">
-                @foreach (var item in ViewData["ListTheaters"] as List<MovieTheater>)
+                @foreach (var item in ViewData["DSPhimSapChieu"] as List<Movy>)
                 {
                     <div class="p-3 border-bottom-dark " style="background-color:#394380 ">
-                        <b> @item.TheaterName </b>
-                        <b style="float:right"> @item.City</b>
+                        <b> @item.Title </b>
+                        <b style="float:right"> @item.IMDb</b>
                     </div>
                 }
             </div>
@@ -114,14 +114,14 @@
         <!-- Background Gradient Utilities -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary" style="text-align:center">Phim Lẻ Xem Nhiều Nhất</h6>
+                <h6 class="m-0 font-weight-bold text-primary" style="text-align:center">Phim Đang Chiếu</h6>
             </div>
             <div class="card-body">
-                @foreach (var item in ViewData["ListActors"] as List<Actor>)
+                @foreach (var item in ViewData["DSPhimDangChieu"] as List<Movy>)
                 {
                     <div class="p-3  border-bottom-dark " style="background-color:#394380 ">
-                        <b> @item.Name </b>
-                        <b style="float:right"> @item.Nationality Lượt</b>
+                        <b> @item.Title </b>
+                        <b style="float:right"> @item.IMDb</b>
                     </div>
 
                 }
@@ -135,14 +135,14 @@
         <!-- Grayscale Utilities -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary" style="text-align:center">Phim bộ Xem nhiều nhất</h6>
+                <h6 class="m-0 font-weight-bold text-primary" style="text-align:center">Đặt Vé</h6>
             </div>
             <div class="card-body">
-                @foreach (var item in ViewData["ListMovies"] as List<Movy>)
+                @foreach (var item in ViewData["DSDatVe"] as List<User>)
                 {
                     <div class="p-3  border-bottom-dark " style="background-color:#394380 ">
-                        <b> @item.Title </b>
-                        <b style="float:right"> @item.ReleaseYear Lượt</b>
+                        <b> @item.Username </b>
+                        <b style="float:right"> @item.FirstName</b>
                     </div>
 
                 }

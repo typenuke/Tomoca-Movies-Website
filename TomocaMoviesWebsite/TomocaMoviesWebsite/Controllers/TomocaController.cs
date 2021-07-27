@@ -174,7 +174,8 @@ namespace TomocaMoviesWebsite.Controllers
                         }
                     }
                 }
-
+                ViewBag.RAP = new SelectList(db.MovieTheaters.ToList().OrderBy(n => n.TheaterName), "TheaterID", "TheaterName");
+                ViewBag.CITY = new SelectList(db.Cities.ToList().OrderBy(n => n.CityID), "CityID", "City1");
                 ViewData["thongbaongay"] = DateTime.Now.ToString("dd/MM/yyyy");
                 ViewData["lstcity"] = lstcity;
                 return View(links);
@@ -273,18 +274,56 @@ namespace TomocaMoviesWebsite.Controllers
         {
             return View();
         }
+        public ActionResult TicketBook()
+        {
+            var listMovies = db.MiAnLiens.Where(x => x.MalID > 0).ToList();
+            IList<City> lstcity1 = new List<City>();
+
+            foreach (var item in listMovies)
+            {
+                foreach (var i in db.Cities)
+                {
+                    if (item.MovieTheater.CityID == i.CityID)
+                    {
+                        lstcity1.Add(i);
+                    }
+                }
+            }
+            ViewData["lstcity"] = lstcity1;
+            return View(listMovies);
+        }
         [HttpPost]
         public ActionResult TicketBook(FormCollection coll)
         {
-            var city = db.Cities.First(x => x.City1 == coll["city"]);
-            var dayy = DateTime.Today.AddDays(int.Parse(coll["thongbaongay"]));
-            var listMovies = db.MiAnLiens.Where(x => x.MalID > 0);
+            string tenrap = coll["tenrap"].ToString();
+            var idrap = db.MovieTheaters.First(a => String.Compare(a.TheaterName,tenrap,true) == 0);
+            var luungay = coll["luungay"];
+            var listMovies = db.MiAnLiens.Where(x => x.MalID > 0).ToList();
             var links = from l in listMovies
-                        where l.Time >= dayy 
-                        && l.MovieTheater.TheaterName == coll["theater"] 
-                        && l.MovieTheater.CityID == city.CityID
+                        where int.Parse(l.Time.ToString("dd")) == int.Parse(luungay) && l.TheaterID == idrap.TheaterID
                         select l;
+            if (links == null)
+            {
+                IList<City> lstcity1 = new List<City>();
+
+                foreach (var item in links)
+                {
+                    foreach (var i in db.Cities)
+                    {
+                        if (item.MovieTheater.CityID == i.CityID)
+                        {
+                            lstcity1.Add(i);
+                        }
+                    }
+                }
+                ViewData["lstcity"] = lstcity1;
+                return View();
+            }
             return View(links);
+        }
+        public ActionResult thankyou()
+        {
+            return View();
         }
     }
 }

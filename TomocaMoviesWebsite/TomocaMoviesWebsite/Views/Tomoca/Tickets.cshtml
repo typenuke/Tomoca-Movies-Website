@@ -53,9 +53,9 @@
         int daysd = int.Parse(dayy.ToString("ddMM"));
         string strMonth = dayy.ToString("MMMM");
         string dayd = dayy.DayOfWeek.ToString();
-        <div class="ticket" @*href="~/Tomoca/Tickets?daysd=@dm1"*@>
+        <div class="ticket"  @*href="~/Tomoca/Tickets?daysd=@dm1"*@>
             <div class="item-day">
-                <span class="day-big">@strday</span><br>
+                <span class="day-big" id="ngayto">@strday</span><br>
                 <span class="day-small">@strMonth</span>
             </div>
             <div class="item-day-l">
@@ -115,8 +115,6 @@
 
 <div class="content-bookticket">
     <div class="bookticket-first" style="padding-top: 1px;">
-        @using (Html.BeginForm("TicketBook","Tomoca", FormMethod.Post))
-        {
         <p style="margin: 20px;">1. Choose your theater</p>
         <div style="display:flex; padding-left: 20px;">
             <select name="city" class="dropbtn bg-dropbtn" id="cacrap">
@@ -125,15 +123,18 @@
                     <option style="background: white;" value="@item.TheaterID">@item.TheaterName</option>
                 }
             </select>
-            <select name="theater" class="dropbtnn bg-dropbtn" id="thanhpho">
+            <select name="city" class="dropbtnn bg-dropbtn" id="thanhpho">
                 @foreach (var item in ViewData["lstcity"] as List<City>)
                 {
                     <option value="@item.CityID">@item.City1</option>
                 }
             </select>
         </div>
-        <input type="hidden" name="thongbaongay" value="@ViewData["thongbaongay"].ToString()" />
-        <input type="submit" value="Choosing Your Film" class="btn" style="margin-left: 42%;; margin-top: 10px;"/>
+        @using (Html.BeginForm("TicketBook", "Tomoca", FormMethod.Post))
+        {
+            <input type="hidden" name="tenrap" value="1" id="tenrap" />
+            <input type="hidden" name="luungay" value="1" id="luungay" />
+            <input type="submit" value="Choosing Your Film" class="btn" style="margin-left: 42%; margin-top: 10px;" />
         }
     </div>
 </div>
@@ -372,11 +373,15 @@
             <div>
                 <ul class="ticket-confirm">
                     <li onclick="confirmTicket()" class="confirm1">
-                        <p class="aa">Choose <span id="NumberDisplay">0</span> seat(s)</p>
-                        <p class="bb">Auditorium 5</p>
+                        <a href="~/Tomoca/thankyou">
+                            <p class="aa">Choose <span id="NumberDisplay">0</span> seat(s)</p>
+                            <p class="bb">Auditorium 5</p>
+                        </a>
                     </li>
                     <li onclick="confirmTicket()" class="confirm2">
-                        <p class="cc">Next <img src="~/Content/image/Vector 2.png" alt=""></p>
+                        <a href="~/Tomoca/thankyou">
+                            <p class="cc">Next <img src="~/Content/image/Vector 2.png" alt=""></p>
+                        </a>
                     </li>
                 </ul>
             </div>

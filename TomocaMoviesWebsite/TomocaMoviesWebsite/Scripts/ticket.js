@@ -307,3 +307,12 @@ $('#thanhpho').change(function () {
         $("#cacrap option[value='22']").css('display', 'block');
     }
 });
+
+$(".ticket").click(function () {
+    var tam = $(this).find("#ngayto").text();
+    $("#luungay").val(tam);
+});
+$('#cacrap').change(function () {
+    var tp = $("#cacrap option:selected").text();
+    $("#tenrap").val(tp);
+});
