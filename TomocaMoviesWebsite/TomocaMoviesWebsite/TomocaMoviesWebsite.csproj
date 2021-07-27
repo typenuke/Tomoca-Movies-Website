@@ -524,6 +524,8 @@
     <Content Include="Views\adminmanager\ThemChiTiet.cshtml" />
     <Content Include="Views\Tomoca\TicketBook.cshtml" />
     <Content Include="Views\Tomoca\thankyou.cshtml" />
+    <Content Include="Views\Admin\veban.cshtml" />
+    <Content Include="Views\Admin\ThemVePhim.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

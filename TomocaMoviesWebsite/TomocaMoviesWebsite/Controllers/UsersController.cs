@@ -40,7 +40,7 @@ namespace TomocaMoviesWebsite.Controllers
                         @Session["Username"] = tk.Username;
                         @Session["Permission"] = null;
                         ViewBag.ThongBao = "Đăng nhập thành công";
-                        return RedirectToAction("Login", "Users");
+                        return RedirectToAction("Index", "Tomoca");
                     }
                 }
                 else
@@ -67,18 +67,34 @@ namespace TomocaMoviesWebsite.Controllers
             //var taikhoan = from t in data.TaiKhoans where t.TenDN.Equals(tendn) select t.TenDN;
             var taikhoan = db.Users.ToList();
             int kt = 0;
+            int kt2 = 0;
+            var ktem = db.Users.Where(a => a.Email == em);
             foreach (var item in taikhoan)
             {
                 if (item.Username == tendn)
                     kt = 1;
+                if (item.Phone == ph)
+                    kt2 = 1;
             }
             if (String.IsNullOrEmpty(tendn))
                 ViewData["Loi"] = "Tên đăng nhập không được để chống";
             else if (String.IsNullOrEmpty(mk))
                 ViewData["Loi1"] = "Mật khẩu không được để chống";
+            else if (String.IsNullOrEmpty(em))
+                ViewData["Loi2"] = "Vui lòng nhập Email";
+            else if (String.IsNullOrEmpty(ph))
+                ViewData["Loi3"] = "Vui lòng nhập số điện thoại";
             else if (kt == 1)
             {
                 ViewData["Loi2"] = "Đã có tài khoản này";
+            }
+            else if (ktem.Count() != 0)
+            {
+                ViewData["Loi2e"] = "Email đã được sử dụng";
+            }
+            else if (kt2 == 1)
+            {
+                ViewData["Loi3e"] = "Số điện thoại đã được sử dụng";
             }
             else if (mk != mknhaplai)
             {

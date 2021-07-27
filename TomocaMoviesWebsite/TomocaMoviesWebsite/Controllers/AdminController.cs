@@ -370,5 +370,26 @@ namespace TomocaMoviesWebsite.Controllers
             data.SubmitChanges();
             return RedirectToAction("TinTuc");
         }
+        public ActionResult veban()
+        {
+            var lst = from l in data.MiAnLiens select l;
+            return View(lst);
+        }
+        public ActionResult ThemVePhim()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ThemVePhim(FormCollection coll, MiAnLien mal)
+        {
+            var movieid = data.Movies.First(x => String.Compare(x.Title, coll["tenphim"].ToString(), true) == 0);
+            var theaterid = data.MovieTheaters.First(x => String.Compare(x.TheaterName, coll["theater"].ToString(), true) == 0);
+            mal.Time = DateTime.Now;
+            mal.TheaterID = theaterid.TheaterID;
+            mal.MovieID = movieid.MovieID;
+            data.MiAnLiens.InsertOnSubmit(mal);
+            data.SubmitChanges();
+            return RedirectToAction("veban");
+        }
     }
 }

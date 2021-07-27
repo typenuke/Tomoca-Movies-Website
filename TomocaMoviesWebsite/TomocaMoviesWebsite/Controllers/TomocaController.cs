@@ -61,7 +61,7 @@ namespace TomocaMoviesWebsite.Controllers
                     {
                         @Session["UserName"] = tk.Username;
                         @Session["Permission"] = 1;
-                        ViewBag.ThongBao = "Đăng nhập thành công admin";
+                        ViewBag.ThongBao = "Đăng nhập Amin thành công admin";
                         return RedirectToAction("Home", "Admin");
                     }
                     if (tk.Permission == false || tk.Permission == null)
@@ -69,7 +69,7 @@ namespace TomocaMoviesWebsite.Controllers
                         @Session["UserName"] = tk.Username;
                         @Session["Permission"] = null;
                         ViewBag.ThongBao = "Đăng nhập thành công";
-                        return RedirectToAction("Login", "Users");
+                        return RedirectToAction("Index", "Tomoca");
                     }
                 }
                 else
@@ -345,5 +345,6 @@ namespace TomocaMoviesWebsite.Controllers
             ViewData["tongtientien"] = coll["tongtientien"];
             return View(malid);
         }
+
     }
 }
