@@ -174,10 +174,8 @@ namespace TomocaMoviesWebsite.Controllers
                         }
                     }
                 }
-                for(int i = 0; i< lstcity.Count(); i++)
-                {
-                    
-                }
+
+                ViewData["thongbaongay"] = DateTime.Now.ToString("dd/MM/yyyy");
                 ViewData["lstcity"] = lstcity;
                 return View(links);
             }
@@ -200,6 +198,7 @@ namespace TomocaMoviesWebsite.Controllers
                         }
                     }
                 }
+                ViewData["thongbaongay"] = daysd.ToString();
                 ViewData["lstcity"] = lstcity;
                 return View(links);
             }
@@ -273,6 +272,19 @@ namespace TomocaMoviesWebsite.Controllers
         public ActionResult TicketShow()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult TicketBook(FormCollection coll)
+        {
+            var city = db.Cities.First(x => x.City1 == coll["city"]);
+            var dayy = DateTime.Today.AddDays(int.Parse(coll["thongbaongay"]));
+            var listMovies = db.MiAnLiens.Where(x => x.MalID > 0);
+            var links = from l in listMovies
+                        where l.Time >= dayy 
+                        && l.MovieTheater.TheaterName == coll["theater"] 
+                        && l.MovieTheater.CityID == city.CityID
+                        select l;
+            return View(links);
         }
     }
 }

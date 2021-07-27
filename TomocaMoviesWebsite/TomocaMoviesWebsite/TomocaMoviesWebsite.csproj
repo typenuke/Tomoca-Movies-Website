@@ -518,6 +518,7 @@
     <Content Include="Views\Tomoca\Ticket_PartialPage1.cshtml" />
     <Content Include="Views\adminmanager\ThemPhimDC.cshtml" />
     <Content Include="Views\adminmanager\ThemChiTiet.cshtml" />
+    <Content Include="Views\Tomoca\TicketBook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

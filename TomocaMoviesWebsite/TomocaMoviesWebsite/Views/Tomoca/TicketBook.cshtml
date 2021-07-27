@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<TomocaMoviesWebsite.Models.MiAnLien>
 @using TomocaMoviesWebsite.Models
 @{
-    ViewBag.Title = "Tickets";
+    ViewBag.Title = "TicketBook";
     Layout = "~/Views/Shared/Tomoca_Layout.cshtml";
     TomocaMoviesDataContext db = new TomocaMoviesDataContext();
     int Day = DateTime.Now.Day;
@@ -67,9 +67,9 @@
     }
 </div>
 <div class="nowplaying">
-        <div class="nowplaying-count">
-            <p class="ccc">NOWPLAYING ()<span style="color:#5C5C5C; margin-left: 20px;">UPCOMING</span></p>
-        </div>
+    <div class="nowplaying-count">
+        <p class="ccc">NOWPLAYING ()<span style="color:#5C5C5C; margin-left: 20px;">UPCOMING</span></p>
+    </div>
 </div>
 <div class="container">
     <div class="row">
@@ -81,30 +81,31 @@
                         <div class="pad15" style="margin-top:30px;">
                             <img class="clickdeto" style="width: 100%; height: 100%;" src="@item.Movy.Image" />
                         </div>
-                        <div class="pad151 font-pad">@item.Movy.Title
-                        </div>
-                        <div class="pad152 font-pad">
-                            <span style="color: #434343; font-size: 16px; font-weight: bold;">@item.Movy.Title</span><br>
-                            @{var idloai = db.MoviesGenres.Where(x => x.MovieID == item.MovieID);
-                                List<string> lstg = new List<string>();
-                                Genre g = new Genre();
-                                foreach (var i in idloai)
-                                {
-                                    Genre temp = db.Genres.SingleOrDefault(x => x.GenreID == i.GenreID);
-                                    string tam = temp.GenreName;
-                                    lstg.Add(tam);
-                                }
-                            }
-                            <span>
-                                @for (int i = 0; i < lstg.Count(); i++)
-                                {
-                                    <span>@lstg[i].ToString(), </span>
-                                }
-                            </span><br>
-                            <span><img src="~/Content/image/clock.png" />@item.Movy.TimeOfFilm</span>
-                        </div>
+                        <div class="pad151 font-pad">
+                            @item.Movy.Title
                     </div>
-                }
+                    <div class="pad152 font-pad">
+                        <span style="color: #434343; font-size: 16px; font-weight: bold;">@item.Movy.Title</span><br>
+                        @{var idloai = db.MoviesGenres.Where(x => x.MovieID == item.MovieID);
+                            List<string> lstg = new List<string>();
+                            Genre g = new Genre();
+                            foreach (var i in idloai)
+                            {
+                                Genre temp = db.Genres.SingleOrDefault(x => x.GenreID == i.GenreID);
+                                string tam = temp.GenreName;
+                                lstg.Add(tam);
+                            }
+                        }
+                        <span>
+                            @for (int i = 0; i < lstg.Count(); i++)
+                            {
+                                <span>@lstg[i].ToString(), </span>
+                            }
+                        </span><br>
+                        <span><img src="~/Content/image/clock.png" />@item.Movy.TimeOfFilm</span>
+                    </div>
+                </div>
+            }
             </div>
             <button class="btn2 leftLst"><</button>
             <button class="btn2 rightLst">></button>
@@ -115,25 +116,25 @@
 
 <div class="content-bookticket">
     <div class="bookticket-first" style="padding-top: 1px;">
-        @using (Html.BeginForm("TicketBook","Tomoca", FormMethod.Post))
+        @using (Html.BeginForm("TicketBook", "Tomoca", FormMethod.Post))
         {
-        <p style="margin: 20px;">1. Choose your theater</p>
-        <div style="display:flex; padding-left: 20px;">
-            <select name="city" class="dropbtn bg-dropbtn" id="cacrap">
-                @foreach (var item in db.MovieTheaters)
-                {
-                    <option style="background: white;" value="@item.TheaterID">@item.TheaterName</option>
-                }
-            </select>
-            <select name="theater" class="dropbtnn bg-dropbtn" id="thanhpho">
-                @foreach (var item in ViewData["lstcity"] as List<City>)
-                {
-                    <option value="@item.CityID">@item.City1</option>
-                }
-            </select>
-        </div>
-        <input type="hidden" name="thongbaongay" value="@ViewData["thongbaongay"].ToString()" />
-        <input type="submit" value="Choosing Your Film" class="btn" style="margin-left: 42%;; margin-top: 10px;"/>
+            <p style="margin: 20px;">1. Choose your theater</p>
+            <div style="display:flex; padding-left: 20px;">
+                <select name="city" class="dropbtn bg-dropbtn" id="cacrap">
+                    @foreach (var item in db.MovieTheaters)
+                    {
+                        <option style="background: white;" value="@item.TheaterID">@item.TheaterName</option>
+                    }
+                </select>
+                <select name="theater" class="dropbtnn bg-dropbtn" id="thanhpho">
+                    @foreach (var item in ViewData["lstcity"] as List<City>)
+                    {
+                        <option value="@item.CityID">@item.City1</option>
+                    }
+                </select>
+            </div>
+            <input type="hidden" name="thongbaongay" value="@ViewData["thongbaongay"].ToString()" />
+            <input type="submit" value="Choosing Your Film" class="btn" style="margin-left: 42%;; margin-top: 10px;" />
         }
     </div>
 </div>
