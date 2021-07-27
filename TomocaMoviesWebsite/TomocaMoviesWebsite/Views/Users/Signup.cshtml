@@ -38,21 +38,27 @@
                     <p>Password</p>
                     @*<input type="password" name="password" value="" placeholder="Enter your Tomoca password">*@
                     @Html.Password("MatKhau", null, new { @class = "forcontrol", placeholder = "Enter your Tomoca password" })
+                    @ViewData["Loi1"];
                 </div>
                 <div class="signup-item-bg signup-item4">
                     <p>Confirm Password</p>
                     @*<input type="password" name="repassword" value="" placeholder="Re-enter your password">*@
                     @Html.Password("MatKhauNhapLai", null, new { @class = "forcontrol", placeholder = "Re-enter your password" })
+                    @ViewData["Loi12"]
                 </div>
                 <div class="signup-item-bg signup-item5">
                     <p>Email address</p>
                     @*<input type="email" name="email" value="" placeholder="Enter your email">*@
                     @Html.TextBox("email", null, new { @class = "forcontrol", placeholder = "Enter your email" })
+                    @ViewData["Loi2"]
+                    @ViewData["Loi2e"]
                 </div>
                 <div class="signup-item-bg signup-item6">
                     <p>Phone Number</p>
                     @*<input type="number" name="phone" value="" placeholder="Enter your phone number">*@
                     @Html.TextBox("sodienthoai", null, new { @class = "forcontrol", placeholder = "Enter your phone number" })
+                    @ViewData["Loi3"]
+                    @ViewData["Loi3e"]
                 </div>
             </div>
             <button type="submit" style="margin-top: 54px;">Finish</button><br>

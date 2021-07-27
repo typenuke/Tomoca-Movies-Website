@@ -182,13 +182,14 @@
                     Number of Seats *: <input type="number" id="Numseats" value="0" required>
                 </div>
                 <br /><br />
-                      <form action="~/Tomoca/choose" method="post">
-                          <input name="idmal" id="idmal" value="" />
-                          <input name="tongtientien" id="tongtientien" value="" />
-                          <input name="chonghethuong" id="chonghethuong" value="" />
-                          <input name="chonghevip" id="chonghevip" value="" />
-                          <input class="selecting" type="submit" value="Start Choose Chair" />
-                      </form>
+                    @using (Html.BeginForm("choose","Tomoca", FormMethod.Post))
+                    {
+                        <input name="idmal" id="idmal" value="" />
+                        <input name="tongtientien" id="tongtientien" value="" />
+                        <input name="chonghethuong" id="chonghethuong" value="" />
+                        <input name="chonghevip" id="chonghevip" value="" />
+                        <input class="selecting" type="submit" value="Start Choose Chair" />
+                    }
             </center>
         </div>
     </div>

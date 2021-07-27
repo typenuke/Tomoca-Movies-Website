@@ -1,0 +1,64 @@
+﻿@model IEnumerable<TomocaMoviesWebsite.Models.MiAnLien>
+@using TomocaMoviesWebsite.Models
+@{
+    TomocaMoviesDataContext db = new TomocaMoviesDataContext();
+    ViewBag.Title = "veban";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-10">
+        <h1 class="h3 mb-2 text-gray-800">Danh sách phim sắp ra mắt</h1>
+    </div>
+    <div class="col-2">
+        <div style="float: right">
+            <button type="button" class="btn btn-success">@Html.ActionLink("Thêm Vé", "ThemVePhim")</button>
+        </div>
+    </div>
+</div>
+<br />
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+            <div class="card mb-5 box-shadow">
+                <div style="height:330px">
+                    <a href="@Url.Action("CTTapPhimBo", new { id = item.MovieID })"><img class="card-img-top" src="@item.Movy.Image" alt="Card image cap"></a>
+                </div>
+                <div class="card-body" style="margin-left:-15px">
+                    <p class="card-text" style="text-align:left;overflow: hidden;-webkit-line-clamp:1;display: -webkit-box;-webkit-box-orient: vertical;"><b>Tên phim : </b>@item.Movy.Title</p>
+                    <p class="card-text" style="overflow: hidden;-webkit-line-clamp:3;display: -webkit-box;-webkit-box-orient: vertical;"><b>Thời gian chiếu: </b>@item.Time</p>
+                    <p class="card-text"><b>Thời gian phim: </b>@item.Movy.TimeOfFilm</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            @Html.ActionLink("Thêm Chi Tiết", "ThemChiTiet", new { id = item.MovieID })
+                        </div>
+                        <div>
+                            <a onclick="return ConfirmXoa()" href="@Url.Action("XoaPhimDC", new { id = item.MovieID })">Xóa</a>
+                        </div>
+                        <div>
+                            @Html.ActionLink("Sửa", "SuaPhimDC", new { id = item.MovieID })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    function ConfirmXoa() {
+        if (confirm("Bạn có chắc muốn xóa phim này không?"))
+            return true;
+        else
+            return false;
+    }
+    FocusEvent = false;
+    checked = false;
+</script>
+
+
+
+
+

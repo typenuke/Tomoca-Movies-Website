@@ -24,7 +24,6 @@
         box-shadow: inset;
         border: 2px solid #FF7300;
         border-radius: 0 5px 5px 5px;
-        box-shadow: #ff7300 0px 5px 15px;
         z-index: 1;
     }
     .hidenlogout a{
@@ -60,7 +59,7 @@
 else
 {
     <li class="logout">
-        <div class="showLogout"><img src="https://img.icons8.com/ios-filled/30/ffffff/user-male-circle.png" /> @Session["Username"]</div>
+        <div class="showLogout"><img src="https://img.icons8.com/ios-filled/30/ffffff/user-male-circle.png" /> <span style="color:white;">@Session["Username"]</span></div>
         <div class="hidenlogout">
             @if (Session["Permission"] != null)
             {
