@@ -51,16 +51,17 @@
             </form>
             <hr class="hr-xam">
             <span style="font-size: 18px; font-weight: 700;">Total</span>
-            <input style="margin-left: 57%; margin-bottom: 15px;" type="number" class="tongtien" id="tongtien" value="0"></input>
+            <input style="margin-left: 57%; margin-bottom: 15px;" type="number" class="tongtien" id="tongtien" value="0"/>
         </div>
     </div>
-    </div>
 </div>
+
 <div>
     <!-- Choose your seat -->
     <div class="zone3">
         <div class="inputForm">
             <center>
+                <input hidden type="number" id="Numseats" value="0" required>
                 <br /><br />
                 <button class="selecting" onclick="tinhtruoc(); takeData()">Start Selecting</button>
             </center>
@@ -836,7 +837,7 @@
                         {
                             <input hidden type="number" id="idmal" value="@i.MalID" />
                         }
-                        <input hidden type="number" id="soluongghe" name="soluongghe" value="0" required>
+                        <input  type="number" id="soluongghe" name="soluongghe" value="0" required>
                         <input hidden type="text" id="tongtientien" value="@ViewData["tongtientien"].ToString()" name="tongtientien" />
                         <label hidden for="lname">Seats</label>
                         <textarea hidden type="text" name="tenghe" id="seatsDisplay"> </textarea>
