@@ -22,7 +22,7 @@ namespace TomocaMoviesWebsite.Models
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="dbTomoca")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="newDBTomoca")]
 	public partial class TomocaMoviesDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -84,7 +84,7 @@ namespace TomocaMoviesWebsite.Models
     #endregion
 		
 		public TomocaMoviesDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["TomocaMoviesConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["newDBTomocaConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

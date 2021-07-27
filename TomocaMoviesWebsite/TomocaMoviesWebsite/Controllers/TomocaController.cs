@@ -332,19 +332,27 @@ namespace TomocaMoviesWebsite.Controllers
             }
             return View(links);
         }
-        public ActionResult thankyou()
-        {
-            return View();
-        }
+       
         [HttpPost]
         public ActionResult choose(FormCollection coll)
         {
-            var malid = db.MiAnLiens.First(x => x.MalID == int.Parse(coll["idmal"]));
+            var malid = from l in db.MiAnLiens
+                        where l.MalID == int.Parse(coll["idmal"])
+                        select l;
             ViewData["chonghethuong"] = coll["chonghethuong"];
             ViewData["chonghevip"] = coll["chonghevip"];
             ViewData["tongtientien"] = coll["tongtientien"];
             return View(malid);
         }
-
+        public ActionResult thankyou(FormCollection coll, MiAnLien ml)
+        {
+            ViewData["soluongghe"] = coll["soluongghe"];
+            ViewData["tongtientien"] = coll["tongtientien"];
+            ViewData["idmal"] = coll["idmal"];
+            var malid = from l in db.MiAnLiens
+                        where l.MalID == int.Parse(coll["idmal"])
+                        select l;
+            return View();
+        }
     }
 }
