@@ -11,6 +11,7 @@ function tinhtruoc() {
     var seat2 = parseInt(document.getElementById('number2').value, 10);
     var seat3 = seat1 + seat2;
     $("#Numseats").val(seat3);
+    $("#soluongghe").val(seat3);
 }
 
 function takeData() {
@@ -202,3 +203,7 @@ function thuongtru() {
         $('#Numseats').val(num);
     }
 }
+
+$("input[type='checkbox']").on('change', function () {
+    $(this).val(this.checked ? "true" : "null");
+})

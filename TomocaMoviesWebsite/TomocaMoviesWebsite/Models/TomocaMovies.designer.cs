@@ -22,7 +22,11 @@ namespace TomocaMoviesWebsite.Models
 	using System;
 	
 	
+<<<<<<< HEAD
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DBTomocaUpdate")]
+=======
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="dbTomoca")]
+>>>>>>> 914c742eda352e1feb7926b585ea7dda6adffdd1
 	public partial class TomocaMoviesDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -84,7 +88,11 @@ namespace TomocaMoviesWebsite.Models
     #endregion
 		
 		public TomocaMoviesDataContext() : 
+<<<<<<< HEAD
 				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DBTomocaUpdateConnectionString"].ConnectionString, mappingSource)
+=======
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["TomocaMoviesConnectionString"].ConnectionString, mappingSource)
+>>>>>>> 914c742eda352e1feb7926b585ea7dda6adffdd1
 		{
 			OnCreated();
 		}
