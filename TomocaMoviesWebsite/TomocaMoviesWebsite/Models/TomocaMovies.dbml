@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbTomoca" Class="TomocaMoviesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=dbTomoca;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TomocaMoviesConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="newDBTomoca" Class="TomocaMoviesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-05M8TQE\LOCAL;Initial Catalog=newDBTomoca;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="newDBTomocaConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Actors" Member="Actors">
     <Type Name="Actor">
       <Column Name="ActorID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -175,7 +175,7 @@
       <Column Name="Trailer" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="TimeOfFilm" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
       <Column Name="Banner" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="ComingSoon" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ComingSoon" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Movy_Comment" Member="Comments" ThisKey="MovieID" OtherKey="MovieID" Type="Comment" />
       <Association Name="Movy_MiAnLien" Member="MiAnLiens" ThisKey="MovieID" OtherKey="MovieID" Type="MiAnLien" />
       <Association Name="Movy_MovieActor" Member="MovieActors" ThisKey="MovieID" OtherKey="MovieID" Type="MovieActor" />
@@ -238,28 +238,14 @@
   <Table Name="dbo.Ticket" Member="Tickets">
     <Type Name="Ticket">
       <Column Name="TicketID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Money" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Seat" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Association Name="Ticket_UserBook" Member="UserBooks" ThisKey="TicketID" OtherKey="TicketID" Type="UserBook" />
+      <Column Name="Vip" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Normal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="MiAnLien_Ticket" Member="MiAnLien" ThisKey="MalID" OtherKey="MalID" Type="MiAnLien" IsForeignKey="true" />
-      <Association Name="TicketType_Ticket" Member="TicketType" ThisKey="TicketID" OtherKey="TicketID" Type="TicketType" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TicketType" Member="TicketTypes">
-    <Type Name="TicketType">
-      <Column Name="TicketID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="VIP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Normal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="TicketType_Ticket" Member="Ticket" ThisKey="TicketID" OtherKey="TicketID" Type="Ticket" Cardinality="One" />
-    </Type>
-  </Table>
-  <Table Name="dbo.UserBook" Member="UserBooks">
-    <Type Name="UserBook">
-      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TicketID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="Ticket_UserBook" Member="Ticket" ThisKey="TicketID" OtherKey="TicketID" Type="Ticket" IsForeignKey="true" />
-      <Association Name="User_UserBook" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+      <Association Name="User_Ticket" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Users" Member="Users">
@@ -274,7 +260,7 @@
       <Column Name="Permission" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="User_Comment" Member="Comments" ThisKey="UserID" OtherKey="UserID" Type="Comment" />
       <Association Name="User_New" Member="News" ThisKey="UserID" OtherKey="UserID" Type="New" />
-      <Association Name="User_UserBook" Member="UserBooks" ThisKey="UserID" OtherKey="UserID" Type="UserBook" />
+      <Association Name="User_Ticket" Member="Tickets" ThisKey="UserID" OtherKey="UserID" Type="Ticket" />
     </Type>
   </Table>
 </Database>

@@ -23,6 +23,9 @@
         cursor: pointer;
         background: #FF7300 !important;
     }
+    #mso01{
+        display: none;
+    }
 </style>
 @section scriptstren{
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -82,36 +85,37 @@
             <div class="MultiCarousel-inner">
                 @foreach (var item in Model)
                 {
-                    <div class="item">
-                        <div class="pad15" style="margin-top:30px;">
-                            <img class="clickdeto" id="hinhphim" style="width: 100%; height: 100%;" src="@item.Movy.Image" />
-                        </div>
-                        <div class="pad151 font-pad">
-                            @item.Movy.Title
+                <div class="item">
+                    <div class="pad15" style="margin-top:30px;">
+                        <img class="clickdeto" id="hinhphim" style="width: 100%; height: 100%;" src="@item.Movy.Image" />
                     </div>
-                        <div class="pad152 font-pad">
-                            <span id="tieudephim" style="color: #434343; font-size: 16px; font-weight: bold;">@item.Movy.Title</span><br>
-                            @{var idloai = db.MoviesGenres.Where(x => x.MovieID == item.MovieID);
-                                List<string> lstg = new List<string>();
-                                Genre g = new Genre();
-                                foreach (var i in idloai)
-                                {
-                                    Genre temp = db.Genres.SingleOrDefault(x => x.GenreID == i.GenreID);
-                                    string tam = temp.GenreName;
-                                    lstg.Add(tam);
-                                }
+                    <div class="pad151 font-pad">
+                        @item.Movy.Title
+                    </div>
+                    <div class="pad152 font-pad">
+                        <span id="tieudephim" style="color: #434343; font-size: 16px; font-weight: bold;">@item.Movy.Title</span><br>
+                        @{var idloai = db.MoviesGenres.Where(x => x.MovieID == item.MovieID);
+                            List<string> lstg = new List<string>();
+                            Genre g = new Genre();
+                            foreach (var i in idloai)
+                            {
+                                Genre temp = db.Genres.SingleOrDefault(x => x.GenreID == i.GenreID);
+                                string tam = temp.GenreName;
+                                lstg.Add(tam);
                             }
-                            <span hidden id="thoigianotren">@item.Time</span>
-                            <span hidden id="tenrapotren">@item.MovieTheater.TheaterName</span>
-                            <span id="theloaiphim">
-                                @for (int i = 0; i < lstg.Count(); i++)
-                                {
-                                    <span>@lstg[i].ToString(), </span>
-                                }
-                            </span><br>
-                            <span><img src="~/Content/image/clock.png" /> <span id="thoigianphim">@item.Movy.TimeOfFilm</span></span>
+                        }
+                        <span hidden id="malid">@item.MalID</span>
+                        <span hidden id="thoigianotren">@item.Time</span>
+                        <span hidden id="tenrapotren">@item.MovieTheater.TheaterName</span>
+                        <span id="theloaiphim">
+                            @for (int i = 0; i < lstg.Count(); i++)
+                            {
+                                <span>@lstg[i].ToString(), </span>
+                            }
+                        </span><br>
+                        <span><img src="~/Content/image/clock.png" /> <span id="thoigianphim">@item.Movy.TimeOfFilm</span></span>
 
-                        </div>
+                    </div>
                 </div>
             }
             </div>
@@ -178,225 +182,15 @@
                     Number of Seats *: <input type="number" id="Numseats" value="0" required>
                 </div>
                 <br /><br />
-                <button class="selecting" onclick="takeData()">Start Selecting</button>
+                      <form action="~/Tomoca/choose" method="post">
+                          <input name="idmal" id="idmal" value="" />
+                          <input name="tongtientien" id="tongtientien" value="" />
+                          <input name="chonghethuong" id="chonghethuong" value="" />
+                          <input name="chonghevip" id="chonghevip" value="" />
+                          <input class="selecting" type="submit" value="Start Choose Chair" />
+                      </form>
             </center>
         </div>
-        <p class="choose-your-seat">4. Choose your seat</p>
-        <img class="screen" src="~/Content/image/Screen.png" alt="">
-
-
-        <div class="seatStructure">
-            <center>
-                <table id="seatsBlock">
-
-                    <tr>
-                        <td>A</td>
-                        <td><input style="display: none;" type="checkbox" class="seats" value="A1"></td>
-                        <td><input style="display: none;" type="checkbox" class="seats" value="A2"></td>
-                        <td><input style="display: none;" type="checkbox" class="seats" value="A3"></td>
-                        <td><input type="checkbox" class="seats" value="A4"></td>
-                        <td><input type="checkbox" class="seats" value="A5"></td>
-                        <td><input type="checkbox" class="seats" value="A6"></td>
-                        <td><input type="checkbox" class="seats" value="A7"></td>
-                        <td><input type="checkbox" class="seats" value="A8"></td>
-                        <td><input type="checkbox" class="seats" value="A9"></td>
-                        <td><input type="checkbox" class="seats" value="A10"></td>
-                        <td><input type="checkbox" class="seats" value="A11"></td>
-                        <td><input type="checkbox" class="seats" value="A12"></td>
-                        <td><input type="checkbox" class="seats" value="A13"></td>
-                        <td><input style="display: none;" type="checkbox" class="seats" value="A14"></td>
-                        <td><input style="display: none;" type="checkbox" class="seats" value="A15"></td>
-                        <td><input style="display: none;" type="checkbox" class="seats" value="A16"></td>
-                    </tr>
-
-                    <tr>
-                        <td>B</td>
-                        <td><input style="display: none;" type="checkbox" class="seats" value="B1"></td>
-                        <td><input type="checkbox" class="seats" value="B2"></td>
-                        <td><input type="checkbox" class="seats" value="B3"></td>
-                        <td><input type="checkbox" class="seats" value="B4"></td>
-                        <td><input type="checkbox" class="seats" value="B5"></td>
-                        <td><input type="checkbox" class="seats" value="B6"></td>
-                        <td><input type="checkbox" class="seats" value="B7"></td>
-                        <td><input type="checkbox" class="seats" value="B8"></td>
-                        <td><input type="checkbox" class="seats" value="B9"></td>
-                        <td><input type="checkbox" class="seats" value="B10"></td>
-                        <td><input type="checkbox" class="seats" value="B11"></td>
-                        <td><input type="checkbox" class="seats" value="B12"></td>
-                        <td><input type="checkbox" class="seats" value="B13"></td>
-                        <td><input type="checkbox" class="seats" value="B14"></td>
-                        <td><input type="checkbox" class="seats" value="B15"></td>
-                        <td><input style="display: none;" type="checkbox" class="seats" value="B16"></td>
-                    </tr>
-
-                    <tr class="seatVGap"></tr>
-
-                    <tr>
-                        <td>C</td>
-                        <td><input style="display: none;" type="checkbox" class="seats" value="C1"></td>
-                        <td><input type="checkbox" class="seats" value="C2"></td>
-                        <td><input type="checkbox" class="seats" value="C3"></td>
-                        <td><input type="checkbox" class="seats" value="C4"></td>
-                        <td><input type="checkbox" class="seats" value="C5"></td>
-                        <td><input type="checkbox" class="seats" value="C6"></td>
-                        <td><input type="checkbox" class="seats" value="C7"></td>
-                        <td><input type="checkbox" class="seats" value="C8"></td>
-                        <td><input type="checkbox" class="seats" value="C9"></td>
-                        <td><input type="checkbox" class="seats" value="C10"></td>
-                        <td><input type="checkbox" class="seats" value="C11"></td>
-                        <td><input type="checkbox" class="seats" value="C12"></td>
-                        <td><input type="checkbox" class="seats" value="C13"></td>
-                        <td><input type="checkbox" class="seats" value="C14"></td>
-                        <td><input type="checkbox" class="seats" value="C15"></td>
-                        <td><input style="display: none;" type="checkbox" class="seats" value="C16"></td>
-                    </tr>
-
-                    <tr>
-                        <td>D</td>
-                        <td><input style="display: none;" type="checkbox" class="seats" value="D1"></td>
-                        <td><input type="checkbox" class="seats" value="D2"></td>
-                        <td><input type="checkbox" class="seats" value="D3"></td>
-                        <td><input type="checkbox" class="seats" value="D4"></td>
-                        <td><input type="checkbox" class="seats" value="D5"></td>
-                        <td><input type="checkbox" class="seats-vip" value="D6"></td>
-                        <td><input type="checkbox" class="seats-vip" value="D7"></td>
-                        <td><input type="checkbox" class="seats-vip" value="D8"></td>
-                        <td><input type="checkbox" class="seats-vip" value="D9"></td>
-                        <td><input type="checkbox" class="seats-vip" value="D10"></td>
-                        <td><input type="checkbox" class="seats-vip" value="D11"></td>
-                        <td><input type="checkbox" class="seats" value="D12"></td>
-                        <td><input type="checkbox" class="seats" value="D13"></td>
-                        <td><input type="checkbox" class="seats" value="D14"></td>
-                        <td><input type="checkbox" class="seats" value="D15"></td>
-                        <td><input style="display: none;" type="checkbox" class="seats" value="D16"></td>
-                    </tr>
-
-                    <tr>
-                        <td>E</td>
-                        <td><input style="display: none;" type="checkbox" class="seats" value="E1"></td>
-                        <td><input type="checkbox" class="seats" value="E2"></td>
-                        <td><input type="checkbox" class="seats" value="E3"></td>
-                        <td><input type="checkbox" class="seats" value="E4"></td>
-                        <td><input type="checkbox" class="seats" value="E5"></td>
-                        <td><input type="checkbox" class="seats-vip" value="E6"></td>
-                        <td><input type="checkbox" class="seats-vip" value="E7"></td>
-                        <td><input type="checkbox" class="seats-vip" value="E8"></td>
-                        <td><input type="checkbox" class="seats-vip" value="E9"></td>
-                        <td><input type="checkbox" class="seats-vip" value="E10"></td>
-                        <td><input type="checkbox" class="seats-vip" value="E11"></td>
-                        <td><input type="checkbox" class="seats" value="E12"></td>
-                        <td><input type="checkbox" class="seats" value="E13"></td>
-                        <td><input type="checkbox" class="seats" value="E14"></td>
-                        <td><input type="checkbox" class="seats" value="E15"></td>
-                        <td><input style="display: none;" type="checkbox" class="seats" value="E16"></td>
-                    </tr>
-
-                    <tr>
-                        <td>F</td>
-                        <td><input type="checkbox" class="seats" value="F1"></td>
-                        <td><input type="checkbox" class="seats" value="F2"></td>
-                        <td><input type="checkbox" class="seats" value="F3"></td>
-                        <td><input type="checkbox" class="seats" value="F4"></td>
-                        <td><input type="checkbox" class="seats" value="F5"></td>
-                        <td><input type="checkbox" class="seats-vip" value="F6"></td>
-                        <td><input type="checkbox" class="seats-vip" value="F7"></td>
-                        <td><input type="checkbox" class="seats-vip" value="F8"></td>
-                        <td><input type="checkbox" class="seats-vip" value="F9"></td>
-                        <td><input type="checkbox" class="seats-vip" value="F10"></td>
-                        <td><input type="checkbox" class="seats-vip" value="F11"></td>
-                        <td><input type="checkbox" class="seats" value="F12"></td>
-                        <td><input type="checkbox" class="seats" value="F13"></td>
-                        <td><input type="checkbox" class="seats" value="F14"></td>
-                        <td><input type="checkbox" class="seats" value="F15"></td>
-                        <td><input type="checkbox" class="seats" value="F16"></td>
-                    </tr>
-
-
-
-                    <tr>
-                        <td></td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
-                        <td>10</td>
-                        <td>11</td>
-                        <td>12</td>
-                        <td>13</td>
-                        <td>14</td>
-                        <td>15</td>
-                        <td>16</td>
-                    </tr>
-                </table>
-            </center>
-        </div>
-
-        <!-- Seat info -->
-        <div class="grid-seat">
-            <div>
-                <ul class="seats-inf">
-                    <li class="li-inf">
-                        <input type="checkbox" class="your-seat" id="your-seat">
-                        <label class="textt" for="your-seat">Your seat</label>
-                    </li>
-                    <li class="li-inf">
-                        <input style="cursor: auto;" type="checkbox" class="seatsdsd" id="available-seat">
-                        <label class="textt" for="available-seat">Available</label>
-                    </li>
-                </ul>
-                <ul class="seats-inf">
-                    <li class="li-inf">
-                        <input style="cursor: auto;" type="checkbox" class="seats-vip" id="seats-vip">
-                        <label class="textt" for="seats-vip">V.I.P</label>
-                    </li>
-                    <li class="li-inf">
-                        <input style="margin-left: 34px;" type="checkbox" class="unavailable-seat" id="unavailable-seat">
-                        <label class="textt" for="unavailable-seat">Unavailable</label>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <ul class="ticket-confirm">
-                    <li onclick="confirmTicket()" class="confirm1">
-                        <p class="aa">Choose <span id="NumberDisplay">0</span> seat(s)</p>
-                        <p class="bb">Auditorium 5</p>
-                    </li>
-                    <li onclick="confirmTicket()" class="confirm2">
-                        <p class="cc">Next <img src="~/Content/image/Vector 2.png" alt=""></p>
-                    </li>
-                </ul>
-            </div>
-            <div>
-
-            </div>
-        </div>
-
-        <!-- <div class="displayerBoxes">
-            <center>
-              <table class="Displaytable">
-                <tr>
-                    <th>Name</th>
-                    <th>Seats</th>
-                </tr>
-                <tr>
-                    <td><textarea id="nameDisplay"></textarea></td>
-                    <td><textarea id="seatsDisplay"></textarea></td>
-                </tr>
-                </table>
-            </center>
-        </div> -->
-        <form class="displayerBoxes" action="">
-
-            <label for="lname">Seats</label>
-            <textarea type="text" id="seatsDisplay"> </textarea>
-
-            <!-- <input type="submit" value="Submit"> -->
-        </form>
     </div>
 </div>
 <!--end content Html.Partial("login")-->

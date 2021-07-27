@@ -152,7 +152,7 @@ namespace TomocaMoviesWebsite.Controllers
         public ActionResult phimdangchieu()
         {
             var PhimDangChieu = from tt in data.Movies
-                                where tt.ComingSoon == false
+                                where tt.ComingSoon == 0
                                 select tt;
             return View(PhimDangChieu);
         }
@@ -230,7 +230,7 @@ namespace TomocaMoviesWebsite.Controllers
         public ActionResult phimSC()
         {
             var phimSC = from tt in data.Movies
-                         where tt.ComingSoon == true || tt.ComingSoon == null
+                         where tt.ComingSoon == 1 || tt.ComingSoon == null
                          select tt;
             return View(phimSC);
         }

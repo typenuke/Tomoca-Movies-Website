@@ -11,7 +11,6 @@ namespace TomocaMoviesWebsite.Controllers
     {
         // GET: Users
         TomocaMoviesDataContext db = new TomocaMoviesDataContext();
-
         public ActionResult Login(FormCollection collection)
         {
             var un = collection["UserName"];
@@ -34,14 +33,14 @@ namespace TomocaMoviesWebsite.Controllers
                         @Session["Username"] = tk.Username;
                         @Session["Permission"] = 1;
                         ViewBag.ThongBao = "Đăng nhập thành công admin";
-                        return RedirectToAction("Index", "Tomoca");
+                        return RedirectToAction("Home", "Admin");
                     }
                     if (tk.Permission == false || tk.Permission == null)
                     {
                         @Session["Username"] = tk.Username;
                         @Session["Permission"] = null;
                         ViewBag.ThongBao = "Đăng nhập thành công";
-                        return RedirectToAction("Index", "Tomoca");
+                        return RedirectToAction("Login", "Users");
                     }
                 }
                 else

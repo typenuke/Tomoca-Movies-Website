@@ -22,7 +22,7 @@ namespace TomocaMoviesWebsite.Models
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="dbTomoca")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="newDBTomoca")]
 	public partial class TomocaMoviesDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -78,19 +78,13 @@ namespace TomocaMoviesWebsite.Models
     partial void InsertTicket(Ticket instance);
     partial void UpdateTicket(Ticket instance);
     partial void DeleteTicket(Ticket instance);
-    partial void InsertTicketType(TicketType instance);
-    partial void UpdateTicketType(TicketType instance);
-    partial void DeleteTicketType(TicketType instance);
-    partial void InsertUserBook(UserBook instance);
-    partial void UpdateUserBook(UserBook instance);
-    partial void DeleteUserBook(UserBook instance);
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
     #endregion
 		
 		public TomocaMoviesDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["TomocaMoviesConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["newDBTomocaConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -244,22 +238,6 @@ namespace TomocaMoviesWebsite.Models
 			get
 			{
 				return this.GetTable<Ticket>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TicketType> TicketTypes
-		{
-			get
-			{
-				return this.GetTable<TicketType>();
-			}
-		}
-		
-		public System.Data.Linq.Table<UserBook> UserBooks
-		{
-			get
-			{
-				return this.GetTable<UserBook>();
 			}
 		}
 		
@@ -3826,7 +3804,7 @@ namespace TomocaMoviesWebsite.Models
 		
 		private string _Banner;
 		
-		private System.Nullable<bool> _ComingSoon;
+		private System.Nullable<int> _ComingSoon;
 		
 		private EntitySet<Comment> _Comments;
 		
@@ -3866,7 +3844,7 @@ namespace TomocaMoviesWebsite.Models
     partial void OnTimeOfFilmChanged();
     partial void OnBannerChanging(string value);
     partial void OnBannerChanged();
-    partial void OnComingSoonChanging(System.Nullable<bool> value);
+    partial void OnComingSoonChanging(System.Nullable<int> value);
     partial void OnComingSoonChanged();
     #endregion
 		
@@ -4101,8 +4079,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ComingSoon", DbType="Bit")]
-		public System.Nullable<bool> ComingSoon
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ComingSoon", DbType="Int")]
+		public System.Nullable<int> ComingSoon
 		{
 			get
 			{
@@ -5361,17 +5339,21 @@ namespace TomocaMoviesWebsite.Models
 		
 		private int _TicketID;
 		
-		private int _Money;
+		private int _MalID;
 		
-		private System.Nullable<int> _MalID;
+		private int _Money;
 		
 		private string _Seat;
 		
-		private EntitySet<UserBook> _UserBooks;
+		private System.Nullable<int> _Vip;
+		
+		private System.Nullable<int> _Normal;
+		
+		private int _UserID;
 		
 		private EntityRef<MiAnLien> _MiAnLien;
 		
-		private EntityRef<TicketType> _TicketType;
+		private EntityRef<User> _User;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -5379,19 +5361,24 @@ namespace TomocaMoviesWebsite.Models
     partial void OnCreated();
     partial void OnTicketIDChanging(int value);
     partial void OnTicketIDChanged();
+    partial void OnMalIDChanging(int value);
+    partial void OnMalIDChanged();
     partial void OnMoneyChanging(int value);
     partial void OnMoneyChanged();
-    partial void OnMalIDChanging(System.Nullable<int> value);
-    partial void OnMalIDChanged();
     partial void OnSeatChanging(string value);
     partial void OnSeatChanged();
+    partial void OnVipChanging(System.Nullable<int> value);
+    partial void OnVipChanged();
+    partial void OnNormalChanging(System.Nullable<int> value);
+    partial void OnNormalChanged();
+    partial void OnUserIDChanging(int value);
+    partial void OnUserIDChanged();
     #endregion
 		
 		public Ticket()
 		{
-			this._UserBooks = new EntitySet<UserBook>(new Action<UserBook>(this.attach_UserBooks), new Action<UserBook>(this.detach_UserBooks));
 			this._MiAnLien = default(EntityRef<MiAnLien>);
-			this._TicketType = default(EntityRef<TicketType>);
+			this._User = default(EntityRef<User>);
 			OnCreated();
 		}
 		
@@ -5406,15 +5393,35 @@ namespace TomocaMoviesWebsite.Models
 			{
 				if ((this._TicketID != value))
 				{
-					if (this._TicketType.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnTicketIDChanging(value);
 					this.SendPropertyChanging();
 					this._TicketID = value;
 					this.SendPropertyChanged("TicketID");
 					this.OnTicketIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MalID", DbType="Int NOT NULL")]
+		public int MalID
+		{
+			get
+			{
+				return this._MalID;
+			}
+			set
+			{
+				if ((this._MalID != value))
+				{
+					if (this._MiAnLien.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMalIDChanging(value);
+					this.SendPropertyChanging();
+					this._MalID = value;
+					this.SendPropertyChanged("MalID");
+					this.OnMalIDChanged();
 				}
 			}
 		}
@@ -5439,30 +5446,6 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MalID", DbType="Int")]
-		public System.Nullable<int> MalID
-		{
-			get
-			{
-				return this._MalID;
-			}
-			set
-			{
-				if ((this._MalID != value))
-				{
-					if (this._MiAnLien.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMalIDChanging(value);
-					this.SendPropertyChanging();
-					this._MalID = value;
-					this.SendPropertyChanged("MalID");
-					this.OnMalIDChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Seat", DbType="NVarChar(500)")]
 		public string Seat
 		{
@@ -5483,16 +5466,67 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ticket_UserBook", Storage="_UserBooks", ThisKey="TicketID", OtherKey="TicketID")]
-		public EntitySet<UserBook> UserBooks
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Vip", DbType="Int")]
+		public System.Nullable<int> Vip
 		{
 			get
 			{
-				return this._UserBooks;
+				return this._Vip;
 			}
 			set
 			{
-				this._UserBooks.Assign(value);
+				if ((this._Vip != value))
+				{
+					this.OnVipChanging(value);
+					this.SendPropertyChanging();
+					this._Vip = value;
+					this.SendPropertyChanged("Vip");
+					this.OnVipChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Normal", DbType="Int")]
+		public System.Nullable<int> Normal
+		{
+			get
+			{
+				return this._Normal;
+			}
+			set
+			{
+				if ((this._Normal != value))
+				{
+					this.OnNormalChanging(value);
+					this.SendPropertyChanging();
+					this._Normal = value;
+					this.SendPropertyChanged("Normal");
+					this.OnNormalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL")]
+		public int UserID
+		{
+			get
+			{
+				return this._UserID;
+			}
+			set
+			{
+				if ((this._UserID != value))
+				{
+					if (this._User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUserIDChanging(value);
+					this.SendPropertyChanging();
+					this._UserID = value;
+					this.SendPropertyChanged("UserID");
+					this.OnUserIDChanged();
+				}
 			}
 		}
 		
@@ -5523,336 +5557,14 @@ namespace TomocaMoviesWebsite.Models
 					}
 					else
 					{
-						this._MalID = default(Nullable<int>);
+						this._MalID = default(int);
 					}
 					this.SendPropertyChanged("MiAnLien");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TicketType_Ticket", Storage="_TicketType", ThisKey="TicketID", OtherKey="TicketID", IsForeignKey=true)]
-		public TicketType TicketType
-		{
-			get
-			{
-				return this._TicketType.Entity;
-			}
-			set
-			{
-				TicketType previousValue = this._TicketType.Entity;
-				if (((previousValue != value) 
-							|| (this._TicketType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TicketType.Entity = null;
-						previousValue.Ticket = null;
-					}
-					this._TicketType.Entity = value;
-					if ((value != null))
-					{
-						value.Ticket = this;
-						this._TicketID = value.TicketID;
-					}
-					else
-					{
-						this._TicketID = default(int);
-					}
-					this.SendPropertyChanged("TicketType");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_UserBooks(UserBook entity)
-		{
-			this.SendPropertyChanging();
-			entity.Ticket = this;
-		}
-		
-		private void detach_UserBooks(UserBook entity)
-		{
-			this.SendPropertyChanging();
-			entity.Ticket = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TicketType")]
-	public partial class TicketType : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _TicketID;
-		
-		private int _VIP;
-		
-		private int _Normal;
-		
-		private EntityRef<Ticket> _Ticket;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnTicketIDChanging(int value);
-    partial void OnTicketIDChanged();
-    partial void OnVIPChanging(int value);
-    partial void OnVIPChanged();
-    partial void OnNormalChanging(int value);
-    partial void OnNormalChanged();
-    #endregion
-		
-		public TicketType()
-		{
-			this._Ticket = default(EntityRef<Ticket>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TicketID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int TicketID
-		{
-			get
-			{
-				return this._TicketID;
-			}
-			set
-			{
-				if ((this._TicketID != value))
-				{
-					this.OnTicketIDChanging(value);
-					this.SendPropertyChanging();
-					this._TicketID = value;
-					this.SendPropertyChanged("TicketID");
-					this.OnTicketIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VIP", DbType="Int NOT NULL")]
-		public int VIP
-		{
-			get
-			{
-				return this._VIP;
-			}
-			set
-			{
-				if ((this._VIP != value))
-				{
-					this.OnVIPChanging(value);
-					this.SendPropertyChanging();
-					this._VIP = value;
-					this.SendPropertyChanged("VIP");
-					this.OnVIPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Normal", DbType="Int NOT NULL")]
-		public int Normal
-		{
-			get
-			{
-				return this._Normal;
-			}
-			set
-			{
-				if ((this._Normal != value))
-				{
-					this.OnNormalChanging(value);
-					this.SendPropertyChanging();
-					this._Normal = value;
-					this.SendPropertyChanged("Normal");
-					this.OnNormalChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TicketType_Ticket", Storage="_Ticket", ThisKey="TicketID", OtherKey="TicketID", IsUnique=true, IsForeignKey=false)]
-		public Ticket Ticket
-		{
-			get
-			{
-				return this._Ticket.Entity;
-			}
-			set
-			{
-				Ticket previousValue = this._Ticket.Entity;
-				if (((previousValue != value) 
-							|| (this._Ticket.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Ticket.Entity = null;
-						previousValue.TicketType = null;
-					}
-					this._Ticket.Entity = value;
-					if ((value != null))
-					{
-						value.TicketType = this;
-					}
-					this.SendPropertyChanged("Ticket");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserBook")]
-	public partial class UserBook : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _UserID;
-		
-		private int _TicketID;
-		
-		private EntityRef<Ticket> _Ticket;
-		
-		private EntityRef<User> _User;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUserIDChanging(int value);
-    partial void OnUserIDChanged();
-    partial void OnTicketIDChanging(int value);
-    partial void OnTicketIDChanged();
-    #endregion
-		
-		public UserBook()
-		{
-			this._Ticket = default(EntityRef<Ticket>);
-			this._User = default(EntityRef<User>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int UserID
-		{
-			get
-			{
-				return this._UserID;
-			}
-			set
-			{
-				if ((this._UserID != value))
-				{
-					if (this._User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUserIDChanging(value);
-					this.SendPropertyChanging();
-					this._UserID = value;
-					this.SendPropertyChanged("UserID");
-					this.OnUserIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TicketID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int TicketID
-		{
-			get
-			{
-				return this._TicketID;
-			}
-			set
-			{
-				if ((this._TicketID != value))
-				{
-					if (this._Ticket.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTicketIDChanging(value);
-					this.SendPropertyChanging();
-					this._TicketID = value;
-					this.SendPropertyChanged("TicketID");
-					this.OnTicketIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Ticket_UserBook", Storage="_Ticket", ThisKey="TicketID", OtherKey="TicketID", IsForeignKey=true)]
-		public Ticket Ticket
-		{
-			get
-			{
-				return this._Ticket.Entity;
-			}
-			set
-			{
-				Ticket previousValue = this._Ticket.Entity;
-				if (((previousValue != value) 
-							|| (this._Ticket.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Ticket.Entity = null;
-						previousValue.UserBooks.Remove(this);
-					}
-					this._Ticket.Entity = value;
-					if ((value != null))
-					{
-						value.UserBooks.Add(this);
-						this._TicketID = value.TicketID;
-					}
-					else
-					{
-						this._TicketID = default(int);
-					}
-					this.SendPropertyChanged("Ticket");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserBook", Storage="_User", ThisKey="UserID", OtherKey="UserID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Ticket", Storage="_User", ThisKey="UserID", OtherKey="UserID", IsForeignKey=true)]
 		public User User
 		{
 			get
@@ -5869,12 +5581,12 @@ namespace TomocaMoviesWebsite.Models
 					if ((previousValue != null))
 					{
 						this._User.Entity = null;
-						previousValue.UserBooks.Remove(this);
+						previousValue.Tickets.Remove(this);
 					}
 					this._User.Entity = value;
 					if ((value != null))
 					{
-						value.UserBooks.Add(this);
+						value.Tickets.Add(this);
 						this._UserID = value.UserID;
 					}
 					else
@@ -5933,7 +5645,7 @@ namespace TomocaMoviesWebsite.Models
 		
 		private EntitySet<New> _News;
 		
-		private EntitySet<UserBook> _UserBooks;
+		private EntitySet<Ticket> _Tickets;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -5961,7 +5673,7 @@ namespace TomocaMoviesWebsite.Models
 		{
 			this._Comments = new EntitySet<Comment>(new Action<Comment>(this.attach_Comments), new Action<Comment>(this.detach_Comments));
 			this._News = new EntitySet<New>(new Action<New>(this.attach_News), new Action<New>(this.detach_News));
-			this._UserBooks = new EntitySet<UserBook>(new Action<UserBook>(this.attach_UserBooks), new Action<UserBook>(this.detach_UserBooks));
+			this._Tickets = new EntitySet<Ticket>(new Action<Ticket>(this.attach_Tickets), new Action<Ticket>(this.detach_Tickets));
 			OnCreated();
 		}
 		
@@ -6151,16 +5863,16 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_UserBook", Storage="_UserBooks", ThisKey="UserID", OtherKey="UserID")]
-		public EntitySet<UserBook> UserBooks
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Ticket", Storage="_Tickets", ThisKey="UserID", OtherKey="UserID")]
+		public EntitySet<Ticket> Tickets
 		{
 			get
 			{
-				return this._UserBooks;
+				return this._Tickets;
 			}
 			set
 			{
-				this._UserBooks.Assign(value);
+				this._Tickets.Assign(value);
 			}
 		}
 		
@@ -6208,13 +5920,13 @@ namespace TomocaMoviesWebsite.Models
 			entity.User = null;
 		}
 		
-		private void attach_UserBooks(UserBook entity)
+		private void attach_Tickets(Ticket entity)
 		{
 			this.SendPropertyChanging();
 			entity.User = this;
 		}
 		
-		private void detach_UserBooks(UserBook entity)
+		private void detach_Tickets(Ticket entity)
 		{
 			this.SendPropertyChanging();
 			entity.User = null;

@@ -403,3 +403,45 @@ $("#thoigiandechon").click(function () {
     $("#thoigiandechon").css("background", "#FF7300");
 
 });
+$(".item").click(function () {
+    var tam = $(this).find("#malid").text();
+    $("#idmal").val(tam);
+});
+//
+$(".congvip").click(function () {
+    var tam = $("#tongtien").val();
+    $("#tongtientien").val(tam);
+
+    var tam = $("#number").val();
+    $("#chonghevip").val(tam);
+    var tam = $("#number2").val();
+    $("#chonghethuong").val(tam);
+});
+$(".truvip").click(function () {
+    var tam = $("#tongtien").val();
+    $("#tongtientien").val(tam);
+
+    var tam = $("#number").val();
+    $("#chonghevip").val(tam);
+    var tam = $("#number2").val();
+    $("#chonghethuong").val(tam);
+});
+//
+$(".congthuong").click(function () {
+    var tam = $("#tongtien").val();
+    $("#tongtientien").val(tam);
+
+    var tam = $("#number").val();
+    $("#chonghevip").val(tam);
+    var tam = $("#number2").val();
+    $("#chonghethuong").val(tam);
+});
+$(".truthuong").click(function () {
+    var tam = $("#tongtien").val();
+    $("#tongtientien").val(tam);
+
+    var tam = $("#number").val();
+    $("#chonghevip").val(tam);
+    var tam = $("#number2").val();
+    $("#chonghethuong").val(tam);
+});

@@ -23,7 +23,7 @@ namespace TomocaMoviesWebsite.Controllers
             return View(tm);
         }
 
-       
+
 
         private List<Movy> GetMovies()
         {
@@ -35,8 +35,11 @@ namespace TomocaMoviesWebsite.Controllers
             List<Actor> actor = new List<Actor>();
             return actor;
         }
-        
 
+        public ActionResult Login()
+        {
+            return View();
+        }
 
         [HttpPost]
         public ActionResult Login(FormCollection collection)
@@ -66,7 +69,7 @@ namespace TomocaMoviesWebsite.Controllers
                         @Session["UserName"] = tk.Username;
                         @Session["Permission"] = null;
                         ViewBag.ThongBao = "Đăng nhập thành công";
-                        return RedirectToAction("Index", "Tomoca");
+                        return RedirectToAction("Login", "Users");
                     }
                 }
                 else
@@ -75,7 +78,7 @@ namespace TomocaMoviesWebsite.Controllers
                 }
             }
 
-            return RedirectToAction("Index", "Tomoca");
+            return RedirectToAction("Login", "Users");
         }
         public ActionResult MovieReview(string search)
         {
@@ -90,7 +93,7 @@ namespace TomocaMoviesWebsite.Controllers
         }
         public ActionResult Detail(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return HttpNotFound();
             }
@@ -111,10 +114,10 @@ namespace TomocaMoviesWebsite.Controllers
                             join c in Genre on b.GenreID equals c.GenreID into table_2
                             from c in table_2
                             join d in movieDirectors on b.MovieID equals d.MovieID into table_3
-                            from d in table_3 
+                            from d in table_3
                             join e in directors on d.DirectorID equals e.DirectorID
                             join f in movieActors on b.MovieID equals f.MovieID into table_4
-                            from f in table_4 
+                            from f in table_4
                             join g in actors on f.ActorID equals g.ActorID
                             join h in reviewOfMovies on b.MovieID equals h.MovieID into table_5
                             from i in table_5
@@ -129,7 +132,7 @@ namespace TomocaMoviesWebsite.Controllers
                                 youtubeReview = j
                             };
             var img = linkMulti.ToList();
-            var imgg = img.Find(m=>m.MovieInf.MovieID == id);   
+            var imgg = img.Find(m => m.MovieInf.MovieID == id);
             return View(imgg);
         }
 
@@ -213,14 +216,14 @@ namespace TomocaMoviesWebsite.Controllers
             List<User> users = db.Users.ToList();
             List<New> news = db.News.ToList();
             var multi = from a in users
-                join b in news on a.UserID equals b.UserID into table1
-                from b in table1
-                
-                select new readNew
-                {
-                    usersss = a,
-                    newsss = b
-                };
+                        join b in news on a.UserID equals b.UserID into table1
+                        from b in table1
+
+                        select new readNew
+                        {
+                            usersss = a,
+                            newsss = b
+                        };
             var rn = multi.ToList();
             var dn = rn.Find(a => a.newsss.NewsID == id);
             if (dn == null)
@@ -276,6 +279,10 @@ namespace TomocaMoviesWebsite.Controllers
         }
         public ActionResult TicketBook()
         {
+            if (Session["Username"] == null || Session["Username"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Users");
+            }
             var listMovies = db.MiAnLiens.Where(x => x.MalID > 0).ToList();
             IList<City> lstcity1 = new List<City>();
 
@@ -295,6 +302,10 @@ namespace TomocaMoviesWebsite.Controllers
         [HttpPost]
         public ActionResult TicketBook(FormCollection coll)
         {
+            if (Session["Username"] == null || Session["Username"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Users");
+            }
             string tenrap = coll["tenrap"].ToString();
             var idrap = db.MovieTheaters.First(a => String.Compare(a.TheaterName,tenrap,true) == 0);
             var luungay = coll["luungay"];
@@ -324,6 +335,15 @@ namespace TomocaMoviesWebsite.Controllers
         public ActionResult thankyou()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult choose(FormCollection coll)
+        {
+            var malid = db.MiAnLiens.First(x => x.MalID == int.Parse(coll["idmal"]));
+            ViewData["chonghethuong"] = coll["chonghethuong"];
+            ViewData["chonghevip"] = coll["chonghevip"];
+            ViewData["tongtientien"] = coll["tongtientien"];
+            return View(malid);
         }
     }
 }

@@ -15,12 +15,12 @@ namespace TomocaMoviesWebsite.Controllers
         public ActionResult Home()
         {
             int demnd = data.Users.ToList().Count;
-            int phimsapchieu = data.Movies.Where(x => x.ComingSoon == true).ToList().Count;
-            int phimdangchieu = data.Movies.Where(x => x.ComingSoon == null || x.ComingSoon == false).ToList().Count;
+            int phimsapchieu = data.Movies.Where(x => x.ComingSoon == 1).ToList().Count;
+            int phimdangchieu = data.Movies.Where(x => x.ComingSoon == 0).ToList().Count;
             ViewData["NguoiDung"] = demnd;
             ViewData["phimsapchieu"] = phimsapchieu;
             ViewData["phimdangchieu"] = phimdangchieu;
-            var DSPhimSapChieu = data.Movies.Where(x => x.ComingSoon == true).Take(10).ToList();
+            var DSPhimSapChieu = data.Movies.Where(x => x.ComingSoon == 1).Take(10).ToList();
             ViewData["DSPhimSapChieu"] = DSPhimSapChieu;
             var DSPhimDangChieu = data.Movies.OrderByDescending(x => x.MovieID).Take(10).ToList();
             ViewData["DSPhimDangChieu"] = DSPhimDangChieu;
