@@ -79,31 +79,31 @@
                 {
                     <div class="item">
                         <div class="pad15" style="margin-top:30px;">
-                            <img class="clickdeto" style="width: 100%; height: 100%;" src="@item.Movy.Image" />
+                            <img class="clickdeto" id="hinhphim" style="width: 100%; height: 100%;" src="@item.Movy.Image" />
                         </div>
                         <div class="pad151 font-pad">
                             @item.Movy.Title
                     </div>
-                    <div class="pad152 font-pad">
-                        <span style="color: #434343; font-size: 16px; font-weight: bold;">@item.Movy.Title</span><br>
-                        @{var idloai = db.MoviesGenres.Where(x => x.MovieID == item.MovieID);
-                            List<string> lstg = new List<string>();
-                            Genre g = new Genre();
-                            foreach (var i in idloai)
-                            {
-                                Genre temp = db.Genres.SingleOrDefault(x => x.GenreID == i.GenreID);
-                                string tam = temp.GenreName;
-                                lstg.Add(tam);
-                            }
-                        }
-                        <span>
-                            @for (int i = 0; i < lstg.Count(); i++)
-                            {
-                                <span>@lstg[i].ToString(), </span>
-                            }
-                        </span><br>
-                        <span><img src="~/Content/image/clock.png" />@item.Movy.TimeOfFilm</span>
-                    </div>
+                        <div class="pad152 font-pad">
+                            <span id="tieudephim" style="color: #434343; font-size: 16px; font-weight: bold;">@item.Movy.Title</span><br>
+                            @{var idloai = db.MoviesGenres.Where(x => x.MovieID == item.MovieID);
+                                List<string> lstg = new List<string>();
+                                Genre g = new Genre();
+                                foreach (var i in idloai)
+                                {
+                                    Genre temp = db.Genres.SingleOrDefault(x => x.GenreID == i.GenreID);
+                                    string tam = temp.GenreName;
+                                    lstg.Add(tam);
+                                }
+                                }
+                            <span id="theloaiphim">
+                                @for (int i = 0; i < lstg.Count(); i++)
+                                {
+                                    <span>@lstg[i].ToString(), </span>
+                                }
+                            </span><br>
+                            <span><img src="~/Content/image/clock.png" /> <span id="thoigianphim">@item.Movy.TimeOfFilm</span></span>
+                        </div>
                 </div>
             }
             </div>
@@ -116,6 +116,8 @@
 
 <div class="content-bookticket">
     <div class="bookticket-first" style="padding-top: 1px;">
+        <p class="choose-your-seat">2. Select a movie time</p>
+        <input type="type" name="name" value="99" id="timebatdau" />
     </div>
 </div>
 <div onload="onLoaderFunc()">
@@ -126,12 +128,12 @@
                 <table class="inf-table">
                     <tr>
                         <td class="img-zone3" style="width: 134px; text-align: center;">
-                            <img class="movie-img" src="~/Content/image/Rectangle 25.png" alt="">
+                            <img id="hinhtrongo" class="movie-img" src="~/Content/image/Rectangle 25.png" alt="">
                         </td>
                         <td class="inf-zone3" style="width: 285px; line-height: 3px; ">
-                            <p class="movie-name">A QUIET PLACE PART II</p>
-                            <p style="margin-top: 20px; " class="movie-type">Horror, Sci-Fi, Drama</pstyle="margin:>
-                            <p style="margin-top: 20px; " class="movie-length">1hrs 23m</p>
+                            <p class="movie-name" id="tenphimtrongo">A QUIET PLACE PART II</p>
+                            <p id="theloaiphimtrongo" style="margin-top: 20px; " class="movie-type">Horror, Sci-Fi, Drama</pstyle="margin:>
+                            <p id="thoigianphimtrongo" style="margin-top: 20px; " class="movie-length">1hrs 23m</p>
                             <p style="margin-top: 20px; " class="movie-day">Tuesday, Jun 30 at 1:30 AM</p>
                             <p style="margin-top: 20px; " class="movie-place">CGV Aeon Bình Tân theater, Auditorium 5</p>
                         </td>

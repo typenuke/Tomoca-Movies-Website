@@ -133,11 +133,13 @@
         @using (Html.BeginForm("TicketBook", "Tomoca", FormMethod.Post))
         {
             <input type="hidden" name="tenrap" value="1" id="tenrap" />
-            <input type="hidden" name="luungay" value="1" id="luungay" />
-            <input type="submit" value="Choosing Your Film" class="btn" style="margin-left: 42%; margin-top: 10px;" />
+            <input type="hidden" name="luungay" value="99" id="luungay" />
+            <input type="submit" id="choosing-ghe" value="Choosing Your Film" class="btn" style="margin-left: 42%; margin-top: 10px;" />
         }
     </div>
 </div>
+
+
 <div onload="onLoaderFunc()">
     <div class="zone3">
         <p class="choose-your-seat">3. Number of seats</p>

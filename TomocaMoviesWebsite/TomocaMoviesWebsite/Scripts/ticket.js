@@ -305,14 +305,73 @@ $('#thanhpho').change(function () {
         $("#cacrap option[value='20']").css('display', 'block');
         $("#cacrap option[value='21']").css('display', 'block');
         $("#cacrap option[value='22']").css('display', 'block');
+
     }
+});
+
+$('#thanhpho').change(function () {
+    //bo disable
+    tam = $('#thanhpho').val();
+
+    if (tam != '') {
+        $("#cacrap").prop("disabled", false);
+    };
+
+    $("#choosing-ghe").prop("disabled", true);
 });
 
 $(".ticket").click(function () {
     var tam = $(this).find("#ngayto").text();
     $("#luungay").val(tam);
+
+    $("#thanhpho").prop("disabled", false);
 });
 $('#cacrap').change(function () {
     var tp = $("#cacrap option:selected").text();
     $("#tenrap").val(tp);
+
+    //bo disable
+    tam = $('#cacrap').val();
+
+    if (tam != '') {
+        $("#choosing-ghe").prop("disabled", false);
+    };
+});
+
+$(document).ready(function () {
+    $('#cacrap').val('');
+    $('#thanhpho').val('');
+    $("#cacrap").prop("disabled", true);
+    $("#thanhpho").prop("disabled", true);
+    $("#choosing-ghe").prop("disabled", true);
+});
+
+
+
+$(".item").click(function () {
+    var tam = $(this).find("#tieudephim").text();
+    console.log(tam);
+    $("#tenphimtrongo").text(tam);
+
+});
+
+
+$(".item").click(function () {
+    var tam = $(this).find("#theloaiphim").text();
+    console.log(tam);
+    $("#theloaiphimtrongo").text(tam);
+
+});
+
+$(".item").click(function () {
+    var tam = $(this).find("#thoigianphim").text();
+    console.log(tam);
+    $("#thoigianphimtrongo").text(tam);
+
+});
+
+$(".item").click(function () {
+    var src2 = $("img:first", this).attr("src");
+
+    $("#hinhtrongo").attr("src", src2);
 });
