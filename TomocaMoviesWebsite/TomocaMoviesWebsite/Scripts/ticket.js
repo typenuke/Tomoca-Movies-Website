@@ -341,6 +341,7 @@ $(document).ready(function () {
     $("#cacrap").prop("disabled", true);
     $("#thanhpho").prop("disabled", true);
     $("#choosing-ghe").prop("disabled", true);
+    $('#tenghe').prop("disabled", true);
 });
 
 

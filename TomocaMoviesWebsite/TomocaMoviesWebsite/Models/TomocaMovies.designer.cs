@@ -30,12 +30,12 @@ namespace TomocaMoviesWebsite.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertActor(Actor instance);
-    partial void UpdateActor(Actor instance);
-    partial void DeleteActor(Actor instance);
     partial void InsertYoutubeReview(YoutubeReview instance);
     partial void UpdateYoutubeReview(YoutubeReview instance);
     partial void DeleteYoutubeReview(YoutubeReview instance);
+    partial void InsertActor(Actor instance);
+    partial void UpdateActor(Actor instance);
+    partial void DeleteActor(Actor instance);
     partial void InsertCity(City instance);
     partial void UpdateCity(City instance);
     partial void DeleteCity(City instance);
@@ -84,7 +84,7 @@ namespace TomocaMoviesWebsite.Models
     #endregion
 		
 		public TomocaMoviesDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DBTomocaUpdateConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DBTomocaUpdateConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -113,19 +113,19 @@ namespace TomocaMoviesWebsite.Models
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Actor> Actors
-		{
-			get
-			{
-				return this.GetTable<Actor>();
-			}
-		}
-		
 		public System.Data.Linq.Table<YoutubeReview> YoutubeReviews
 		{
 			get
 			{
 				return this.GetTable<YoutubeReview>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Actor> Actors
+		{
+			get
+			{
+				return this.GetTable<Actor>();
 			}
 		}
 		
@@ -247,168 +247,6 @@ namespace TomocaMoviesWebsite.Models
 			{
 				return this.GetTable<User>();
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Actors")]
-	public partial class Actor : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ActorID;
-		
-		private string _Name;
-		
-		private string _Nationality;
-		
-		private System.Nullable<System.DateTime> _Birth;
-		
-		private EntitySet<MovieActor> _MovieActors;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnActorIDChanging(int value);
-    partial void OnActorIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnNationalityChanging(string value);
-    partial void OnNationalityChanged();
-    partial void OnBirthChanging(System.Nullable<System.DateTime> value);
-    partial void OnBirthChanged();
-    #endregion
-		
-		public Actor()
-		{
-			this._MovieActors = new EntitySet<MovieActor>(new Action<MovieActor>(this.attach_MovieActors), new Action<MovieActor>(this.detach_MovieActors));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActorID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ActorID
-		{
-			get
-			{
-				return this._ActorID;
-			}
-			set
-			{
-				if ((this._ActorID != value))
-				{
-					this.OnActorIDChanging(value);
-					this.SendPropertyChanging();
-					this._ActorID = value;
-					this.SendPropertyChanged("ActorID");
-					this.OnActorIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nationality", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string Nationality
-		{
-			get
-			{
-				return this._Nationality;
-			}
-			set
-			{
-				if ((this._Nationality != value))
-				{
-					this.OnNationalityChanging(value);
-					this.SendPropertyChanging();
-					this._Nationality = value;
-					this.SendPropertyChanged("Nationality");
-					this.OnNationalityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Birth", DbType="Date")]
-		public System.Nullable<System.DateTime> Birth
-		{
-			get
-			{
-				return this._Birth;
-			}
-			set
-			{
-				if ((this._Birth != value))
-				{
-					this.OnBirthChanging(value);
-					this.SendPropertyChanging();
-					this._Birth = value;
-					this.SendPropertyChanged("Birth");
-					this.OnBirthChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Actor_MovieActor", Storage="_MovieActors", ThisKey="ActorID", OtherKey="ActorID")]
-		public EntitySet<MovieActor> MovieActors
-		{
-			get
-			{
-				return this._MovieActors;
-			}
-			set
-			{
-				this._MovieActors.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_MovieActors(MovieActor entity)
-		{
-			this.SendPropertyChanging();
-			entity.Actor = this;
-		}
-		
-		private void detach_MovieActors(MovieActor entity)
-		{
-			this.SendPropertyChanging();
-			entity.Actor = null;
 		}
 	}
 	
@@ -571,6 +409,168 @@ namespace TomocaMoviesWebsite.Models
 		{
 			this.SendPropertyChanging();
 			entity.YoutubeReview = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Actors")]
+	public partial class Actor : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ActorID;
+		
+		private string _Name;
+		
+		private string _Nationality;
+		
+		private System.Nullable<System.DateTime> _Birth;
+		
+		private EntitySet<MovieActor> _MovieActors;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnActorIDChanging(int value);
+    partial void OnActorIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnNationalityChanging(string value);
+    partial void OnNationalityChanged();
+    partial void OnBirthChanging(System.Nullable<System.DateTime> value);
+    partial void OnBirthChanged();
+    #endregion
+		
+		public Actor()
+		{
+			this._MovieActors = new EntitySet<MovieActor>(new Action<MovieActor>(this.attach_MovieActors), new Action<MovieActor>(this.detach_MovieActors));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ActorID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ActorID
+		{
+			get
+			{
+				return this._ActorID;
+			}
+			set
+			{
+				if ((this._ActorID != value))
+				{
+					this.OnActorIDChanging(value);
+					this.SendPropertyChanging();
+					this._ActorID = value;
+					this.SendPropertyChanged("ActorID");
+					this.OnActorIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nationality", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Nationality
+		{
+			get
+			{
+				return this._Nationality;
+			}
+			set
+			{
+				if ((this._Nationality != value))
+				{
+					this.OnNationalityChanging(value);
+					this.SendPropertyChanging();
+					this._Nationality = value;
+					this.SendPropertyChanged("Nationality");
+					this.OnNationalityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Birth", DbType="Date")]
+		public System.Nullable<System.DateTime> Birth
+		{
+			get
+			{
+				return this._Birth;
+			}
+			set
+			{
+				if ((this._Birth != value))
+				{
+					this.OnBirthChanging(value);
+					this.SendPropertyChanging();
+					this._Birth = value;
+					this.SendPropertyChanged("Birth");
+					this.OnBirthChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Actor_MovieActor", Storage="_MovieActors", ThisKey="ActorID", OtherKey="ActorID")]
+		public EntitySet<MovieActor> MovieActors
+		{
+			get
+			{
+				return this._MovieActors;
+			}
+			set
+			{
+				this._MovieActors.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_MovieActors(MovieActor entity)
+		{
+			this.SendPropertyChanging();
+			entity.Actor = this;
+		}
+		
+		private void detach_MovieActors(MovieActor entity)
+		{
+			this.SendPropertyChanging();
+			entity.Actor = null;
 		}
 	}
 	

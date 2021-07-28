@@ -202,8 +202,24 @@ function thuongtru() {
     }
 }
 
+
+
 $("input[type='checkbox']").on('change', function () {
     $(this).val(this.checked ? "true" : "null");
+
+    Laytenghe();
+    
 })
 
+
+function Laytenghe() {
+        var allSeatsVals = [];
+
+        $('#seatsBlock :checked').each(function () {
+            allSeatsVals.push($(this).attr('name'));
+        });
+
+        $('.tenghe').val(allSeatsVals);
+
+}
 
