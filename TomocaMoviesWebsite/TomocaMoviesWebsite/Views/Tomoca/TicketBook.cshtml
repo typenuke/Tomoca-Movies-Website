@@ -53,23 +53,43 @@
     var dm1 = 0;
 }
 <div class="ticket-top">
-    @for (int i = 1; i < 8; i++)
+    @for (int i = 1; i < 12; i++)
     {
-        var dayy = DateTime.Today.AddDays(dm);
-        string dayte = dayy.ToString("dd-MM-yyyy");
-        string strday = dayy.ToString("dd");
-        int daysd = int.Parse(dayy.ToString("ddMM"));
-        string strMonth = dayy.ToString("MMMM");
-        string dayd = dayy.DayOfWeek.ToString();
-        <div class="ticket" @*href="~/Tomoca/Tickets?daysd=@dm1"*@>
-            <div class="item-day">
-                <span class="day-big">@strday</span><br>
-                <span class="day-small">@strMonth</span>
+        if (i == 1)
+        {
+            var dayy = DateTime.Today.AddDays(dm);
+            string dayte = dayy.ToString("dd-MM-yyyy");
+            string strday = dayy.ToString("dd");
+            int daysd = int.Parse(dayy.ToString("ddMM"));
+            string strMonth = dayy.ToString("MMMM");
+            string dayd = dayy.DayOfWeek.ToString();
+            <div class="ticket" @*href="~/Tomoca/Tickets?daysd=@dm1"*@>
+                <div class="item-day item-daynow">
+                    <span class="day-big" id="ngayto">@strday</span><br>
+                    <span class="day-small">@strMonth</span>
+                </div>
+                <div class="item-day-l">
+                    @dayd
+                </div>
+            </div> }
+        else
+        {
+            var dayy = DateTime.Today.AddDays(dm);
+            string dayte = dayy.ToString("dd-MM-yyyy");
+            string strday = dayy.ToString("dd");
+            int daysd = int.Parse(dayy.ToString("ddMM"));
+            string strMonth = dayy.ToString("MMMM");
+            string dayd = dayy.DayOfWeek.ToString();
+            <div class="ticket" @*href="~/Tomoca/Tickets?daysd=@dm1"*@>
+                <div class="item-day">
+                    <span class="day-big" id="ngayto">@strday</span><br>
+                    <span class="day-small">@strMonth</span>
+                </div>
+                <div class="item-day-l">
+                    @dayd
+                </div>
             </div>
-            <div class="item-day-l">
-                @dayd
-            </div>
-        </div>
+        }
         dm++;
         dm1++;
     }
@@ -175,7 +195,7 @@
         </div>
     </div>
     <!-- Choose your seat -->
-    <div class="zone3">
+    <div class="zone3" style="padding:-20px 0 40px 0; margin-top: -20px;" >
         <div class="inputForm">
             <center>
                 <div style="display: none;" class="tongsoghe">
@@ -184,15 +204,18 @@
                 <br /><br />
                     @using (Html.BeginForm("choose","Tomoca", FormMethod.Post))
                     {
-                        <input name="idmal" id="idmal" value="" />
-                        <input name="tongtientien" id="tongtientien" value="" />
-                        <input name="chonghethuong" id="chonghethuong" value="" />
-                        <input name="chonghevip" id="chonghevip" value="" />
-                        <input class="selecting" type="submit" value="Start Choose Chair" />
+                        <input hidden name="idmal" id="idmal" value="" />
+                        <input hidden name="tongtientien" id="tongtientien" value="" />
+                        <input hidden name="chonghethuong" id="chonghethuong" value="" />
+                        <input hidden name="chonghevip" id="chonghevip" value="" />
+                        <input style="margin-bottom:50px;" class="selecting" type="submit" value="Start Choose Chair" />
                     }
             </center>
         </div>
     </div>
+</div>
+<div style="margin: 0 auto; text-align: center; width: 250px; padding: 150px 0 50px 0">
+    <img src="~/Content/image/Group 87.png" />
 </div>
 <!--end content Html.Partial("login")-->
 @Html.Partial("Login")

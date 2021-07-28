@@ -167,6 +167,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\choose-seats.css" />
+    <Content Include="Content\thankyou.css" />
     <Content Include="Scripts\choose.js" />
     <Content Include="Content\cssAmin\PagedList.css" />
     <Content Include="Content\cssAmin\SiteAdmin.css" />
@@ -343,7 +344,6 @@
     <Content Include="Content\Style-ticket-show.css" />
     <Content Include="Content\Style.css" />
     <Content Include="Content\Style_MoviesDetails.css" />
-    <Content Include="Content\thankyou.css" />
     <Content Include="Content\ticket.css" />
     <Content Include="Content\tiecketsieucapvippro.css" />
     <Content Include="Content\vendor\bootstrap\js\bootstrap.bundle.js" />
@@ -524,9 +524,9 @@
     <Content Include="Views\adminmanager\ThemPhimDC.cshtml" />
     <Content Include="Views\adminmanager\ThemChiTiet.cshtml" />
     <Content Include="Views\Tomoca\TicketBook.cshtml" />
-    <Content Include="Views\Tomoca\thankyou.cshtml" />
     <Content Include="Views\Admin\veban.cshtml" />
     <Content Include="Views\Admin\ThemVePhim.cshtml" />
+    <Content Include="Views\Tomoca\pay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,10 +1,9 @@
-﻿@using TomocaMoviesWebsite.Models
+﻿@model IEnumerable<TomocaMoviesWebsite.Models.MiAnLien>
+@using TomocaMoviesWebsite.Models
 @{
     TomocaMoviesDataContext db = new TomocaMoviesDataContext();
     ViewBag.Title = "TicketShow";
     Layout = "~/Views/Shared/Tomoca_Layout.cshtml";
-    int c = int.Parse(ViewData["idmal"].ToString());
-    var lst = db.MiAnLiens.Where(x => x.MalID == c);
 }
 @section css{
     <link href="~/Content/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -15,14 +14,15 @@
     <script src="~/Scripts/script-detail.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 }
-@foreach (var i in lst) {
-    <div style="width:auto; height:700px;"  onload="onReady()">
+@foreach (var i in Model)
+{
+    <div style="width:auto; height:700px;" onload="onReady()">
         <div class="bg-image">
             <div class="bg-color"></div>
         </div>
         <div class="bg-ticket">
             <div class="img-movie">
-                <img width="270px" height="403px" src="~/Content/image_review/Rectangle 25.png" alt="">
+                <img width="270px" height="403px" style="border-radius:5px;" src="@i.Movy.Image" alt="">
             </div>
             <div class="info-movie">
                 <p id="Movie-name">@i.Movy.Title</p>
@@ -92,7 +92,7 @@
             <div class="circle"></div>
         </div>
     </div>
-    }
+}
 
 
 

@@ -31,7 +31,6 @@ body{
 /* Movie info */
 
 .movie-inf {
-    padding-bottom: 23px;
     background-color: #F6F6F6;
 }
 
@@ -160,7 +159,7 @@ tr.border_bottom td {
 }
 /* Credit inf */
 
-.row {
+.row1 {
     margin-top: 10px;
     display: flex;
     margin-bottom: 10px;

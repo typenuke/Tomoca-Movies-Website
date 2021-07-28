@@ -335,6 +335,7 @@ $('#cacrap').change(function () {
 });
 
 $(document).ready(function () {
+    $(".item-daynow").addClass("clicked-day");
     $('#cacrap').val('');
     $('#thanhpho').val('');
     $("#cacrap").prop("disabled", true);

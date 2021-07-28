@@ -12,6 +12,7 @@ function tinhtruoc() {
     var seat3 = seat1 + seat2;
     $("#Numseats").val(seat3);
     $("#soluongghe").val(seat3);
+    $("#soluongghe12").text(seat3);
 }
 
 function takeData() {
@@ -38,21 +39,17 @@ function takeData() {
 
 
 function confirmTicket() {
-
+    var btn = document.getElementById('paybookticket212');
     if ($("input:checked").length == ($("#Numseats").val())) {
-        $(".seatStructure *").prop("disabled", true);
-        var allSeatsVals = [];
-
-        //Storing in Array
-
-        $('#seatsBlock :checked').each(function () {
-            allSeatsVals.push($(this).val());
-        });
-        //Displaying
-        $('#seatsDisplay').val(allSeatsVals);
+        btn.setAttribute('type', 'submit');
     }
     else {
+        btn.removeAttribute('type');
         alert("Please select " + ($("#Numseats").val()) + " seats")
+    }
+    if ($("#xacnhanchon").prop("disabled", false) && $("input:checked").length == 0) {
+        btn.removeAttribute('type');
+        alert("Please select your seats!")
     }
 }
 
@@ -65,6 +62,7 @@ $(":checkbox").click(function () {
         $(":checkbox").prop('disabled', false);
     }
 });
+
 
 // Button VIP code
 
@@ -207,3 +205,5 @@ function thuongtru() {
 $("input[type='checkbox']").on('change', function () {
     $(this).val(this.checked ? "true" : "null");
 })
+
+

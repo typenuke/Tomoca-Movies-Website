@@ -1,6 +1,4 @@
-﻿
-
-.ticket-top {
+﻿.ticket-top {
     margin: 0 auto;
     width: 1079px;
     height: 155px;
@@ -23,7 +21,8 @@
 }
 
 .item-day {
-    width: 76px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     height: 65.62px;
     background: #C4C4C4;
     margin-top: 0;
@@ -109,7 +108,7 @@
     transform: rotate(0.28deg);
 }
 .container{
-    margin-top: 100px;
+    margin-top: 50px;
 }
 .MultiCarousel {
     width: 1079px;
@@ -130,7 +129,6 @@
 
 .MultiCarousel .MultiCarousel-inner .item>div {
     text-align: center;
-    padding: 10px;
     margin: 10px;
     background: #f1f1f1;
     color: #666;
@@ -169,8 +167,6 @@
     margin: 5px;
 }
 .anchoape1 {
-
-    padding-bottom: 15px ;
     height: 312px;
     width: 209px !important;
     margin: 8px 0 0 0px !important;

@@ -1,7 +1,14 @@
 ﻿@model IEnumerable<TomocaMoviesWebsite.Models.MiAnLien>
+@using TomocaMoviesWebsite.Models
 @{
+    TomocaMoviesDataContext db = new TomocaMoviesDataContext();
     ViewBag.Title = "choose";
     Layout = "~/Views/Shared/Tomoca_Layout.cshtml";
+    MiAnLien i = new MiAnLien();
+    foreach (var ie in Model)
+    {
+        i = ie;
+    }
 }
 <style>
     body {
@@ -16,11 +23,26 @@
     #mso01 {
         display: none;
     }
+
+    table {
+        border-collapse: unset !important;
+    }
+
+    .displayerBoxes31 {
+       
+    }
+    .dulieuvecon{
+        height: 9px;
+        width: 9px;
+        pointer-events: none;
+        color: #EAEAEA;
+    }
 </style>
 @section css{
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/choose-seats.css" rel="stylesheet" />
     <link href="~/Content/tiecketsieucapvippro.css" rel="stylesheet" />
+    <link href="~/Content/thankyou.css" rel="stylesheet" />
 }
 @section scriptstren{
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -31,823 +53,924 @@
     <script src="~/Scripts/loginsignup.js"></script>
     <script src="~/Scripts/choose.js"></script>
 }
-<div  onload="onLoaderFunc()">
-    <div class="zone3">
-        <div class="soghe">
-            <form class="vevip">
-                <p class="loaighe">V.I.P</p>
-                <span class="vip" id="vip">150 000</span>
-                <div style="margin-left: 55%;" class="value-button truvip" id="decrease" onclick="decreaseValue(); viptru()" value="Decrease Value">-</div>
-                <input type="number" id="number" value="@ViewData["chonghevip"].ToString()" />
-                <div class="value-button congvip" id="increase" onclick="increaseValue(); vipcong()" value="Increase Value">+</div>
-            </form>
-            <hr class="hr-xam">
-            <form class="venormal">
-                <p class="loaighe">Normal</p>
-                <span class="thuong" id="thuong">100 000</span>
-                <div style="margin-left: 55%;" class="value-button truthuong" id="decrease" onclick="decreaseValue2(); thuongtru()" value="Decrease Value">-</div>
-                <input type="number" id="number2" value="@ViewData["chonghethuong"].ToString()" />
-                <div class="value-button congthuong" id="increase" onclick="increaseValue2(); thuongcong()" value="Increase Value">+</div>
-            </form>
-            <hr class="hr-xam">
-            <span style="font-size: 18px; font-weight: 700;">Total</span>
-            <input style="margin-left: 57%; margin-bottom: 15px;" type="number" class="tongtien" id="tongtien" value="0"/>
+<div class="zonetobu">
+    <div hidden onload="onLoaderFunc()">
+        <div class="zone3">
+            <div class="soghe">
+                <form class="vevip">
+                    <p class="loaighe">V.I.P</p>
+                    <span class="vip" id="vip">150 000</span>
+                    <div style="margin-left: 55%;" class="value-button truvip" id="decrease" onclick="decreaseValue(); viptru()" value="Decrease Value">-</div>
+                    <input type="number" id="number" value="@ViewData["chonghevip"].ToString()" />
+                    <div class="value-button congvip" id="increase" onclick="increaseValue(); vipcong()" value="Increase Value">+</div>
+                </form>
+                <hr class="hr-xam">
+                <form class="venormal">
+                    <p class="loaighe">Normal</p>
+                    <span class="thuong" id="thuong">100 000</span>
+                    <div style="margin-left: 55%;" class="value-button truthuong" id="decrease" onclick="decreaseValue2(); thuongtru()" value="Decrease Value">-</div>
+                    <input type="number" id="number2" value="@ViewData["chonghethuong"].ToString()" />
+                    <div class="value-button congthuong" id="increase" onclick="increaseValue2(); thuongcong()" value="Increase Value">+</div>
+                </form>
+                <hr class="hr-xam">
+                <span style="font-size: 18px; font-weight: 700;">Total</span>
+                <input style="margin-left: 57%; margin-bottom: 15px;" type="number" class="tongtien" id="tongtien" value="0" />
+            </div>
         </div>
     </div>
-</div>
 
-<div>
-    <!-- Choose your seat -->
-    <div class="zone3">
-        <div class="inputForm">
+    <div>
+        <!-- Choose your seat -->
+        <div class="zone3">
+            <div class="inputForm">
+                <center>
+                    <input hidden type="number" id="Numseats" value="0" required>
+                    <br /><br />
+                    <button class="selecting" id="xacnhanchon" onclick="tinhtruoc(); takeData()">Start Selecting</button>
+                </center>
+            </div>
+        </div>
+    </div>
+    <div class="zone3" style="padding-bottom: 100px; margin-bottom: 50px;">
+        <p class="choose-your-seat">4. Choose your seat</p>
+        <img class="screen" src="~/Content/image/Screen.png" alt="">
+        <div class="seatStructure">
+
             <center>
-                <input hidden type="number" id="Numseats" value="0" required>
-                <br /><br />
-                <button class="selecting" onclick="tinhtruoc(); takeData()">Start Selecting</button>
+                @using (Html.BeginForm("pay", "Tomoca", FormMethod.Post, new { @class = "displayerBoxes31", id = "paybookticket" }))
+                {
+                    
+                    <table id="seatsBlock">
+                        <tr>
+                            <td>A</td>
+                            <td><input style="display: none;" type="checkbox" class="seats" name="A1"></td>
+                            <td><input style="display: none;" type="checkbox" class="seats" name="A2"></td>
+                            <td><input style="display: none;" type="checkbox" class="seats" name="A3"></td>
+                            @if (i.A4 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="A4" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text" class="unavailable-seat dulieuvecon" readonly name="A4" value="true"></td>
+                            }
+                            @if (i.A5 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="A5" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text" class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="A5" value="true"></td>
+                            }
+                            @if (i.A6 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="A6" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text" class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="A6" value="true"></td>
+                            }
+                            @if (i.A7 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="A7" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text" class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="A7" value="true"></td>
+                            }
+                            @if (i.A8 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="A8" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text" class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="A8" value="true"></td>
+                            }
+                            @if (i.A9 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="98" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text" class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="A9" value="true"></td>
+                            }
+                            @if (i.A10 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="A10" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text" class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="A10" value="true"></td>
+                            }
+                            @if (i.A11 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="A11" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text" class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="A11" value="true"></td>
+                            }
+                            @if (i.A12 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="A12" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text" class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="A12" value="true"></td>
+                            }
+                            @if (i.A13 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="A13" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text" class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="A13" value="true"></td>
+                            }
+                            <td><input style="display: none;" type="checkbox" class="seats" name="A14" value="null"></td>
+                            <td><input style="display: none;" type="checkbox" class="seats" name="A15" value="null"></td>
+                            <td><input style="display: none;" type="checkbox" class="seats" name="A16" value="null"></td>
+                        </tr>
+
+                        <tr>
+                            <td>B</td>
+                            <td><input style="display: none;" type="checkbox" class="seats" name="B1" value="null"></td>
+                            @if (i.B2 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="B2" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text" class="unavailable-seat" style="pointer-events: none;" name="B2" value="true"></td>
+                            }
+                            @if (i.B3 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="B3" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="B3" value="true"></td>
+                            }
+                            @if (i.B4 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="B4" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="B4" value="true"></td>
+                            }
+                            @if (i.B5 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="B5" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="B5" value="true"></td>
+                            }
+                            @if (i.B6 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="B6" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="B6" value="true"></td>
+                            }
+                            @if (i.B7 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="B7" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="B7" value="true"></td>
+                            }
+                            @if (i.B8 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="B8" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="B8" value="true"></td>
+                            }
+                            @if (i.B9 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="B9" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="B9" value="true"></td>
+                            }
+                            @if (i.B10 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="B10" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="B10" value="true"></td>
+                            }
+                            @if (i.B11 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="B11" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="B11" value="true"></td>
+                            }
+                            @if (i.B12 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="B12" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="B12" value="true"></td>
+                            }
+                            @if (i.B13 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="B13" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="B13" value="true"></td>
+                            }
+                            @if (i.B14 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="B14" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="B14" value="true"></td>
+                            }
+                            @if (i.B15 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="B15" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="B15" value="true"></td>
+                            }
+                            <td><input style="display: none;" type="checkbox" class="seats" name="B16" value="null"></td>
+                        </tr>
+
+                        <tr class="seatVGap"></tr>
+
+                        <tr>
+                            <td>C</td>
+                            <td><input style="display: none;" type="checkbox" class="seats" name="C1" value="null"></td>
+                            @if (i.C2 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="C2" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="C2" value="true"></td>
+                            }
+                            @if (i.C3 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="C3" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="C3" value="true"></td>
+                            }
+                            @if (i.C4 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="C4" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="C4" value="true"></td>
+                            }
+                            @if (i.C5 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="C5" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="C5" value="true"></td>
+                            }
+                            @if (i.C6 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="C6" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="C6" value="true"></td>
+                            }
+                            @if (i.C7 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="C7" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="C7" value="true"></td>
+                            }
+                            @if (i.C8 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="C8" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="C8" value="true"></td>
+                            }
+                            @if (i.C9 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="C9" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="C9" value="true"></td>
+                            }
+                            @if (i.C10 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="C10" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="C10" value="true"></td>
+                            }
+                            @if (i.C11 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="C11" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="C11" value="true"></td>
+                            }
+                            @if (i.C12 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="C12" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="C12" value="true"></td>
+                            }
+                            @if (i.C13 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="C13" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="C13" value="true"></td>
+                            }
+                            @if (i.C14 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="C14" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="C14" value="true"></td>
+                            }
+                            @if (i.C15 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="C15" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="C15" value="true"></td>
+                            }
+                            <td><input style="display: none;" type="checkbox" class="seats" name="C16" value="null"></td>
+                        </tr>
+
+                        <tr>
+                            <td>D</td>
+                            <td><input style="display: none;" type="checkbox" class="seats" name="D1" value="null"></td>
+                            @if (i.D2 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="D2" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="D2" value="true"></td>
+                            }
+                            @if (i.D3 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="D3" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="D3" value="true"></td>
+                            }
+                            @if (i.D4 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="D4" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="D4" value="true"></td>
+                            }
+                            @if (i.D5 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="D5" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="D5" value="true"></td>
+                            }
+                            @if (i.D6 == null)
+                            {
+                                <td><input type="checkbox" class="seats-vip" name="D6" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="D6" value="true"></td>
+                            }
+                            @if (i.D7 == null)
+                            {
+                                <td><input type="checkbox" class="seats-vip" name="D7" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="D7" value="true"></td>
+                            }
+                            @if (i.D8 == null)
+                            {
+                                <td><input type="checkbox" class="seats-vip" name="D8" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="D8" value="true"></td>
+                            }
+                            @if (i.D9 == null)
+                            {
+                                <td><input type="checkbox" class="seats-vip" name="D9" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="D9" value="true"></td>
+                            }
+                            @if (i.D10 == null)
+                            {
+                                <td><input type="checkbox" class="seats-vip" name="D10" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="D10" value="true"></td>
+                            }
+                            @if (i.D11 == null)
+                            {
+                                <td><input type="checkbox" class="seats-vip" name="D11" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="D11" value="true"></td>
+                            }
+                            @if (i.D12 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="D12" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="D12" value="true"></td>
+                            }
+                            @if (i.D13 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="D13" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="D13" value="true"></td>
+                            }
+                            @if (i.D14 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="D14" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="D14" value="true"></td>
+                            }
+                            @if (i.D15 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="D15" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="D15" value="true"></td>
+                            }
+                            <td><input style="display: none;" type="checkbox" class="seats" name="D16" value="null"></td>
+                        </tr>
+
+                        <tr>
+                            <td>E</td>
+                            <td><input style="display: none;" type="checkbox" class="seats" name="E1" value="null"></td>
+                            @if (i.E2 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="E2" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="E2" value="true"></td>
+                            }
+                            @if (i.E3 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="E3" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="E3" value="true"></td>
+                            }
+                            @if (i.E4 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="E4" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="E4" value="true"></td>
+                            }
+                            @if (i.E5 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="E5" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="E5" value="true"></td>
+                            }
+                            @if (i.E6 == null)
+                            {
+                                <td><input type="checkbox" class="seats-vip" name="E6" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="E6" value="true"></td>
+                            }
+                            @if (i.E7 == null)
+                            {
+                                <td><input type="checkbox" class="seats-vip" name="E7" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="E7" value="true"></td>
+                            }
+                            @if (i.E8 == null)
+                            {
+                                <td><input type="checkbox" class="seats-vip" name="E8" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="E8" value="true"></td>
+                            }
+                            @if (i.E9 == null)
+                            {
+                                <td><input type="checkbox" class="seats-vip" name="E9" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="E9" value="true"></td>
+                            }
+                            @if (i.E10 == null)
+                            {
+                                <td><input type="checkbox" class="seats-vip" name="E10" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="E10" value="true"></td>
+                            }
+                            @if (i.E11 == null)
+                            {
+                                <td><input type="checkbox" class="seats-vip" name="E11" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="E11" value="true"></td>
+                            }
+                            @if (i.E12 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="E12" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="E12" value="true"></td>
+                            }
+                            @if (i.E13 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="E13" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="E13" value="true"></td>
+                            }
+                            @if (i.E14 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="E14" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="E14" value="true"></td>
+                            }
+                            @if (i.E15 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="E15" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="E15" value="true"></td>
+                            }
+                            <td><input style="display: none;" type="checkbox" class="seats" name="E16" value="null"></td>
+                        </tr>
+
+                        <tr>
+                            <td>F</td>
+                            @if (i.F1 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="F1" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="F1" value="true"></td>
+                            }
+                            @if (i.F2 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="F2" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="F2" value="true"></td>
+                            }
+                            @if (i.F3 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="F3" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="F3" value="true"></td>
+                            }
+                            @if (i.F4 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="F4" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="F4" value="true"></td>
+                            }
+                            @if (i.F5 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="F5" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="F5" value="true"></td>
+                            }
+                            @if (i.F6 == null)
+                            {
+                                <td><input type="checkbox" class="seats-vip" name="F6" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="F6" value="true"></td>
+                            }
+                            @if (i.F7 == null)
+                            {
+                                <td><input type="checkbox" class="seats-vip" name="F7" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="F7" value="true"></td>
+                            }
+                            @if (i.F8 == null)
+                            {
+                                <td><input type="checkbox" class="seats-vip" name="F8" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="F8" value="true"></td>
+                            }
+                            @if (i.F9 == null)
+                            {
+                                <td><input type="checkbox" class="seats-vip" name="F9" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="F9" value="true"></td>
+                            }
+                            @if (i.F10 == null)
+                            {
+                                <td><input type="checkbox" class="seats-vip" name="F10" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="F10" value="true"></td>
+                            }
+                            @if (i.F11 == null)
+                            {
+                                <td><input type="checkbox" class="seats-vip" name="F11" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="F11" value="true"></td>
+                            }
+                            @if (i.F12 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="F12" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="F12" value="true"></td>
+                            }
+                            @if (i.F13 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="F13" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="F13" value="true"></td>
+                            }
+                            @if (i.F14 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="F14" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="F14" value="true"></td>
+                            }
+                            @if (i.F15 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="F15" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="F15" value="true"></td>
+                            }
+                            @if (i.F16 == null)
+                            {
+                                <td><input type="checkbox" class="seats" name="F16" value="null"></td>
+                            }
+                            else
+                            {
+                                <td><input type="text"  class="unavailable-seat dulieuvecon" readonly style="pointer-events: none;" name="F16" value="true"></td>
+                            }
+                        </tr>
+                        <tr>
+                            <td><input hidden type="number" id="idmal" name="idmal" value="@i.MalID" /></td>
+                            <td>
+                                <input hidden type="number" id="soluongghe" name="soluongghe" value="0" required>
+                            </td>
+                            <td>
+                                <input hidden type="text" id="tongtientien" value="@ViewData["tongtientien"].ToString()" name="tongtientien" />
+                            </td>
+                            <td>
+                                <label hidden for="lname">Seats</label>
+                            </td>
+                            <td>
+                                <textarea hidden type="text" name="tenghe" id="seatsDisplay"> </textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>13</td>
+                            <td>14</td>
+                            <td>15</td>
+                            <td>16</td>
+                        </tr>
+                    </table>
+                    <div class="grid-seat">
+                        <div>
+                            <ul class="seats-inf">
+                                <li class="li-inf">
+                                    <input type="checkbox" class="your-seat" id="your-seat">
+                                    <label class="textt" for="your-seat">Your seat</label>
+                                </li>
+                                <li class="li-inf">
+                                    <input style="cursor: auto;" type="checkbox" class="seatsdsd" id="available-seat">
+                                    <label class="textt" for="available-seat">Available</label>
+                                </li>
+                            </ul>
+                            <ul class="seats-inf">
+                                <li class="li-inf">
+                                    <input style="cursor: auto;" type="checkbox" class="seats-vip" id="seats-vip">
+                                    <label class="textt" for="seats-vip">V.I.P</label>
+                                </li>
+                                <li class="li-inf">
+                                    <input style="margin-left: 34px;" type="checkbox" class="unavailable-seat" id="unavailable-seat">
+                                    <label class="textt" for="unavailable-seat">Unavailable</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="ticket-confirm">
+                                <li onclick="" class="confirm1">
+                                    <p class="aa">Choose <span id="NumberDisplay">0</span> seat(s)</p>
+                                    <p class="bb">Auditorium 5</p>
+                                </li>
+                                <li onclick="" class="confirm2">
+                                    <p style="border: none;" class="cc">Next <img src="~/Content/image/Vector 2.png" alt=""></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="ticket-grid" style="padding: 50px 0 50px 0; border-radius: 5px;">
+                        <div class="zonene thankyou" style="padding-top: 25px; border-radius: 5px;">
+                            <p class="yourbook">Thank you for your booking!</p>
+                            <p class="please">Please select a payment method and process with your payment</p>
+                        </div>
+                        <div class="movie-inf">
+                            <table class="inf-table">
+                                <tr>
+                                    @foreach (var item in Model)
+                                    {
+                                        <td class="img-zone3" style="width: 134px; text-align: center;">
+                                            <img id="hinhtrongo" class="movie-img" src="@item.Movy.Image" alt="">
+                                        </td>
+
+                                        <td class="inf-zone3" style="width: 285px; line-height: 3px; ">
+                                            <p class="movie-name" id="tenphimtrongo">@item.Movy.Title</p>
+                                            @{var idloai = db.MoviesGenres.Where(x => x.MovieID == item.MovieID);
+                                                List<string> lstg = new List<string>();
+                                                Genre g = new Genre();
+                                                foreach (var ie in idloai)
+                                                {
+                                                    Genre temp = db.Genres.SingleOrDefault(x => x.GenreID == ie.GenreID);
+                                                    string tam = temp.GenreName;
+                                                    lstg.Add(tam);
+                                                }
+                                            }
+                                            <p id="theloaiphimtrongo" style="margin-top: 20px; " class="movie-type">
+                                                @for (int ie = 0; ie < lstg.Count(); ie++)
+                                                {
+                                                    <span>@lstg[ie].ToString(), </span>
+                                                }
+                                            </p>
+                                            <p id="thoigianphimtrongo" style="margin-top: 20px; " class="movie-length">@item.Movy.TimeOfFilm</p>
+                                            <p id="thoigianoduoi" style="margin-top: 20px; " class="movie-day">@item.Time.DayOfWeek, @item.Time</p>
+                                            <p id="rapphimoduoi" style="margin-top: 20px; " class="movie-place">@item.MovieTheater.TheaterName</p>
+                                        </td>
+
+                                    }
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="zonene">
+                            <p class="ticket-and-amount">Ticket(s)</p>
+                            <p class="tickets" id="soluongghe12"></p>
+                            <p class="ticket-and-amount">Amount to pay</p>
+                            <p class="amount">@ViewData["tongtientien"].ToString()</p>
+                        </div>
+                        <div class="payment" style=" border-radius: 5px;">
+                            <table class="payment-table">
+                                <tr class="border_bottom">
+                                    <td class="card-zone">
+                                        <p class="credit-card" style="padding-left: 30px;">Credit Card</p>
+                                        <p class="direct-payment" style="padding-left: 30px;">Direct payment</p>
+                                    </td>
+                                    <td class="logo-zone">
+                                        <img src="~/Content/image/news/emojione-v1_credit-card.png" />
+                                    </td>
+                                </tr>
+                                <tr class="border_bottom">
+                                    <td class="card-zone">
+                                        <p class="credit-card" style="padding-left: 30px;">Paypal</p>
+                                        <p class="direct-payment" style="padding-left: 30px;">Direct payment</p>
+                                    </td>
+                                    <td class="logo-zone">
+                                        <img src="~/Content/image/news/paypal-logo.png" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="card-zone">
+                                        <p class="credit-card" style="padding-left: 30px;">Momo</p>
+                                        <p class="direct-payment" style="padding-left: 30px;">Internet Banking</p>
+                                    </td>
+                                    <td class="logo-zone">
+                                        <img src="~/Content/image/news/momo-logo.png" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="zonene" style=" border-radius: 5px;">
+                            <div class="row1">
+                                <div class="col-50">
+                                    <input class="tatdisable" type="text" id="cardnumber" placeholder="Card number">
+                                </div>
+                                <div class="col-50">
+                                    <input class="tatdisable" type="text" id="mmyy" placeholder="MM/YY">
+                                </div>
+                                <div class="col-50">
+                                    <input class="tatdisable" type="text" id="cvc" placeholder="CVC">
+                                </div>
+                            </div>
+                            <input type="checkbox" class="tatdisable" id="condition" name="condition" value="">
+                            <label for="condition">I agreed with terms and <u>conditions</u></label><br>
+                            <div class="displayerBoxes31">
+                                <input onclick="confirmTicket()" readonly style="cursor:pointer;" id="paybookticket212" class="bt-pay tatdisable" value="Pay">
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
             </center>
         </div>
-    </div>
-</div>
-<div class="zone3">
-    <p class="choose-your-seat">4. Choose your seat</p>
-    <img class="screen" src="~/Content/image/Screen.png" alt="">
-    <div class="seatStructure">
-        <center>
-            @foreach (var i in Model)
-            {
-                <table id="seatsBlock">
+        <!-- Seat info -->
 
-                    <tr>
-                        <td>A</td>
-
-                        <td><input style="display: none;" type="checkbox" class="seats" name="A1"></td>
-                        <td><input style="display: none;" type="checkbox" class="seats" name="A2"></td>
-                        <td><input style="display: none;" type="checkbox" class="seats" name="A3"></td>
-                        @if (i.A4 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="A4" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="A4" value="true"></td>
-                        }
-                        @if (i.A5 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="A5" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="A5" value="true"></td>
-                        }
-                        @if (i.A6 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="A6" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="A6" value="true"></td>
-                        }
-                        @if (i.A7 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="A7" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="A7" value="true"></td>
-                        }
-                        @if (i.A8 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="A8" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="A8" value="true"></td>
-                        }
-                        @if (i.A9 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="98" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="A9" value="true"></td>
-                        }
-                        @if (i.A10 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="A10" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="A10" value="true"></td>
-                        }
-                        @if (i.A11 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="A11" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="A11" value="true"></td>
-                        }
-                        @if (i.A12 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="A12" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="A12" value="true"></td>
-                        }
-                        @if (i.A13 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="A13" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="A13" value="true"></td>
-                        }
-                        <td><input style="display: none;" type="checkbox" class="seats" name="A14" value="null"></td>
-                        <td><input style="display: none;" type="checkbox" class="seats" name="A15" value="null"></td>
-                        <td><input style="display: none;" type="checkbox" class="seats" name="A16" value="null"></td>
-                    </tr>
-
-                    <tr>
-                        <td>B</td>
-                        <td><input style="display: none;" type="checkbox" class="seats" name="B1" value="null"></td>
-                        @if (i.B2 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="B2" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="B2" value="true"></td>
-                        }
-                        @if (i.B3 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="B3" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="B3" value="true"></td>
-                        }
-                        @if (i.B4 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="B4" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="B4" value="true"></td>
-                        }
-                        @if (i.B5 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="B5" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="B5" value="true"></td>
-                        }
-                        @if (i.B6 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="B6" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="B6" value="true"></td>
-                        }
-                        @if (i.B7 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="B7" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="B7" value="true"></td>
-                        }
-                        @if (i.B8 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="B8" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="B8" value="true"></td>
-                        }
-                        @if (i.B9 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="B9" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="B9" value="true"></td>
-                        }
-                        @if (i.B10 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="B10" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="B10" value="true"></td>
-                        }
-                        @if (i.B11 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="B11" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="B11" value="true"></td>
-                        }
-                        @if (i.B12 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="B12" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="B12" value="true"></td>
-                        }
-                        @if (i.B13 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="B13" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="B13" value="true"></td>
-                        }
-                        @if (i.B14 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="B14" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="B14" value="true"></td>
-                        }
-                        @if (i.B15 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="B15" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="B15" value="true"></td>
-                        }
-                        <td><input style="display: none;" type="checkbox" class="seats" name="B16" value="null"></td>
-                    </tr>
-
-                    <tr class="seatVGap"></tr>
-
-                    <tr>
-                        <td>C</td>
-                        <td><input style="display: none;" type="checkbox" class="seats" name="C1" value="null"></td>
-                        @if (i.C2 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="C2" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="C2" value="true"></td>
-                        }
-                        @if (i.C3 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="C3" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="C3" value="true"></td>
-                        }
-                        @if (i.C4 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="C4" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="C4" value="true"></td>
-                        }
-                        @if (i.C5 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="C5" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="C5" value="true"></td>
-                        }
-                        @if (i.C6 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="C6" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="C6" value="true"></td>
-                        }
-                        @if (i.C7 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="C7" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="C7" value="true"></td>
-                        }
-                        @if (i.C8 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="C8" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="C8" value="true"></td>
-                        }
-                        @if (i.C9 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="C9" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="C9" value="true"></td>
-                        }
-                        @if (i.C10 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="C10" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="C10" value="true"></td>
-                        }
-                        @if (i.C11 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="C11" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="C11" value="true"></td>
-                        }
-                        @if (i.C12 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="C12" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="C12" value="true"></td>
-                        }
-                        @if (i.C13 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="C13" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="C13" value="true"></td>
-                        }
-                        @if (i.C14 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="C14" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="C14" value="true"></td>
-                        }
-                        @if (i.C15 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="C15" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="C15" value="true"></td>
-                        }
-                        <td><input style="display: none;" type="checkbox" class="seats" name="C16" value="null"></td>
-                    </tr>
-
-                    <tr>
-                        <td>D</td>
-                        <td><input style="display: none;" type="checkbox" class="seats" name="D1" value="null"></td>
-                        @if (i.D2 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="D2" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="D2" value="true"></td>
-                        }
-                        @if (i.D3 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="D3" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="D3" value="true"></td>
-                        }
-                        @if (i.D4 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="D4" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="D4" value="true"></td>
-                        }
-                        @if (i.D5 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="D5" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="D5" value="true"></td>
-                        }
-                        @if (i.D6 == null)
-                        {
-                            <td><input type="checkbox" class="seats-vip" name="D6" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="D6" value="true"></td>
-                        }
-                        @if (i.D7 == null)
-                        {
-                            <td><input type="checkbox" class="seats-vip" name="D7" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="D7" value="true"></td>
-                        }
-                        @if (i.D8 == null)
-                        {
-                            <td><input type="checkbox" class="seats-vip" name="D8" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="D8" value="true"></td>
-                        }
-                        @if (i.D9 == null)
-                        {
-                            <td><input type="checkbox" class="seats-vip" name="D9" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="D9" value="true"></td>
-                        }
-                        @if (i.D10 == null)
-                        {
-                            <td><input type="checkbox" class="seats-vip" name="D10" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="D10" value="true"></td>
-                        }
-                        @if (i.D11 == null)
-                        {
-                            <td><input type="checkbox" class="seats-vip" name="D11" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="D11" value="true"></td>
-                        }
-                        @if (i.D12 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="D12" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="D12" value="true"></td>
-                        }
-                        @if (i.D13 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="D13" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="D13" value="true"></td>
-                        }
-                        @if (i.D14 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="D14" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="D14" value="true"></td>
-                        }
-                        @if (i.D15 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="D15" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="D15" value="true"></td>
-                        }
-                        <td><input style="display: none;" type="checkbox" class="seats" name="D16" value="null"></td>
-                    </tr>
-
-                    <tr>
-                        <td>E</td>
-                        <td><input style="display: none;" type="checkbox" class="seats" name="E1" value="null"></td>
-                        @if (i.E2 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="E2" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="E2" value="true"></td>
-                        }
-                        @if (i.E3 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="E3" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="E3" value="true"></td>
-                        }
-                        @if (i.E4 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="E4" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="E4" value="true"></td>
-                        }
-                        @if (i.E5 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="E5" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="E5" value="true"></td>
-                        }
-                        @if (i.E6 == null)
-                        {
-                            <td><input type="checkbox" class="seats-vip" name="E6" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="E6" value="true"></td>
-                        }
-                        @if (i.E7 == null)
-                        {
-                            <td><input type="checkbox" class="seats-vip" name="E7" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="E7" value="true"></td>
-                        }
-                        @if (i.E8 == null)
-                        {
-                            <td><input type="checkbox" class="seats-vip" name="E8" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="E8" value="true"></td>
-                        }
-                        @if (i.E9 == null)
-                        {
-                            <td><input type="checkbox" class="seats-vip" name="E9" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="E9" value="true"></td>
-                        }
-                        @if (i.E10 == null)
-                        {
-                            <td><input type="checkbox" class="seats-vip" name="E10" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="E10" value="true"></td>
-                        }
-                        @if (i.E11 == null)
-                        {
-                            <td><input type="checkbox" class="seats-vip" name="E11" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="E11" value="true"></td>
-                        }
-                        @if (i.E12 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="E12" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="E12" value="true"></td>
-                        }
-                        @if (i.E13 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="E13" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="E13" value="true"></td>
-                        }
-                        @if (i.E14 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="E14" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="E14" value="true"></td>
-                        }
-                        @if (i.E15 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="E15" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="E15" value="true"></td>
-                        }
-                        <td><input style="display: none;" type="checkbox" class="seats" name="E16" value="null"></td>
-                    </tr>
-
-                    <tr>
-                        <td>F</td>
-                        @if (i.F1 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="F1" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="F1" value="true"></td>
-                        }
-                        @if (i.F2 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="F2" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="F2" value="true"></td>
-                        }
-                        @if (i.F3 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="F3" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="F3" value="true"></td>
-                        }
-                        @if (i.F4 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="F4" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="F4" value="true"></td>
-                        }
-                        @if (i.F5 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="F5" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="F5" value="true"></td>
-                        }
-                        @if (i.F6 == null)
-                        {
-                            <td><input type="checkbox" class="seats-vip" name="F6" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="F6" value="true"></td>
-                        }
-                        @if (i.F7 == null)
-                        {
-                            <td><input type="checkbox" class="seats-vip" name="F7" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="F7" value="true"></td>
-                        }
-                        @if (i.F8 == null)
-                        {
-                            <td><input type="checkbox" class="seats-vip" name="F8" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="F8" value="true"></td>
-                        }
-                        @if (i.F9 == null)
-                        {
-                            <td><input type="checkbox" class="seats-vip" name="F9" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="F9" value="true"></td>
-                        }
-                        @if (i.F10 == null)
-                        {
-                            <td><input type="checkbox" class="seats-vip" name="F10" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="F10" value="true"></td>
-                        }
-                        @if (i.F11 == null)
-                        {
-                            <td><input type="checkbox" class="seats-vip" name="F11" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="F11" value="true"></td>
-                        }
-                        @if (i.F12 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="F12" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="F12" value="true"></td>
-                        }
-                        @if (i.F13 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="F13" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="F13" value="true"></td>
-                        }
-                        @if (i.F14 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="F14" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="F14" value="true"></td>
-                        }
-                        @if (i.F15 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="F15" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="F15" value="true"></td>
-                        }
-                        @if (i.F16 == null)
-                        {
-                            <td><input type="checkbox" class="seats" name="F16" value="null"></td>
-                        }
-                        else
-                        {
-                            <td><input type="checkbox" class="unavailable-seat" style="pointer-events: none;" name="F16" value="true"></td>
-                        }
-                    </tr>
-
-
-
-                    <tr>
-                        <td></td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
-                        <td>10</td>
-                        <td>11</td>
-                        <td>12</td>
-                        <td>13</td>
-                        <td>14</td>
-                        <td>15</td>
-                        <td>16</td>
-                    </tr>
-                </table>
-            }
-        </center>
-    </div>
-
-    <!-- Seat info -->
-    <div class="grid-seat">
-        <div>
-            <ul class="seats-inf">
-                <li class="li-inf">
-                    <input type="checkbox" class="your-seat" id="your-seat">
-                    <label class="textt" for="your-seat">Your seat</label>
-                </li>
-                <li class="li-inf">
-                    <input style="cursor: auto;" type="checkbox" class="seatsdsd" id="available-seat">
-                    <label class="textt" for="available-seat">Available</label>
-                </li>
-            </ul>
-            <ul class="seats-inf">
-                <li class="li-inf">
-                    <input style="cursor: auto;" type="checkbox" class="seats-vip" id="seats-vip">
-                    <label class="textt" for="seats-vip">V.I.P</label>
-                </li>
-                <li class="li-inf">
-                    <input style="margin-left: 34px;" type="checkbox" class="unavailable-seat" id="unavailable-seat">
-                    <label class="textt" for="unavailable-seat">Unavailable</label>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <ul class="ticket-confirm">
-                <li onclick="confirmTicket()" class="confirm1">
-                    <p class="aa">Choose <span id="NumberDisplay">0</span> seat(s)</p>
-                    <p class="bb">Auditorium 5</p>
-                </li>
-                <li onclick="confirmTicket()" class="confirm2" style="cursor:default;">
-                    @using (Html.BeginForm("thankyou", "Tomoca", FormMethod.Post, new { @class = "displayerBoxes" }))
-                    {
-                        foreach (var i in Model)
-                        {
-                            <input hidden type="number" id="idmal" value="@i.MalID" />
-                        }
-                        <input  type="number" id="soluongghe" name="soluongghe" value="0" required>
-                        <input hidden type="text" id="tongtientien" value="@ViewData["tongtientien"].ToString()" name="tongtientien" />
-                        <label hidden for="lname">Seats</label>
-                        <textarea hidden type="text" name="tenghe" id="seatsDisplay"> </textarea>
-                        <button style="border: none;" type="submit" class="cc">Next <img src="~/Content/image/Vector 2.png" alt=""></button>
-                    }
-                </li>
-            </ul>
-        </div>
-        <div>
-
-        </div>
     </div>
 </div>
