@@ -148,7 +148,7 @@
                             }
                             @if (i.A9 == null)
                             {
-                                <td><input type="checkbox" class="seats" name="98" value="null"></td>
+                                <td><input type="checkbox" class="seats" name="A9" value="null"></td>
                             }
                             else
                             {
@@ -802,6 +802,8 @@
                                 <input hidden type="number" id="soluongghe" name="soluongghe" value="0" required>
                             </td>
                             <td>
+                                <input  name="chonghethuong" id="chonghethuong" value="@ViewData["chonghethuong"].ToString()" />
+                                <input  name="chonghevip" id="chonghevip" value="@ViewData["chonghevip"].ToString()" />
                                 <input hidden type="text" id="tongtientien" value="@ViewData["tongtientien"].ToString()" name="tongtientien" />
                             </td>
                             <td>
@@ -862,7 +864,8 @@
                                 </li>
                                 <li onclick="" class="confirm2">
                                     @*layghe*@
-                                    <input style="background: #F0F0F0; border:none" placeholder="Your seats" class="tenghe" type="type" name="name" value="" />
+                                    <p class="aa" style="margin-top: -15px; margin-left: -40px;">Your select seats</p>
+                                    <input style="background: #F0F0F0; font-size: 13px; font-weight:700; border:none" placeholder="Your seats..." class="tenghe" type="text" readonly name="laytenghedat" value="" />
                                 </li>
                             </ul>
                         </div>

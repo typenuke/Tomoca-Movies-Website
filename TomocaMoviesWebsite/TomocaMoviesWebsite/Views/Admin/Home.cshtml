@@ -5,8 +5,8 @@
 }
 @{
     var us = Session["Username"].ToString() + " đã đăng nhập Admin thành công";
-
-
+    TomocaMoviesDataContext db = new TomocaMoviesDataContext();
+    var tk = db.Tickets.OrderByDescending(x => x.TicketID);
 }
 <div class="d-sm-flex align-items-center justify-content-between mb-4" onload="thongbao()">
     <input hidden id="detailadmin" value="@us" />
@@ -78,7 +78,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Doanh thu</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">1.800.000</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewData["doanhthu"]</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-heart fa-2x text-gray-300"></i>

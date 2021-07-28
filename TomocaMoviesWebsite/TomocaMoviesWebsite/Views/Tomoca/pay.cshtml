@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TomocaMoviesWebsite.Models.MiAnLien>
+﻿@model IEnumerable<TomocaMoviesWebsite.Models.Ticket>
 @using TomocaMoviesWebsite.Models
 @{
     TomocaMoviesDataContext db = new TomocaMoviesDataContext();
@@ -16,17 +16,18 @@
 }
 @foreach (var i in Model)
 {
+    var title = db.MiAnLiens.First(x => x.MalID == i.MalID);
     <div style="width:auto; height:700px;" onload="onReady()">
         <div class="bg-image">
             <div class="bg-color"></div>
         </div>
         <div class="bg-ticket">
             <div class="img-movie">
-                <img width="270px" height="403px" style="border-radius:5px;" src="@i.Movy.Image" alt="">
+                <img width="270px" height="403px" style="border-radius:5px;" src="@title.Movy.Image" alt="">
             </div>
             <div class="info-movie">
-                <p id="Movie-name">@i.Movy.Title</p>
-                @{var idloai = db.MoviesGenres.Where(x => x.MovieID == i.MovieID);
+                <p id="Movie-name">@title.Movy.Title</p>
+                @{var idloai = db.MoviesGenres.Where(x => x.MovieID == title.MovieID);
                     List<string> lstg = new List<string>();
                     Genre g = new Genre();
                     foreach (var ie in idloai)
@@ -41,10 +42,10 @@
                     {
                         <span>@lstg[ie].ToString() • </span>
                     }
-                    <span id="Show-time">@i.Time.DayOfWeek, @i.Time.ToString("MMMM") @i.Time.ToString("dd") - @i.Time.ToString("HH:mm")</span>
+                    <span id="Show-time">@title.Time.DayOfWeek, @title.Time.ToString("MMMM") @title.Time.ToString("dd") - @title.Time.ToString("HH:mm")</span>
                 </p>
                 <p id="show-time-language">
-                    <img width="15px" src="~/Content/image_review/clock.png" alt="Clock"><span>1h 37 min</span>
+                    <img width="15px" src="~/Content/image_review/clock.png" alt="Clock"><span>@title.Movy.TimeOfFilm</span>
                     <img width="22px" src="~/Content/image_review/volume-1.png" alt="Volumn"><span>English</span>
                     <img width="20px" src="~/Content/image_review/Group 118 (1).png" alt="CC"><span>Vietnamese</span>
                 </p>
@@ -54,16 +55,17 @@
                     <span>Seat Number</span>
                     <span style="margin-right:0px">Booking ID</span>
                 <p id="Seat-information-1">
-                    <span style="margin-right: 67px">02</span>
+                    <span style="margin-right: 85px">@i.AmountSeats</span>
                     <span style="margin-right: 65px;">5</span>
-                    <span style="margin-right: 67px;">D8, D9</span>
-                    <span>WF6SZ53</span>
+                    <span style="margin-right: 110px;">@i.Seat</span>
+                    <span>@i.TicketID</span>
                 </p>
                 </p>
-                <p class="info-cinema">
-                    <img width="70px" src="~/Content/image_review/Rectangle 209.png" alt="">
-                    <span id="info-cinema-name">CGV Aeon Bình Tân</span>
-                <p id="info-address">Tầng 3, Trung tâm thương mại Aeon Mall Bình Tân, 1 Đường Số 17A, An Lạc, Bình Tân, Thành phố Hồ Chí Minh </p>
+                <p class="info-cinema" style="padding-left: 20px;">
+                    @{ var bn = db.Theaters.First(x => x.TypeID == title.MovieTheater.TypeID);}
+                    <img width="60px;" src="@bn.Logo" alt="">
+                    <span id="info-cinema-name">@title.MovieTheater.TheaterName</span>
+                <p id="info-address">@title.MovieTheater.Address</p>
                 </p>
             </div>
             <div class="border-dash">
@@ -86,7 +88,7 @@
                         <a href="#">Send to Facebook</a>
                         <br>
                     </div>
-                    <button class="button-back-to-home">Back to Home page</button>
+                    <button class="button-back-to-home"><a href="/">Back to Home page</a></button>
                 </div>
             </div>
             <div class="circle"></div>

@@ -336,6 +336,10 @@ namespace TomocaMoviesWebsite.Controllers
         [HttpPost]
         public ActionResult choose(FormCollection coll)
         {
+            if (Session["Username"] == null || Session["Username"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Users");
+            }
             var malid = from l in db.MiAnLiens
                         where l.MalID == int.Parse(coll["idmal"])
                         select l;
@@ -345,9 +349,18 @@ namespace TomocaMoviesWebsite.Controllers
             return View(malid);
         }
         [HttpPost]
-        public ActionResult pay(FormCollection coll)
+        public ActionResult pay(FormCollection coll, Ticket tk)
         {
+            if (Session["Username"] == null || Session["Username"].ToString() == "")
+            {
+                return RedirectToAction("Login", "Users");
+            }
+            float tien = int.Parse(coll["tongtientien"]);
+            int soghe = int.Parse(coll["soluongghe"]);
             int css = int.Parse(coll["idmal"]);
+            var tenghe = coll["laytenghedat"];
+            int chonghethuong = int.Parse(coll["chonghethuong"]);
+            int chonghevip = int.Parse(coll["chonghevip"]);
             var ml = db.MiAnLiens.First(x => x.MalID == css);
             ml.A4 = coll["A4"]; ml.B2 = coll["B2"]; ml.F1 = coll["F1"]; ml.F15 = coll["F15"];
             ml.A5 = coll["A5"]; ml.B3 = coll["B3"]; ml.F2 = coll["F2"]; ml.F16 = coll["F16"];
@@ -376,11 +389,19 @@ namespace TomocaMoviesWebsite.Controllers
             ml.C13 = coll["C13"]; ml.D13 = coll["D13"]; ml.E13 = coll["E13"];
             ml.C14 = coll["C14"]; ml.D14 = coll["D14"]; ml.E14 = coll["E14"];
             ml.C15 = coll["C15"]; ml.D15 = coll["D15"]; ml.E15 = coll["E15"];
+            tk.MalID = ml.MalID;
+            tk.Money = tien;
+            tk.Seat = tenghe;
+            tk.Vip = chonghevip;
+            tk.Normal = chonghethuong;
+            tk.AmountSeats = soghe;
+            var iduser = db.Users.First(x => x.Username == Session["Username"].ToString());
+            tk.UserID = iduser.UserID;
+            db.Tickets.InsertOnSubmit(tk);
             UpdateModel(ml);
             db.SubmitChanges();
-            var mll = from l in db.MiAnLiens
-                      where l.MalID == css
-                      select l;
+
+            var mll = db.Tickets.OrderByDescending(x => x.TicketID).Take(1);
             return View(mll);
         }
     }

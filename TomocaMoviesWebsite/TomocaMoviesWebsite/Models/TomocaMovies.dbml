@@ -1,14 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DBTomocaUpdate" Class="TomocaMoviesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-PLHL8BV\SQLEXPRESS;Initial Catalog=DBTomocaUpdate;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DBTomocaUpdateConnectionString1" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.YoutubeReviews" Member="YoutubeReviews">
-    <Type Name="YoutubeReview">
-      <Column Name="YoutubeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Author" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Image" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="Video" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Association Name="YoutubeReview_ReviewOfMovie" Member="ReviewOfMovies" ThisKey="YoutubeID" OtherKey="YoutubeID" Type="ReviewOfMovie" />
-    </Type>
-  </Table>
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-05M8TQE\LOCAL;Initial Catalog=DBTomocaUpdate;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DBTomocaUpdateConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Actors" Member="Actors">
     <Type Name="Actor">
       <Column Name="ActorID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -16,6 +7,15 @@
       <Column Name="Nationality" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Birth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Association Name="Actor_MovieActor" Member="MovieActors" ThisKey="ActorID" OtherKey="ActorID" Type="MovieActor" />
+    </Type>
+  </Table>
+  <Table Name="dbo.YoutubeReviews" Member="YoutubeReviews">
+    <Type Name="YoutubeReview">
+      <Column Name="YoutubeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Author" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Video" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="YoutubeReview_ReviewOfMovie" Member="ReviewOfMovies" ThisKey="YoutubeID" OtherKey="YoutubeID" Type="ReviewOfMovie" />
     </Type>
   </Table>
   <Table Name="dbo.City" Member="Cities">
@@ -239,11 +239,12 @@
     <Type Name="Ticket">
       <Column Name="TicketID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="MalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Money" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Money" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="Seat" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="Vip" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Normal" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AmountSeats" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="MiAnLien_Ticket" Member="MiAnLien" ThisKey="MalID" OtherKey="MalID" Type="MiAnLien" IsForeignKey="true" />
       <Association Name="User_Ticket" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
     </Type>

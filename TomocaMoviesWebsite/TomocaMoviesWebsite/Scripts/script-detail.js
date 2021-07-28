@@ -7,7 +7,7 @@ function onReady()
         colorDark:"#000000",
         colorLight:"#ffffff",
 
-        correctLevel:QRCode.CorrectLevel.H
+        correctLevel:QRCode.CorrectLctLevel.H
     });
 }
 window.document.onkeydown = function (e) {

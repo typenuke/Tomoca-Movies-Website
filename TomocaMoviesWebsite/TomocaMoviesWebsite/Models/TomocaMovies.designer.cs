@@ -30,12 +30,12 @@ namespace TomocaMoviesWebsite.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertYoutubeReview(YoutubeReview instance);
-    partial void UpdateYoutubeReview(YoutubeReview instance);
-    partial void DeleteYoutubeReview(YoutubeReview instance);
     partial void InsertActor(Actor instance);
     partial void UpdateActor(Actor instance);
     partial void DeleteActor(Actor instance);
+    partial void InsertYoutubeReview(YoutubeReview instance);
+    partial void UpdateYoutubeReview(YoutubeReview instance);
+    partial void DeleteYoutubeReview(YoutubeReview instance);
     partial void InsertCity(City instance);
     partial void UpdateCity(City instance);
     partial void DeleteCity(City instance);
@@ -84,7 +84,7 @@ namespace TomocaMoviesWebsite.Models
     #endregion
 		
 		public TomocaMoviesDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DBTomocaUpdateConnectionString1"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DBTomocaUpdateConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -113,19 +113,19 @@ namespace TomocaMoviesWebsite.Models
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<YoutubeReview> YoutubeReviews
-		{
-			get
-			{
-				return this.GetTable<YoutubeReview>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Actor> Actors
 		{
 			get
 			{
 				return this.GetTable<Actor>();
+			}
+		}
+		
+		public System.Data.Linq.Table<YoutubeReview> YoutubeReviews
+		{
+			get
+			{
+				return this.GetTable<YoutubeReview>();
 			}
 		}
 		
@@ -247,168 +247,6 @@ namespace TomocaMoviesWebsite.Models
 			{
 				return this.GetTable<User>();
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.YoutubeReviews")]
-	public partial class YoutubeReview : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _YoutubeID;
-		
-		private string _Author;
-		
-		private string _Image;
-		
-		private string _Video;
-		
-		private EntitySet<ReviewOfMovie> _ReviewOfMovies;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnYoutubeIDChanging(int value);
-    partial void OnYoutubeIDChanged();
-    partial void OnAuthorChanging(string value);
-    partial void OnAuthorChanged();
-    partial void OnImageChanging(string value);
-    partial void OnImageChanged();
-    partial void OnVideoChanging(string value);
-    partial void OnVideoChanged();
-    #endregion
-		
-		public YoutubeReview()
-		{
-			this._ReviewOfMovies = new EntitySet<ReviewOfMovie>(new Action<ReviewOfMovie>(this.attach_ReviewOfMovies), new Action<ReviewOfMovie>(this.detach_ReviewOfMovies));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YoutubeID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int YoutubeID
-		{
-			get
-			{
-				return this._YoutubeID;
-			}
-			set
-			{
-				if ((this._YoutubeID != value))
-				{
-					this.OnYoutubeIDChanging(value);
-					this.SendPropertyChanging();
-					this._YoutubeID = value;
-					this.SendPropertyChanged("YoutubeID");
-					this.OnYoutubeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Author
-		{
-			get
-			{
-				return this._Author;
-			}
-			set
-			{
-				if ((this._Author != value))
-				{
-					this.OnAuthorChanging(value);
-					this.SendPropertyChanging();
-					this._Author = value;
-					this.SendPropertyChanged("Author");
-					this.OnAuthorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this.OnImageChanging(value);
-					this.SendPropertyChanging();
-					this._Image = value;
-					this.SendPropertyChanged("Image");
-					this.OnImageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Video", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Video
-		{
-			get
-			{
-				return this._Video;
-			}
-			set
-			{
-				if ((this._Video != value))
-				{
-					this.OnVideoChanging(value);
-					this.SendPropertyChanging();
-					this._Video = value;
-					this.SendPropertyChanged("Video");
-					this.OnVideoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="YoutubeReview_ReviewOfMovie", Storage="_ReviewOfMovies", ThisKey="YoutubeID", OtherKey="YoutubeID")]
-		public EntitySet<ReviewOfMovie> ReviewOfMovies
-		{
-			get
-			{
-				return this._ReviewOfMovies;
-			}
-			set
-			{
-				this._ReviewOfMovies.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_ReviewOfMovies(ReviewOfMovie entity)
-		{
-			this.SendPropertyChanging();
-			entity.YoutubeReview = this;
-		}
-		
-		private void detach_ReviewOfMovies(ReviewOfMovie entity)
-		{
-			this.SendPropertyChanging();
-			entity.YoutubeReview = null;
 		}
 	}
 	
@@ -571,6 +409,168 @@ namespace TomocaMoviesWebsite.Models
 		{
 			this.SendPropertyChanging();
 			entity.Actor = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.YoutubeReviews")]
+	public partial class YoutubeReview : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _YoutubeID;
+		
+		private string _Author;
+		
+		private string _Image;
+		
+		private string _Video;
+		
+		private EntitySet<ReviewOfMovie> _ReviewOfMovies;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnYoutubeIDChanging(int value);
+    partial void OnYoutubeIDChanged();
+    partial void OnAuthorChanging(string value);
+    partial void OnAuthorChanged();
+    partial void OnImageChanging(string value);
+    partial void OnImageChanged();
+    partial void OnVideoChanging(string value);
+    partial void OnVideoChanged();
+    #endregion
+		
+		public YoutubeReview()
+		{
+			this._ReviewOfMovies = new EntitySet<ReviewOfMovie>(new Action<ReviewOfMovie>(this.attach_ReviewOfMovies), new Action<ReviewOfMovie>(this.detach_ReviewOfMovies));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YoutubeID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int YoutubeID
+		{
+			get
+			{
+				return this._YoutubeID;
+			}
+			set
+			{
+				if ((this._YoutubeID != value))
+				{
+					this.OnYoutubeIDChanging(value);
+					this.SendPropertyChanging();
+					this._YoutubeID = value;
+					this.SendPropertyChanged("YoutubeID");
+					this.OnYoutubeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Author
+		{
+			get
+			{
+				return this._Author;
+			}
+			set
+			{
+				if ((this._Author != value))
+				{
+					this.OnAuthorChanging(value);
+					this.SendPropertyChanging();
+					this._Author = value;
+					this.SendPropertyChanged("Author");
+					this.OnAuthorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Video", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Video
+		{
+			get
+			{
+				return this._Video;
+			}
+			set
+			{
+				if ((this._Video != value))
+				{
+					this.OnVideoChanging(value);
+					this.SendPropertyChanging();
+					this._Video = value;
+					this.SendPropertyChanged("Video");
+					this.OnVideoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="YoutubeReview_ReviewOfMovie", Storage="_ReviewOfMovies", ThisKey="YoutubeID", OtherKey="YoutubeID")]
+		public EntitySet<ReviewOfMovie> ReviewOfMovies
+		{
+			get
+			{
+				return this._ReviewOfMovies;
+			}
+			set
+			{
+				this._ReviewOfMovies.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ReviewOfMovies(ReviewOfMovie entity)
+		{
+			this.SendPropertyChanging();
+			entity.YoutubeReview = this;
+		}
+		
+		private void detach_ReviewOfMovies(ReviewOfMovie entity)
+		{
+			this.SendPropertyChanging();
+			entity.YoutubeReview = null;
 		}
 	}
 	
@@ -5341,7 +5341,7 @@ namespace TomocaMoviesWebsite.Models
 		
 		private int _MalID;
 		
-		private int _Money;
+		private double _Money;
 		
 		private string _Seat;
 		
@@ -5350,6 +5350,8 @@ namespace TomocaMoviesWebsite.Models
 		private System.Nullable<int> _Normal;
 		
 		private int _UserID;
+		
+		private System.Nullable<int> _AmountSeats;
 		
 		private EntityRef<MiAnLien> _MiAnLien;
 		
@@ -5363,7 +5365,7 @@ namespace TomocaMoviesWebsite.Models
     partial void OnTicketIDChanged();
     partial void OnMalIDChanging(int value);
     partial void OnMalIDChanged();
-    partial void OnMoneyChanging(int value);
+    partial void OnMoneyChanging(double value);
     partial void OnMoneyChanged();
     partial void OnSeatChanging(string value);
     partial void OnSeatChanged();
@@ -5373,6 +5375,8 @@ namespace TomocaMoviesWebsite.Models
     partial void OnNormalChanged();
     partial void OnUserIDChanging(int value);
     partial void OnUserIDChanged();
+    partial void OnAmountSeatsChanging(System.Nullable<int> value);
+    partial void OnAmountSeatsChanged();
     #endregion
 		
 		public Ticket()
@@ -5426,8 +5430,8 @@ namespace TomocaMoviesWebsite.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Money", DbType="Int NOT NULL")]
-		public int Money
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Money", DbType="Float NOT NULL")]
+		public double Money
 		{
 			get
 			{
@@ -5526,6 +5530,26 @@ namespace TomocaMoviesWebsite.Models
 					this._UserID = value;
 					this.SendPropertyChanged("UserID");
 					this.OnUserIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AmountSeats", DbType="Int")]
+		public System.Nullable<int> AmountSeats
+		{
+			get
+			{
+				return this._AmountSeats;
+			}
+			set
+			{
+				if ((this._AmountSeats != value))
+				{
+					this.OnAmountSeatsChanging(value);
+					this.SendPropertyChanging();
+					this._AmountSeats = value;
+					this.SendPropertyChanged("AmountSeats");
+					this.OnAmountSeatsChanged();
 				}
 			}
 		}
