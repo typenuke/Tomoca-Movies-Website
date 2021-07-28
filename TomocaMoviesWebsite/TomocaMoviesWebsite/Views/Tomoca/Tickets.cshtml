@@ -8,6 +8,7 @@
     var listMoviesDay = db.MiAnLiens.Where(x => x.MovieID > Day);
     var lstcity = ViewData["lstcity"] as IList<City>;
 
+
 }
 @section css{
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
@@ -135,21 +136,32 @@
 
 
 <div class="content-bookticket">
-    <div class="bookticket-first" style="padding-top: 1px; height: 180px;">
+    <div class="bookticket-first" style="padding-top: 1px; height: 210px;">
         <p style="margin: 20px;">1. Choose your theater</p>
-        <div style="display:flex; padding-left: 20px;">
-            <select name="city" class="dropbtn bg-dropbtn" id="cacrap">
-                @foreach (var item in db.MovieTheaters)
-                {
-                    <option style="background: white;" value="@item.TheaterID">@item.TheaterName</option>
-                }
-            </select>
-            <select name="city" class="dropbtnn bg-dropbtn" id="thanhpho">
-                @foreach (var item in ViewData["lstcity"] as List<City>)
-                {
-                    <option value="@item.CityID">@item.City1</option>
-                }
-            </select>
+        <div style="display:grid; padding-left: 20px;">
+            <div style="grid-column: 1;">
+                <label>Theater</label><br />
+                <select name="city" class="dropbtn bg-dropbtn" id="cacrap">
+                    @foreach (var item in db.MovieTheaters)
+                    {
+                        <option style="background: white;" value="@item.TheaterID">@item.TheaterName</option>
+                    }
+                </select>
+            </div>
+            <div style="grid-column: 2;">
+                <label>City</label><br />
+                <select name="city" class="dropbtnn bg-dropbtn" id="thanhpho">
+                    @{ var tempep = -1;}
+                    @foreach (var item in ViewData["lstcity"] as List<City>)
+                    {
+                        if (item.CityID != tempep)
+                        {
+                            <option value="@item.CityID">@item.City1</option>
+                            tempep = item.CityID;
+                        }
+                    }
+                </select>
+            </div>
         </div>
         @using (Html.BeginForm("TicketBook", "Tomoca", FormMethod.Post))
         {

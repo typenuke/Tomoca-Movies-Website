@@ -391,7 +391,7 @@ namespace TomocaMoviesWebsite.Controllers
         {
             var movieid = data.Movies.First(x => String.Compare(x.Title, coll["tenphim"].ToString(), true) == 0);
             var theaterid = data.MovieTheaters.First(x => String.Compare(x.TheaterName, coll["theater"].ToString(), true) == 0);
-            mal.Time = DateTime.Now;
+            mal.Time = DateTime.Today.AddDays(7);
             mal.TheaterID = theaterid.TheaterID;
             mal.MovieID = movieid.MovieID;
             data.MiAnLiens.InsertOnSubmit(mal);

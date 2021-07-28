@@ -1,13 +1,12 @@
 function onReady()
 {
     var qrcode = new QRCode("id_qrcode", {
-        text:"tomoca.xyz",
+        text: window.location.href,
         width:134,
         height:134,
         colorDark:"#000000",
         colorLight:"#ffffff",
-
-        correctLevel:QRCode.CorrectLctLevel.H
+        correctLevel:QRCode.CorrectLevel.H
     });
 }
 window.document.onkeydown = function (e) {

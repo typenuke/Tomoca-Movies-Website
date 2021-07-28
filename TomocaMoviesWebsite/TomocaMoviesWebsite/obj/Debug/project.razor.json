@@ -1,0 +1,19 @@
+{
+  "FilePath": "c:\\Users\\PC\\Desktop\\Tomoca_New\\Tomoca-Movies-Website\\TomocaMoviesWebsite\\TomocaMoviesWebsite\\TomocaMoviesWebsite.csproj",
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  },
+  "ProjectWorkspaceState": {
+    "TagHelpers": [],
+    "CSharpLanguageVersion": 703
+  },
+  "RootNamespace": null,
+  "Documents": [],
+  "SerializationFormat": "0.2"
+}

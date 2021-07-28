@@ -131,15 +131,15 @@
                 <div class="movies-name">
                     <span id="span-1">@Html.DisplayFor(m => m.MovieInf.Title)</span>
                     <div class="trailer">
-                        <span>
-                            Play trailer 0:31
-                            <a onclick="lightbox_open();" id="botton-play-trailer" style="width: 10px;" href="#">
-                                <img src="~/Content/image_review/Vector 14.png" alt="">
-                            </a>
-                        </span>
+                            <span>
+                                Play trailer 0:31
+                                <a onclick="lightbox_open();" id="botton-play-trailer" style="width: 10px;" href="#">
+                                    <img src="~/Content/image_review/Vector 14.png" alt="">
+                                </a>
+                            </span>
                         <div id="light">
                             <a class="boxclose" id="boxclose" onclick="lightbox_close();"></a>
-                            <iframe class="format-trailer" id="VisaChipCardVideo" src="@Html.DisplayFor(m=>m.MovieInf.Trailer)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe class="format-trailer" id="VisaChipCardVideo" src="@Html.DisplayFor(m=>m.MovieInf.Trailer)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div id="fade" onClick="lightbox_close();"></div>
                     </div>
