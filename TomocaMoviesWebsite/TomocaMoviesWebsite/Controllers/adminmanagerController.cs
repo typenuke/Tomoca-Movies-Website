@@ -237,7 +237,18 @@ namespace TomocaMoviesWebsite.Controllers
         // Doanh thu vé
         public ActionResult datve()
         {
-            return View();
+            var tk = from tt in data.Tickets
+                         select tt;
+            return View(tk);
+        }
+        public ActionResult chitietve(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("datve");
+            }
+            var chitiet = data.Tickets.Where(x => x.TicketID == id).Take(1).ToList();
+            return View(chitiet);
         }
     }
 }

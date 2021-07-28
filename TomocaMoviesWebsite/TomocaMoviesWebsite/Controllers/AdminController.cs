@@ -31,7 +31,7 @@ namespace TomocaMoviesWebsite.Controllers
             ViewData["DSPhimSapChieu"] = DSPhimSapChieu;
             var DSPhimDangChieu = data.Movies.OrderByDescending(x => x.MovieID).Take(10).ToList();
             ViewData["DSPhimDangChieu"] = DSPhimDangChieu;
-            var DSDatVe = data.Users.OrderByDescending(a => a.UserID).Take(10).ToList();
+            var DSDatVe = data.Tickets.OrderByDescending(a => a.TicketID).Take(10).ToList();
             ViewData["DSDatVe"] = DSDatVe;
             return View();
         }

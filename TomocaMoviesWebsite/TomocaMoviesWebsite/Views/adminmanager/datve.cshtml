@@ -1,11 +1,12 @@
-﻿
+﻿@model IEnumerable<TomocaMoviesWebsite.Models.Ticket>
+@using TomocaMoviesWebsite.Models
 @{
     ViewBag.Title = "datve";
     Layout = "~/Views/Shared/Admin_Layout.cshtml";
+    TomocaMoviesDataContext db = new TomocaMoviesDataContext();
 }
 <div class="row">
     <div class="col-10"><h1 class="h3 mb-2 text-gray-800">Danh sách khách hàng đặt vé</h1></div>
-    <div class="col-2"><div style="float:right"><button type="button" class="btn btn-success">@Html.ActionLink("Doanh thu", "add")</button></div></div>
 </div>
 <br />
 <!-- DataTales Example -->
@@ -27,62 +28,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>hung</td>
-                        <td>All Is Lost</td>
-                        <td>1</td>
-                        <td>100.000</td>
-                        <td>CGV Vincom Đồng Khởi</td>
-                        <td style="width: 14%; text-align: center">
-                            <a onclick="return ConfirmXoa()" href="@Url.Action("delete")" class="btn btn-danger btn-icon-split">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-trash"></i>
-                                </span>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>nhan</td>
-                        <td>The Peanut Butter Falcon</td>
-                        <td>1</td>
-                        <td>100.000</td>
-                        <td>BHD Star Cineplex ICON 68</td>
-                        <td style="width: 14%; text-align: center">
-                            <a onclick="return ConfirmXoa()" href="@Url.Action("delete")" class="btn btn-danger btn-icon-split">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-trash"></i>
-                                </span>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>triet</td>
-                        <td>Thor</td>
-                        <td>2</td>
-                        <td>200.000</td>
-                        <td>CGV Aeon Bình Tân</td>
-                        <td style="width: 14%; text-align: center">
-                            <a onclick="return ConfirmXoa()" href="@Url.Action("delete")" class="btn btn-danger btn-icon-split">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-trash"></i>
-                                </span>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>truong</td>
-                        <td>Bad Boys For Life</td>
-                        <td>1</td>
-                        <td>100.000</td>
-                        <td>Lotte Cần Thơ Ninh Kiều</td>
-                        <td style="width: 14%; text-align: center">
-                            <a onclick="return ConfirmXoa()" href="@Url.Action("delete")" class="btn btn-danger btn-icon-split">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-trash"></i>
-                                </span>
-                            </a>
-                        </td>
-                    </tr>
+                    @foreach (var i in Model)
+                    {
+                        <tr>
+                            <td>@i.User.Username</td>
+                            @{ var ie = db.Movies.First(x => x.MovieID == i.MiAnLien.MovieID);}
+                            <td>@ie.Title</td>
+                            <td>@i.Seat</td>
+                            <td>@i.Money</td>
+                            <td>@i.MiAnLien.MovieTheater.TheaterName</td>
+                            <td style="width: 14%; text-align: center">
+                                <a href="@Url.Action("chitietve", new { id = i.TicketID })" class="btn btn-primary btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-edit"></i>
+                                    </span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>

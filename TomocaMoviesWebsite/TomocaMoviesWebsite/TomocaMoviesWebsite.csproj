@@ -511,7 +511,6 @@
     <Content Include="Views\Users\Logout.cshtml" />
     <Content Include="Views\Tomoca\NewsDetail.cshtml" />
     <Content Include="Views\Tomoca\TicketShow.cshtml" />
-    <Content Include="Views\adminmanager\users.cshtml" />
     <Content Include="Views\adminmanager\add.cshtml" />
     <Content Include="Views\adminmanager\edit.cshtml" />
     <Content Include="Views\Admin\TinTuc.cshtml" />
@@ -527,6 +526,8 @@
     <Content Include="Views\Admin\veban.cshtml" />
     <Content Include="Views\Admin\ThemVePhim.cshtml" />
     <Content Include="Views\Tomoca\pay.cshtml" />
+    <Content Include="Views\adminmanager\chitietve.cshtml" />
+    <Content Include="Views\adminmanager\users.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
