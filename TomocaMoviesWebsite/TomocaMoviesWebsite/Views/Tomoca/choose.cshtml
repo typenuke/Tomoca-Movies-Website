@@ -99,7 +99,7 @@
             <center>
                 @using (Html.BeginForm("pay", "Tomoca", FormMethod.Post, new { @class = "displayerBoxes31", id = "paybookticket" }))
                 {
-
+                    @Html.AntiForgeryToken()
                     <table id="seatsBlock">
                         <tr>
                             <td>A</td>
@@ -947,7 +947,7 @@
                             <input type="checkbox" class="tatdisable" id="condition" name="condition" value="">
                             <label for="condition">I agreed with terms and <u>conditions</u></label><br>
                             <div class="displayerBoxes31">
-                                <input onclick="confirmTicket()" readonly style="cursor:pointer; font-weight:700;" id="paybookticket212" class="bt-pay tatdisable" value="    Pay" >
+                                <input onclick="confirmTicket()" readonly style="cursor:pointer; font-weight:700;" id="paybookticket212" class="bt-pay tatdisable" value="    Pay">
                             </div>
                         </div>
                     </div>
@@ -955,13 +955,13 @@
                 }
                 <script src="https://www.paypal.com/sdk/js?client-id=AdICzuq41JaJBqk1qmvIUzQqffSdvTqLE_CmQQFstD1dHA9wxU4Hbl-vZewIH5PpItbu3fk_GRJXk7hh&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
                 <script>
-                    
+
                     //function test() {
                     //    var x = Math.round((parseFloat($("#tongtiencanthanhtoan").text(), 10) /22000)*100)/100;
                     //    console.log(x);
                     //}
                     function initPayPalButton() {
-                        var x = Math.round((parseFloat($("#tongtiencanthanhtoan").text(), 10) /22000) * 100) / 100;
+                        var x = Math.round((parseFloat($("#tongtiencanthanhtoan").text(), 10) / 22000) * 100) / 100;
                         paypal.Buttons({
                             style: {
                                 shape: 'rect',
@@ -969,10 +969,10 @@
                                 layout: 'vertical',
                                 label: 'paypal',
                             },
-                            
+
                             createOrder: function (data, actions) {
                                 return actions.order.create({
-                                    purchase_units: [{ "amount": { "currency_code": "USD", "value":  x} }]
+                                    purchase_units: [{ "amount": { "currency_code": "USD", "value": x } }]
                                 });
                             },
 

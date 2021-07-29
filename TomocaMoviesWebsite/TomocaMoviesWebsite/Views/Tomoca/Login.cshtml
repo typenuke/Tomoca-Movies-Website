@@ -2,11 +2,11 @@
     ViewBag.Title = "Login";
 }
 @section css{
-    
-    } 
+
+}
 @section scriptstren{
-    
-    }
+
+}
 <style>
     .grid-login {
         display: grid;
@@ -32,67 +32,75 @@
         border: none;
         border-radius: 0 10px 10px 0;
     }
-.exit {
-    margin: 10px;
-    float: right;
-    border: none;
-    width: 36px;
-    height: 36px;
-    background-color: #FF7300;
-    color: #5C5C5C;
-    font-size: 12px;
-}
 
-.exit:hover {
-    color: #FFF;
-    font-size: 16px;
-}
-.formlogin button {
-    margin-top: 45px;
-    width: 326px;
-    height: 39px;
-    left: 86px;
-    top: 343px;
-    background: #FF7300;
-    border-radius: 5px;
-    border: none;
-    color: #FFF;
-    font-size: 18px;
-}
-.fontLogo {
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 44px;
-    letter-spacing: -0.065em;
-    text-align: left;
-    color: #FF7300;
-}
-.plogo {
-    font-style: normal;
-    font-weight: 300;
-    font-size: 24px;
-    line-height: 28px;
-    letter-spacing: 0.015em;
-    color: #5C5C5C;
-}
-.pLogin {
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 16px;
-    color: #5C5C5C;
-}
-.formlogin a, .formlogin span {
-    color: #52ACFF;
-    font-size: 12px;
-    line-height: 14px;
-}
-.glformloginogin span {
-    color: #9D9A9A !important;
-}
+    .exit {
+        margin: 10px;
+        float: right;
+        border: none;
+        width: 36px;
+        height: 36px;
+        background-color: #FF7300;
+        color: #5C5C5C;
+        font-size: 12px;
+    }
+
+        .exit:hover {
+            color: #FFF;
+            font-size: 16px;
+        }
+
+    .formlogin button {
+        margin-top: 45px;
+        width: 326px;
+        height: 39px;
+        left: 86px;
+        top: 343px;
+        background: #FF7300;
+        border-radius: 5px;
+        border: none;
+        color: #FFF;
+        font-size: 18px;
+    }
+
+    .fontLogo {
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 44px;
+        letter-spacing: -0.065em;
+        text-align: left;
+        color: #FF7300;
+    }
+
+    .plogo {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 28px;
+        letter-spacing: 0.015em;
+        color: #5C5C5C;
+    }
+
+    .pLogin {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        color: #5C5C5C;
+    }
+
+    .formlogin a, .formlogin span {
+        color: #52ACFF;
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .glformloginogin span {
+        color: #9D9A9A !important;
+    }
 </style>
 @ViewBag.ThongBao
-@using (Html.BeginForm("Login","Tomoca"))
+@using (Html.BeginForm("Login", "Tomoca"))
 {
+    @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
     <div id="id01" class="modal" style="padding:0px;">
         <div class="grid-login">

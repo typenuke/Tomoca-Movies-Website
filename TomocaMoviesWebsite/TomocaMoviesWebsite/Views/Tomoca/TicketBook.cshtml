@@ -206,14 +206,15 @@
                     Number of Seats *: <input type="number" id="Numseats" value="0" required>
                 </div>
                 <br /><br />
-                    @using (Html.BeginForm("choose","Tomoca", FormMethod.Post))
-                    {
-                        <input hidden name="idmal" id="idmal" value="" />
-                        <input hidden name="tongtientien" id="tongtientien" value="" />
-                        <input hidden name="chonghethuong" id="chonghethuong" value="" />
-                        <input hidden name="chonghevip" id="chonghevip" value="" />
-                        <input style="margin-bottom:50px;" class="selecting" type="submit" value="Start Choose Chair" />
-                    }
+                @using (Html.BeginForm("choose", "Tomoca", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <input hidden name="idmal" id="idmal" value="" />
+                    <input hidden name="tongtientien" id="tongtientien" value="" />
+                    <input hidden name="chonghethuong" id="chonghethuong" value="" />
+                    <input hidden name="chonghevip" id="chonghevip" value="" />
+                    <input style="margin-bottom:50px;" class="selecting" type="submit" value="Start Choose Chair" />
+                }
             </center>
         </div>
     </div>

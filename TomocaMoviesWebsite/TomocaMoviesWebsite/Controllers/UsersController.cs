@@ -11,12 +11,32 @@ namespace TomocaMoviesWebsite.Controllers
     {
         // GET: Users
         TomocaMoviesDataContext db = new TomocaMoviesDataContext();
+        public static string FilterSql(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return string.Empty;
+            s = s.Trim().ToLower();
+            s = s.Replace("=", "");
+            s = s.Replace("'", "");
+            s = s.Replace(";", "");
+            s = s.Replace(" or ", "");
+            s = s.Replace("select", "");
+            s = s.Replace("update", "");
+            s = s.Replace("insert", "");
+            s = s.Replace("delete", "");
+            s = s.Replace("declare", "");
+            s = s.Replace("exec", "");
+            s = s.Replace("drop", "");
+            s = s.Replace("create", "");
+            s = s.Replace("%", "");
+            s = s.Replace("--", "");
+            return s;
+        }
         public ActionResult Login(FormCollection collection)
         {
-            var un = collection["UserName"];
-            var pw = collection["Password"];
-
-            
+            var una = collection["Username"];
+            var pwa = collection["Password"];
+            var un = FilterSql(una);
+            var pw = FilterSql(pwa);
             if (String.IsNullOrEmpty(un))
                 ViewData["Loi"] = "Bạn phải nhập tên đăng nhập";
             else if (String.IsNullOrEmpty(pw))

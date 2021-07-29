@@ -23,7 +23,26 @@ namespace TomocaMoviesWebsite.Controllers
             return View(tm);
         }
 
-
+        public static string FilterSql(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return string.Empty;
+            s = s.Trim().ToLower();
+            s = s.Replace("=", "");
+            s = s.Replace("'", "");
+            s = s.Replace(";", "");
+            s = s.Replace(" or ", "");
+            s = s.Replace("select", "");
+            s = s.Replace("update", "");
+            s = s.Replace("insert", "");
+            s = s.Replace("delete", "");
+            s = s.Replace("declare", "");
+            s = s.Replace("exec", "");
+            s = s.Replace("drop", "");
+            s = s.Replace("create", "");
+            s = s.Replace("%", "");
+            s = s.Replace("--", "");
+            return s;
+        }
 
         private List<Movy> GetMovies()
         {
@@ -44,8 +63,10 @@ namespace TomocaMoviesWebsite.Controllers
         [HttpPost]
         public ActionResult Login(FormCollection collection)
         {
-            var un = collection["Username"];
-            var pw = collection["Password"];
+            var una = collection["Username"];
+            var pwa = collection["Password"];
+            var un = FilterSql(una);
+            var pw = FilterSql(pwa);
             if (String.IsNullOrEmpty(un))
                 ViewData["Loi"] = "Bạn phải nhập tên đăng nhập";
             else if (String.IsNullOrEmpty(pw))
@@ -84,10 +105,10 @@ namespace TomocaMoviesWebsite.Controllers
         {
             var links = from l in db.Movies // lấy toàn bộ liên kết
                         select l;
-
-            if (!String.IsNullOrEmpty(search)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
+            string secureSearch = HttpUtility.HtmlEncode(search);
+            if (!String.IsNullOrEmpty(secureSearch)) // kiểm tra chuỗi tìm kiếm có rỗng/null hay không
             {
-                links = links.Where(s => s.Title.Contains(search)); //lọc theo chuỗi tìm kiếm
+                links = links.Where(s => s.Title.Contains(secureSearch)); //lọc theo chuỗi tìm kiếm
             }
             return View(links);
         }
