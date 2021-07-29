@@ -6,7 +6,7 @@
     TomocaMoviesDataContext db = new TomocaMoviesDataContext();
     int Day = DateTime.Now.Day;
     var listMoviesDay = db.MiAnLiens.Where(x => x.MovieID > Day);
-    var lstcity = ViewData["lstcity"] as IList<City>;
+    var lstcity = ViewData["lstcity"] as IList<City>;   
 }
 @section css{
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
@@ -43,7 +43,7 @@
     var dm = 0;
     var dm1 = 0;
 }
-<div class="ticket-top">
+<div class="ticket-top ">
     @for (int i = 1; i < 12; i++)
     {
         if (i == 1)
@@ -54,7 +54,7 @@
             int daysd = int.Parse(dayy.ToString("ddMM"));
             string strMonth = dayy.ToString("MMMM");
             string dayd = dayy.DayOfWeek.ToString();
-            <div class="ticket" @*href="~/Tomoca/Tickets?daysd=@dm1"*@>
+            <div class="ticket animate__animated animate__fadeInRightBig" @*href="~/Tomoca/Tickets?daysd=@dm1"*@>
                 <div class="item-day item-daynow">
                     <span class="day-big" id="ngayto">@strday</span><br>
                     <span class="day-small">@strMonth</span>
@@ -71,7 +71,7 @@
             int daysd = int.Parse(dayy.ToString("ddMM"));
             string strMonth = dayy.ToString("MMMM");
             string dayd = dayy.DayOfWeek.ToString();
-            <div class="ticket" @*href="~/Tomoca/Tickets?daysd=@dm1"*@>
+            <div class="ticket animate__animated animate__fadeInRightBig" @*href="~/Tomoca/Tickets?daysd=@dm1"*@>
                 <div class="item-day">
                     <span class="day-big" id="ngayto">@strday</span><br>
                     <span class="day-small">@strMonth</span>
@@ -85,7 +85,7 @@
         dm1++;
     }
 </div>
-<div class="nowplaying">
+<div class="nowplaying animate__animated animate__fadeInLeftBig">
     <div class="nowplaying-count">
         <p class="ccc">NOWPLAYING (@Model.Count())<span style="color:#5C5C5C; margin-left: 20px;">UPCOMING</span></p>
     </div>
@@ -96,7 +96,7 @@
             <div class="MultiCarousel-inner">
                 @foreach (var item in Model)
                 {
-                    <div class="item">
+                    <div class="item animate__animated animate__flipInX">
                         <div class="pad15" style="margin-top:30px;">
                             <img class="clickdeto" style="width: 100%; height: 100%; border-radius:5px;" src="@item.Movy.Image" />
                         </div>

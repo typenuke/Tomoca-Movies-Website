@@ -52,8 +52,8 @@
 <!-- Project Grid -->
 <div class="project-grid">
     <div>
-        <button onclick="location.href='/Tomoca/MoviesLatestNews'" class="lastnews-btn" id="lastnews-btn" onclick="eventbtLastestNews()">LATEST NEWS</button>
-        <button onclick="location.href='/Tomoca/MoviesHotNews'" class="topnews-btn" id="topnews-btn" onclick="eventbtTopNews()">TOP NEWS</button>
+        <button onclick="location.href='/Tomoca/MoviesLatestNews'" class="lastnews-btn animate__animated animate__backInLeft" id="lastnews-btn" onclick="eventbtLastestNews()">LATEST NEWS</button>
+        <button onclick="location.href='/Tomoca/MoviesHotNews'" class="topnews-btn animate__animated animate__backInRight" id="topnews-btn" onclick="eventbtTopNews()">TOP NEWS</button>
     </div>
 
     <div class="container" id="container">
@@ -61,7 +61,7 @@
         {
             if (dk == 1)
             {
-                <div class="grid-zone main-news" id="main-news">
+                <div class="grid-zone main-news animate__animated animate__fadeIn" id="main-news">
                     <div class="pic1-zone">
                         <img class="mainnews-img" id="mainnews-img" src="@item.Photo">
                     </div>
@@ -73,7 +73,7 @@
             }
             else
             {
-                <div class="grid-zone">
+                <div class="grid-zone animate__animated animate__fadeIn">
                     <img class="news-img" src="@item.Photo">
                     @Html.ActionLink(@item.Title, "NewsDetail" + "/" + @item.NewsID, "", new { @class = "title" })
                 </div>

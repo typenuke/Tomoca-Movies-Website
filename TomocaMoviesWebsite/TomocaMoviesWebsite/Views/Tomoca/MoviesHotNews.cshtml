@@ -47,13 +47,13 @@
 <!-- Project Grid -->
 <div class="project-grid" style="background-color: #E5E5E5;">
     <div>
-        <button onclick="location.href='/Tomoca/MoviesLatestNews'" class="lastnews-btn" id="lastnews-btn" onclick="eventbtLastestNews()">LATEST NEWS</button>
-        <button onclick="location.href='/Tomoca/MoviesHotNews'" class="topnews-btn" id="topnews-btn" onclick="eventbtTopNews()">TOP NEWS</button>
+        <button onclick="location.href='/Tomoca/MoviesLatestNews'" class="lastnews-btn animate__animated animate__backInLeft" id="lastnews-btn" onclick="eventbtLastestNews()">LATEST NEWS</button>
+        <button onclick="location.href='/Tomoca/MoviesHotNews'" class="topnews-btn animate__animated animate__backInRight" id="topnews-btn" onclick="eventbtTopNews()">TOP NEWS</button>
     </div>
     <div class="container" id="container">
         @foreach (var item in Model)
         {
-            <div class="grid-zone">
+            <div class="grid-zone animate__animated animate__flipInX">
                 <img class="news-img" src="@item.Photo" />
                 <span class="title">@Html.ActionLink(@item.Title, "NewsDetail" + "/" + @item.NewsID)</span>
             </div>

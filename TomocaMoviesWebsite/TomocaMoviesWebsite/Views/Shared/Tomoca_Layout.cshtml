@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS cua layout -->
     <link href="@Url.Content("~/Content/head-foot.css")" rel="stylesheet" runat="server" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="~/Content/login.css" rel="stylesheet" />
     <!-- CSS cua tung thang them o view dung them o day -->
     @RenderSection("css", false)
@@ -20,15 +22,15 @@
     <nav class="head-bar">
         <ul class="zone main-nav">
             <li class="icon-to">
-                <a href="~/Tomoca/Index"><img src="~/Content/image/Tomoca.png" alt=""></a>
+                <a href="~/Tomoca/Index"><img class="" src="~/Content/image/Tomoca.png" alt=""></a>
             </li>
-            <li>
+            <li class="animate__animated animate__flipInY">
                 <a class="white-a" href="~/Tomoca/MovieReview">MOVIES REVIEWS</a>
             </li>
-            <li>
+            <li class="animate__animated animate__flipInY">
                 <a class="white-a" href="~/Tomoca/Tickets">MOVIES TIMES & TICKETS</a>
             </li>
-            <li>
+            <li class="animate__animated animate__flipInY">
                 <a class="white-a" href="~/Tomoca/MoviesLatestNews">MOVIES NEWS</a>
             </li>
             <!--
@@ -94,7 +96,7 @@
                         <a class="white-a" href="~/Tomoca/ContactUs">Contact</a>
                     </li>
                     <li>
-                        <a class="white-a" href="#">About Tomoca</a>
+                        <a class="white-a" href="https://tomoca.000webhostapp.com/">About Us</a>
                     </li>
                     <li>
                         <a class="white-a" href="#">Site Index</a>

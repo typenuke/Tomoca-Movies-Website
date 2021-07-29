@@ -195,14 +195,14 @@
     </div>
     <!--end search-->
     <!--start ticket-->
-    <div class="btn-ticket">
+    <div class="btn-ticket animate__animated animate__fadeInLeft">
         <p><a href="~/Tomoca/Tickets"><img src="~/Content/image/ticket.png" alt=""></a></p>
     </div>
 </div>
 <!--start content-->
 <div class="content" style="margin-bottom: 45px">
     <div class="moviescommingsoon">
-        <div class="titleMovies">
+        <div class="titleMovies animate__animated animate__fadeInLeft">
             <div class="ptitle">
                 <p id="titlename">MOVIES COMMING SOON</p>
                 <a style="color: white;" href="~/Tomoca/MovieReview" id="seeall">See All</a>
@@ -217,7 +217,7 @@
                     <div class="MultiCarousel-inner">
                         @foreach (var i in Model)
                         {
-                            <div class="item">
+                            <div class="item animate__animated animate__flipInX">
                                 <div class="pad15">
                                     <img src="@i.Image">
                                     <p>@i.Title</p>
@@ -252,7 +252,7 @@
         </div>
     </div>
     <div class="review">
-        <div class="titleMovies">
+        <div class="titleMovies animate__animated animate__fadeInLeft">
             <div class="ptitle">
                 <p id="titlename">MOVIES REVIEW</p>
                 <a style="color: white;" href="~/Tomoca/MovieReview" id="seeall">See All</a>
@@ -293,7 +293,7 @@
         </div>
     </div>
     <div class="news">
-        <div class="titleMovies">
+        <div class="titleMovies animate__animated animate__fadeInLeft">
             <div class="ptitle">
                 <p id="titlename">NEWS</p>
                 <a style="color: white;" href="~/Tomoca/MoviesLatestNews" id="seeall">See All</a>

@@ -6,7 +6,26 @@
     TomocaMoviesDataContext db = new TomocaMoviesDataContext();
     var us = db.Users.SingleOrDefault(n => n.Username == Session["Username"].ToString());
 }
-<div class="signup">
+<style>
+    .signup {
+        background: #f5d2d2;
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        border-radius: 5px;
+        padding: 15px;
+    }
+
+    .signup:hover {
+        -webkit-box-shadow: rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+        -moz-box-shadow: rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+        -o-box-shadow: rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+        box-shadow: rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    }
+</style>
+
+<div class="signup animate__animated animate__jackInTheBox">
     <h3>Signing Up</h3>
     <div class="grid-signup">
         <div class="signup-item-bg signup-item1 ">
