@@ -84,7 +84,7 @@ namespace TomocaMoviesWebsite.Models
     #endregion
 		
 		public TomocaMoviesDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DBTomocaUpdateConnectionString1"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DBTomocaUpdateConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
