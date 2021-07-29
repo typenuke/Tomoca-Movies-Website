@@ -1,0 +1,511 @@
+﻿@model TomocaMoviesWebsite.Models.infoMovie
+@using TomocaMoviesWebsite.Models;
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/Tomoca_Layout.cshtml";
+    TomocaMoviesDataContext db = new TomocaMoviesDataContext();
+    var key = Model.MovieInf.MovieID;
+    var youtubeReview = (from a in db.Movies
+                         join b in db.ReviewOfMovies on a.MovieID equals b.MovieID into table_1
+                         from c in table_1
+                         join d in db.YoutubeReviews on c.YoutubeID equals d.YoutubeID
+                         select new
+                         {
+                             ID = c.MovieID,
+                             Video = d.Video,
+                             Author = d.Author,
+                         }).OrderByDescending(a => a.Video).ToList();
+
+}
+@section css{
+    <link href="~/Content/bootstrap-5.0.2-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-5.0.2-dist/css/bootstrap-utilities.min.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Ruge+Boogie" rel="stylesheet" type="text/css">
+    <link href="~/Content/MoviesDetails.css" rel="stylesheet" />
+}
+@section scriptstren{
+    <script src="~/Scripts/script-detail.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.js"></script>
+}
+<style>
+    .movies-name #span-1 {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 106.69%;
+    }
+
+    #format-title-youtubereview {
+        background-color: #FFF;
+        position: static;
+    }
+
+    .profile-img {
+        height: 380px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .list-youtube-reviews {
+        display: block;
+        max-width: 30000%;
+        width: 180%;
+        margin: auto;
+        margin-left: 35px;
+    }
+
+    #fade {
+        display: none;
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 1001;
+        -moz-opacity: 0.8;
+        opacity: .80;
+        filter: alpha(opacity=80);
+    }
+
+    #light {
+        display: none;
+        position: absolute;
+        width: 600px;
+        height: 360px;
+        margin-left: -600px;
+        margin-top: -180px;
+        border: none;
+        border-radius:5px;
+        background: #FFF;
+        z-index: 1002;
+        overflow: visible;
+    }
+
+    #boxclose {
+        display:none;
+        float: right;
+        cursor: pointer;
+        color: #fff;
+        border: 1px solid #AEAEAE;
+        border-radius: 3px;
+        background: #222222;
+        font-size: 31px;
+        font-weight: bold;
+        line-height: 0px;
+        padding: 11px 3px;
+        position: absolute;
+        right: 2px;
+        top: 2px;
+        z-index: 1002;
+        opacity: 0.1;
+    }
+
+    .boxclose:before {
+        content: "×";
+    }
+
+    #fade:hover ~ #boxclose {
+        display: none;
+    }
+
+    .test:hover ~ .test2 {
+        display: none;
+    }
+
+    .format-trailer {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+    }
+</style>
+
+<div class="wrapper-all" style="background-color: #FFF; width: 1046px; margin: auto;">
+    <div class="wrapper">
+        <div class="profile-img" style="height:389px;background-image: url(@Html.DisplayFor(m => m.MovieInf.Banner)">
+            <div class="mini-profile-img">
+                <div class="movies-name">
+                    <span id="span-1">@Html.DisplayFor(m => m.MovieInf.Title)</span>
+                    <div class="trailer">
+                            <span>
+                                Play trailer 0:31
+                                <a onclick="lightbox_open();" id="botton-play-trailer" style="width: 10px;" href="#">
+                                    <img src="~/Content/image_review/Vector 14.png" alt="">
+                                </a>
+                            </span>
+                        <div id="light">
+                            <a class="boxclose" id="boxclose" onclick="lightbox_close();"></a>
+                                <iframe class="format-trailer" id="VisaChipCardVideo" src="@Html.DisplayFor(m=>m.MovieInf.Trailer)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div id="fade" onClick="lightbox_close();"></div>
+                    </div>
+                    <p id="p-1">@Html.DisplayFor(m => m.MovieInf.ReleaseYear) • R • @Html.DisplayFor(m => m.MovieInf.TimeOfFilm)</p>
+                    <div class="category">
+                        <span>
+                            @foreach (var item in Model.Category.GenreName)
+                            {
+                                @item.ToString();
+                            }
+                        </span>
+                    </div>
+                    <br>
+                    <div class="IMDb-Rotten-Vote">
+                        <div>
+                            <div class="Rotten">
+                                <div class="Rotten-logo">
+                                    <img src="~/Content/image_review/RT white 1.png" alt="Rotten-logon">
+                                </div>
+                                <div class="rating-rotten">
+                                    <span> <img src="~/Content/image_review/RT icon PNG.png" alt=""> @Html.DisplayFor(m => m.MovieInf.Tomatometer)</span>
+                                    <span> <img src="~/Content/image_review/RT icon PNG (1).png" alt=""> @Html.DisplayFor(m => m.MovieInf.AudienceScore)</span>
+                                </div>
+
+                            </div>
+                            <div class="IMDb">
+                                <div class="IMDb-logo">
+                                    <img src="~/Content/image_review/1200px-IMDb_Logo_Square.svg 1.png" alt="IMDb-logo">
+                                </div>
+                                <span id="rating">@Html.DisplayFor(m => m.MovieInf.IMDb)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="content-table movie-info">
+                            <table class="table">
+                                <tbody>
+                                    <tr id="describe">
+                                        <th>@Html.DisplayFor(m => m.MovieInf.Plot)</th>
+                                    </tr>
+                                    <tr>
+                                        <th><span>Director:</span><span style="font-weight: 700; font-size:15px">@Html.DisplayFor(m => m.director.Name) </span></th>
+                                    </tr>
+                                    <tr>
+                                        <th><span>Writer:</span><span style="font-weight: 700; font-size:15px"> Derek Kolstad</span></th>
+                                    </tr>
+                                    <tr style="border-bottom: #FFFFFF;">
+                                        <th><span>Starring:</span><span style="font-weight: 700; font-size:15px"> @Html.DisplayFor(m => m.actors.Name)...</span></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <img width="152px" ; height="231px" ; src="@Html.DisplayFor(m=>m.MovieInf.Image)" alt="mini-profile">
+                <div class="book-ticket">
+                    <a href="#">
+                        <img style="border: none; margin:13px 12px 0 12px;" width="130px" height="30px" src="~/Content/image_review/Ticket-Button-1.png" alt="">
+                    </a>
+                    <a href="#">
+                        <img style="margin: 10px 12px 14px 12px;" width="129.5px" src="~/Content/image_review/Ticket Button.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="Reviews">
+            <div class="youtube-reviews" style="margin-top: 30px;">
+                <p style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-style:normal; font-weight:bold; font-size:18px; line-height:21px; color:#FFFFFF; text-align:left; padding-top:8px; padding-left:17px;">YOUTUBE REVIEWS</p>
+            </div>
+            <div class="scrollbar" id="style-1" style="background-color: #FFF;">
+                <div class="list-youtube-reviews" style="background-color: #FFF;">
+                    @foreach (var item in youtubeReview)
+                    {
+                        var x = item.Video;
+                        if (item.ID == key)
+                        {
+                            <div style="float:left; margin-right:5px; height:258px;">
+                                <iframe class="youtube-review-iframe" width="345" height="197" src="@item.Video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div id="format-title-youtubereview" class="youtube-reviews-title">
+                                    <span style="margin-left:4px">@item.Author</span>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="audiences-reviews" style="padding: 0 0 100px 0;">
+            <div class="audiences-reviews-title">
+                <p style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-style:normal; font-weight:bold; font-size:18px; line-height:21px; color:#FFFFFF; text-align:left; padding-top:8px; padding-left:17px;">AUDIENCES REVIEWS</p>
+            </div>
+            <div class="format-comment">
+                <div class="audiences-comment-1">
+                    <div class="comment">
+                        <div class="flag">
+                            <img src="~/Content/image_review/flag-2.png" alt="">
+                        </div>
+                        <span id="audiences-name">
+                            <p id="name">Alamriaban</p>
+                            <p id="time-comment">2hrs ago</p>
+                        </span>
+                        <div class="box-rate">
+                            <p id="audiences-rate">8.9</p>
+                        </div>
+                        <h5>Decent</h5>
+                        <p>
+                            I watched in the theater and i liked it. the directing is simple fast and smooth. not artsy but not cheap. bob odenkirk had a good performance. the plot isn't too complicated, it's not deep but it's good for it's short runtime. it focused on hutch -the main character- and the villains mainly.
+                        </p>
+                        <br>
+                        <p style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: #818181;">
+                            18 of 20 people liked this review
+                        </p>
+                        <div class="audiences-vote">
+                            <img src="~/Content/image_review/thumbs-up.png" alt="">
+                            <img src="~/Content/image_review/thumbs-down (1).png" alt="">
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="flag">
+                            <img src="~/Content/image_review/flag-2.png" alt="">
+                        </div>
+                        <span id="audiences-name">
+                            <p id="name">Alamriaban</p>
+                            <p id="time-comment">2hrs ago</p>
+                        </span>
+                        <div class="box-rate">
+                            <p id="audiences-rate">8.9</p>
+                        </div>
+                        <h5>Decent</h5>
+                        <p>
+                            I miss the old days. No internet, no social media and no pc bullcrap. "Nobody" is a movie that feels like it came from another time. Just what the Expendables wanted to do but, in my opinion, failed miserably. There is no fan service,
+                        </p>
+                        <p style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: #818181;">
+                            18 of 20 people liked this review
+                        </p>
+                        <div class="audiences-vote">
+                            <img src="~/Content/image_review/thumbs-up.png" alt="">
+                            <img src="~/Content/image_review/thumbs-down (1).png" alt="">
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="flag">
+                            <img src="~/Content/image_review/flag-2.png" alt="">
+                        </div>
+                        <span id="audiences-name">
+                            <p id="name">Alamriaban</p>
+                            <p id="time-comment">2hrs ago</p>
+                        </span>
+                        <div class="box-rate">
+                            <p id="audiences-rate">8.9</p>
+                        </div>
+                        <h5>Decent</h5>
+                        <p>
+                            Very entertaining with touches of dark humor, it's done in the Wick style of action movies , very brutal and intense violence done with a certain panache, Grandad wick and his brother also get in on the action, it's not original by any means, but it's cool to see a more mature dude kicking some convincing butt for a change, overall O. K. movie if you have a few hours on a weekend night to enjoy with your buddies.
+                        </p>
+                        <p style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: #818181;">
+                            18 of 20 people liked this review
+                        </p>
+                        <div class="audiences-vote">
+                            <img src="~/Content/image_review/thumbs-up.png" alt="">
+                            <img src="~/Content/image_review/thumbs-down (1).png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="audiences-comment-2">
+                    <div class="comment">
+                        <div class="flag">
+                            <img src="~/Content/image_review/flag-2.png" alt="">
+                        </div>
+                        <span id="audiences-name">
+                            <p id="name">Alamriaban</p>
+                            <p id="time-comment">2hrs ago</p>
+                        </span>
+                        <div class="box-rate">
+                            <p id="audiences-rate">8.9</p>
+                        </div>
+                        <h5>Decent</h5>
+                        <p>
+                            A hyper-violent, tongue-in-cheek action movie with regular comedic beats in the direction and editing. It clearly has a lot of respect for vintage action movies and wears it like a badge of pride.
+
+                            The plot and characters are straight from the b-movie bible, with our mysterious hero suddenly exploding into an all-round killing machine to get 'the bad guys'. What follows is an excellent example of how to do this kind of slapstick with impact.
+
+                            The camerawork and stuntwork are above average throughout and occassionally brilliant. All the scenes are inventive and the pacing is almost perfect. The soundtrack is a little intrusive for my taste, but apart from that, I had a great time. I love all kinds of honest genre flicks, the ones that don't mind losing viewers who (perhaps understandably) see no joy in this kind of ridiculous fantasy. But I dig it.
+                        </p>
+                        <p style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: #818181;">
+                            18 of 20 people liked this review
+                        </p>
+                        <div class="audiences-vote">
+                            <img src="~/Content/image_review/thumbs-up.png" alt="">
+                            <img src="~/Content/image_review/thumbs-down (1).png" alt="">
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="flag">
+                            <img src="~/Content/image_review/flag-2.png" alt="">
+                        </div>
+                        <span id="audiences-name">
+                            <p id="name">Alamriaban</p>
+                            <p id="time-comment">2hrs ago</p>
+                        </span>
+                        <div class="box-rate">
+                            <p id="audiences-rate">8.9</p>
+                        </div>
+                        <h5>Decent</h5>
+                        <p>
+                            This last year has been a huge disappointment as far as movies go. But Nobody has changed all of that. This movie was so much fun, and Bob Odenkirk does a great job as a family man, just trying to live a peaceful life, and then all chaos erupts. The villains are nasty and terrific to watch and the action scenes are a blast! This is a movie worth going back to the theater to see! Bravo!! And I hope there's a sequel.
+                        </p>
+                        <p style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: #818181;">
+                            18 of 20 people liked this review
+                        </p>
+                        <div class="audiences-vote">
+                            <img src="~/Content/image_review/thumbs-up.png" alt="">
+                            <img src="~/Content/image_review/thumbs-down (1).png" alt="">
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="flag">
+                            <img src="~/Content/image_review/flag-2.png" alt="">
+                        </div>
+                        <span id="audiences-name">
+                            <p id="name">Alamriaban</p>
+                            <p id="time-comment">2hrs ago</p>
+                        </span>
+                        <div class="box-rate">
+                            <p id="audiences-rate">8.9</p>
+                        </div>
+                        <h5>Decent</h5>
+                        <p>
+                            I enjoyed it 😁
+
+                            Seriously it's John Wick and Kevin Mccallister kicking ass.
+                        </p>
+                        <p style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: #818181;">
+                            18 of 20 people liked this review
+                        </p>
+                        <div class="audiences-vote">
+                            <img src="~/Content/image_review/thumbs-up.png" alt="">
+                            <img src="~/Content/image_review/thumbs-down (1).png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="audiences-comment-3">
+                    <div class="comment">
+                        <div class="flag">
+                            <img src="~/Content/image_review/flag-2.png" alt="">
+                        </div>
+                        <span id="audiences-name">
+                            <p id="name">Alamriaban</p>
+                            <p id="time-comment">2hrs ago</p>
+                        </span>
+                        <div class="box-rate">
+                            <p id="audiences-rate">8.9</p>
+                        </div>
+                        <h5>Decent</h5>
+                        <p>
+                            A hyper-violent, tongue-in-cheek action movie with regular comedic beats in the direction and editing. It clearly has a lot of respect for vintage action movies and wears it like a badge of pride.
+
+                            The plot and characters are straight from the b-movie bible, with our mysterious hero suddenly exploding into an all-round killing machine to get 'the bad guys'. What follows is an excellent example of how to do this kind of slapstick with impact.
+
+                            The camerawork and stuntwork are above average throughout and occassionally brilliant. All the scenes are inventive and the pacing is almost perfect. The soundtrack is a little intrusive for my taste, but apart from that, I had a great time. I love all kinds of honest genre flicks, the ones that don't mind losing viewers who (perhaps understandably) see no joy in this kind of ridiculous fantasy. But I dig it.
+                        </p>
+                        <p style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: #818181;">
+                            18 of 20 people liked this review
+                        </p>
+                        <div class="audiences-vote">
+                            <img src="~/Content/image_review/thumbs-up.png" alt="">
+                            <img src="~/Content/image_review/thumbs-down (1).png" alt="">
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="flag">
+                            <img src="~/Content/image_review/flag-2.png" alt="">
+                        </div>
+                        <span id="audiences-name">
+                            <p id="name">Alamriaban</p>
+                            <p id="time-comment">2hrs ago</p>
+                        </span>
+                        <div class="box-rate">
+                            <p id="audiences-rate">8.9</p>
+                        </div>
+                        <h5>Decent</h5>
+                        <p>
+                            This last year has been a huge disappointment as far as movies go. But Nobody has changed all of that. This movie was so much fun, and Bob Odenkirk does a great job as a family man, just trying to live a peaceful life, and then all chaos erupts. The villains are nasty and terrific to watch and the action scenes are a blast! This is a movie worth going back to the theater to see! Bravo!! And I hope there's a sequel.
+                        </p>
+                        <p style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: #818181;">
+                            18 of 20 people liked this review
+                        </p>
+                        <div class="audiences-vote">
+                            <img src="~/Content/image_review/thumbs-up.png" alt="">
+                            <img src="~/Content/image_review/thumbs-down (1).png" alt="">
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="flag">
+                            <img src="~/Content/image_review/flag-2.png" alt="">
+                        </div>
+                        <span id="audiences-name">
+                            <p id="name">Alamriaban</p>
+                            <p id="time-comment">2hrs ago</p>
+                        </span>
+                        <div class="box-rate">
+                            <p id="audiences-rate">8.9</p>
+                        </div>
+                        <h5>Decent</h5>
+                        <p>
+                            I enjoyed it 😁
+
+                            Seriously it's John Wick and Kevin Mccallister kicking ass.
+                        </p>
+                        <p style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: #818181;">
+                            18 of 20 people liked this review
+                        </p>
+                        <div class="audiences-vote">
+                            <img src="~/Content/image_review/thumbs-up.png" alt="">
+                            <img src="~/Content/image_review/thumbs-down (1).png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("Login")
+

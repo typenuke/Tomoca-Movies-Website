@@ -1,0 +1,96 @@
+﻿@using TomocaMoviesWebsite.Models
+@{
+    ViewBag.Title = "ThemChiTiet";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+    TomocaMoviesDataContext db = new TomocaMoviesDataContext();
+    var lst = db.Genres.Where(x => x.GenreID > 0).ToList();
+    var lst1 = db.Directors.Where(x => x.DirectorID > 0).ToList();
+    var lst2 = db.Actors.Where(x => x.ActorID > 0).ToList();
+}
+
+@using (Html.BeginForm("ThemChiTiet", "adminmanager", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend></legend>
+
+        <div class="editor-field">
+            <table>
+                <tr>
+                    <td style="width:125px"><b> Tên Diễn Viên</b></td>
+                    <td>
+                        <select name="Actor" class="form-control">
+                            @foreach (var item in lst2)
+                            {
+                                <option value="@item.ActorID">@item.Name</option>
+                            }
+                        </select>
+                        <a href="~/Admin/ThemDienVien">Thêm Diễn Viên</a>
+                    </td>
+                    <td style="color:red">
+                        @ViewData["Loi1"]
+                        @ViewData["Loi2"]
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:125px"><b>Tên Đạo Diễn</b></td>
+                    <td>
+                        <select name="Director" class="form-control">
+                            @foreach (var item in lst1)
+                            {
+                                <option value="@item.DirectorID">@item.Name</option>
+                            }
+                        </select>
+                        <a href="~/Admin/ThemDienVien">Thêm Đạo Diễn</a>
+                    </td>
+                    <td style="color:red">
+                        @ViewData["Loi1"]
+                        @ViewData["Loi2"]
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:125px"><b>Thể Loại</b></td>
+                    <td>
+                        <select name="Type" class="form-control">
+                            @foreach (var item in lst)
+                            {
+                                <option value="@item.GenreID">@item.GenreName</option>
+                            }
+                            <a href="~/Admin/ThemDienVien">Thêm Thể Loại</a>
+                        </select>
+                    </td>
+                    <td style="color:red">
+                        @ViewData["Loi1"]
+                        @ViewData["Loi2"]
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:125px"><b>Youtube Review</b><br /><b style="margin-left: 15px;">Thêm Tác Giả</b></td>
+                    <td>
+                        <input type="text" name="Author" id="author" class="form-control" />
+                    </td>
+                    <td style="color:red">
+                        @ViewData["Loi1"]
+                        @ViewData["Loi2"]
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:125px"><b style="margin-left: 15px;">Thêm Video</b></td>
+                    <td>
+                        <input type="text" name="Video" id="video" class="form-control" />
+                    </td>
+                    <td style="color:red">
+                        @ViewData["Loi1"]
+                        @ViewData["Loi2"]
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <p>
+            <input type="submit" value="Thêm Chi Tiết" class="btn btn-success" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Trở lại", "DienVien", "Admin")
+</div>

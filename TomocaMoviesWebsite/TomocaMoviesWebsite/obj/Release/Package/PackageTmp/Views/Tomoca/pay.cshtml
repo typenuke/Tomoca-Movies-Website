@@ -1,0 +1,101 @@
+﻿@model IEnumerable<TomocaMoviesWebsite.Models.Ticket>
+@using TomocaMoviesWebsite.Models
+@{
+    TomocaMoviesDataContext db = new TomocaMoviesDataContext();
+    ViewBag.Title = "TicketShow";
+    Layout = "~/Views/Shared/Tomoca_Layout.cshtml";
+}
+@section css{
+    <link href="~/Content/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Style-ticket-show.css" rel="stylesheet" />
+}
+@section scriptstren{
+    <script src="~/Scripts/qrcode.min.js"></script>
+    <script src="~/Scripts/script-detail.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+}
+@foreach (var i in Model)
+{
+    var title = db.MiAnLiens.First(x => x.MalID == i.MalID);
+    <div style="width:auto; height:700px;" onload="onReady()">
+        <div class="bg-image">
+            <div class="bg-color"></div>
+        </div>
+        <div class="bg-ticket">
+            <div class="img-movie">
+                <img width="270px" height="403px" style="border-radius:5px;" src="@title.Movy.Image" alt="">
+            </div>
+            <div class="info-movie">
+                <p id="Movie-name">@title.Movy.Title</p>
+                @{var idloai = db.MoviesGenres.Where(x => x.MovieID == title.MovieID);
+                    List<string> lstg = new List<string>();
+                    Genre g = new Genre();
+                    foreach (var ie in idloai)
+                    {
+                        Genre temp = db.Genres.SingleOrDefault(x => x.GenreID == ie.GenreID);
+                        string tam = temp.GenreName;
+                        lstg.Add(tam);
+                    }
+                }
+                <p id="category">
+                    @for (int ie = 0; ie < lstg.Count(); ie++)
+                    {
+                        <span>@lstg[ie].ToString() • </span>
+                    }
+                    <span id="Show-time">@title.Time.DayOfWeek, @title.Time.ToString("MMMM") @title.Time.ToString("dd") - @title.Time.ToString("HH:mm")</span>
+                </p>
+                <p id="show-time-language">
+                    <img width="15px" src="~/Content/image_review/clock.png" alt="Clock"><span>@title.Movy.TimeOfFilm</span>
+                    <img width="22px" src="~/Content/image_review/volume-1.png" alt="Volumn"><span>English</span>
+                    <img width="20px" src="~/Content/image_review/Group 118 (1).png" alt="CC"><span>Vietnamese</span>
+                </p>
+                <p id="Seat-information">
+                    <span>Seat(s)</span>
+                    <span>Hall</span>
+                    <span>Seat Number</span>
+                    <span style="margin-right:0px">Booking ID</span>
+                <p id="Seat-information-1">
+                    <span style="margin-right: 85px">@i.AmountSeats</span>
+                    <span style="margin-right: 65px;">5</span>
+                    <span style="margin-right: 110px;">@i.Seat</span>
+                    <span>@i.TicketID</span>
+                </p>
+                </p>
+                <p class="info-cinema" style="padding-left: 20px;">
+                    @{ var bn = db.Theaters.First(x => x.TypeID == title.MovieTheater.TypeID);}
+                    <img width="60px;" src="@bn.Logo" alt="">
+                    <span id="info-cinema-name">@title.MovieTheater.TheaterName</span>
+                <p id="info-address">@title.MovieTheater.Address</p>
+                </p>
+            </div>
+            <div class="border-dash">
+                <div class="qr-code">
+                    <div class="format-qrcode" id="id_qrcode"></div>
+                    <p style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 114.7%;
+          padding-top:15px;
+          width:165px;
+          color: #999999;">Give this code to the staffs</p>
+                    <div class="format-contact">
+                        <img width="15px" src="~/Content/image_review/mail.png" alt="">
+                        <a href="#">Send to Email</a>
+                        <br>
+                        <br>
+                        <img width="15px" src="~/Content/image_review/facebook.png" alt="">
+                        <a href="#">Send to Facebook</a>
+                        <br>
+                    </div>
+                    <button class="button-back-to-home"><a href="/">Back to Home page</a></button>
+                </div>
+            </div>
+            <div class="circle"></div>
+        </div>
+    </div>
+}
+
+
+
+

@@ -1,0 +1,360 @@
+﻿@model IEnumerable<TomocaMoviesWebsite.Models.Movy>
+@using TomocaMoviesWebsite.Models
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/Tomoca_Layout.cshtml";
+}
+@{
+    TomocaMoviesDataContext db = new TomocaMoviesDataContext();
+    var count = 1;
+    var count2 = 1;
+    var countn2 = 1;
+    var countbanner = 1;
+    var stR = "grid-container blur itemgrid";
+    var strq = "grid-item item2 bg-itemreviews";
+    var str2 = "gr-content1 con-item";
+    var news = db.News.OrderByDescending(a => a.CreateTime).Take(1).ToList();
+    var hotnews = db.News.OrderByDescending(a => a.ReadCount).Take(3).ToList();
+    var news2 = db.News.OrderByDescending(a => a.CreateTime).Take(4).ToList();
+    var banner = db.Movies.OrderByDescending(a => a.MovieID).Take(5).ToList();
+    var banner2 = (from a in banner select a.Banner).ToList();
+}
+@section css {
+    <link rel="icon" href="./img/favicon.ico">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="~/Content/csstriet.css" rel="stylesheet" />
+}
+
+@section scriptsduoi {
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/scripcuatriet.js"></script>
+}
+<style>
+    .row {
+        padding-top: 0px !important;
+    }
+
+    .MultiCarousel {
+        height: 300px !important;
+    }
+
+    .bookticket {
+        display: none;
+        position: absolute;
+        width: 149px;
+        height: 110px;
+        margin: 0;
+        margin-top: -120px;
+        background-color: #FFFFFF;
+        transition: 0.5s;
+    }
+
+    .item {
+        height: 280px !important;
+        width: 150px !important;
+        margin: 0 8px 0 8px !important;
+        padding: 0 !important;
+    }
+
+    .pad15 {
+        width: 148.2px;
+        height: 265.2px;
+        padding: 0px !important;
+        background-color: #FFF !important;
+        padding: 0;
+    }
+
+        .pad15 img {
+            width: 148.2px;
+            height: 220.62px;
+        }
+
+        .pad15 p {
+            height: 40px;
+            padding-top: 5px;
+            color: #000;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 16px;
+        }
+
+    .btnn {
+        background-color: #F27A17;
+        height: 265px;
+        width: 20px;
+        border: none;
+        margin-top: -5px;
+        font-size: 16px;
+    }
+
+    .bookticket button {
+        width: 134px;
+        height: 26px;
+        background: #F27A17;
+        border-radius: 2px;
+        border: none;
+        font-family: Pragati Narrow;
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    .pad15:hover .bookticket {
+        display: block;
+    }
+
+    #search-index {
+        width: 38px;
+        font-size: 13px;
+        font-weight: bold;
+        color: #FFF;
+        border: none;
+        background-color: transparent;
+    }
+    .search-index {
+        position:absolute;
+        background-color: #FF7300;
+        border-radius: 10px;
+        width: 38px;
+        height: 20px;
+        margin-top: -25px;
+        margin-right: 5px;
+        margin-left: 220px;
+    }
+
+</style>
+<!--image slider start-->
+<div class="banner">
+    <div class="slider">
+        <div class="slides">
+            <!--radio buttons start-->
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+            <input type="radio" name="radio-btn" id="radio4">
+            <input type="radio" name="radio-btn" id="radio5">
+            <!--radio buttons end-->
+            <!--slide images start-->
+            @foreach (var item in banner2)
+            {
+                if (countbanner == 1)
+                {
+                    <div class="slide first">
+                        <img src="@item" alt="">
+                    </div>
+                }
+                else
+                {
+                    <div class="slide">
+                        <img src="@item" alt="">
+                    </div>
+                }
+                countbanner++;
+            }
+            <!--slide images end-->
+            <!--automatic navigation start-->
+            <div class="navigation-auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+                <div class="auto-btn4"></div>
+                <div class="auto-btn5"></div>
+            </div>
+            <!--automatic navigation end-->
+        </div>
+        <!--manual navigation start-->
+        <div class="navigation-manual">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+            <label for="radio4" class="manual-btn"></label>
+            <label for="radio5" class="manual-btn"></label>
+        </div>
+        <!--manual navigation end-->
+    </div>
+    <!--search-->
+    <div class="h-search">
+        <div class="img-s">
+            <div class="bd-imgs">
+                <img src="https://img.icons8.com/android/12/000000/search.png" />
+            </div>
+        </div>
+        @using (Html.BeginForm("MovieReview", "Tomoca"))
+        {
+            @Html.ValidationSummary(true)
+            <!--<input type="text" value="" placeholder="Enter City + State, ZIP Code, or Movie" name="search">-->
+            @Html.TextBox("search", null, new { @class = "inputtimkiem", placeholder = "Enter City + State, ZIP Code, or Movie" })
+            <div class="bd-search">
+                <div class="search-index">
+                    <button type="submit" id="search-index">GO</button>
+                </div>
+            </div>
+        }
+    </div>
+    <!--end search-->
+    <!--start ticket-->
+    <div class="btn-ticket">
+        <p><a href="~/Tomoca/Tickets"><img src="~/Content/image/ticket.png" alt=""></a></p>
+    </div>
+</div>
+<!--start content-->
+<div class="content" style="margin-bottom: 45px">
+    <div class="moviescommingsoon">
+        <div class="titleMovies">
+            <div class="ptitle">
+                <p id="titlename">MOVIES COMMING SOON</p>
+                <a style="color: white;" href="~/Tomoca/MovieReview" id="seeall">See All</a>
+            </div>
+            <div class="vectorshowall">
+                <a href="~/Tomoca/MovieReview"><img src="~/Content/image/seeall.png" alt=""></a>
+            </div>
+        </div>
+        <div class="listmovies">
+            <div class="row">
+                <div class="MultiCarousel" data-items="1,2,4,5" data-slide="1" id="MultiCarousel" data-interval="1000">
+                    <div class="MultiCarousel-inner">
+                        @foreach (var i in Model)
+                        {
+                            <div class="item">
+                                <div class="pad15">
+                                    <img src="@i.Image">
+                                    <p>@i.Title</p>
+                                    <div class="bookticket">
+                                        <p>@i.Title</p>
+                                        <button style="background: #E4E4E4; margin-bottom: 5px;"><a  href="~/Tomoca/Detail/@i.MovieID" style="color:#5C5C5C !important;">DETAIL</a></button><br />
+                                        <button><a href="~/Tomoca/Tickets">BOOKTICKET  ></a></button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <button class="btnn btn-primary leftLst"><</button>
+                    <button class="btnn btn-primary rightLst">></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="imgBanner" style="margin-top:15px;">
+        <div class="contentbanner blur">
+            <div class="ct-banner">
+                <p style="font-size: 14px; padding-top: 3px;" id="til">UPCOMMING TITLE</p>
+                <p style="font-size: 14px; font-weight: 500;">007: NO TIME TO DIE</p>
+                <p>James Bond has left active service. His peace is short-lived when Felix Leiter, an old friend from the CIA, turns up asking for help, leading Bond onto the trail of a mysterious villain armed with dangerous new technology.</p>
+                <p>__________</p>
+                <p style="margin-bottom: 30px;">Cast: Daniel Craig, Léa Seydoux, Ana de Armas, Christoph Waltz, Rami Malek...</p>
+                <a class="read-more" style=" border: 1px solid #FFF; padding: 8px 14px 8px 14px;" href="~/Tomoca/MovieReview" >Read more</a>
+            </div>
+        </div>
+        <div class="yyq">
+            <img src="~/Content/image/Rectangle 41.png" alt="">
+        </div>
+    </div>
+    <div class="review">
+        <div class="titleMovies">
+            <div class="ptitle">
+                <p id="titlename">MOVIES REVIEW</p>
+                <a style="color: white;" href="~/Tomoca/MovieReview" id="seeall">See All</a>
+            </div>
+            <div class="vectorshowall">
+                <a href="~/Tomoca/MovieReview"><img src="~/Content/image/seeall.png" alt=""></a>
+            </div>
+        </div>
+        <div class="grid-wap reviesitem aodieu">
+            @foreach (var i in Model)
+            {
+                var stRi = stR + count;
+                var strqe = strq + count;
+                <div style=" background-image: url( @i.Image ); border-radius: 5px;" class="@stRi.ToString()">
+                    <div style="backdrop-filter:blur(30px);" class="grid-container">
+                        <div class="grid-item item1">
+                            <p>@i.Title</p>
+                        </div>
+                        <div class="@strqe.ToString()">
+                            <img style="width: 162.31px; height: 237.37px; border-radius: 5px" src="@i.Image" />
+                        </div>
+                        <div style="padding-top:25px;" class="grid-item item3 item34">
+                            <img src="~/Content/image/imdb.png">
+                            <p style="font-size:18px; font-weight:500;">@i.IMDb</p>
+                        </div>
+                        <div style="padding-top:25px;" class="grid-item item4 item34">
+                            <img src="~/Content/image/robbot.png">
+                            <p style="font-size:18px; font-weight:500;">@i.Tomatometer</p>
+                        </div>
+                    </div>
+                </div>
+                count++;
+                if (count == 4)
+                {
+                    break;
+                }
+            }
+        </div>
+    </div>
+    <div class="news">
+        <div class="titleMovies">
+            <div class="ptitle">
+                <p id="titlename">NEWS</p>
+                <a style="color: white;" href="~/Tomoca/MoviesLatestNews" id="seeall">See All</a>
+            </div>
+            <div class="vectorshowall">
+                <a href="~/Tomoca/MoviesLatestNews"><img src="~/Content/image/seeall.png" alt=""></a>
+            </div>
+        </div>
+        <div class="lastnews">
+            <h3>Last News</h3>
+            <div class="grid-newt">
+                @foreach (var item in news)
+                {
+                    <a class="grid-connewt itemnewst1" href="~/Tomoca/NewsDetail/@item.NewsID">
+                        <!--grid news left-->
+                        <div class="grid-content-new">
+                            <div class="gr-content con-item1">
+                                <img src="@item.Photo" alt="" height="222px" width="335px">
+                            </div>
+                            <div class="gr-content con-item2">
+                                <h3>@item.Title</h3>
+                                <p>@item.Content1</p>
+                            </div>
+                        </div>
+                    </a>
+                    break;
+                }
+                <div class="grid-connewt itemnewst2">
+                    <div class="grid-content-new1">
+                        @foreach (var item in hotnews)
+                        {
+                            var stRi = str2 + count2 + "1";
+                            <a class="@stRi.ToString()" href="~/Tomoca/NewsDetail/@item.NewsID">
+                                <img src="@item.Photo" alt="">
+                                <p>@item.Title</p>
+                            </a>
+                            count2++;
+                            if (count2 == 4)
+                            {
+                                break;
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-wap margin-b">
+            @foreach (var item in news2)
+            {
+                if (countn2 > 1)
+                {
+                    string strn2 = "grid-container itemgrid" + countn2 + "1 bg-w";
+                    <a class="@strn2.ToString()" style="height: 250px" href="~/Tomoca/NewsDetail/@item.NewsID">
+                        <img src="@item.Photo" style="width:250px;">
+                        <p style=" padding-right: 20px; text-align: center;">@item.Title</p>
+                    </a>
+                }
+                countn2++;
+            }
+        </div>
+    </div>
+</div>
+<!--end content Html.Partial("login")-->
+@Html.Partial("Login")

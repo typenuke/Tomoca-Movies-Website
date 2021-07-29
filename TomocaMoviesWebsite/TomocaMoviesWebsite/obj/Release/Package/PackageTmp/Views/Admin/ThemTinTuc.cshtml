@@ -1,0 +1,33 @@
+﻿@model TomocaMoviesWebsite.Models.New
+
+@using TomocaMoviesWebsite.Models
+@{
+    ViewBag.Title = "ThemTinTuc";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+@{ var ngayhientai = DateTime.Now;
+    TomocaMoviesDataContext db = new TomocaMoviesDataContext();
+    var username = db.Users.First(x => x.Username == @Session["Username"].ToString());
+}
+<fieldset>
+    <legend>Upload multi file</legend>
+    @using (Html.BeginForm("ThemTinTuc", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="files" required /><br />
+        <label>Chọn file: </label><br />
+        @Html.TextBoxFor(model => model.Title, null, new { @class = "form-control" })
+        @Html.TextBoxFor(model => model.CreateTime, new { @class = "form-control", @Value=ngayhientai.ToString(), @readonly="readonly" })
+        @Html.TextBoxFor(model => model.UserID, new { @class = "form-control", @Value=username.UserID.ToString(), @readonly = "readonly" })
+        @Html.TextBoxFor(model => model.ReadCount, new { @class = "form-control", @Value=0, @readonly = "readonly" })
+        <label>Chọn file: </label><br />
+        @Html.TextBoxFor(model => model.Content1, null, new { @class = "form-control" })
+        <input type="file" name="files" required /><br />
+        <label>Chọn file: </label><br />
+        @Html.TextBoxFor(model => model.Content2, null, new { @class = "form-control" })
+        <input type="file" name="files" required /><br />
+        <input type="submit" value="Upload" />
+    }
+</fieldset>
+<div>
+    @Html.ActionLink("Back to List", "TinTuc")
+</div>

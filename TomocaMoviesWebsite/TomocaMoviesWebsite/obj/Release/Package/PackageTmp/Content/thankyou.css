@@ -1,0 +1,218 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #E5E5E5;
+}
+
+.zonene {
+    background: #F6F6F6;
+    transition: all 0.3s linear;
+}
+
+
+.border-zone {
+    background: #F6F6F6;
+    border-radius: 4px;
+    border:1px solid #bbb;
+    transition: all 0.3s linear;
+}
+
+.ticket-grid {
+    display: grid;
+    grid-template-columns: 500px 540px;
+    grid-template-rows: 1fr;
+    justify-content: center;
+}
+
+.thankyou {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+/* Movie info */
+
+.movie-inf {
+    background-color: #F6F6F6;
+}
+
+.inf-table {
+    border-radius: 4px;
+    border:1px solid #bbb;
+    margin-left: auto;
+    margin-right: auto;
+	background-color: #F3F3F3;
+}
+
+.yourbook {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 114.7%;
+    color: #5C5C5C;
+    padding-left: 4%;
+}
+
+.please {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #818181;
+    padding-left: 4%;
+}
+
+.img-zone {
+    width: 134px;
+    text-align: center;
+}
+
+.inf-zone {
+    width: 285px;
+    line-height: 3px;
+}
+
+.movie-img {
+    width: 94px;
+    height: 140px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.movie-name {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    color: #263238;
+    opacity: 0.8;
+}
+
+.movie-type {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #5C5C5C;
+    opacity: 0.8;
+}
+
+.movie-length {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #5C5C5C;
+    opacity: 0.8;
+}
+
+.movie-day {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    color: #5C5C5C;
+}
+
+.movie-place {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    color: #7D7D7D;
+}
+/* Payment */
+
+.payment {
+    background-color: #F6F6F6;
+    padding-bottom: 5%;
+}
+
+.payment-table {
+    border-radius: 4px;
+    border:1px solid #bbb;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-zone {
+    width: 300px;
+}
+
+.logo-zone {
+    width: 119px;
+    text-align: center;
+}
+
+tr.border_bottom td {
+    border-bottom: 1px solid #bbb;
+}
+
+.credit-card {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: #5C5C5C;
+}
+
+.direct-payment {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 114.7%;
+    color: #818181;
+}
+/* Credit inf */
+
+.row1 {
+    margin-top: 10px;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.col-50 {
+    margin-right: 5px;
+}
+
+#cardnumber, #cvc, #mmyy {
+    border:1px solid #bbb;
+    border-radius: 4px;
+    height: 47px;
+}
+
+#cardnumber {
+    width: 279px;
+}
+
+#cvc {
+    width: 70px;
+    text-align: center;
+}
+
+#mmyy {
+    width: 90px;
+    text-align: center;
+}
+
+.bt-pay {
+    width: 61px;
+    height: 32px;
+    background: #FF7300;
+    border-radius: 3px;
+    border: 0;
+    margin-top: 10px;
+    color: #F6F6F6;
+}
+
+/* Tickets and amount to pay */
+
+.ticket-and-amount {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #5C5C5C;
+    opacity: 0.8;
+}
+
+.tickets, .amount {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    color: #263238;
+    opacity: 0.8;
+}

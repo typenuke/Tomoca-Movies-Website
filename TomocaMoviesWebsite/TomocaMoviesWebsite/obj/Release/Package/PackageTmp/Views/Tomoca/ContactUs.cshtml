@@ -1,0 +1,96 @@
+﻿@model TomocaMoviesWebsite.Models.SendMailDto
+@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/Tomoca_Layout.cshtml";
+}
+<style>
+    #mapCanvas {
+        height: 500px;
+        width: 500px;
+    }
+</style>
+@section css{
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/contact.css" rel="stylesheet" />
+}
+@section jsFooter{
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH7iE7Q7T6GpxslNpQAChnD_vwlnApKKk&callback=initMap&libraries=&v=weekly"
+            async></script>
+    <script>
+        function initMap() {
+            const uluru = { lat: 10.795121, lng: 106.721759 };
+            const map = new google.maps.Map(document.getElementById("mapCanvas"), {
+                zoom: 18,
+                center: uluru,
+            });
+            const contentString =
+                '<div id="content">' +
+                '<div id="siteNotice">' +
+                "</div>" +
+                '<h1 id="firstHeading" class="firstHeading">Tomoca</h1>' +
+                '<div id="bodyContent">' +
+                "<p><b>Tomoca</b>, là web phim chỉ dành cho người lớn, và không dành cho con nít nhé !!! :)</p>" +
+                '<p>P/s: Ghé thăm Tomoca tại địa điểm trên google map này và book vé xem phim tại web này nhé <a href="http://www.tomoca.xyz">http://www.tomoca.xyz</a> ' +
+                "(last visited July 08, 2021).</p>" +
+                "</div>" +
+                "</div>";
+            const infowindow = new google.maps.InfoWindow({
+                content: contentString,
+            });
+            const marker = new google.maps.Marker({
+                position: uluru,
+                map,
+                title: "Tomoca(Address)",
+            });
+            marker.addListener("click", () => {
+                infowindow.open({
+                    anchor: marker,
+                    map,
+                    shouldFocus: false,
+                });
+            });
+        }
+
+    </script>
+}
+@using (Html.BeginForm())
+{
+    <div class="grid-contact">
+        <div class="white-zone">
+            <h2 class="contactus">Contact</h2>
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control contact-box", placeholder = "Your full name" })
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control contact-box", placeholder = "Enter your email address", type = "email" })
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Subject)
+                @Html.TextBoxFor(m => m.Subject, new { @class = "form-control contact-box", placeholder = "Enter your subject" })
+                @Html.ValidationMessageFor(m => m.Subject)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Message)
+                @Html.TextAreaFor(m => m.Message, new { @class = "form-control mess-box", placeholder = "We are hearing you" })
+                @Html.ValidationMessageFor(m => m.Message)
+            </div>
+            <button type="submit" value="Send Message" class="btn btn-primary btn-contact">Send Message</button>
+        </div>
+        <div style="padding-left:81px; padding-right:80px" class="white-zone">
+            <h2 class="contactus">Info</h2>
+            <img style="width: 200.17px; height: 21px; margin-top:23px; margin-bottom:23px" src="~/Content/image/Group 119.png" />
+            <img style="width: 184.24px; height: 21px;" src="~/Content/image/Group 120.png" />
+            <img style="width: 238.62px; height: 32px; margin-top: 23px; margin-bottom: 23px " src="~/Content/image/Group 121.png" />
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d244.96429514588533!2d106.70703169372443!3d10.778439398928933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f0ffb29e4bf%3A0x2c8c03620f826a3f!2sTomoca!5e0!3m2!1svi!2s!4v1626623166658!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+    </div>
+
+}
+<!--end content Html.Partial("login")-->
+@Html.Partial("Login")

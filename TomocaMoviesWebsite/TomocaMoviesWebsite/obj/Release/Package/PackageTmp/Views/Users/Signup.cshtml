@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Signup";
+    Layout = "~/Views/Shared/Tomoca_Layout.cshtml";
+}
+@section css{
+    <link href="~/Content/loginsignup.css" rel="stylesheet" />
+}
+@model TomocaMoviesWebsite.Models.User
+@using (Html.BeginForm("Signup", "Users", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <div class="signup">
+        <h3>Signing Up</h3>
+        <form>
+            <div class="grid-signup">
+                <div class="signup-item-bg signup-item1 ">
+                    <p>User Name</p>
+                    @*<input type="text" name="username" value="" placeholder="Choose your user name">*@
+                    @Html.TextBox("TenDN", null, new { @class = "forcontrol", placeholder = "Choose your user name" })
+                    @ViewData["Loi2"]
+                    @ViewData["Loi"]
+                </div>
+                <div class="signup-item-bg signup-item2">
+                    <div class="fistname">
+                        <p>First Name</p>
+                        @Html.TextBox("TenDau", null, new { @class = "forcontrol", placeholder = "Aa" })
+                        @ViewData["Loi"]
+                        @*<input type="text" name="firstname" value="" placeholder="Aa">*@
+                    </div>
+                    <div class="lastname">
+                        <p>Last Name</p>
+                        @*<input type="text" name="lastname" value="" placeholder="Aa">*@
+                        @Html.TextBox("TenCuoi", null, new { @class = "forcontrol", placeholder = "Aa" })
+                        @ViewData["Loi12"]
+                    </div>
+                </div>
+                <div class="signup-item-bg signup-item3">
+                    <p>Password</p>
+                    @*<input type="password" name="password" value="" placeholder="Enter your Tomoca password">*@
+                    @Html.Password("MatKhau", null, new { @class = "forcontrol", placeholder = "Enter your Tomoca password" })
+                    @ViewData["Loi1"];
+                </div>
+                <div class="signup-item-bg signup-item4">
+                    <p>Confirm Password</p>
+                    @*<input type="password" name="repassword" value="" placeholder="Re-enter your password">*@
+                    @Html.Password("MatKhauNhapLai", null, new { @class = "forcontrol", placeholder = "Re-enter your password" })
+                    @ViewData["Loi12"]
+                </div>
+                <div class="signup-item-bg signup-item5">
+                    <p>Email address</p>
+                    @*<input type="email" name="email" value="" placeholder="Enter your email">*@
+                    @Html.TextBox("email", null, new { @class = "forcontrol", placeholder = "Enter your email" })
+                    @ViewData["Loi2"]
+                    @ViewData["Loi2e"]
+                </div>
+                <div class="signup-item-bg signup-item6">
+                    <p>Phone Number</p>
+                    @*<input type="number" name="phone" value="" placeholder="Enter your phone number">*@
+                    @Html.TextBox("sodienthoai", null, new { @class = "forcontrol", placeholder = "Enter your phone number" })
+                    @ViewData["Loi3"]
+                    @ViewData["Loi3e"]
+                </div>
+            </div>
+            <button type="submit" style="margin-top: 54px;">Finish</button><br>
+            <button type="reset" style="background-color:#F0F0F0; border: 1px solid #BEBEBE; color: #5C5C5C;"><a style="color:#5C5C5C;" href="~/Users/Login">Return to login</a></button>
+        </form>
+    </div>
+}
+

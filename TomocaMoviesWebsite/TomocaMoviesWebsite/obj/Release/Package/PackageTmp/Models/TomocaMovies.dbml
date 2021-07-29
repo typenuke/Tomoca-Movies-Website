@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DBTomocaUpdate" Class="TomocaMoviesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-05M8TQE\LOCAL;Initial Catalog=DBTomocaUpdate;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DBTomocaUpdateConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Actors" Member="Actors">
+    <Type Name="Actor">
+      <Column Name="ActorID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Nationality" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Birth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Actor_MovieActor" Member="MovieActors" ThisKey="ActorID" OtherKey="ActorID" Type="MovieActor" />
+    </Type>
+  </Table>
+  <Table Name="dbo.YoutubeReviews" Member="YoutubeReviews">
+    <Type Name="YoutubeReview">
+      <Column Name="YoutubeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Author" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Video" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="YoutubeReview_ReviewOfMovie" Member="ReviewOfMovies" ThisKey="YoutubeID" OtherKey="YoutubeID" Type="ReviewOfMovie" />
+    </Type>
+  </Table>
+  <Table Name="dbo.City" Member="Cities">
+    <Type Name="City">
+      <Column Name="CityID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="City" Member="City1" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="City_MovieTheater" Member="MovieTheaters" ThisKey="CityID" OtherKey="CityID" Type="MovieTheater" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comments" Member="Comments">
+    <Type Name="Comment">
+      <Column Name="CommentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MovieID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Subject" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Movy_Comment" Member="Movy" ThisKey="MovieID" OtherKey="MovieID" Type="Movy" IsForeignKey="true" />
+      <Association Name="User_Comment" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Directors" Member="Directors">
+    <Type Name="Director">
+      <Column Name="DirectorID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Nationality" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Birth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Director_MovieDirector" Member="MovieDirectors" ThisKey="DirectorID" OtherKey="DirectorID" Type="MovieDirector" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Genres" Member="Genres">
+    <Type Name="Genre">
+      <Column Name="GenreID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GenreName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Genre_MoviesGenre" Member="MoviesGenres" ThisKey="GenreID" OtherKey="GenreID" Type="MoviesGenre" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MiAnLien" Member="MiAnLiens">
+    <Type Name="MiAnLien">
+      <Column Name="MalID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MovieID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TheaterID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="A4" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="A5" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="A6" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="A7" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="A8" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="A9" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="A10" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="A11" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="A12" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="A13" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="B2" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="B3" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="B4" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="B5" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="B6" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="B7" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="B8" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="B9" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="B10" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="B11" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="B12" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="B13" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="B14" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="B15" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="C2" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="C3" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="C4" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="C5" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="C6" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="C7" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="C8" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="C9" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="C10" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="C11" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="C12" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="C13" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="C14" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="C15" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="D2" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="D3" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="D4" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="D5" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="D6" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="D7" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="D8" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="D9" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="D10" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="D11" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="D12" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="D13" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="D14" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="D15" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="E2" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="E3" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="E4" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="E5" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="E6" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="E7" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="E8" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="E9" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="E10" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="E11" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="E12" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="E13" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="E14" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="E15" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="F1" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="F2" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="F3" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="F4" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="F5" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="F6" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="F7" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="F8" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="F9" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="F10" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="F11" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="F12" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="F13" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="F14" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="F15" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="F16" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Association Name="MiAnLien_Ticket" Member="Tickets" ThisKey="MalID" OtherKey="MalID" Type="Ticket" />
+      <Association Name="Movy_MiAnLien" Member="Movy" ThisKey="MovieID" OtherKey="MovieID" Type="Movy" IsForeignKey="true" />
+      <Association Name="MovieTheater_MiAnLien" Member="MovieTheater" ThisKey="TheaterID" OtherKey="TheaterID" Type="MovieTheater" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MovieActor" Member="MovieActors">
+    <Type Name="MovieActor">
+      <Column Name="MovieID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ActorID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Actor_MovieActor" Member="Actor" ThisKey="ActorID" OtherKey="ActorID" Type="Actor" IsForeignKey="true" />
+      <Association Name="Movy_MovieActor" Member="Movy" ThisKey="MovieID" OtherKey="MovieID" Type="Movy" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MovieDirector" Member="MovieDirectors">
+    <Type Name="MovieDirector">
+      <Column Name="MovieID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DirectorID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Director_MovieDirector" Member="Director" ThisKey="DirectorID" OtherKey="DirectorID" Type="Director" IsForeignKey="true" />
+      <Association Name="Movy_MovieDirector" Member="Movy" ThisKey="MovieID" OtherKey="MovieID" Type="Movy" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Movies" Member="Movies">
+    <Type Name="Movy">
+      <Column Name="MovieID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Plot" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReleaseYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IMDb" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Tomatometer" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="AudienceScore" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Trailer" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="TimeOfFilm" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Banner" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ComingSoon" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Movy_Comment" Member="Comments" ThisKey="MovieID" OtherKey="MovieID" Type="Comment" />
+      <Association Name="Movy_MiAnLien" Member="MiAnLiens" ThisKey="MovieID" OtherKey="MovieID" Type="MiAnLien" />
+      <Association Name="Movy_MovieActor" Member="MovieActors" ThisKey="MovieID" OtherKey="MovieID" Type="MovieActor" />
+      <Association Name="Movy_MovieDirector" Member="MovieDirectors" ThisKey="MovieID" OtherKey="MovieID" Type="MovieDirector" />
+      <Association Name="Movy_MoviesGenre" Member="MoviesGenres" ThisKey="MovieID" OtherKey="MovieID" Type="MoviesGenre" />
+      <Association Name="Movy_ReviewOfMovie" Member="ReviewOfMovies" ThisKey="MovieID" OtherKey="MovieID" Type="ReviewOfMovie" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MoviesGenres" Member="MoviesGenres">
+    <Type Name="MoviesGenre">
+      <Column Name="MovieID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GenreID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Genre_MoviesGenre" Member="Genre" ThisKey="GenreID" OtherKey="GenreID" Type="Genre" IsForeignKey="true" />
+      <Association Name="Movy_MoviesGenre" Member="Movy" ThisKey="MovieID" OtherKey="MovieID" Type="Movy" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MovieTheater" Member="MovieTheaters">
+    <Type Name="MovieTheater">
+      <Column Name="TheaterID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TheaterName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="CityID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="MovieTheater_MiAnLien" Member="MiAnLiens" ThisKey="TheaterID" OtherKey="TheaterID" Type="MiAnLien" />
+      <Association Name="City_MovieTheater" Member="City" ThisKey="CityID" OtherKey="CityID" Type="City" IsForeignKey="true" />
+      <Association Name="Theater_MovieTheater" Member="Theater" ThisKey="TypeID" OtherKey="TypeID" Type="Theater" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.News" Member="News">
+    <Type Name="New">
+      <Column Name="NewsID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Content1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Image2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Content2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Photo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadCount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="User_New" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReviewOfMovie" Member="ReviewOfMovies">
+    <Type Name="ReviewOfMovie">
+      <Column Name="MovieID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="YoutubeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Movy_ReviewOfMovie" Member="Movy" ThisKey="MovieID" OtherKey="MovieID" Type="Movy" IsForeignKey="true" />
+      <Association Name="YoutubeReview_ReviewOfMovie" Member="YoutubeReview" ThisKey="YoutubeID" OtherKey="YoutubeID" Type="YoutubeReview" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Theater" Member="Theaters">
+    <Type Name="Theater">
+      <Column Name="TypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Theater" Member="Theater1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Logo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Theater_MovieTheater" Member="MovieTheaters" ThisKey="TypeID" OtherKey="TypeID" Type="MovieTheater" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ticket" Member="Tickets">
+    <Type Name="Ticket">
+      <Column Name="TicketID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Money" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Seat" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Vip" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Normal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AmountSeats" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="MiAnLien_Ticket" Member="MiAnLien" ThisKey="MalID" OtherKey="MalID" Type="MiAnLien" IsForeignKey="true" />
+      <Association Name="User_Ticket" Member="User" ThisKey="UserID" OtherKey="UserID" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Permission" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="User_Comment" Member="Comments" ThisKey="UserID" OtherKey="UserID" Type="Comment" />
+      <Association Name="User_New" Member="News" ThisKey="UserID" OtherKey="UserID" Type="New" />
+      <Association Name="User_Ticket" Member="Tickets" ThisKey="UserID" OtherKey="UserID" Type="Ticket" />
+    </Type>
+  </Table>
+</Database>

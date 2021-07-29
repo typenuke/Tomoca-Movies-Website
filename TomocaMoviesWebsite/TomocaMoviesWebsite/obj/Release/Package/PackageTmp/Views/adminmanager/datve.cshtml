@@ -1,0 +1,67 @@
+﻿@model IEnumerable<TomocaMoviesWebsite.Models.Ticket>
+@using TomocaMoviesWebsite.Models
+@{
+    ViewBag.Title = "datve";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+    TomocaMoviesDataContext db = new TomocaMoviesDataContext();
+}
+<div class="row">
+    <div class="col-10"><h1 class="h3 mb-2 text-gray-800">Danh sách khách hàng đặt vé</h1></div>
+</div>
+<br />
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Danh sách</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Khách hàng</th>
+                        <th>Phim</th>
+                        <th>Ghế</th>
+                        <th>Giá vé</th>
+                        <th>Rap phim</th>
+                        <th style="text-align: center">Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var i in Model)
+                    {
+                        <tr>
+                            <td>@i.User.Username</td>
+                            @{ var ie = db.Movies.First(x => x.MovieID == i.MiAnLien.MovieID);}
+                            <td>@ie.Title</td>
+                            <td>@i.Seat</td>
+                            <td>@i.Money</td>
+                            <td>@i.MiAnLien.MovieTheater.TheaterName</td>
+                            <td style="width: 14%; text-align: center">
+                                <a href="@Url.Action("chitietve", new { id = i.TicketID })" class="btn btn-primary btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-edit"></i>
+                                    </span>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    function ConfirmXoa() {
+        if (confirm("Bạn có chắc muốn xóa tài khoản này không ?"))
+            return true;
+        else
+            return false;
+    }
+        FocusEvent = false;
+        checked = false;
+</script>
+
+
+

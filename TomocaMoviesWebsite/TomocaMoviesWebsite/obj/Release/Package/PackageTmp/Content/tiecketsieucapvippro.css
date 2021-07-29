@@ -1,0 +1,598 @@
+﻿.ticket-top {
+    margin: 0 auto;
+    width: 1079px;
+    height: 155px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ticket {
+    width: 76px;
+    height: 98.62px;
+    background: #FFFFFF;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin: 0 6px 0 6px;
+    cursor: pointer;
+}
+
+.item-day {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    height: 65.62px;
+    background: #C4C4C4;
+    margin-top: 0;
+    text-align: center;
+}
+
+
+.item-day-l {
+    height: 31px;
+    margin: 0px;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 14px;
+    color: #C4C4C4;
+    padding-top: 8px;
+}
+
+.ticket:hover .item-day {
+    background-color: #FF7300;
+}
+
+.ticket:hover .item-day-l {
+    color: #FF7300;
+}
+
+.day-big {
+    width: 41.53px;
+    height: 34px;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 114.7%;
+    color: #FFFFFF;
+}
+
+.day-small {
+    width: 30.65px;
+    height: 16px;
+    font-family: Roboto;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+.clicked-day {
+    background-color: #FF7300;   
+}
+
+.clicked-day-l {
+    color: #FF7300;
+}
+
+.nowplaying {
+    margin-top: 100px;
+    margin: auto;
+    width: 100%;
+    height: 34px;
+    list-style: none;
+    float: left;
+}
+
+.nowplaying ul {
+    list-style: none;
+    display: flex;
+    margin: 0px;
+}
+
+.nowplaying-count {
+    width: 550px ;
+    margin: 5px;
+    font-family: 'Book Antiqua';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    color: #FF7300;
+    margin: 20px 0 0 230px;
+}
+.crossn {
+    margin: 25px 0;
+    height: 0px;
+    width: 360px;
+    opacity: 0.5;
+    border: 0.5px solid #C4C4C4;
+    transform: rotate(0.28deg);
+}
+.container{
+    margin-top: 50px;
+}
+.MultiCarousel {
+    width: 1079px;
+    margin: auto;
+    overflow: hidden;
+    padding: 15px;
+    position: relative;
+}
+
+.MultiCarousel .MultiCarousel-inner {
+    transition: 1s ease all;
+    float: left;
+}
+
+.MultiCarousel .MultiCarousel-inner .item {
+    float: left;
+}
+
+.MultiCarousel .MultiCarousel-inner .item>div {
+    text-align: center;
+    margin: 10px;
+    background: #f1f1f1;
+    color: #666;
+}
+
+.MultiCarousel .leftLst,
+.MultiCarousel .rightLst {
+    position: absolute;
+    top: calc(20% - 19px);
+}
+
+.MultiCarousel .leftLst {
+    left: 0;
+}
+
+.MultiCarousel .rightLst {
+    right: 0;
+}
+
+.MultiCarousel .leftLst.over,
+.MultiCarousel .rightLst.over {
+    pointer-events: none;
+    background: #ccc;
+}
+
+.row {
+    margin-left: 30px !important;
+    margin: auto;
+    height: 370px;
+    width: 1050px !important;
+}
+
+.item {
+    height: 365px;
+    width: 209px !important;
+    margin: 5px;
+}
+.anchoape1 {
+    height: 312px;
+    width: 209px !important;
+    margin: 8px 0 0 0px !important;
+    
+}
+
+.anchoape2 {
+    display: none;
+}
+
+.anchoape3 {
+    display: block !important;
+    height: 312px;
+    width: 209px !important;
+    margin: 0px 0 10px -10px !important;
+}
+.pad15 {
+    margin-top: 30px;
+}
+
+.font-pad {
+    font-family: Pragati Narrow;
+    font-style: normal;
+    font-weight: bold;
+    color: #5C5C5C;
+    opacity: 0.8;
+    font-size: 12px;
+}
+
+.pad151 {
+    background-color: transparent !important;
+    width: 164px;
+    height: 35px;
+    
+    text-align: center;
+}
+
+.pad152 {
+    display: none;
+    background-color: transparent !important;
+    width: 164px;
+    height: 35px;
+    text-align: center;
+}
+
+.item:hover .pad15 {
+    height: 312px;
+    width: 209px !important;
+    margin: 8px 0 0 0px !important;
+}
+.item:hover .pad151 {
+    display: none;
+}
+
+.item:hover .pad152 {
+    display: block;
+    height: 312px;
+    width: 209px !important;
+    margin: 0px 0 0 -10px !important;
+}
+
+
+/*.item:hover .pad15,.item:hover .pad151,.item:hover .pad152 {
+    transform: scale(1.2);
+}
+
+.scale-item {
+    transform: scale(1.2);
+}*/
+
+.btn2 {
+    width: 25px;
+    height: 245px;
+    background: #FF7300;
+    border-radius: 3px;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+/*content*/
+
+.content-bookticket {
+    margin: auto;
+    width: 1079px;
+}
+
+.bookticket-first {
+    margin-top: 60px;
+    width: 1079px;
+    height: 111px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.dropdown1 {
+    width: 520px;
+    margin: 0px 5px 0 18px;
+}
+
+.bg-dropbtn {
+    width: 520px;
+    height: 42px;
+    background-color: #3498DB;
+    color: white;
+    padding: 13px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    background: #EDEDED;
+    border-radius: 3px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 114.7%;
+    color: #999999;
+}
+
+.dropbtn {
+    color: #999999;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 520px;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.show {
+    display: grid;
+    padding-bottom: 10px;
+}
+
+.size-img-dropdown {
+    width: 158px;
+    height: 71px;
+    background-color: #FFF;
+    border-radius: 3px;
+    margin: 9px 0 0 9px;
+    border: none;
+}
+
+.dropdown-content-1 {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.dropdown-content-2 {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.dropdown-content-3 {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.dropdown-content-4 {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.dropdown-content-5 {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.dropdown-content-6 {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.dropdown-content-7 {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.dropdown-content-8 {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.dropdown-content-9 {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.dropdown-content-10 {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+.dropdown-content-11 {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.dropdown-content-12 {
+    grid-column: 3;
+    grid-row: 4;
+}
+
+
+/**/
+
+.dropbtnn {
+    background-color: #FF7300;
+    color: #FFF;
+}
+
+.dropdown2 {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content2 {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content2 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.show2 {
+    display: block;
+}
+
+.size-img-dropdown2 {
+    width: 520px;
+}
+
+
+/*
+.dropdown {
+    width: 525px;
+}
+
+.btn-secondary {
+    width: 525px;
+    text-align: left;
+    background: #EDEDED;
+    border: none;
+    color: #999999;
+}
+
+.btn-secondary:hover {
+    background: #EDEDED;
+    color: #999999;
+}
+
+.btn-secondary:focus {
+    background: #EDEDED;
+    color: #999999;
+}
+
+.dropdown-menu {
+    width: 525px;
+    background: rgba(237, 237, 237, 0.5);
+    backdrop-filter: blur(25px);
+    border-radius: 0px 0px 3px 3px;
+}
+
+.dropdown-item {
+    width: 158px;
+    height: 71px;
+}
+*/
+
+.notcontent {
+    padding-top: 100px;
+    width: 1079px;
+    margin: auto;
+}
+
+.bg-notcontent {
+    margin-top: 50px;
+    height: 500px;
+    width: 500px;
+    margin: auto;
+    background-image: url(/Tickets/Group\ 87.png);
+    background-repeat: no-repeat;
+}
+
+.testtuong {
+    display: none;
+    position: absolute;
+    width: 520px;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.show3 {
+    display: block !important;
+}
+
+
+/*Second Ticket*/
+
+.secondticket {
+    width: 1079px;
+    background: #FFFFFF;
+    margin: 0;
+    border-bottom: 2px dashed #EBEBEB;
+    border-radius: 0 0 10px 10px;
+}
+
+.secondticket h4 {
+    margin: 10px;
+}
+
+.secondtickets {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(271px, 1fr));
+}
+
+.movietime {
+    margin: 10px;
+    height: 41px;
+    background: #C4C4C4;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thirdticket {
+    border-radius: 10px 10px 0 0;
+    margin-top: -21px;
+    width: 1079px;
+    height: 372px;
+    background: #FFFFFF;
+}
+
+.thirdticket h4 {
+    padding: 10px 0 0 10px;
+}
+
+.thirdtickets {
+    display: grid;
+    margin: 0;
+}
+
+.info-ticket {
+    width: 450px;
+}
+
+.info-tickets {
+    width: 450px;
+    background: #F3F3F3;
+    border: 1px solid #5C5C5C;
+    border-radius: 5px;
+    display: grid;
+    grid-column: 1;
+    margin-left: 60px;
+}
+
+.info-1ticket {
+    grid-column: 1;
+}
+
+.info-2ticket {
+    grid-column: 2;
+}
+
+.bookticketcount {
+    margin-top: -30px;
+    grid-column: 2;
+}
+
+.tickketvip {
+    margin-top: -100px;
+    font-size: 14px;
+    border-bottom: 1px solid #CACACA;
+    transform: rotate(-0.15deg);
+}
+
+.tickketvip button {
+    border-radius: 50%;
+    border: 1px solid #5C5C5C;
+}
+
+.tickketvip input {
+    width: 15px;
+    border: none;
+}
+
+.tickketvip p {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.totalticket {
+    width: 370px;
+    margin-top: 20px;
+}
+
+

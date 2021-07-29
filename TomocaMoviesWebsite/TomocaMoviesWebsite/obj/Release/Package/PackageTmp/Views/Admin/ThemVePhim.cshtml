@@ -1,0 +1,45 @@
+﻿@model TomocaMoviesWebsite.Models.MiAnLien
+@using TomocaMoviesWebsite.Models
+@{
+    ViewBag.Title = "ThemVePhim";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+    TomocaMoviesDataContext db = new TomocaMoviesDataContext();
+}
+
+<h2>ThemVePhim</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>MiAnLien</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <label>Chọn tên phim:</label>
+    <select name="tenphim" id="tenphim" class="form-control" style="width: 300px;">
+        @foreach (var item in db.Movies)
+        {
+            <option>@item.Title</option>
+        }
+    </select>
+    <label>Chọn hãng rap phim:</label>
+    <select name="theater" id="theater" class="form-control" style="width: 300px; margin: 5px 0 10px 0;">
+        @foreach (var item in db.MovieTheaters)
+        {
+            <option>@item.TheaterName</option>
+        }
+    </select>
+    <label>Thời gian chiếu phim:</label>
+    <input name="timeofmovie" id="timeofmovie" class="form-control" required style="width: 300px; margin: 5px 0 10px 0;" />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

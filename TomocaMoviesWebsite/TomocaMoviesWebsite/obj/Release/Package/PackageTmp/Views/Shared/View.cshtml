@@ -1,0 +1,78 @@
+﻿<style>
+    .showLogout{
+        padding: 5px 10px 7px 10px;
+        height: 100%;
+        width: 100%;
+    }
+    .logout:hover .hidenlogout {
+        background: #ff7300;
+        display: block;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+    .logout:hover .showLogout {
+        border-bottom: 1px dashed;
+        background: #ff7300;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .hidenlogout {
+        display: none;
+        position: absolute;
+        background-color: #FFF;
+        padding-top: 0px;
+        box-shadow: inset;
+        border: 2px solid #FF7300;
+        border-radius: 0 5px 5px 5px;
+        z-index: 1;
+    }
+    .hidenlogout a{
+        display: block;
+        background-color: #FFF;
+        padding-top: 10px;
+        box-shadow: inset;
+        font-size: 16px;
+        font-weight: bold;
+        color: #000;
+        padding: 5px 10px 5px 10px;
+        border-bottom: 1px solid #808080;
+    }
+    .hoverbtnlogout{
+        color: #000;
+    }
+    .hoverbtnlogout:hover {
+        color: #ff7300;
+    }
+</style>
+@if (Session["Username"] == null || Session["Username"].ToString() == "")
+{
+    <li>
+        <button class="bt-login" onclick="document.getElementById('id01').style.display='block'">Login</button>
+    </li>
+    <li class="bt-signup">
+        <a class="white-a" href="~/Users/Signup" style="font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 106.69%;">Sign up</a>
+    </li>
+}
+else
+{
+    <li class="logout">
+        <div class="showLogout"><img src="https://img.icons8.com/ios-filled/30/ffffff/user-male-circle.png" /> <span style="color:white;">@Session["Username"]</span></div>
+        <div class="hidenlogout">
+            @if (Session["Permission"] != null)
+            {
+                <a href="~/Admin/Home" style="border-radius: 15px 15px 0 0"><img style="margin-right: 10px;" src="https://img.icons8.com/ios-glyphs/18/000000/administrator-male.png" />Adminmanager</a>
+            }
+            <a href="~/Users/profile/@Session["Username"]"><img style="margin-right: 35px;" src="https://img.icons8.com/material/24/000000/user-menu-male--v2.png" />Profile</a>
+            @using (Html.BeginForm("Logout", "Users"))
+            {
+                <button class="hoverbtnlogout" style="border: none; font-size: 14px; font-weight: 700; padding: 5px 10px 5px 10px; width: 100%; background-color: #FFF; border-radius: 0 0 15px 15px;" type="submit">
+                    <img style="margin-left: 0; margin-right: 35px; " src="https://img.icons8.com/material-sharp/18/000000/logout-rounded-left.png" />
+                    Log Out
+                </button>
+            }
+        </div>
+    </li>
+}

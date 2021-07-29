@@ -273,9 +273,19 @@ namespace TomocaMoviesWebsite.Controllers
             }
             return View();
         }
-        public ActionResult TicketShow()
+        public ActionResult TicketShow(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return RedirectToAction("Index", "Tomoca");
+            }
+            else
+            {
+                var tks = from l in db.Tickets
+                          where l.TicketID == id
+                          select l;
+                return View(tks);
+            }
         }
         public ActionResult TicketBook()
         {

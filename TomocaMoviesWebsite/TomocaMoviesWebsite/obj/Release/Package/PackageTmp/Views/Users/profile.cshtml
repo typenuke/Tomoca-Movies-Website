@@ -1,0 +1,33 @@
+﻿@using TomocaMoviesWebsite.Models
+
+@{
+    ViewBag.Title = "profile";
+    Layout = "~/Views/Shared/Tomoca_Layout.cshtml";
+    TomocaMoviesDataContext db = new TomocaMoviesDataContext();
+    var us = db.Users.SingleOrDefault(n => n.Username == Session["Username"].ToString());
+}
+<div class="signup">
+    <h3>Signing Up</h3>
+    <div class="grid-signup">
+        <div class="signup-item-bg signup-item1 ">
+            <p>User Name: @us.Username</p>
+        </div>
+        <div class="signup-item-bg signup-item2">
+            <div class="fistname">
+                <p>First Name: @us.FirstName</p>
+                @*<input type="text" name="firstname" value="" placeholder="Aa">*@
+            </div>
+            <div class="lastname">
+                <p>Last Name: @us.LastName</p>
+            </div>
+        </div>
+        <div class="signup-item-bg signup-item5">
+            <p>Email address: @us.Email</p>
+
+        </div>
+        <div class="signup-item-bg signup-item6">
+            <p>Phone Number: @us.Phone</p>
+        </div>
+    </div>
+    <a href="~/Tomoca/Index" style="margin-top: 54px;">Go Home</a><br>
+</div>

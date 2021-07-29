@@ -1,0 +1,77 @@
+﻿@model TomocaMoviesWebsite.Models.readNew
+
+
+@using TomocaMoviesWebsite.Models
+@{
+    ViewBag.Title = "NewsDetail";
+    Layout = "~/Views/Shared/Tomoca_Layout.cshtml";
+}
+@{
+    var count = 1;
+    TomocaMoviesDataContext db = new TomocaMoviesDataContext();
+    var danhsach = db.News.OrderByDescending(a => a.NewsID).Take(6).ToList();
+}
+@section css{
+    <link href="~/Content/style-news3.css" rel="stylesheet" />
+}
+<div class="zonee">
+    <div class="top-zone">
+        <a class="bt-back" onclick="goBack()" href="#">< Back</a>
+        <p class="title">@Html.DisplayFor(model => model.newsss.Title)</p>
+        <span class="create-time">@Html.DisplayFor(model => model.usersss.FirstName) @Html.DisplayFor(model => model.usersss.LastName)</span>
+        <span class="create-time">@Model.newsss.CreateTime</span>
+    </div>
+    <div class="bot-zone">
+        @if (Model.newsss.Image1 != "")
+        {
+            <img class="img-content" src="@Html.DisplayFor(model => model.newsss.Image1)" alt="">
+            <p class="content">@Html.DisplayFor(model => model.newsss.Content1)</p>
+        }
+        @if (Model.newsss.Image2 != "")
+        {
+            <img class="img-content" src="@Html.DisplayFor(model => model.newsss.Image2)" alt="">
+            <p class="content">@Html.DisplayFor(model => model.newsss.Content2)</p>
+        }
+
+    </div>
+    <hr class="orange-hr">
+    <div class="read-more">
+        @foreach (var item in danhsach)
+        {
+            <div class="grid-zone">
+                <img class="news-img" src="@item.Photo">
+                @Html.ActionLink(@item.Title, "NewsDetail" + "/" + @item.NewsID, "", new { @class = "mini-title" })
+            </div>
+        }
+        @*<div class="grid-zone">
+                <img class="news-img" src="./img/Rectangle 246.png" alt="">
+                <a class="mini-title">Title</a>
+            </div>
+            <div class="grid-zone">
+                <img class="news-img" src="./img/Rectangle 246.png" alt="">
+                <a class="mini-title">Title</a>
+            </div>
+            <div class="grid-zone">
+                <img class="news-img" src="./img/Rectangle 246.png" alt="">
+                <a class="mini-title">Title</a>
+            </div>
+            <div class="grid-zone">
+                <img class="news-img" src="./img/Rectangle 246.png" alt="">
+                <a class="mini-title">Title</a>
+            </div>
+            <div class="grid-zone">
+                <img class="news-img" src="./img/Rectangle 246.png" alt="">
+                <a class="mini-title">Title</a>
+            </div>
+            <div class="grid-zone">
+                <img class="news-img" src="./img/Rectangle 246.png" alt="">
+                <a class="mini-title">Title</a>
+            </div>*@
+    </div>
+</div>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

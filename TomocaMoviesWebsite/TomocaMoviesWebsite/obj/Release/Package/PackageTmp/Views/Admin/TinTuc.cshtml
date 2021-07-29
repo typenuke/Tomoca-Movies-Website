@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TomocaMoviesWebsite.Models.New>
+@{
+    ViewBag.Title = "TinTuc";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-10">
+        <h1 class="h3 mb-2 text-gray-800">Tin Tức</h1>
+    </div>
+    <div class="col-2">
+        <div style="float: right">
+            <button type="button" class="btn btn-success">@Html.ActionLink("Thêm", "ThemTinTuc")</button>
+        </div>
+    </div>
+</div>
+<br />
+@foreach (var item in Model)
+{
+    <div class="col-12" style="margin-top: 20px">
+        <div class="row">
+            <div class="col-xl-3 col-md-4 col-sm-4" style="padding: 5px;">
+
+                <a>
+                    <img width="100%" style="height:150px" src="@item.Photo" />
+                </a>
+            </div>
+            <div class="col-xl-7">
+                <a>
+                    <div class="tieude" style="margin-top: 10px;text-align:left">@item.Title</div>
+                </a>
+                <div class="thoigian_luotxem" style="display: flex;">
+                    <div>@item.CreateTime</div>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-success">@Html.ActionLink("Sửa", "SuaTinTuc", new { id = item.NewsID })</button>
+                </div>
+                <div style="padding-top:5px;margin-left:8px"> <a style="background-color:#0094ff;padding:4px;border-radius:15px" onclick="return ConfirmXoa()" href="@Url.Action("XoaTinTuc", new { id = item.NewsID })">Xóa</a></div>
+
+            </div>
+        </div>
+    </div>
+}
+<script>
+    function ConfirmXoa() {
+        if (confirm("Bạn có chắc muốn xóa tin tức này không ?"))
+            return true;
+        else
+            return false;
+    }
+        FocusEvent = false;
+        checked = false;
+</script>
