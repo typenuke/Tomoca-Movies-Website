@@ -154,24 +154,24 @@ INSERT INTO Directors VALUES ('Bob Persichetti', 'American', '1973-01-17');
 -------------- DIRECTOR --------------
 
 -------------- MOVIES --------------
-INSERT INTO Movies VALUES ('All Is Lost', 'The yacht of a man, who is on a solo voyage, collides with a shipping container. With his scanty supplies depleting, the sailor braves extreme conditions to survive.', 2013, 6.9, '94%', '63%', N'https://resizing.flixster.com/FidXlrPTB6GiF1OQRN1NIO2oidA=/206x305/v2/https://flxt.tmsimg.com/assets/p9936737_p_v10_am.jpg', N'https://www.youtube.com/watch?v=no1rl9Gvx-s', '01:43:00', N'https://ohthatfilmblog.files.wordpress.com/2014/01/all-is-lost-robert-redford.jpg', 0);
-INSERT INTO Movies VALUES ('Edge of Tomorrow', 'With the help of warrior Rita Vrataski, Major William Cage has to save Earth and the human race from an alien species, after being caught in a time loop.', 2014, 7.9, '91%', '90%', N'https://resizing.flixster.com/eoUyQkm-hdIp4KDfhxk0XCK2CZY=/206x305/v2/https://resizing.flixster.com/-7nMH-f2F8Vya4I8yR2WfsAL0aA=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzUxNWFlMGQ0LWU0ZTUtNDkzMC04NGQ4LTk0ZWM5MzRjMzRhNy53ZWJw', N'https://www.youtube.com/watch?v=ycgW26bzjq0',  '01:53:00', N'https://i0.wp.com/4.bp.blogspot.com/-Q_uzAhnMYF0/U3im0IEumrI/AAAAAAAAAPU/7NOkJ7UgaKY/s1600/Edge+of+Tomorrow+(2).jpg', 0);
-INSERT INTO Movies VALUES ('Bad Boys For Life', 'Detectives Mike Lowrey and Marcus Burnett join the Miami Police Department''s special team AMMO to bring down the ruthless Armando, who is on a mission to kill Mike at his mother Isabel''s orders.', 2020, 6.6, '76%', '96%', N'https://resizing.flixster.com/4kzegfgOeJgsxg71iNiq6NhmXVU=/206x305/v2/https://resizing.flixster.com/Li__viDTjwEZxn6RYE-HadHB4kQ=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzNiMmJmZWMxLWNiMjktNDE0OC05NmRiLTNmZjY4ZTY5OTY0Yi53ZWJw', N'https://www.youtube.com/watch?v=jKCj3XuPG8M',   '02:04:00', N'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/07974390317477.5e291ea971005.jpg', 0);
-INSERT INTO Movies VALUES ('Stand By Me', 'Gordie, Chris, Teddy and Vern are four friends who decide to hike to find the corpse of Ray Brower, a local teenager, who was hit by a train while plucking blueberries in the wild.', 1986, 8.1, '91%', '94%', N'https://resizing.flixster.com/Ku1v6JabPa_QtLVrUZ4rYk_O-uI=/206x305/v2/https://flxt.tmsimg.com/assets/p9417_p_v10_ay.jpg', N'https://www.youtube.com/watch?v=jaiZ6ZQoO-Y',  '01:29:00', N'https://www.tracking-board.com/wp-content/uploads/2016/07/Mr-Robot-Banner.jpg', 0);
-INSERT INTO Movies VALUES ('The Peanut Butter Falcon', 'A man with down syndrome runs away from a residential nursing home to pursue his dream of becoming a wrestler. Later, he meets with an outlaw who becomes his friend and coach.', 2019, 7.6, '94%', '96%', N'https://resizing.flixster.com/LlKEzMfDN5PgdOfAsEysWUOoMgc=/206x305/v2/https://resizing.flixster.com/nVTZFCnOcZ4oqzxpAXs2DSkd8oE=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzYzYzU1MGY3LWEzYjctNDhlZi1hOTliLTc0Mzk5OGU4MjRiNi53ZWJw', N'https://www.youtube.com/watch?v=UNl9RqjLCwc',  '01:37:00', N'https://rishabhvashishthareviews.files.wordpress.com/2019/09/thepbfalcon.jpg', 0);
-INSERT INTO Movies VALUES ('Bad Times At The El Royale', 'In 1969, seven shady strangers meet in a deserted hotel with a dark past. As time goes by, their secrets come out and they soon find themselves in a fix.', 2018, 7.1, '74%', '73%', N'https://resizing.flixster.com/oe7_mxTNL-cYzozlkUzp7IMvApo=/206x305/v2/https://resizing.flixster.com/GAvwcvYgblJ38ANTiFCBVi74Xws=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzL2FmYzIwODAyLWJjODEtNDZmNS1hNTdiLTdiY2Q0NGZhYTUzMy53ZWJw', N'https://www.youtube.com/watch?v=y7wzBVARwaU',   '02:20:00', N'http://fanboyfactor.com/wp-content/uploads/2018/08/Bad-Times-at-the-El-Royale-banner-600x300.jpg', 0);
-INSERT INTO Movies VALUES ('The Girl with the Dragon Tattoo', 'Mikael Blomkvist, a journalist, hires Lisbeth Salander, a computer hacker, to solve the mystery of a woman who has been missing for forty years. The two discover more than they bargained for.', 2011, 7.8, '87%', '86%', N'https://resizing.flixster.com/TfTwEvDJhvuCGGUa3E_DcYb9-tQ=/206x305/v2/https://flxt.tmsimg.com/assets/p8702416_p_v10_aa.jpg', N'https://www.youtube.com/watch?v=DqQe3OrsMKI',   '02:40:00', N'https://i.pinimg.com/originals/72/80/f1/7280f1c595dc6fbcb6afbf7c625e78ed.jpg', 0);
-INSERT INTO Movies VALUES ('A Ghost Story', 'A recently deceased man returns as a ghost to his suburban home to console his bereft wife, only to find that in his spectral state, he has become stuck in time, forced to watch passively as the life he knew and the woman he loves slowly slip away.', 2017, 6.9, '91%', '66%', N'https://resizing.flixster.com/IlwrV3ixOqNBEOcoaiIA2YHmA4A=/206x305/v2/https://resizing.flixster.com/gryJwvonzc7jN_kbYwhe4Z8EXDg=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzc0MzkwZGUwLWMyZWQtNDJiZS04YjVjLTdlYjYwYzllZDNhZi53ZWJw', N'https://www.youtube.com/watch?v=0Vb0F_CN83E',   '01:32:00', N'https://scontent-sin6-3.xx.fbcdn.net/v/t31.18172-8/19943073_1651290014881058_1486649586699599449_o.jpg?_nc_cat=110&ccb=1-3&_nc_sid=e3f864&_nc_ohc=cJvIOk8egX4AX_t_u-i&_nc_ht=scontent-sin6-3.xx&oh=b62a38d5e5ceacb7b3ea007e9c2afc77&oe=60F4E3E6', 0);
-INSERT INTO Movies VALUES ('Pan''s Labyrinth', 'Ofelia moves with her mother to her stepfather''s house. At night, a fairy leads her to a faun who informs her that she is a princess and she needs to participate in three tasks to prove her royalty.', 2006, 8.2, '95%', '91%', N'https://resizing.flixster.com/2SDaICbUiyjJTxPJL92gVcloeRU=/206x305/v2/https://flxt.tmsimg.com/NowShowing/54240/54240_aa.jpg', N'https://www.youtube.com/watch?v=jVZRnnVSQ8k',   '01:59:00', N'http://ttboproductions.com/uploads/3/4/4/1/34411904/pans-labyrinth-poster-goldposter-com-18-e1467392547337-1280x617_orig.jpg', 0);
-INSERT INTO Movies VALUES ('Thor', 'Thor is exiled by his father, Odin, the King of Asgard, to the Earth to live among mortals. When he lands on Earth, his trusted weapon Mjolnir is discovered and captured by S.H.I.E.L.D.', 2011, 7.0, '77%', '76%', N'https://resizing.flixster.com/1G13iIRhpfsdjPBNJ5jUIloiJMY=/206x305/v2/https://flxt.tmsimg.com/assets/p7989358_p_v10_af.jpg', N'https://www.youtube.com/watch?v=JOddp-nlNvQ',   '01:55:00', N'https://patricks40khobby.com/wp-content/uploads/2020/06/thor-banner.jpg', 0);
-INSERT INTO Movies VALUES ('Hidden Figures', 'Three female African-American mathematicians play a pivotal role in astronaut John Glenn''s launch into orbit. Meanwhile, they also have to deal with racial and gender discrimination at work.', 2017, 7.8, '93%', '93%', N'https://resizing.flixster.com/Fo0zzPGmrK2F5T2LVTG0B3OWiOc=/206x305/v2/https://resizing.flixster.com/ollL2QfxZCa3P5ROOMIvo_bIVNA=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzhjZGE3MTgzLTRlMTktNDQyZS04ODQzLWVhNDE5MWM5MmI0ZS53ZWJw', N'https://www.youtube.com/watch?v=5wfrDhgUMGI',   '02:07:00', N'https://exminsterfilmclub.org/wp-content/uploads/Hidden-Figures-Banner-1024x572.jpg', 0);
-INSERT INTO Movies VALUES ('Suffragette', 'In early 20th-century Britain, the growing suffragette movement forever changes the life of working wife and mother Maud Watts (Carey Mulligan). Galvanized by political activist Emmeline Pankhurst (Meryl Streep), Watts joins a diverse group of women who fight for equality and the right to vote. Faced with increasing police action, Maud and her dedicated suffragettes must play a dangerous game of cat-and-mouse, risking their jobs, homes, family and lives for a just cause.', 2015, 6.9, '72%', '68%', N'https://resizing.flixster.com/YKvImNjNpwZCxKn_rf2ZRiBEryw=/206x305/v2/https://flxt.tmsimg.com/assets/p11545786_p_v10_ac.jpg', N'https://www.youtube.com/watch?v=3HdQ0iVrl2Y',   '01:46:00', N'https://fanart.tv/fanart/movies/245168/hdmovieclearart/suffragette-59357c98d0f83.png', 0);
-INSERT INTO Movies VALUES ('American Psycho', 'Patrick Bateman, a wealthy investment banker, hides his psychopathic ego from his friends. Later, his illogical fantasies escalate and he submits to an uncontrollable bloodlust.', 2000, 7.6, '69%', '85%', N'https://resizing.flixster.com/dOEROgUeLC0K8KJeMZKPQm2KAFU=/206x305/v2/https://flxt.tmsimg.com/assets/p30210_p_v10_ab.jpg', N'https://www.youtube.com/watch?v=5YnGhW4UEhc',   '01:44:00', N'https://www.pngitem.com/pimgs/m/222-2228495_christian-bale-american-psycho-face-png-download-christian.png', 0);
-INSERT INTO Movies VALUES ('Us', 'Adelaide Wilson and her family are attacked by mysterious figures dressed in red. Upon closer inspection, the Wilsons realise that the intruders are exact lookalikes of them.', 2019, 6.8, '93%', '59%', N'https://resizing.flixster.com/VHGL7Yfk-O1bz9OLwoCjp9Yl5bo=/206x305/v2/https://resizing.flixster.com/S2tuVOVa1x4-Myimy6g1kItVlmM=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzL2MyZWMxMmM0LTdmOTMtNDU3OC05MThiLTk2OTU5YjFkZDhjZi53ZWJw', N'https://www.youtube.com/watch?v=hNCmb-4oXJA',   '02:01:00', N'https://khenphim.com/wp-content/uploads/2019/03/us-2-banner.jpg', 0);
-INSERT INTO Movies VALUES ('Portrait of a Lady on Fire', 'France, 1770. Marianne, a painter, is commissioned to do the wedding portrait of Heloise, a young woman who has just left the convent. Heloise is a reluctant bride to be and Marianne must paint her without her knowing. She observes her by day, to paint her secretly.', 2019, 8.1, '98%', '92%', N'https://resizing.flixster.com/STtbvrz38yiVCGUPsLzpLnpMB20=/206x305/v2/https://resizing.flixster.com/iqb6t6zZ_uFr3NiRLogDInFDqXE=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzM5ZGMxMjZhLWZmYzYtNGQ5ZC05NmFjLTUwNWQ1YWU3NzQ1NC53ZWJw', N'https://www.youtube.com/watch?v=R-fQPTwma9o',   '01:59:00', N'https://i1.wp.com/bunewsservice.com/wp-content/uploads/2020/02/Portrait_FacebookBannerV2_December6.jpg', 0);
-INSERT INTO Movies VALUES ('Attack the Block', 'A group of valiant teenagers ventures out to battle a savage alien incursion. With the invasive species jeopardising their vicinity in Southern London, they fight to succeed in their mission.', 2011, 6.7, '90%', '75%', N'https://resizing.flixster.com/Z6XXkJSogiK0ULn-ccAgZnvUlSM=/206x305/v2/https://flxt.tmsimg.com/assets/p8639769_p_v10_an.jpg', N'https://www.youtube.com/watch?v=m0ntk1o4V3k',   '01:28:00', N'https://www.slashfilm.com/wp/wp-content/images/attacktheblock-banner-kids.jpg', 0);
-INSERT INTO Movies VALUES ('Get Out', 'Chris, an African-American man, decides to visit his Caucasian girlfriend''s parents during a weekend getaway. Although they seem normal at first, he is not prepared to experience the horrors ahead.', 2017, 7.7, '98%', '86%', N'https://resizing.flixster.com/WQvxDGdZxKzj53GK3fVbkC-2eC8=/206x305/v2/https://resizing.flixster.com/Q2uwvQLSNT5ObCtXKALBjceWDbw=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzNiZGVhNTVmLWQzOGUtNGMwZC1hYmZjLTIxZWE5NThkMTdjNS53ZWJw', N'https://www.youtube.com/watch?v=DzfpyUB60YY',   '01:44:00', N'https://i1.wp.com/www.pixelcrumb.com/wp-content/uploads/2017/06/GET-OUT-BANNER.jpg', 0);
-INSERT INTO Movies VALUES ('Spider-Man - Into the Spider-Verse', 'After gaining superpowers from a spider bite, Miles Morales protects the city as Spider-Man. Soon, he meets alternate versions of himself and gets embroiled in an epic battle to save the multiverse.', 2018, 8.4, '97%', '93%', N'https://resizing.flixster.com/wW4vuoQpFQjHac6kMkPkdTWoPzk=/206x305/v2/https://resizing.flixster.com/BTfIie-NvRxbSUkUyLfZs-2wdM0=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzL2QzNTE2ZWE4LWIyY2MtNDcyMC05ZmNhLWMwZWU3NGNlOGYzYi53ZWJw', N'https://www.youtube.com/watch?v=g4Hbz2jLxvQ',   '01:56:00', N'https://berkreviews.files.wordpress.com/2019/09/b0563-intospiderversebanner.png', 0);
+INSERT INTO Movies VALUES ('All Is Lost', 'The yacht of a man, who is on a solo voyage, collides with a shipping container. With his scanty supplies depleting, the sailor braves extreme conditions to survive.', 2013, 6.9, '94%', '63%', N'https://resizing.flixster.com/FidXlrPTB6GiF1OQRN1NIO2oidA=/206x305/v2/https://flxt.tmsimg.com/assets/p9936737_p_v10_am.jpg', N'https://www.youtube.com/embed/no1rl9Gvx-s', '01:43:00', N'https://ohthatfilmblog.files.wordpress.com/2014/01/all-is-lost-robert-redford.jpg', 0);
+INSERT INTO Movies VALUES ('Edge of Tomorrow', 'With the help of warrior Rita Vrataski, Major William Cage has to save Earth and the human race from an alien species, after being caught in a time loop.', 2014, 7.9, '91%', '90%', N'https://resizing.flixster.com/eoUyQkm-hdIp4KDfhxk0XCK2CZY=/206x305/v2/https://resizing.flixster.com/-7nMH-f2F8Vya4I8yR2WfsAL0aA=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzUxNWFlMGQ0LWU0ZTUtNDkzMC04NGQ4LTk0ZWM5MzRjMzRhNy53ZWJw', N'https://www.youtube.com/embed/ycgW26bzjq0',  '01:53:00', N'https://i0.wp.com/4.bp.blogspot.com/-Q_uzAhnMYF0/U3im0IEumrI/AAAAAAAAAPU/7NOkJ7UgaKY/s1600/Edge+of+Tomorrow+(2).jpg', 0);
+INSERT INTO Movies VALUES ('Bad Boys For Life', 'Detectives Mike Lowrey and Marcus Burnett join the Miami Police Department''s special team AMMO to bring down the ruthless Armando, who is on a mission to kill Mike at his mother Isabel''s orders.', 2020, 6.6, '76%', '96%', N'https://resizing.flixster.com/4kzegfgOeJgsxg71iNiq6NhmXVU=/206x305/v2/https://resizing.flixster.com/Li__viDTjwEZxn6RYE-HadHB4kQ=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzNiMmJmZWMxLWNiMjktNDE0OC05NmRiLTNmZjY4ZTY5OTY0Yi53ZWJw', N'https://www.youtube.com/embed/jKCj3XuPG8M',   '02:04:00', N'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/07974390317477.5e291ea971005.jpg', 0);
+INSERT INTO Movies VALUES ('Stand By Me', 'Gordie, Chris, Teddy and Vern are four friends who decide to hike to find the corpse of Ray Brower, a local teenager, who was hit by a train while plucking blueberries in the wild.', 1986, 8.1, '91%', '94%', N'https://resizing.flixster.com/Ku1v6JabPa_QtLVrUZ4rYk_O-uI=/206x305/v2/https://flxt.tmsimg.com/assets/p9417_p_v10_ay.jpg', N'https://www.youtube.com/embed/jaiZ6ZQoO-Y',  '01:29:00', N'https://www.tracking-board.com/wp-content/uploads/2016/07/Mr-Robot-Banner.jpg', 0);
+INSERT INTO Movies VALUES ('The Peanut Butter Falcon', 'A man with down syndrome runs away from a residential nursing home to pursue his dream of becoming a wrestler. Later, he meets with an outlaw who becomes his friend and coach.', 2019, 7.6, '94%', '96%', N'https://resizing.flixster.com/LlKEzMfDN5PgdOfAsEysWUOoMgc=/206x305/v2/https://resizing.flixster.com/nVTZFCnOcZ4oqzxpAXs2DSkd8oE=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzYzYzU1MGY3LWEzYjctNDhlZi1hOTliLTc0Mzk5OGU4MjRiNi53ZWJw', N'https://www.youtube.com/embed/UNl9RqjLCwc',  '01:37:00', N'https://rishabhvashishthareviews.files.wordpress.com/2019/09/thepbfalcon.jpg', 0);
+INSERT INTO Movies VALUES ('Bad Times At The El Royale', 'In 1969, seven shady strangers meet in a deserted hotel with a dark past. As time goes by, their secrets come out and they soon find themselves in a fix.', 2018, 7.1, '74%', '73%', N'https://resizing.flixster.com/oe7_mxTNL-cYzozlkUzp7IMvApo=/206x305/v2/https://resizing.flixster.com/GAvwcvYgblJ38ANTiFCBVi74Xws=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzL2FmYzIwODAyLWJjODEtNDZmNS1hNTdiLTdiY2Q0NGZhYTUzMy53ZWJw', N'https://www.youtube.com/embed/y7wzBVARwaU',   '02:20:00', N'http://fanboyfactor.com/wp-content/uploads/2018/08/Bad-Times-at-the-El-Royale-banner-600x300.jpg', 0);
+INSERT INTO Movies VALUES ('The Girl with the Dragon Tattoo', 'Mikael Blomkvist, a journalist, hires Lisbeth Salander, a computer hacker, to solve the mystery of a woman who has been missing for forty years. The two discover more than they bargained for.', 2011, 7.8, '87%', '86%', N'https://resizing.flixster.com/TfTwEvDJhvuCGGUa3E_DcYb9-tQ=/206x305/v2/https://flxt.tmsimg.com/assets/p8702416_p_v10_aa.jpg', N'https://www.youtube.com/embed/DqQe3OrsMKI',   '02:40:00', N'https://i.pinimg.com/originals/72/80/f1/7280f1c595dc6fbcb6afbf7c625e78ed.jpg', 0);
+INSERT INTO Movies VALUES ('A Ghost Story', 'A recently deceased man returns as a ghost to his suburban home to console his bereft wife, only to find that in his spectral state, he has become stuck in time, forced to watch passively as the life he knew and the woman he loves slowly slip away.', 2017, 6.9, '91%', '66%', N'https://resizing.flixster.com/IlwrV3ixOqNBEOcoaiIA2YHmA4A=/206x305/v2/https://resizing.flixster.com/gryJwvonzc7jN_kbYwhe4Z8EXDg=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzc0MzkwZGUwLWMyZWQtNDJiZS04YjVjLTdlYjYwYzllZDNhZi53ZWJw', N'https://www.youtube.com/embed/0Vb0F_CN83E',   '01:32:00', N'https://scontent-sin6-3.xx.fbcdn.net/v/t31.18172-8/19943073_1651290014881058_1486649586699599449_o.jpg?_nc_cat=110&ccb=1-3&_nc_sid=e3f864&_nc_ohc=cJvIOk8egX4AX_t_u-i&_nc_ht=scontent-sin6-3.xx&oh=b62a38d5e5ceacb7b3ea007e9c2afc77&oe=60F4E3E6', 0);
+INSERT INTO Movies VALUES ('Pan''s Labyrinth', 'Ofelia moves with her mother to her stepfather''s house. At night, a fairy leads her to a faun who informs her that she is a princess and she needs to participate in three tasks to prove her royalty.', 2006, 8.2, '95%', '91%', N'https://resizing.flixster.com/2SDaICbUiyjJTxPJL92gVcloeRU=/206x305/v2/https://flxt.tmsimg.com/NowShowing/54240/54240_aa.jpg', N'https://www.youtube.com/embed/jVZRnnVSQ8k',   '01:59:00', N'http://ttboproductions.com/uploads/3/4/4/1/34411904/pans-labyrinth-poster-goldposter-com-18-e1467392547337-1280x617_orig.jpg', 0);
+INSERT INTO Movies VALUES ('Thor', 'Thor is exiled by his father, Odin, the King of Asgard, to the Earth to live among mortals. When he lands on Earth, his trusted weapon Mjolnir is discovered and captured by S.H.I.E.L.D.', 2011, 7.0, '77%', '76%', N'https://resizing.flixster.com/1G13iIRhpfsdjPBNJ5jUIloiJMY=/206x305/v2/https://flxt.tmsimg.com/assets/p7989358_p_v10_af.jpg', N'https://www.youtube.com/embed/JOddp-nlNvQ',   '01:55:00', N'https://patricks40khobby.com/wp-content/uploads/2020/06/thor-banner.jpg', 0);
+INSERT INTO Movies VALUES ('Hidden Figures', 'Three female African-American mathematicians play a pivotal role in astronaut John Glenn''s launch into orbit. Meanwhile, they also have to deal with racial and gender discrimination at work.', 2017, 7.8, '93%', '93%', N'https://resizing.flixster.com/Fo0zzPGmrK2F5T2LVTG0B3OWiOc=/206x305/v2/https://resizing.flixster.com/ollL2QfxZCa3P5ROOMIvo_bIVNA=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzhjZGE3MTgzLTRlMTktNDQyZS04ODQzLWVhNDE5MWM5MmI0ZS53ZWJw', N'https://www.youtube.com/embed/5wfrDhgUMGI',   '02:07:00', N'https://exminsterfilmclub.org/wp-content/uploads/Hidden-Figures-Banner-1024x572.jpg', 0);
+INSERT INTO Movies VALUES ('Suffragette', 'In early 20th-century Britain, the growing suffragette movement forever changes the life of working wife and mother Maud Watts (Carey Mulligan). Galvanized by political activist Emmeline Pankhurst (Meryl Streep), Watts joins a diverse group of women who fight for equality and the right to vote. Faced with increasing police action, Maud and her dedicated suffragettes must play a dangerous game of cat-and-mouse, risking their jobs, homes, family and lives for a just cause.', 2015, 6.9, '72%', '68%', N'https://resizing.flixster.com/YKvImNjNpwZCxKn_rf2ZRiBEryw=/206x305/v2/https://flxt.tmsimg.com/assets/p11545786_p_v10_ac.jpg', N'https://www.youtube.com/embed/3HdQ0iVrl2Y',   '01:46:00', N'https://fanart.tv/fanart/movies/245168/hdmovieclearart/suffragette-59357c98d0f83.png', 0);
+INSERT INTO Movies VALUES ('American Psycho', 'Patrick Bateman, a wealthy investment banker, hides his psychopathic ego from his friends. Later, his illogical fantasies escalate and he submits to an uncontrollable bloodlust.', 2000, 7.6, '69%', '85%', N'https://resizing.flixster.com/dOEROgUeLC0K8KJeMZKPQm2KAFU=/206x305/v2/https://flxt.tmsimg.com/assets/p30210_p_v10_ab.jpg', N'https://www.youtube.com/embed/5YnGhW4UEhc',   '01:44:00', N'https://www.pngitem.com/pimgs/m/222-2228495_christian-bale-american-psycho-face-png-download-christian.png', 0);
+INSERT INTO Movies VALUES ('Us', 'Adelaide Wilson and her family are attacked by mysterious figures dressed in red. Upon closer inspection, the Wilsons realise that the intruders are exact lookalikes of them.', 2019, 6.8, '93%', '59%', N'https://resizing.flixster.com/VHGL7Yfk-O1bz9OLwoCjp9Yl5bo=/206x305/v2/https://resizing.flixster.com/S2tuVOVa1x4-Myimy6g1kItVlmM=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzL2MyZWMxMmM0LTdmOTMtNDU3OC05MThiLTk2OTU5YjFkZDhjZi53ZWJw', N'https://www.youtube.com/embed/hNCmb-4oXJA',   '02:01:00', N'https://khenphim.com/wp-content/uploads/2019/03/us-2-banner.jpg', 0);
+INSERT INTO Movies VALUES ('Portrait of a Lady on Fire', 'France, 1770. Marianne, a painter, is commissioned to do the wedding portrait of Heloise, a young woman who has just left the convent. Heloise is a reluctant bride to be and Marianne must paint her without her knowing. She observes her by day, to paint her secretly.', 2019, 8.1, '98%', '92%', N'https://resizing.flixster.com/STtbvrz38yiVCGUPsLzpLnpMB20=/206x305/v2/https://resizing.flixster.com/iqb6t6zZ_uFr3NiRLogDInFDqXE=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzM5ZGMxMjZhLWZmYzYtNGQ5ZC05NmFjLTUwNWQ1YWU3NzQ1NC53ZWJw', N'https://www.youtube.com/embed/R-fQPTwma9o',   '01:59:00', N'https://i1.wp.com/bunewsservice.com/wp-content/uploads/2020/02/Portrait_FacebookBannerV2_December6.jpg', 0);
+INSERT INTO Movies VALUES ('Attack the Block', 'A group of valiant teenagers ventures out to battle a savage alien incursion. With the invasive species jeopardising their vicinity in Southern London, they fight to succeed in their mission.', 2011, 6.7, '90%', '75%', N'https://resizing.flixster.com/Z6XXkJSogiK0ULn-ccAgZnvUlSM=/206x305/v2/https://flxt.tmsimg.com/assets/p8639769_p_v10_an.jpg', N'https://www.youtube.com/embed/m0ntk1o4V3k',   '01:28:00', N'https://www.slashfilm.com/wp/wp-content/images/attacktheblock-banner-kids.jpg', 0);
+INSERT INTO Movies VALUES ('Get Out', 'Chris, an African-American man, decides to visit his Caucasian girlfriend''s parents during a weekend getaway. Although they seem normal at first, he is not prepared to experience the horrors ahead.', 2017, 7.7, '98%', '86%', N'https://resizing.flixster.com/WQvxDGdZxKzj53GK3fVbkC-2eC8=/206x305/v2/https://resizing.flixster.com/Q2uwvQLSNT5ObCtXKALBjceWDbw=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzNiZGVhNTVmLWQzOGUtNGMwZC1hYmZjLTIxZWE5NThkMTdjNS53ZWJw', N'https://www.youtube.com/embed/DzfpyUB60YY',   '01:44:00', N'https://i1.wp.com/www.pixelcrumb.com/wp-content/uploads/2017/06/GET-OUT-BANNER.jpg', 0);
+INSERT INTO Movies VALUES ('Spider-Man - Into the Spider-Verse', 'After gaining superpowers from a spider bite, Miles Morales protects the city as Spider-Man. Soon, he meets alternate versions of himself and gets embroiled in an epic battle to save the multiverse.', 2018, 8.4, '97%', '93%', N'https://resizing.flixster.com/wW4vuoQpFQjHac6kMkPkdTWoPzk=/206x305/v2/https://resizing.flixster.com/BTfIie-NvRxbSUkUyLfZs-2wdM0=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzL2QzNTE2ZWE4LWIyY2MtNDcyMC05ZmNhLWMwZWU3NGNlOGYzYi53ZWJw', N'https://www.youtube.com/embed/g4Hbz2jLxvQ',   '01:56:00', N'https://berkreviews.files.wordpress.com/2019/09/b0563-intospiderversebanner.png', 0);
 -------------- MOVIES --------------
 
 -------------- MOVIEACTOR --------------
@@ -346,48 +346,48 @@ INSERT INTO MoviesGenres VALUES (18, 1);
 INSERT INTO MoviesGenres VALUES (18, 11);
 -------------- MOVIEGENRES --------------
 
-INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://i.ytimg.com/vi/r2754WTTseI/hqdefault.jpg', N'https://www.youtube.com/watch?v=NxdUvdAgAOE')
-INSERT INTO YoutubeReviews VALUES (N'Movieline', N'https://i.guim.co.uk/img/media/01b2af0f0476aff3a31893a9ce4069c39a5002aa/0_0_5616_3744/master/5616.jpg?width=445&quality=45&auto=format&fit=max&dpr=2&s=7d585e36775eaa505216e1be73802445', N'https://www.youtube.com/watch?v=eGGrIzGaDCo')
-INSERT INTO YoutubeReviews VALUES (N'Duy Tam', N'https://i.ytimg.com/vi/NxdUvdAgAOE/hqdefault.jpg', N'https://www.youtube.com/watch?v=hRy9X28IkFk')
-INSERT INTO YoutubeReviews VALUES (N'What The Flick?!', N'https://i.ytimg.com/vi/no1rl9Gvx-s/maxresdefault.jpg', N'https://www.youtube.com/watch?v=r2754WTTseI')
+INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://i.ytimg.com/vi/r2754WTTseI/hqdefault.jpg', N'https://www.youtube.com/embed/NxdUvdAgAOE')
+INSERT INTO YoutubeReviews VALUES (N'Movieline', N'https://i.guim.co.uk/img/media/01b2af0f0476aff3a31893a9ce4069c39a5002aa/0_0_5616_3744/master/5616.jpg?width=445&quality=45&auto=format&fit=max&dpr=2&s=7d585e36775eaa505216e1be73802445', N'https://www.youtube.com/embed/eGGrIzGaDCo')
+INSERT INTO YoutubeReviews VALUES (N'Duy Tam', N'https://i.ytimg.com/vi/NxdUvdAgAOE/hqdefault.jpg', N'https://www.youtube.com/embed/hRy9X28IkFk')
+INSERT INTO YoutubeReviews VALUES (N'What The Flick?!', N'https://i.ytimg.com/vi/no1rl9Gvx-s/maxresdefault.jpg', N'https://www.youtube.com/embed/r2754WTTseI')
 INSERT INTO ReviewOfMovie VALUES (1, 1)
 INSERT INTO ReviewOfMovie VALUES (1, 2)
 INSERT INTO ReviewOfMovie VALUES (1, 3)
 INSERT INTO ReviewOfMovie VALUES (1, 4)
 
-INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://api.time.com/wp-content/uploads/2014/06/844558_full.jpg', N'https://www.youtube.com/watch?v=kjM3ekF9ozo')
-INSERT INTO YoutubeReviews VALUES (N'toithichxem', N'https://www.denofgeek.com/wp-content/uploads/2014/05/edge-of-tomorrow.jpg?fit=640%2C380', N'https://www.youtube.com/watch?v=q9s37PC9xpI')
-INSERT INTO YoutubeReviews VALUES (N'Warner Bros. Pictures', N'https://variety.com/wp-content/uploads/2014/03/edge-of-tomorrow.jpg', N'https://www.youtube.com/watch?v=vw61gCe2oqI')
-INSERT INTO YoutubeReviews VALUES (N'Jeremy Jahns', N'https://i2.wp.com/www.cineluxe.com/wp-content/uploads/2020/06/Repeat-1.png?fit=900%2C506&ssl=1', N'https://www.youtube.com/watch?v=jnIe9PEao50')
+INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://api.time.com/wp-content/uploads/2014/06/844558_full.jpg', N'https://www.youtube.com/embed/kjM3ekF9ozo')
+INSERT INTO YoutubeReviews VALUES (N'toithichxem', N'https://www.denofgeek.com/wp-content/uploads/2014/05/edge-of-tomorrow.jpg?fit=640%2C380', N'https://www.youtube.com/embed/q9s37PC9xpI')
+INSERT INTO YoutubeReviews VALUES (N'Warner Bros. Pictures', N'https://variety.com/wp-content/uploads/2014/03/edge-of-tomorrow.jpg', N'https://www.youtube.com/embed/vw61gCe2oqI')
+INSERT INTO YoutubeReviews VALUES (N'Jeremy Jahns', N'https://i2.wp.com/www.cineluxe.com/wp-content/uploads/2020/06/Repeat-1.png?fit=900%2C506&ssl=1', N'https://www.youtube.com/embed/jnIe9PEao50')
 INSERT INTO ReviewOfMovie VALUES (2, 5)
 INSERT INTO ReviewOfMovie VALUES (2, 6)
 INSERT INTO ReviewOfMovie VALUES (2, 7)
 INSERT INTO ReviewOfMovie VALUES (2, 8)
 
 
-INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://www.elleman.vn/wp-content/uploads/2020/01/19/phim-bad-boys-for-life-elle-man-feature-.jpg', N'https://www.youtube.com/watch?v=BNJ8pG2bgzI')
-INSERT INTO YoutubeReviews VALUES (N'Jeremy Jahns', N'https://thumbor.forbes.com/thumbor/trim/7x29:634x382/fit-in/627x353/smart/https://specials-images.forbesimg.com/imageserve/5e1e4c67a854780006e88bbd/0x0.jpg', N'https://www.youtube.com/watch?v=YQ4nfHuibXY')
-INSERT INTO YoutubeReviews VALUES (N'AngryJoeShow', N'https://i.ytimg.com/vi/BNJ8pG2bgzI/maxresdefault.jpg', N'https://www.youtube.com/watch?v=uDbRKlArNLY')
-INSERT INTO YoutubeReviews VALUES (N'Phê Phim', N'https://ghienreview.com/wp-content/uploads/2020/01/Ghien-review-Bad-Boys-6.jpg', N'https://www.youtube.com/watch?v=3rfqQHB17Fk')
-INSERT INTO YoutubeReviews VALUES (N'CinemaSins', N'https://cdn.onebauer.media/one/media/5e20/3282/9d29/9b0b/345c/2e4e/bad-boys-for-life-1.jpg?format=jpg&quality=80&width=960&height=540&ratio=16-9&resize=aspectfill', N'https://www.youtube.com/watch?v=mpFNZnI2cFs')
+INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://www.elleman.vn/wp-content/uploads/2020/01/19/phim-bad-boys-for-life-elle-man-feature-.jpg', N'https://www.youtube.com/embed/BNJ8pG2bgzI')
+INSERT INTO YoutubeReviews VALUES (N'Jeremy Jahns', N'https://thumbor.forbes.com/thumbor/trim/7x29:634x382/fit-in/627x353/smart/https://specials-images.forbesimg.com/imageserve/5e1e4c67a854780006e88bbd/0x0.jpg', N'https://www.youtube.com/embed/YQ4nfHuibXY')
+INSERT INTO YoutubeReviews VALUES (N'AngryJoeShow', N'https://i.ytimg.com/vi/BNJ8pG2bgzI/maxresdefault.jpg', N'https://www.youtube.com/embed/uDbRKlArNLY')
+INSERT INTO YoutubeReviews VALUES (N'Phê Phim', N'https://ghienreview.com/wp-content/uploads/2020/01/Ghien-review-Bad-Boys-6.jpg', N'https://www.youtube.com/embed/3rfqQHB17Fk')
+INSERT INTO YoutubeReviews VALUES (N'CinemaSins', N'https://cdn.onebauer.media/one/media/5e20/3282/9d29/9b0b/345c/2e4e/bad-boys-for-life-1.jpg?format=jpg&quality=80&width=960&height=540&ratio=16-9&resize=aspectfill', N'https://www.youtube.com/embed/mpFNZnI2cFs')
 INSERT INTO ReviewOfMovie VALUES (3, 9)
 INSERT INTO ReviewOfMovie VALUES (3, 10)
 INSERT INTO ReviewOfMovie VALUES (3, 11)
 INSERT INTO ReviewOfMovie VALUES (3, 12)
 INSERT INTO ReviewOfMovie VALUES (3, 13)
 
-INSERT INTO YoutubeReviews VALUES (N'WillFoxification', N'http://static.ybox.vn/2017/11/13/78b5d20a-c82a-11e7-be2d-cac091044fd5.jpg', N'https://www.youtube.com/watch?v=L1m-YyAmW_0')
-INSERT INTO YoutubeReviews VALUES (N'Jan Man Chronicles', N'https://i0.wp.com/www.filminquiry.com/wp-content/uploads/2016/03/standbymefeat.jpg?fit=800%2C400&ssl=1', N'https://www.youtube.com/watch?v=gK7AkkYzjyA')
-INSERT INTO YoutubeReviews VALUES (N'NecroVMX', N'https://m.media-amazon.com/images/M/MV5BNzY1NmQ5YWUtMmU2OC00MzQ0LWE4YmYtYTFmNWM2ZmUxYWY3XkEyXkFqcGdeQXRoaXJkLXBhcnR5LXZpZGVvLXVwZGF0ZXI@._V1_.jpg', N'https://www.youtube.com/watch?v=lvxZ39W6M7Y')
+INSERT INTO YoutubeReviews VALUES (N'WillFoxification', N'http://static.ybox.vn/2017/11/13/78b5d20a-c82a-11e7-be2d-cac091044fd5.jpg', N'https://www.youtube.com/embed/L1m-YyAmW_0')
+INSERT INTO YoutubeReviews VALUES (N'Jan Man Chronicles', N'https://i0.wp.com/www.filminquiry.com/wp-content/uploads/2016/03/standbymefeat.jpg?fit=800%2C400&ssl=1', N'https://www.youtube.com/embed/gK7AkkYzjyA')
+INSERT INTO YoutubeReviews VALUES (N'NecroVMX', N'https://m.media-amazon.com/images/M/MV5BNzY1NmQ5YWUtMmU2OC00MzQ0LWE4YmYtYTFmNWM2ZmUxYWY3XkEyXkFqcGdeQXRoaXJkLXBhcnR5LXZpZGVvLXVwZGF0ZXI@._V1_.jpg', N'https://www.youtube.com/embed/lvxZ39W6M7Y')
 INSERT INTO ReviewOfMovie VALUES (4, 14)
 INSERT INTO ReviewOfMovie VALUES (4, 15)
 INSERT INTO ReviewOfMovie VALUES (4, 16)
 
-INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://static01.nyt.com/images/2019/08/09/arts/08peanutbutter/merlin_158822532_ef173f76-f30f-43e3-9c10-f53a7c85649d-superJumbo.jpg', N'https://www.youtube.com/watch?v=3EuUphIvIFc')
-INSERT INTO YoutubeReviews VALUES (N'kermodeandmayo', N'https://www.denofgeek.com/wp-content/uploads/2019/08/peanut_butter_falcon_review_shia_labeouf-1.jpg?fit=1000%2C533', N'https://www.youtube.com/watch?v=gxoC9gDn4a4')
-INSERT INTO YoutubeReviews VALUES (N'APM', N'http://prod-upp-image-read.ft.com/72fb0c30-f010-11e9-a55a-30afa498db1b', N'https://www.youtube.com/watch?v=fLFyzfdt5mM')
-INSERT INTO YoutubeReviews VALUES (N'iwatched...', N'https://s3.us-west-2.amazonaws.com/files.catholicworldreport.com/2019/09/peanutbutterfalcon_ck-678x376.jpg', N'https://www.youtube.com/watch?v=rC-5PVZZOWk')
-INSERT INTO YoutubeReviews VALUES (N'Austin Burke', N'https://s3.amazonaws.com/sfc-datebook-wordpress/wp-content/uploads/sites/2/2019/08/69788639_DATEBOOK_MER8b4e81af1400a939a383e4cd3b3f7peanut0816-1024x683.jpg', N'https://www.youtube.com/watch?v=HcVJCwhblG4')
+INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://static01.nyt.com/images/2019/08/09/arts/08peanutbutter/merlin_158822532_ef173f76-f30f-43e3-9c10-f53a7c85649d-superJumbo.jpg', N'https://www.youtube.com/embed/3EuUphIvIFc')
+INSERT INTO YoutubeReviews VALUES (N'kermodeandmayo', N'https://www.denofgeek.com/wp-content/uploads/2019/08/peanut_butter_falcon_review_shia_labeouf-1.jpg?fit=1000%2C533', N'https://www.youtube.com/embed/gxoC9gDn4a4')
+INSERT INTO YoutubeReviews VALUES (N'APM', N'http://prod-upp-image-read.ft.com/72fb0c30-f010-11e9-a55a-30afa498db1b', N'https://www.youtube.com/embed/fLFyzfdt5mM')
+INSERT INTO YoutubeReviews VALUES (N'iwatched...', N'https://s3.us-west-2.amazonaws.com/files.catholicworldreport.com/2019/09/peanutbutterfalcon_ck-678x376.jpg', N'https://www.youtube.com/embed/rC-5PVZZOWk')
+INSERT INTO YoutubeReviews VALUES (N'Austin Burke', N'https://s3.amazonaws.com/sfc-datebook-wordpress/wp-content/uploads/sites/2/2019/08/69788639_DATEBOOK_MER8b4e81af1400a939a383e4cd3b3f7peanut0816-1024x683.jpg', N'https://www.youtube.com/embed/HcVJCwhblG4')
 INSERT INTO ReviewOfMovie VALUES (5, 17)
 INSERT INTO ReviewOfMovie VALUES (5, 18)
 INSERT INTO ReviewOfMovie VALUES (5, 19)
@@ -395,115 +395,115 @@ INSERT INTO ReviewOfMovie VALUES (5, 20)
 INSERT INTO ReviewOfMovie VALUES (5, 21)
 
 
-INSERT INTO YoutubeReviews VALUES (N'Jeremy Jahns', N'https://i.guim.co.uk/img/media/ebcf03c79c089792a74739cca1bda4f94f922941/0_0_2436_1461/master/2436.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctcmV2aWV3LTMucG5n&s=66382d1a479e6f4a85dc02f3b9509a53', N'https://www.youtube.com/watch?v=b9da7l8LCko')
-INSERT INTO YoutubeReviews VALUES (N'kermodeandmayo', N'https://www.iowasource.com/wp-content/uploads/2018/10/bad-times-chris-hemsworth-1024x658.jpg', N'https://www.youtube.com/watch?v=yfYsvSCYnEQ')
-INSERT INTO YoutubeReviews VALUES (N'AngryJoeShow', N'https://lewtonbus.net/wp-content/uploads/2018/10/bad-times-at-the-el-royale-fox.jpg', N'https://www.youtube.com/watch?v=b3nxoiedcns')
+INSERT INTO YoutubeReviews VALUES (N'Jeremy Jahns', N'https://i.guim.co.uk/img/media/ebcf03c79c089792a74739cca1bda4f94f922941/0_0_2436_1461/master/2436.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctcmV2aWV3LTMucG5n&s=66382d1a479e6f4a85dc02f3b9509a53', N'https://www.youtube.com/embed/b9da7l8LCko')
+INSERT INTO YoutubeReviews VALUES (N'kermodeandmayo', N'https://www.iowasource.com/wp-content/uploads/2018/10/bad-times-chris-hemsworth-1024x658.jpg', N'https://www.youtube.com/embed/yfYsvSCYnEQ')
+INSERT INTO YoutubeReviews VALUES (N'AngryJoeShow', N'https://lewtonbus.net/wp-content/uploads/2018/10/bad-times-at-the-el-royale-fox.jpg', N'https://www.youtube.com/embed/b3nxoiedcns')
 INSERT INTO ReviewOfMovie VALUES (6, 22)
 INSERT INTO ReviewOfMovie VALUES (6, 23)
 INSERT INTO ReviewOfMovie VALUES (6, 24)
 
 
-INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://static01.nyt.com/images/2011/12/20/movies/20girl-span/20girl-span-articleLarge.jpg?quality=75&auto=webp&disable=upscale', N'https://www.youtube.com/watch?v=dq7Qam1DH2g')
-INSERT INTO YoutubeReviews VALUES (N'Jeremy Jahns', N'https://images.amcnetworks.com/ifc.com/wp-content/uploads/2011/10/102611-girl-with-the-dragon-tattoo-clothing.jpg', N'https://www.youtube.com/watch?v=UH8Sd7AJzos')
-INSERT INTO YoutubeReviews VALUES (N'What The Flick?!', N'https://www.hollywoodreporter.com/wp-content/uploads/2011/12/girl_dragon_tattoo_computer_a_l.jpg', N'https://www.youtube.com/watch?v=-kEuVvMSrj4')
+INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://static01.nyt.com/images/2011/12/20/movies/20girl-span/20girl-span-articleLarge.jpg?quality=75&auto=webp&disable=upscale', N'https://www.youtube.com/embed/dq7Qam1DH2g')
+INSERT INTO YoutubeReviews VALUES (N'Jeremy Jahns', N'https://images.amcnetworks.com/ifc.com/wp-content/uploads/2011/10/102611-girl-with-the-dragon-tattoo-clothing.jpg', N'https://www.youtube.com/embed/UH8Sd7AJzos')
+INSERT INTO YoutubeReviews VALUES (N'What The Flick?!', N'https://www.hollywoodreporter.com/wp-content/uploads/2011/12/girl_dragon_tattoo_computer_a_l.jpg', N'https://www.youtube.com/embed/-kEuVvMSrj4')
 INSERT INTO ReviewOfMovie VALUES (7, 25)
 INSERT INTO ReviewOfMovie VALUES (7, 26)
 INSERT INTO ReviewOfMovie VALUES (7, 27)
 
-INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://matttriponey.files.wordpress.com/2017/10/a-ghost-story-review.jpg', N'https://www.youtube.com/watch?v=kN3hnukXadc')
-INSERT INTO YoutubeReviews VALUES (N'Impression Blend', N'https://i.imgur.com/JtZf98L.jpg', N'https://www.youtube.com/watch?v=1bp0rF9rU2I')
-INSERT INTO YoutubeReviews VALUES (N'spookyastronauts', N'https://www.13thfloor.co.nz/wp-content/uploads/2017/07/a_ghost_story.jpg', N'https://www.youtube.com/watch?v=sQ6BS-rDNS4')
-INSERT INTO YoutubeReviews VALUES (N'Phê Phim', N'http://s3.amazonaws.com/quietus_production/images/articles/23006/ghost-story_1502380650_crop_550x322.jpg', N'https://www.youtube.com/watch?v=M4Hkyek9lVk')
+INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://matttriponey.files.wordpress.com/2017/10/a-ghost-story-review.jpg', N'https://www.youtube.com/embed/kN3hnukXadc')
+INSERT INTO YoutubeReviews VALUES (N'Impression Blend', N'https://i.imgur.com/JtZf98L.jpg', N'https://www.youtube.com/embed/1bp0rF9rU2I')
+INSERT INTO YoutubeReviews VALUES (N'spookyastronauts', N'https://www.13thfloor.co.nz/wp-content/uploads/2017/07/a_ghost_story.jpg', N'https://www.youtube.com/embed/sQ6BS-rDNS4')
+INSERT INTO YoutubeReviews VALUES (N'Phê Phim', N'http://s3.amazonaws.com/quietus_production/images/articles/23006/ghost-story_1502380650_crop_550x322.jpg', N'https://www.youtube.com/embed/M4Hkyek9lVk')
 INSERT INTO ReviewOfMovie VALUES (8, 28)
 INSERT INTO ReviewOfMovie VALUES (8, 29)
 INSERT INTO ReviewOfMovie VALUES (8, 30)
 INSERT INTO ReviewOfMovie VALUES (8, 31)
 
-INSERT INTO YoutubeReviews VALUES (N'Phê Phim', N'https://i.ytimg.com/vi/ucYByjOMoNE/maxresdefault.jpg', N'https://www.youtube.com/watch?v=Wmckiqs0MvY')
-INSERT INTO YoutubeReviews VALUES (N'Nerdwriter1', N'https://i.ytimg.com/vi/rvsG224vFYk/hqdefault.jpg', N'https://www.youtube.com/watch?v=xbZNkMn3PvQ')
-INSERT INTO YoutubeReviews VALUES (N'Impression Blend', N'https://i.ytimg.com/vi/7oBn3IMG0z0/maxresdefault.jpg', N'https://www.youtube.com/watch?v=HqIjgcUfl0E')
-INSERT INTO YoutubeReviews VALUES (N'SvenSulley', N'https://i.ytimg.com/vi/s0INsbs_NZE/maxresdefault.jpg', N'https://www.youtube.com/watch?v=Y3lcwh14WPU')
+INSERT INTO YoutubeReviews VALUES (N'Phê Phim', N'https://i.ytimg.com/vi/ucYByjOMoNE/maxresdefault.jpg', N'https://www.youtube.com/embed/Wmckiqs0MvY')
+INSERT INTO YoutubeReviews VALUES (N'Nerdwriter1', N'https://i.ytimg.com/vi/rvsG224vFYk/hqdefault.jpg', N'https://www.youtube.com/embed/xbZNkMn3PvQ')
+INSERT INTO YoutubeReviews VALUES (N'Impression Blend', N'https://i.ytimg.com/vi/7oBn3IMG0z0/maxresdefault.jpg', N'https://www.youtube.com/embed/HqIjgcUfl0E')
+INSERT INTO YoutubeReviews VALUES (N'SvenSulley', N'https://i.ytimg.com/vi/s0INsbs_NZE/maxresdefault.jpg', N'https://www.youtube.com/embed/Y3lcwh14WPU')
 INSERT INTO ReviewOfMovie VALUES (9, 32)
 INSERT INTO ReviewOfMovie VALUES (9, 33)
 INSERT INTO ReviewOfMovie VALUES (9, 34)
 INSERT INTO ReviewOfMovie VALUES (9, 35)
 
-INSERT INTO YoutubeReviews VALUES (N'Dưa Leo TV', N'https://i.ytimg.com/vi/gqWpdADDNOI/sddefault.jpg', N'https://www.youtube.com/watch?v=gqWpdADDNOI')
-INSERT INTO YoutubeReviews VALUES (N'Let''s B Reel with Brad', N'https://i.ytimg.com/vi/PEBo2VaEkvM/hqdefault.jpg', N'https://www.youtube.com/watch?v=oapRMys41A8')
-INSERT INTO YoutubeReviews VALUES (N'Zack Goller', N'https://i.ytimg.com/vi/oapRMys41A8/maxresdefault.jpg', N'https://www.youtube.com/watch?v=PEBo2VaEkvM')
+INSERT INTO YoutubeReviews VALUES (N'Dưa Leo TV', N'https://i.ytimg.com/vi/gqWpdADDNOI/sddefault.jpg', N'https://www.youtube.com/embed/gqWpdADDNOI')
+INSERT INTO YoutubeReviews VALUES (N'Let''s B Reel with Brad', N'https://i.ytimg.com/vi/PEBo2VaEkvM/hqdefault.jpg', N'https://www.youtube.com/embed/oapRMys41A8')
+INSERT INTO YoutubeReviews VALUES (N'Zack Goller', N'https://i.ytimg.com/vi/oapRMys41A8/maxresdefault.jpg', N'https://www.youtube.com/embed/PEBo2VaEkvM')
 INSERT INTO ReviewOfMovie VALUES (10, 36)
 INSERT INTO ReviewOfMovie VALUES (10, 37)
 INSERT INTO ReviewOfMovie VALUES (10, 38)
 
-INSERT INTO YoutubeReviews VALUES (N'Popcorn Talk', N'https://i.ytimg.com/vi/oI12D2or2AY/maxresdefault.jpg', N'https://www.youtube.com/watch?v=oI12D2or2AY')
-INSERT INTO YoutubeReviews VALUES (N'Noire Histoir', N'https://i.ytimg.com/vi/tW3ciEET_Uo/maxresdefault.jpg', N'https://www.youtube.com/watch?v=tW3ciEET_Uo')
-INSERT INTO YoutubeReviews VALUES (N'Fandom Entertainment', N'https://i.ytimg.com/vi/TOIDAftHcPI/maxresdefault.jpg', N'https://www.youtube.com/watch?v=TOIDAftHcPI')
-INSERT INTO YoutubeReviews VALUES (N'Movie Trivia Schmoedown', N'https://i.ytimg.com/vi/665HJpC7Ptc/maxresdefault.jpg', N'https://www.youtube.com/watch?v=665HJpC7Ptc')
-INSERT INTO YoutubeReviews VALUES (N'Jeremy Jahns', N'https://i.ytimg.com/vi/x0N2TNg1VNo/maxresdefault.jpg', N'https://www.youtube.com/watch?v=x0N2TNg1VNo')
+INSERT INTO YoutubeReviews VALUES (N'Popcorn Talk', N'https://i.ytimg.com/vi/oI12D2or2AY/maxresdefault.jpg', N'https://www.youtube.com/embed/oI12D2or2AY')
+INSERT INTO YoutubeReviews VALUES (N'Noire Histoir', N'https://i.ytimg.com/vi/tW3ciEET_Uo/maxresdefault.jpg', N'https://www.youtube.com/embed/tW3ciEET_Uo')
+INSERT INTO YoutubeReviews VALUES (N'Fandom Entertainment', N'https://i.ytimg.com/vi/TOIDAftHcPI/maxresdefault.jpg', N'https://www.youtube.com/embed/TOIDAftHcPI')
+INSERT INTO YoutubeReviews VALUES (N'Movie Trivia Schmoedown', N'https://i.ytimg.com/vi/665HJpC7Ptc/maxresdefault.jpg', N'https://www.youtube.com/embed/665HJpC7Ptc')
+INSERT INTO YoutubeReviews VALUES (N'Jeremy Jahns', N'https://i.ytimg.com/vi/x0N2TNg1VNo/maxresdefault.jpg', N'https://www.youtube.com/embed/x0N2TNg1VNo')
 INSERT INTO ReviewOfMovie VALUES (11, 39)
 INSERT INTO ReviewOfMovie VALUES (11, 40)
 INSERT INTO ReviewOfMovie VALUES (11, 41)
 INSERT INTO ReviewOfMovie VALUES (11, 42)
 INSERT INTO ReviewOfMovie VALUES (11, 43)
 
-INSERT INTO YoutubeReviews VALUES (N'LaurenLovesMovies', N'https://i.ytimg.com/vi/Hp-eiDu77E0/hqdefault.jpg', N'https://www.youtube.com/watch?v=Hp-eiDu77E0')
-INSERT INTO YoutubeReviews VALUES (N'kermodeandmayo', N'https://i.ytimg.com/vi/iaI1UJ_bLAs/sddefault.jpg', N'https://www.youtube.com/watch?v=iaI1UJ_bLAs')
-INSERT INTO YoutubeReviews VALUES (N'Rachel''s Reviews', N'https://i.ytimg.com/vi/VHAGqAhY8fE/maxresdefault.jpg', N'https://www.youtube.com/watch?v=VHAGqAhY8fE')
-INSERT INTO YoutubeReviews VALUES (N'Focus Features', N'https://i.ytimg.com/vi/Y4jBXQM7mIk/maxresdefault.jpg', N'https://www.youtube.com/watch?v=Y4jBXQM7mIk')
+INSERT INTO YoutubeReviews VALUES (N'LaurenLovesMovies', N'https://i.ytimg.com/vi/Hp-eiDu77E0/hqdefault.jpg', N'https://www.youtube.com/embed/Hp-eiDu77E0')
+INSERT INTO YoutubeReviews VALUES (N'kermodeandmayo', N'https://i.ytimg.com/vi/iaI1UJ_bLAs/sddefault.jpg', N'https://www.youtube.com/embed/iaI1UJ_bLAs')
+INSERT INTO YoutubeReviews VALUES (N'Rachel''s Reviews', N'https://i.ytimg.com/vi/VHAGqAhY8fE/maxresdefault.jpg', N'https://www.youtube.com/embed/VHAGqAhY8fE')
+INSERT INTO YoutubeReviews VALUES (N'Focus Features', N'https://i.ytimg.com/vi/Y4jBXQM7mIk/maxresdefault.jpg', N'https://www.youtube.com/embed/Y4jBXQM7mIk')
 INSERT INTO ReviewOfMovie VALUES (12, 44)
 INSERT INTO ReviewOfMovie VALUES (12, 45)
 INSERT INTO ReviewOfMovie VALUES (12, 46)
 INSERT INTO ReviewOfMovie VALUES (12, 47)
 
-INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://i.ytimg.com/vi/T6EAvUQBMM4/maxresdefault.jpg', N'https://www.youtube.com/watch?v=T6EAvUQBMM4')
-INSERT INTO YoutubeReviews VALUES (N'ramboraph4life', N'https://i.ytimg.com/vi/liwc84MuzgM/hqdefault.jpg', N'https://www.youtube.com/watch?v=liwc84MuzgM')
-INSERT INTO YoutubeReviews VALUES (N'PattyandEmily', N'https://i.ytimg.com/vi/o-TPr091OAQ/maxresdefault.jpg', N'https://www.youtube.com/watch?v=o-TPr091OAQ')
+INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://i.ytimg.com/vi/T6EAvUQBMM4/maxresdefault.jpg', N'https://www.youtube.com/embed/T6EAvUQBMM4')
+INSERT INTO YoutubeReviews VALUES (N'ramboraph4life', N'https://i.ytimg.com/vi/liwc84MuzgM/hqdefault.jpg', N'https://www.youtube.com/embed/liwc84MuzgM')
+INSERT INTO YoutubeReviews VALUES (N'PattyandEmily', N'https://i.ytimg.com/vi/o-TPr091OAQ/maxresdefault.jpg', N'https://www.youtube.com/embed/o-TPr091OAQ')
 INSERT INTO ReviewOfMovie VALUES (13, 48)
 INSERT INTO ReviewOfMovie VALUES (13, 49)
 INSERT INTO ReviewOfMovie VALUES (13, 50)
 
-INSERT INTO YoutubeReviews VALUES (N'IGN', N'https://i.ytimg.com/vi/zhPruicdd2M/maxresdefault.jpg', N'https://www.youtube.com/watch?v=zhPruicdd2M')
-INSERT INTO YoutubeReviews VALUES (N'Double Toasted', N'https://i.ytimg.com/vi/sQ5WNZyACUU/maxresdefault.jpg', N'https://www.youtube.com/watch?v=sQ5WNZyACUU')
-INSERT INTO YoutubeReviews VALUES (N'Jimmy Cage', N'https://i.ytimg.com/vi/mCN98b1Ibm0/maxresdefault.jpg', N'https://www.youtube.com/watch?v=mCN98b1Ibm0')
-INSERT INTO YoutubeReviews VALUES (N'The Arty Dans', N'https://i.ytimg.com/vi/kE_0JhUnCQ0/maxresdefault.jpg', N'https://www.youtube.com/watch?v=kE_0JhUnCQ0')
+INSERT INTO YoutubeReviews VALUES (N'IGN', N'https://i.ytimg.com/vi/zhPruicdd2M/maxresdefault.jpg', N'https://www.youtube.com/embed/zhPruicdd2M')
+INSERT INTO YoutubeReviews VALUES (N'Double Toasted', N'https://i.ytimg.com/vi/sQ5WNZyACUU/maxresdefault.jpg', N'https://www.youtube.com/embed/sQ5WNZyACUU')
+INSERT INTO YoutubeReviews VALUES (N'Jimmy Cage', N'https://i.ytimg.com/vi/mCN98b1Ibm0/maxresdefault.jpg', N'https://www.youtube.com/embed/mCN98b1Ibm0')
+INSERT INTO YoutubeReviews VALUES (N'The Arty Dans', N'https://i.ytimg.com/vi/kE_0JhUnCQ0/maxresdefault.jpg', N'https://www.youtube.com/embed/kE_0JhUnCQ0')
 INSERT INTO ReviewOfMovie VALUES (14, 51)
 INSERT INTO ReviewOfMovie VALUES (14, 52)
 INSERT INTO ReviewOfMovie VALUES (14, 53)
 INSERT INTO ReviewOfMovie VALUES (14, 54)
 
-INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://i.ytimg.com/vi/YDRBOMPZxFQ/maxresdefault.jpg', N'https://www.youtube.com/watch?v=YDRBOMPZxFQ')
-INSERT INTO YoutubeReviews VALUES (N'Jimmy Cage', N'https://i.ytimg.com/vi/AumoL4Zz3Zs/maxresdefault.jpg', N'https://www.youtube.com/watch?v=AumoL4Zz3Zs')
-INSERT INTO YoutubeReviews VALUES (N'Tom The Critic', N'https://i.ytimg.com/vi/q1SsWtuBQa8/maxresdefault.jpg', N'https://www.youtube.com/watch?v=q1SsWtuBQa8')
-INSERT INTO YoutubeReviews VALUES (N'UniFrance', N'https://i.ytimg.com/vi/YcHB6eE3I1k/maxresdefault.jpg', N'https://www.youtube.com/watch?v=YcHB6eE3I1k')
+INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://i.ytimg.com/vi/YDRBOMPZxFQ/maxresdefault.jpg', N'https://www.youtube.com/embed/YDRBOMPZxFQ')
+INSERT INTO YoutubeReviews VALUES (N'Jimmy Cage', N'https://i.ytimg.com/vi/AumoL4Zz3Zs/maxresdefault.jpg', N'https://www.youtube.com/embed/AumoL4Zz3Zs')
+INSERT INTO YoutubeReviews VALUES (N'Tom The Critic', N'https://i.ytimg.com/vi/q1SsWtuBQa8/maxresdefault.jpg', N'https://www.youtube.com/embed/q1SsWtuBQa8')
+INSERT INTO YoutubeReviews VALUES (N'UniFrance', N'https://i.ytimg.com/vi/YcHB6eE3I1k/maxresdefault.jpg', N'https://www.youtube.com/embed/YcHB6eE3I1k')
 INSERT INTO ReviewOfMovie VALUES (15, 55)
 INSERT INTO ReviewOfMovie VALUES (15, 56)
 INSERT INTO ReviewOfMovie VALUES (15, 57)
 INSERT INTO ReviewOfMovie VALUES (15, 58)
 
-INSERT INTO YoutubeReviews VALUES (N'What The Flick?!', N'https://i.ytimg.com/vi/oU0UQMFRyF4/maxresdefault.jpg', N'https://www.youtube.com/watch?v=oU0UQMFRyF4')
-INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://i.ytimg.com/vi/wcnmcvMGqvY/sddefault.jpg', N'https://www.youtube.com/watch?v=wcnmcvMGqvY')
-INSERT INTO YoutubeReviews VALUES (N'Off The Shelf Reviews', N'https://i.ytimg.com/vi/sD5a0quEF4k/maxresdefault.jpg', N'https://www.youtube.com/watch?v=sD5a0quEF4k')
-INSERT INTO YoutubeReviews VALUES (N'The Reel Talk', N'https://i.ytimg.com/vi/WQdQsXaGzKQ/hqdefault.jpg', N'https://www.youtube.com/watch?v=WQdQsXaGzKQ')
-INSERT INTO YoutubeReviews VALUES (N'HotChickReview', N'https://i.ytimg.com/vi/GSyihDPbApE/hqdefault.jpg', N'https://www.youtube.com/watch?v=GSyihDPbApE')
+INSERT INTO YoutubeReviews VALUES (N'What The Flick?!', N'https://i.ytimg.com/vi/oU0UQMFRyF4/maxresdefault.jpg', N'https://www.youtube.com/embed/oU0UQMFRyF4')
+INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://i.ytimg.com/vi/wcnmcvMGqvY/sddefault.jpg', N'https://www.youtube.com/embed/wcnmcvMGqvY')
+INSERT INTO YoutubeReviews VALUES (N'Off The Shelf Reviews', N'https://i.ytimg.com/vi/sD5a0quEF4k/maxresdefault.jpg', N'https://www.youtube.com/embed/sD5a0quEF4k')
+INSERT INTO YoutubeReviews VALUES (N'The Reel Talk', N'https://i.ytimg.com/vi/WQdQsXaGzKQ/hqdefault.jpg', N'https://www.youtube.com/embed/WQdQsXaGzKQ')
+INSERT INTO YoutubeReviews VALUES (N'HotChickReview', N'https://i.ytimg.com/vi/GSyihDPbApE/hqdefault.jpg', N'https://www.youtube.com/embed/GSyihDPbApE')
 INSERT INTO ReviewOfMovie VALUES (16, 59)
 INSERT INTO ReviewOfMovie VALUES (16, 60)
 INSERT INTO ReviewOfMovie VALUES (16, 61)
 INSERT INTO ReviewOfMovie VALUES (16, 62)
 INSERT INTO ReviewOfMovie VALUES (16, 63)
 
-INSERT INTO YoutubeReviews VALUES (N'MC ON FILM', N'https://i.ytimg.com/vi/HRCFwlUFPLk/maxresdefault.jpg', N'https://www.youtube.com/watch?v=HRCFwlUFPLk')
-INSERT INTO YoutubeReviews VALUES (N'ramboraph4life', N'https://i.ytimg.com/vi/No9K4BYj32w/hqdefault.jpg', N'https://www.youtube.com/watch?v=No9K4BYj32w')
-INSERT INTO YoutubeReviews VALUES (N'Bloodbath and Beyond', N'https://i.ytimg.com/vi/vC3DzsVgw7s/maxresdefault.jpg', N'https://www.youtube.com/watch?v=vC3DzsVgw7s')
-INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://i.ytimg.com/vi/jmEFfaOMEGQ/maxresdefault.jpg', N'https://www.youtube.com/watch?v=jmEFfaOMEGQ')
+INSERT INTO YoutubeReviews VALUES (N'MC ON FILM', N'https://i.ytimg.com/vi/HRCFwlUFPLk/maxresdefault.jpg', N'https://www.youtube.com/embed/HRCFwlUFPLk')
+INSERT INTO YoutubeReviews VALUES (N'ramboraph4life', N'https://i.ytimg.com/vi/No9K4BYj32w/hqdefault.jpg', N'https://www.youtube.com/embed/No9K4BYj32w')
+INSERT INTO YoutubeReviews VALUES (N'Bloodbath and Beyond', N'https://i.ytimg.com/vi/vC3DzsVgw7s/maxresdefault.jpg', N'https://www.youtube.com/embed/vC3DzsVgw7s')
+INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://i.ytimg.com/vi/jmEFfaOMEGQ/maxresdefault.jpg', N'https://www.youtube.com/embed/jmEFfaOMEGQ')
 INSERT INTO ReviewOfMovie VALUES (17, 64)
 INSERT INTO ReviewOfMovie VALUES (17, 65)
 INSERT INTO ReviewOfMovie VALUES (17, 66)
 INSERT INTO ReviewOfMovie VALUES (17, 67)
 
-INSERT INTO YoutubeReviews VALUES (N'Geek.com', N'https://i.ytimg.com/vi/dBOb-rDj0cM/maxresdefault.jpg', N'https://www.youtube.com/watch?v=dBOb-rDj0cM')
-INSERT INTO YoutubeReviews VALUES (N'Collider Extras', N'https://i.ytimg.com/vi/OguPpgpzk1A/maxresdefault.jpg', N'https://www.youtube.com/watch?v=OguPpgpzk1A')
-INSERT INTO YoutubeReviews VALUES (N'IGN', N'https://i.ytimg.com/vi/UpY3776T784/maxresdefault.jpg', N'https://www.youtube.com/watch?v=UpY3776T784')
-INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://i.ytimg.com/vi/EIaAyJG7ffg/maxresdefault.jpg', N'https://www.youtube.com/watch?v=EIaAyJG7ffg')
+INSERT INTO YoutubeReviews VALUES (N'Geek.com', N'https://i.ytimg.com/vi/dBOb-rDj0cM/maxresdefault.jpg', N'https://www.youtube.com/embed/dBOb-rDj0cM')
+INSERT INTO YoutubeReviews VALUES (N'Collider Extras', N'https://i.ytimg.com/vi/OguPpgpzk1A/maxresdefault.jpg', N'https://www.youtube.com/embed/OguPpgpzk1A')
+INSERT INTO YoutubeReviews VALUES (N'IGN', N'https://i.ytimg.com/vi/UpY3776T784/maxresdefault.jpg', N'https://www.youtube.com/embed/UpY3776T784')
+INSERT INTO YoutubeReviews VALUES (N'Chris Stuckmann', N'https://i.ytimg.com/vi/EIaAyJG7ffg/maxresdefault.jpg', N'https://www.youtube.com/embed/EIaAyJG7ffg')
 INSERT INTO ReviewOfMovie VALUES (18, 68)
 INSERT INTO ReviewOfMovie VALUES (18, 69)
 INSERT INTO ReviewOfMovie VALUES (18, 70)

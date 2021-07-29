@@ -157,14 +157,14 @@ namespace TomocaMoviesWebsite.Controllers
             return View(PhimDangChieu);
         }
         [HttpGet]
-        public ActionResult ThemPhimDC()
+        public ActionResult ThemPhim()
         {
             return View();
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult ThemPhimDC(IEnumerable<HttpPostedFileBase> files, Movy mv)
+        public ActionResult ThemPhim(IEnumerable<HttpPostedFileBase> files, Movy mv)
         {
             DateTime a = DateTime.Now;
             var tintuc = data.News.ToList();
@@ -194,7 +194,14 @@ namespace TomocaMoviesWebsite.Controllers
             }
             data.Movies.InsertOnSubmit(mv);
             data.SubmitChanges();
-            return RedirectToAction("phimdangchieu");
+            if(mv.ComingSoon == 1)
+            {
+                return RedirectToAction("phimSC");
+            }
+            else
+            {
+                return RedirectToAction("phimdangchieu");
+            } 
         }
         //Them Chi Tiet DC
         public ActionResult ThemChiTiet(int id)
@@ -204,26 +211,46 @@ namespace TomocaMoviesWebsite.Controllers
         [HttpPost]
         public ActionResult ThemChiTiet(int id, FormCollection coll, MovieActor ma, MovieDirector md, MoviesGenre mg, ReviewOfMovie yt, YoutubeReview ytb)
         {
-            var moviid = data.Movies.First(a => a.MovieID == id);
-
-            var actorid = data.Actors.First(a => a.Name == coll["Actor"]);
-            var drid = data.Directors.First(a => a.Name == coll["Director"]);
-            var gns = data.Genres.First(a => a.GenreName == coll["Type"]);
-
+            var youtube = coll["Author"];
+            var youtubelink = coll["Video"];
+            //var actorid = data.Actors.First(a => a.Name == coll["Actor"]);
+            //var drid = data.Directors.First(a => a.Name == coll["Director"]);
+            //var gns = data.Genres.First(a => a.GenreName == coll["Type"]);
+            var temp = 0;
+            foreach(var i in data.YoutubeReviews)
+            {
+                if(i.YoutubeID > temp)
+                {
+                    temp = i.YoutubeID;
+                }
+            }
+            int count = data.ReviewOfMovies.First(m => m.MovieID == id-1).YoutubeID;
             //
-            ma.MovieID = moviid.MovieID;
-            ma.ActorID = actorid.ActorID;
-            data.MovieActors.InsertOnSubmit(ma);
-            //
-            md.MovieID = moviid.MovieID;
-            md.DirectorID = drid.DirectorID;
-            data.MovieDirectors.InsertOnSubmit(md);
-            //
-            mg.MovieID = moviid.MovieID;
-            mg.GenreID = gns.GenreID;
-            data.MoviesGenres.InsertOnSubmit(mg);
-            //
+            //ma.MovieID = moviid.MovieID;
+            //ma.ActorID = actorid.ActorID;
+            //data.MovieActors.InsertOnSubmit(ma);
+            ////
+            //md.MovieID = moviid.MovieID;
+            //md.DirectorID = drid.DirectorID;
+            //data.MovieDirectors.InsertOnSubmit(md);
+            ////
+            //mg.MovieID = moviid.MovieID;
+            //mg.GenreID = gns.GenreID;
+            //data.MoviesGenres.InsertOnSubmit(mg);
+            // Thêm Youtube Review
+            ytb.Author = youtube;
+            ytb.Image = "Image";
+            ytb.Video = youtubelink;
+            data.YoutubeReviews.InsertOnSubmit(ytb);
+            // Thêm Review of Youtube
+            yt.MovieID = id;
+            yt.YoutubeID = temp+1;
+            data.ReviewOfMovies.InsertOnSubmit(yt);
             data.SubmitChanges();
+            if(data.Movies.First(m=>m.MovieID == id).ComingSoon == 1)
+            {
+                return RedirectToAction("phimSC");
+            }
             return RedirectToAction("phimdangchieu");
         }
         // Phim sắp chiếu
@@ -249,6 +276,34 @@ namespace TomocaMoviesWebsite.Controllers
             }
             var chitiet = data.Tickets.Where(x => x.TicketID == id).Take(1).ToList();
             return View(chitiet);
+        }
+        public ActionResult XoaPhimSC(int id)
+        {
+            Movy dg = data.Movies.SingleOrDefault(n => n.MovieID == id);
+            //ReviewOfMovie dg1 = data.ReviewOfMovies.First(n => n.MovieID == id);
+            //YoutubeReview dg2 = data.YoutubeReviews.First(n => n.YoutubeID == dg1.YoutubeID);
+            if (dg == null)
+            {
+                Response.SubStatusCode = 404;
+                return null;
+            }
+            //data.ReviewOfMovies.DeleteOnSubmit(dg1);
+            //data.YoutubeReviews.DeleteOnSubmit(dg2);
+            data.Movies.DeleteOnSubmit(dg);
+            data.SubmitChanges();
+            return RedirectToAction("PhimSC");
+        }
+        public ActionResult XoaPhimDC(int id)
+        {
+            Movy dg = data.Movies.SingleOrDefault(n => n.MovieID == id);
+            if (dg == null)
+            {
+                Response.SubStatusCode = 404;
+                return null;
+            }
+            data.Movies.DeleteOnSubmit(dg);
+            data.SubmitChanges();
+            return RedirectToAction("PhimDC");
         }
     }
 }

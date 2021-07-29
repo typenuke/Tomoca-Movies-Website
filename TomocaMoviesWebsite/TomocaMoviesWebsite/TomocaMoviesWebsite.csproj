@@ -520,7 +520,7 @@
     <Content Include="Views\adminmanager\phimdangchieu.cshtml" />
     <Content Include="Views\adminmanager\datve.cshtml" />
     <Content Include="Views\Tomoca\choose.cshtml" />
-    <Content Include="Views\adminmanager\ThemPhimDC.cshtml" />
+    <Content Include="Views\adminmanager\ThemPhim.cshtml" />
     <Content Include="Views\adminmanager\ThemChiTiet.cshtml" />
     <Content Include="Views\Tomoca\TicketBook.cshtml" />
     <Content Include="Views\Admin\veban.cshtml" />
