@@ -84,11 +84,7 @@ namespace TomocaMoviesWebsite.Models
     #endregion
 		
 		public TomocaMoviesDataContext() : 
-<<<<<<< HEAD
 				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DBTomocaUpdateConnectionString1"].ConnectionString, mappingSource)
-=======
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["dbTomocaConnectionString1"].ConnectionString, mappingSource)
->>>>>>> ffb2fa2e861e40f08d048b015fdaa01fb95495be
 		{
 			OnCreated();
 		}

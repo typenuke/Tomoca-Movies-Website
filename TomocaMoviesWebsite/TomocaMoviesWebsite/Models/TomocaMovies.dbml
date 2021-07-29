@@ -1,9 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DBTomocaUpdate" Class="TomocaMoviesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-<<<<<<< HEAD
   <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-PLHL8BV\SQLEXPRESS;Initial Catalog=DBTomocaUpdate;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DBTomocaUpdateConnectionString1" Provider="System.Data.SqlClient" />
-=======
-  <Connection Mode="WebSettings" ConnectionString="Data Source=ROLLER\SQLEXPRESS;Initial Catalog=DBTomocaUpdate;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="dbTomocaConnectionString1" Provider="System.Data.SqlClient" />
->>>>>>> ffb2fa2e861e40f08d048b015fdaa01fb95495be
   <Table Name="dbo.Actors" Member="Actors">
     <Type Name="Actor">
       <Column Name="ActorID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
